@@ -1,0 +1,86 @@
+footer {
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+  color: #ffffff;
+  text-align: center;
+  padding: 3rem 2rem 2rem;
+  margin-top: 4rem;
+  position: relative;
+  overflow: hidden;
+
+  // Add a subtle pattern or decoration
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color) 0%, #ff6b6b 50%, var(--accent-color) 100%);
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  p {
+    margin-bottom: 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    line-height: 1.5;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-color);
+      transition: width 0.3s ease;
+    }
+
+    &:hover {
+      color: #ffeb3b;
+      transform: translateY(-1px);
+      
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  .copyright {
+    opacity: 0.8;
+    font-size: 0.9rem;
+  }
+
+  .website-link {
+    margin-top: 0.5rem;
+  }
+}
+
+// Responsive design
+@media (max-width: 480px) {
+  footer {
+    padding: 1.5rem;
+    
+    p {
+      font-size: 0.9rem;
+    }
+  }
+}

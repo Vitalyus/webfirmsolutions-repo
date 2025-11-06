@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Firm Solutions - Premium Web Design & Frontend Development</title>
+<meta name="description" content="Web Firm Solutions delivers cutting-edge web design, advanced frontend development, and consulting with 20+ years of international experience. Boost your website's SEO and user experience today.">
+<meta name="keywords" content="web design, frontend development, UX/UI, SEO, technical consulting, interactive web, premium web services">
+<link rel="canonical" href="https://webfirmsolutions.com/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Web Firm Solutions - Premium Web Design & Frontend Development">
+<meta property="og:description" content="Cutting-edge web design, advanced frontend development, and consulting with 20+ years of experience. Elevate your website's SEO and user experience.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=1200&q=80">
+<meta property="og:url" content="https://webfirmsolutions.com/">
+<meta property="og:type" content="website">
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Web Firm Solutions",
+  "url": "https://webfirmsolutions.com/",
+  "logo": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=400&q=80",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "vitalie.condor@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* RESET */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;line-height:1.6;color:#333;background:#fdfdfd;scroll-behavior:smooth;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+button{cursor:pointer;}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:#0d6efd;color:white;box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+header nav a{margin-left:2rem;font-weight:600;transition:opacity 0.3s;}
+header nav a:hover{opacity:0.8;}
+
+/* HERO */
+.hero{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem;position:relative;overflow:hidden;color:white;
+background: linear-gradient(45deg,#0d6efd,#6610f2,#ff6b6b,#ffc107);
+background-size: 400% 400%;
+transition: background 0.3s;}
+.hero h1{font-size:3rem;line-height:1.2;margin-bottom:1rem;background:linear-gradient(90deg,#ffc107,#ff6b6b,#6f42c1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;opacity:0;transform:translateY(50px);transition:all 1s ease;}
+.hero p{font-size:1.25rem;max-width:700px;margin-bottom:2rem;opacity:0;transform:translateY(50px);transition:all 1s ease 0.3s;}
+.hero .cta{background:#ffc107;color:#333;padding:1rem 2.5rem;border-radius:12px;font-weight:600;transition:transform 0.3s,background 0.3s,opacity 1s;opacity:0;transform:translateY(50px);}
+.hero .cta:hover{transform:translateY(-5px);background:#e0a800;}
+
+/* SECTIONS */
+section{padding:6rem 2rem;max-width:1200px;margin:auto;}
+.section-title{text-align:center;font-size:2.8rem;margin-bottom:3rem;color:#0d6efd;position:relative;opacity:0;transform:translateY(50px);transition:all 1s ease;}
+.section-title::after{content:'';display:block;width:100px;height:4px;background:#6610f2;margin:1rem auto 0;border-radius:2px;}
+
+/* SERVICES */
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:3rem;}
+.service{background:white;padding:2.5rem;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.08);transition:all 0.5s,opacity 1s;opacity:0;transform:translateY(50px);position:relative;overflow:hidden;cursor:pointer;}
+.service:hover{transform:scale(1.05) translateY(-10px);box-shadow:0 25px 60px rgba(0,0,0,0.2);}
+.service h3{margin-bottom:1rem;color:#6610f2;font-size:1.5rem;display:flex;align-items:center;gap:0.5rem;}
+.service p{color:#555;font-size:1rem;line-height:1.5;}
+.service svg{width:40px;height:40px;fill:none;stroke:#6610f2;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:100;stroke-dashoffset:100;transition:transform 0.3s;}
+.service.in-view svg{animation:draw 1s forwards infinite alternate;}
+
+/* ABOUT */
+.about{display:flex;flex-wrap:wrap;align-items:center;gap:3rem;}
+.about img{flex:1;border-radius:20px;object-fit:cover;opacity:0;transform:translateY(50px);transition:all 1s ease;}
+.about .content{flex:1;font-size:1.15rem;color:#555;opacity:0;transform:translateY(50px);transition:all 1s ease 0.3s;}
+.about .content p{margin-bottom:1.2rem;}
+
+/* CONTACT */
+.contact{background:#0d6efd;color:white;border-radius:20px;padding:4rem 2rem;text-align:center;transition:all 0.5s,opacity 1s;opacity:0;transform:translateY(50px);}
+.contact:hover{transform:translateY(-5px);}
+.contact button{display:inline-block;margin-top:1.5rem;background:#ffc107;color:#333;padding:1.2rem 2.5rem;border-radius:12px;font-weight:600;font-size:1.1rem;border:none;transition:background 0.3s;}
+.contact button:hover{background:#e0a800;}
+
+/* FOOTER */
+footer{background:#212529;color:white;text-align:center;padding:2rem;margin-top:2rem;}
+footer a{color:#ffc107;}
+
+/* MODAL */
+.modal{display:none;position:fixed;z-index:200;left:0;top:0;width:100%;height:100%;overflow:auto;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);}
+.modal.show{display:block;}
+.modal-content{background:white;margin:10% auto;padding:2rem;border-radius:20px;max-width:500px;position:relative;box-shadow:0 25px 60px rgba(0,0,0,0.2);transform:translateY(-50px);opacity:0;transition:all 0.3s ease;}
+.modal.show .modal-content{transform:translateY(0);opacity:1;}
+.modal .close{position:absolute;top:1rem;right:1rem;font-size:1.5rem;font-weight:bold;cursor:pointer;color:#333;}
+form{display:flex;flex-direction:column;gap:1rem;}
+input, textarea{padding:0.8rem 1rem;border-radius:12px;border:1px solid #ccc;font-size:1rem;width:100%;}
+button[type="submit"]{background:#0d6efd;color:white;padding:1rem;border:none;border-radius:12px;font-weight:600;cursor:pointer;transition:all 0.3s;}
+button[type="submit"]:hover{background:#6610f2;}
+
+/* RESPONSIVE */
+@media(max-width:1024px){.hero h1{font-size:2.8rem;}.hero p{font-size:1.15rem;}}
+@media(max-width:768px){.hero h1{font-size:2.2rem;}.hero p{font-size:1rem;}.services{gap:2rem;}.service h3{font-size:1.3rem;} }
+@media(max-width:480px){.hero{padding:6rem 1rem;}.hero .cta{padding:1rem 2rem;}}
+@keyframes draw{to{stroke-dashoffset:0;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><h1>Web Firm Solutions</h1></div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="hero">
+  <h1>Transform Your Ideas into Ultra Interactive Web Experiences</h1>
+  <p>With experience at Google, Amazon, and Facebook, we craft interactive, SEO-optimized websites that elevate visibility and conversions.</p>
+  <a href="#contact" class="cta">Let's Get Started</a>
+</section>
+
+<section id="services">
+  <h2 class="section-title">Our Premium Services</h2>
+  <div class="services">
+    <div class="service">
+      <h3><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg> Web Design & UX/UI</h3>
+      <p>Intuitive, visually stunning designs that delight users and drive higher conversion rates across devices.</p>
+    </div>
+    <div class="service">
+      <h3><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg> Advanced Frontend Development</h3>
+      <p>High-performance web apps with React, Angular, Vue, or Vanilla JS, fully optimized for SEO and speed.</p>
+    </div>
+    <div class="service">
+      <h3><svg viewBox="0 0 24 24"><polygon points="12,2 22,22 2,22"/></svg> Technical Consulting & SEO</h3>
+      <p>Scalable, secure, and high-performing strategies to maximize business impact and search engine visibility.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="section-title">About Us</h2>
+  <div class="about">
+    <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=800&q=80" alt="Our Team" loading="lazy">
+    <div class="content">
+      <p>We are a team of frontend experts with international experience, having worked at Google, Amazon, and Facebook. We turn complex ideas into elegant, efficient web solutions.</p>
+      <p>Every project gets a personalized approach focused on users and performance, delivering measurable results for our clients.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Work With Us</h2>
+  <p>Send us a message and receive a tailored solution for your business.</p>
+  <button id="openModal">Send Email</button>
+</section>
+
+<!-- Modal -->
+<div id="emailModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Send Email to Web Firm Solutions</h3>
+    <form id="contactForm">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+      
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+      
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 Web Firm Solutions. All rights reserved.</p>
+  <p><a href="https://webfirmsolutions.com/">webfirmsolutions.com</a></p>
+</footer>
+
+<script>
+// Animate on scroll & SVG drawing
+const elements = document.querySelectorAll('h1, h2, p, .cta, .service, .about img, .about .content, .contact');
+const services = document.querySelectorAll('.service');
+const hero = document.getElementById('hero');
+
+function animateScroll(){
+  const triggerBottom = window.innerHeight * 0.85;
+  elements.forEach(el=>{
+    const elTop = el.getBoundingClientRect().top;
+    if(elTop<triggerBottom){
+      el.style.opacity='1';
+      el.style.transform='translateY(0)';
+    }
+  });
+  services.forEach(s=>{
+    const rect = s.getBoundingClientRect();
+    if(rect.top<triggerBottom){
+      s.classList.add('in-view');
+    }
+  });
+}
+window.addEventListener('scroll', animateScroll);
+window.addEventListener('load', animateScroll);
+
+// Hero gradient + mouse effect
+window.addEventListener('mousemove', e=>{
+  const x=e.clientX/window.innerWidth*100;
+  hero.style.background=`linear-gradient(${x}deg,#0d6efd,#6610f2,#ff6b6b,#ffc107)`;
+});
+window.addEventListener('scroll', ()=>{
+  const scroll = window.scrollY/5;
+  hero.style.backgroundPosition=`50% ${50+scroll}%`;
+});
+
+// Modal
+const modal = document.getElementById('emailModal');
+const openBtn = document.getElementById('openModal');
+const closeBtn = document.querySelector('.modal .close');
+openBtn.addEventListener('click', ()=>modal.classList.add('show'));
+closeBtn.addEventListener('click', ()=>modal.classList.remove('show'));
+window.addEventListener('click', e => { if(e.target === modal) modal.classList.remove('show'); });
+
+// Form submit
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  alert('Thank you! Your message has been sent to vitalie.condor@gmail.com');
+  this.reset();
+  modal.classList.remove('show');
+});
+</script>
+
+</body>
+</html>

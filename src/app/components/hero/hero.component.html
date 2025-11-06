@@ -1,0 +1,45 @@
+<section class="hero">
+  <div class="hero-background gradient-bg"></div>
+  
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1 class="mat-display-1">Transform Your Ideas into <span class="accent-text">Ultra Interactive</span> Web Experiences</h1>
+      <p class="mat-body-1 hero-subtitle">With experience at Google, Amazon, and Facebook, we craft interactive, SEO-optimized websites that elevate visibility and conversions.</p>
+    </div>
+    
+    <div class="hero-actions">
+      <button 
+        mat-raised-button 
+        color="accent" 
+        class="cta-button"
+        type="button"
+        (click)="onContactClick()"
+        aria-label="Contact us to get started with your project"
+      >
+        <mat-icon aria-hidden="true">rocket_launch</mat-icon>
+        Let's Get Started
+      </button>
+      
+      <button 
+        mat-stroked-button 
+        class="secondary-button"
+        type="button"
+        (click)="onViewWorkClick()"
+        aria-label="View our services and portfolio"
+      >
+        <mat-icon aria-hidden="true">visibility</mat-icon>
+        View Our Work
+      </button>
+    </div>
+  </div>
+  
+  <div class="hero-features">
+    <mat-card class="feature-card" *ngFor="let feature of features; trackBy: trackByFeatureId">
+      <mat-card-content>
+        <mat-icon [attr.aria-label]="feature.title + ' icon'" role="img">{{ feature.icon }}</mat-icon>
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.description }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>

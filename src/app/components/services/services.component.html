@@ -1,0 +1,42 @@
+<section class="services-section">
+  <div class="container">
+    <h2 class="section-title mat-display-1">Our Premium Services</h2>
+    <p class="section-subtitle mat-body-1">We deliver cutting-edge solutions tailored to your business needs</p>
+    
+    <div class="services-grid">
+      <mat-card 
+        class="service-card" 
+        *ngFor="let service of services; trackBy: trackByServiceId; let i = index"
+        [attr.data-service-id]="service.id"
+        [attr.data-test-id]="'service-card-' + service.id"
+        [attr.aria-label]="'Learn more about ' + service.title"
+        role="article"
+      >
+        <mat-card-header>
+          <div class="service-icon-container" [class]="'service-' + service.color">
+            <mat-icon class="service-icon">{{ service.icon }}</mat-icon>
+          </div>
+        </mat-card-header>
+        
+        <mat-card-content>
+          <h3 class="service-title mat-headline-5">{{ service.title }}</h3>
+          <p class="service-description mat-body-2">{{ service.description }}</p>
+        </mat-card-content>
+        
+        <mat-card-actions align="end">
+          <button 
+            mat-button 
+            [color]="service.color"
+            (click)="onServiceClick(service)"
+            [attr.aria-label]="'Learn more about ' + service.title"
+            [attr.data-test-id]="'service-button-' + service.id"
+            type="button"
+          >
+            <mat-icon aria-hidden="true">arrow_forward</mat-icon>
+            Learn More
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</section>

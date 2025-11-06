@@ -1,0 +1,62 @@
+<section class="contact-section">
+  <div class="container">
+    <mat-card class="contact-card">
+      <mat-card-content class="contact-content">
+        <div class="contact-header">
+          <mat-icon class="contact-icon">handshake</mat-icon>
+          <h2 class="mat-display-1">Let's Work Together</h2>
+          <p class="mat-body-1 contact-subtitle">
+            Ready to transform your ideas into reality? Send us a message and receive a tailored solution for your business.
+          </p>
+        </div>
+
+        <div class="contact-info">
+          <div class="info-item">
+            <mat-icon>email</mat-icon>
+            <div>
+              <h4>Email Us</h4>
+              <p>vitalie.condor@gmail.com</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <mat-icon>schedule</mat-icon>
+            <div>
+              <h4>Response Time</h4>
+              <p>Within 24 hours</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <mat-icon>location_on</mat-icon>
+            <div>
+              <h4>Based In</h4>
+              <p>Available Worldwide</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-actions">
+          <button 
+            mat-raised-button 
+            color="primary" 
+            class="contact-button"
+            (click)="openContactDialog()"
+          >
+            <mat-icon>send</mat-icon>
+            Send Message
+          </button>
+          
+          <button 
+            mat-stroked-button 
+            color="accent"
+            class="secondary-button"
+          >
+            <mat-icon>schedule</mat-icon>
+            Schedule Call
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>
