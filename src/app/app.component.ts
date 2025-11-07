@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { SEOService } from './services/seo.service';
+import { TranslationService } from './services/translation.service';
 
 @Component({
   selector: 'app-root',
@@ -27,6 +28,7 @@ export class AppComponent implements OnInit, OnDestroy {
   title = 'Web Firm Solutions';
   
   private readonly seoService = inject(SEOService);
+  private readonly translationService = inject(TranslationService);
   private readonly platformId = inject(PLATFORM_ID);
   private readonly router = inject(Router);
   
@@ -35,6 +37,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
+      this.initializeTranslations();
       this.initializeSEO();
       this.setupPerformanceMonitoring();
       this.setupAdminPanelShortcut();
@@ -53,6 +56,18 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     // Cleanup if needed
+  }
+
+  private initializeTranslations(): void {
+    // Initialize translation service - this will load the default language
+    console.log('Initializing translation system...');
+    
+    // Test translation service
+    setTimeout(() => {
+      console.log('Current language:', this.translationService.currentLanguage());
+      console.log('Test translation:', this.translationService.translate('contact.title'));
+      console.log('Available translations:', this.translationService.translations());
+    }, 1000);
   }
 
   private initializeSEO(): void {

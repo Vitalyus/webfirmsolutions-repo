@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { TranslatePipe } from '../../pipes/translate.pipe';
+import { LanguageSelectorComponent } from '../language-selector/language-selector.component';
 import { NavItem, APP_CONFIG, isNonEmptyString } from '../../shared/interfaces';
 import { ScrollService } from '../../shared/scroll.service';
 import { LoggingService } from '../../shared/logging.service';
@@ -14,7 +17,10 @@ import { LoggingService } from '../../shared/logging.service';
     CommonModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule,
+    TranslatePipe,
+    LanguageSelectorComponent
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],

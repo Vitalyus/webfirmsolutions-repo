@@ -1,7 +1,7 @@
 <section class="services-section">
   <div class="container">
-    <h2 class="section-title mat-display-1">Our Premium Services</h2>
-    <p class="section-subtitle mat-body-1">We deliver cutting-edge solutions tailored to your business needs</p>
+    <h2 class="section-title mat-display-1">{{ 'services.title' | translate }}</h2>
+    <p class="section-subtitle mat-body-1">{{ 'services.subtitle' | translate }}</p>
     
     <div class="services-grid">
       <mat-card 
@@ -19,8 +19,8 @@
         </mat-card-header>
         
         <mat-card-content>
-          <h3 class="service-title mat-headline-5">{{ service.title }}</h3>
-          <p class="service-description mat-body-2">{{ service.description }}</p>
+          <h3 class="service-title mat-headline-5">{{ 'services.' + service.id + '.title' | translate }}</h3>
+          <p class="service-description mat-body-2">{{ 'services.' + service.id + '.description' | translate }}</p>
         </mat-card-content>
         
         <mat-card-actions align="end">
@@ -28,12 +28,12 @@
             mat-button 
             [color]="service.color"
             (click)="onServiceClick(service)"
-            [attr.aria-label]="'Learn more about ' + service.title"
+            [attr.aria-label]="('services.learnMoreAbout' | translate) + ' ' + ('services.' + service.id + '.title' | translate)"
             [attr.data-test-id]="'service-button-' + service.id"
             type="button"
           >
             <mat-icon aria-hidden="true">arrow_forward</mat-icon>
-            Learn More
+            {{ 'services.learnMore' | translate }}
           </button>
         </mat-card-actions>
       </mat-card>

@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Service, APP_CONFIG } from '../../shared/interfaces';
 import { LoggingService } from '../../shared/logging.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-services',
@@ -22,7 +23,8 @@ import { LoggingService } from '../../shared/logging.service';
     CommonModule,
     MatCardModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    TranslatePipe
   ],
   templateUrl: './services.component.html',
   styleUrls: ['./services.component.scss'],

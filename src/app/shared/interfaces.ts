@@ -69,6 +69,20 @@ export interface CaptchaChallenge {
   readonly id: string;
 }
 
+/** Translation system interfaces */
+export type Language = 'en' | 'ro' | 'fr' | 'es' | 'de';
+
+export interface TranslationData {
+  [key: string]: string | TranslationData;
+}
+
+export interface LanguageOption {
+  readonly code: Language;
+  readonly name: string;
+  readonly flag: string;
+  readonly isActive?: boolean;
+}
+
 // =============================================================================
 // TYPE UNIONS AND ENUMS
 // =============================================================================

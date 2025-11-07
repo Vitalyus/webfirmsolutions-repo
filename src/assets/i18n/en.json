@@ -1,0 +1,199 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services", 
+    "about": "About Us",
+    "contact": "Contact",
+    "menu": "Main navigation"
+  },
+  "hero": {
+    "title": "Transform Your Ideas into",
+    "titleAccent": "Ultra Interactive",
+    "titleEnd": "Web Experiences",
+    "subtitle": "With 20+ years of international experience, we craft interactive, SEO-optimized websites that elevate visibility and conversions. Specialized in Angular, React, and modern web technologies.",
+    "seoContent": "Professional web design and frontend development services. Expert in responsive design, user experience optimization, and modern web technologies. Serving clients worldwide with premium web development solutions.",
+    "ctaButton": "Let's Get Started",
+    "secondaryButton": "View Our Work",
+    "ctaAriaLabel": "Contact us to get started with your project",
+    "secondaryAriaLabel": "View our services and portfolio",
+    "features": {
+      "performance": {
+        "title": "Fast Performance",
+        "description": "Lightning-fast loading times"
+      },
+      "mobile": {
+        "title": "Mobile First",
+        "description": "Responsive across all devices"
+      },
+      "seo": {
+        "title": "SEO Optimized",
+        "description": "Built for search engines"
+      }
+    }
+  },
+  "services": {
+    "title": "Our Premium Services",
+    "subtitle": "We deliver cutting-edge solutions tailored to your business needs",
+    "learnMore": "Learn More",
+    "learnMoreAbout": "Learn more about",
+    "web-design-ux-ui": {
+      "title": "Web Design & UX/UI",
+      "description": "Intuitive, visually stunning designs that delight users and drive higher conversion rates across devices."
+    },
+    "advanced-frontend-development": {
+      "title": "Advanced Frontend Development", 
+      "description": "High-performance web apps with React, Angular, Vue, or Vanilla JS, fully optimized for SEO and speed."
+    },
+    "technical-consulting-seo": {
+      "title": "Technical Consulting & SEO",
+      "description": "Scalable, secure, and high-performing strategies to maximize business impact and search engine visibility."
+    },
+    "features": {
+      "responsive": "Responsive Design",
+      "performance": "High Performance",
+      "seo": "SEO Optimized",
+      "modern": "Modern Technologies",
+      "support": "Ongoing Support",
+      "security": "Enterprise Security"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "20+ Years of Excellence in Web Development",
+    "description": "We are passionate web developers with decades of experience creating digital solutions that matter. Our expertise spans modern frameworks, performance optimization, and user experience design.",
+    "teamImage": "Our Team",
+    "description1": "We are a team of frontend experts with international experience, having worked at Google, Amazon, and Facebook. We turn complex ideas into elegant, efficient web solutions.",
+    "description2": "Every project gets a personalized approach focused on users and performance, delivering measurable results for our clients.",
+    "experience": {
+      "years": "20+",
+      "yearsLabel": "Years Experience",
+      "projects": "500+",
+      "projectsLabel": "Projects Completed",
+      "clients": "200+", 
+      "clientsLabel": "Happy Clients",
+      "technologies": "50+",
+      "technologiesLabel": "Technologies"
+    },
+    "skills": {
+      "frontend": "Frontend Development",
+      "backend": "Backend Integration",
+      "ui": "UI/UX Design",
+      "performance": "Performance Optimization",
+      "seo": "SEO & Analytics",
+      "consulting": "Technical Consulting"
+    }
+  },
+  "contact": {
+    "title": "Let's Work Together",
+    "subtitle": "Ready to transform your ideas into reality? Send us a message and receive a tailored solution for your business.",
+    "emailUs": "Email Us",
+    "responseTime": "Response Time",
+    "within24Hours": "Within 24 hours",
+    "basedIn": "Based In",
+    "availableWorldwide": "Available Worldwide",
+    "sendMessage": "Send Message",
+    "scheduleCall": "Schedule Call",
+    "modal": {
+      "title": "Send Us a Message",
+      "name": "Your Name",
+      "namePlaceholder": "Enter your full name",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email address",
+      "message": "Your Message",
+      "messagePlaceholder": "Tell us about your project...",
+      "sendMessage": "Send Message",
+      "sending": "Sending...",
+      "captcha": {
+        "answer": "Your Answer",
+        "placeholder": "Enter the answer"
+      }
+    },
+    "form": {
+      "name": "Your Name",
+      "email": "Email Address", 
+      "message": "Your Message",
+      "captcha": "Solve to verify you're human",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully! We'll get back to you soon.",
+      "error": "Failed to send message. Please try again.",
+      "required": "This field is required",
+      "emailInvalid": "Please enter a valid email address",
+      "messageShort": "Message must be at least 10 characters long"
+    },
+    "info": {
+      "email": "Email",
+      "response": "Response Time", 
+      "responseValue": "Within 24 hours",
+      "availability": "Availability",
+      "availabilityValue": "Monday - Friday, 9 AM - 5 PM"
+    }
+  },
+  "admin": {
+    "title": "Admin Panel - Contact Messages",
+    "login": {
+      "title": "Admin Login",
+      "keyLabel": "Admin Key", 
+      "keyPlaceholder": "Enter admin key",
+      "loginButton": "Login",
+      "error": "Invalid admin key",
+      "success": "Successfully authenticated!"
+    },
+    "messages": {
+      "refresh": "Refresh Messages",
+      "exportJson": "Export JSON",
+      "exportCsv": "Export CSV", 
+      "clearLocal": "Clear Local",
+      "loading": "Loading messages...",
+      "noMessages": "No messages found",
+      "total": "Total Messages",
+      "new": "New",
+      "read": "Read",
+      "markAsRead": "Mark as read",
+      "viewMessage": "View full message",
+      "columns": {
+        "status": "Status",
+        "name": "Name", 
+        "email": "Email",
+        "message": "Message",
+        "timestamp": "Date",
+        "actions": "Actions"
+      }
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "actions": "Actions",
+    "status": "Status",
+    "date": "Date",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "language": "Change Language"
+  },
+  "footer": {
+    "copyright": "© {{year}} Web Firm Solutions. All rights reserved.",
+    "builtWith": "Built with Angular and Material Design",
+    "websiteAriaLabel": "Visit our website at webfirmsolutions.com"
+  },
+  "seo": {
+    "title": "Web Firm Solutions - Premium Web Design & Frontend Development Services",
+    "description": "Professional web design and frontend development services with 20+ years of experience. Specializing in Angular, React, and modern web technologies for exceptional user experiences.",
+    "keywords": "web design, frontend development, UX/UI, SEO, technical consulting, interactive web, premium web services, Angular development, React development, responsive design"
+  }
+}

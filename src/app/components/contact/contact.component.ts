@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContactFormData, CaptchaChallenge } from '../../shared/interfaces';
 import { CaptchaService } from '../../services/captcha.service';
 import { MessageService } from '../../services/message.service';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-contact',
@@ -52,6 +53,7 @@ export class ContactComponent implements OnInit {
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly messageService = inject(MessageService);
   private readonly captchaService = inject(CaptchaService);
+  private readonly translationService = inject(TranslationService);
 
   contactForm: FormGroup;
   isModalOpen = false;
@@ -229,5 +231,38 @@ export class ContactComponent implements OnInit {
 
   refreshCaptcha(): void {
     this.generateNewCaptcha();
+  }
+
+  // Translation helper methods
+  get translations() {
+    return {
+      title: this.translationService.translate('contact.title'),
+      subtitle: this.translationService.translate('contact.subtitle'),
+      emailUs: this.translationService.translate('contact.emailUs'),
+      responseTime: this.translationService.translate('contact.responseTime'),
+      within24Hours: this.translationService.translate('contact.within24Hours'),
+      basedIn: this.translationService.translate('contact.basedIn'),
+      availableWorldwide: this.translationService.translate('contact.availableWorldwide'),
+      sendMessage: this.translationService.translate('contact.sendMessage'),
+      scheduleCall: this.translationService.translate('contact.scheduleCall'),
+      modal: {
+        title: this.translationService.translate('contact.modal.title'),
+        name: this.translationService.translate('contact.modal.name'),
+        namePlaceholder: this.translationService.translate('contact.modal.namePlaceholder'),
+        email: this.translationService.translate('contact.modal.email'),
+        emailPlaceholder: this.translationService.translate('contact.modal.emailPlaceholder'),
+        message: this.translationService.translate('contact.modal.message'),
+        messagePlaceholder: this.translationService.translate('contact.modal.messagePlaceholder'),
+        sendMessage: this.translationService.translate('contact.modal.sendMessage'),
+        sending: this.translationService.translate('contact.modal.sending'),
+        captcha: {
+          answer: this.translationService.translate('contact.modal.captcha.answer'),
+          placeholder: this.translationService.translate('contact.modal.captcha.placeholder')
+        }
+      },
+      common: {
+        cancel: this.translationService.translate('common.cancel')
+      }
+    };
   }
 }

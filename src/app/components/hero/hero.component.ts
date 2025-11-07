@@ -17,6 +17,7 @@ import { Feature, APP_CONFIG } from '../../shared/interfaces';
 import { ScrollService } from '../../shared/scroll.service';
 import { LoggingService } from '../../shared/logging.service';
 import { PerformanceService } from '../../shared/performance.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-hero',
@@ -25,7 +26,8 @@ import { PerformanceService } from '../../shared/performance.service';
     CommonModule,
     MatButtonModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    TranslatePipe
   ],
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss'],

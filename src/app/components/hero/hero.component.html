@@ -3,12 +3,12 @@
   
   <div class="hero-content">
     <div class="hero-text above-the-fold">
-      <h1 class="mat-display-1">Transform Your Ideas into <span class="accent-text">Ultra Interactive</span> Web Experiences</h1>
-      <p class="mat-body-1 hero-subtitle">With 20+ years of international experience, we craft interactive, SEO-optimized websites that elevate visibility and conversions. Specialized in Angular, React, and modern web technologies.</p>
+      <h1 class="mat-display-1">{{ 'hero.title' | translate }} <span class="accent-text">{{ 'hero.titleAccent' | translate }}</span> {{ 'hero.titleEnd' | translate }}</h1>
+      <p class="mat-body-1 hero-subtitle">{{ 'hero.subtitle' | translate }}</p>
       
       <!-- Hidden SEO content -->
       <div class="sr-only" aria-hidden="true">
-        Professional web design and frontend development services. Expert in responsive design, user experience optimization, and modern web technologies. Serving clients worldwide with premium web development solutions.
+        {{ 'hero.seoContent' | translate }}
       </div>
     </div>
     
@@ -19,10 +19,10 @@
         class="cta-button"
         type="button"
         (click)="onContactClick()"
-        aria-label="Contact us to get started with your project"
+        [attr.aria-label]="'hero.ctaAriaLabel' | translate"
       >
         <mat-icon aria-hidden="true">rocket_launch</mat-icon>
-        Let's Get Started
+        {{ 'hero.ctaButton' | translate }}
       </button>
       
       <button 
@@ -30,10 +30,10 @@
         class="secondary-button"
         type="button"
         (click)="onViewWorkClick()"
-        aria-label="View our services and portfolio"
+        [attr.aria-label]="'hero.secondaryAriaLabel' | translate"
       >
         <mat-icon aria-hidden="true">visibility</mat-icon>
-        View Our Work
+        {{ 'hero.secondaryButton' | translate }}
       </button>
     </div>
   </div>
@@ -42,8 +42,8 @@
     <mat-card class="feature-card" *ngFor="let feature of features; trackBy: trackByFeatureId">
       <mat-card-content>
         <mat-icon [attr.aria-label]="feature.title + ' icon'" role="img">{{ feature.icon }}</mat-icon>
-        <h3>{{ feature.title }}</h3>
-        <p>{{ feature.description }}</p>
+        <h3>{{ 'hero.features.' + feature.id + '.title' | translate }}</h3>
+        <p>{{ 'hero.features.' + feature.id + '.description' | translate }}</p>
       </mat-card-content>
     </mat-card>
   </div>
