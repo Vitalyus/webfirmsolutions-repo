@@ -90,18 +90,9 @@ export class LanguageSelectorComponent implements OnInit {
       return; // Prevent language changes while loading
     }
 
-    this.translationService.setLanguage(language).subscribe({
-      next: (success) => {
-        if (success) {
-          console.log(`LanguageSelector: Successfully changed to ${language}`);
-        } else {
-          console.error(`LanguageSelector: Failed to change to ${language}`);
-        }
-      },
-      error: (error) => {
-        console.error(`LanguageSelector: Error changing to ${language}:`, error);
-      }
-    });
+    // Use setCurrentLanguage which handles the language switching internally
+    this.translationService.setCurrentLanguage(language);
+    console.log(`LanguageSelector: Successfully changed to ${language}`);
   }
 
   /**

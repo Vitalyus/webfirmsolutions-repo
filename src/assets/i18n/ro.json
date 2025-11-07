@@ -1,0 +1,199 @@
+{
+  "navigation": {
+    "home": "Acasă",
+    "services": "Servicii", 
+    "about": "Despre Noi",
+    "contact": "Contact",
+    "menu": "Navigare principală"
+  },
+  "hero": {
+    "title": "Transformă-ți Ideile în",
+    "titleAccent": "Experiențe Web Ultra Interactive",
+    "titleEnd": "",
+    "subtitle": "Cu peste 20 de ani de experiență internațională, creăm site-uri web interactive, optimizate SEO, care cresc vizibilitatea și conversiile. Specializați în Angular, React și tehnologii web moderne.",
+    "seoContent": "Servicii profesionale de design web și dezvoltare frontend. Experți în design responsiv, optimizarea experienței utilizatorilor și tehnologii web moderne. Servim clienți din întreaga lume cu soluții web premium.",
+    "ctaButton": "Să Începem",
+    "secondaryButton": "Vezi Lucrarile Noastre",
+    "ctaAriaLabel": "Contactează-ne pentru a începe proiectul tău",
+    "secondaryAriaLabel": "Vezi serviciile și portofoliul nostru",
+    "features": {
+      "performance": {
+        "title": "Performanță Rapidă",
+        "description": "Timpuri de încărcare ultrarapide"
+      },
+      "mobile": {
+        "title": "Mobile First",
+        "description": "Responsiv pe toate dispozitivele"
+      },
+      "seo": {
+        "title": "Optimizat SEO",
+        "description": "Construit pentru motoarele de căutare"
+      }
+    }
+  },
+  "services": {
+    "title": "Serviciile Noastre Premium",
+    "subtitle": "Oferim soluții de vârf adaptate nevoilor afacerii tale",
+    "learnMore": "Află Mai Mult",
+    "learnMoreAbout": "Află mai mult despre",
+    "web-design-ux-ui": {
+      "title": "Design Web & UX/UI",
+      "description": "Designuri intuitive și vizual uimitoare care încântă utilizatorii și cresc ratele de conversie pe toate dispozitivele."
+    },
+    "advanced-frontend-development": {
+      "title": "Dezvoltare Frontend Avansată", 
+      "description": "Aplicații web de înaltă performanță cu React, Angular, Vue sau Vanilla JS, complet optimizate pentru SEO și viteză."
+    },
+    "technical-consulting-seo": {
+      "title": "Consultanță Tehnică & SEO",
+      "description": "Strategii scalabile, sigure și de înaltă performanță pentru a maximiza impactul afacerii și vizibilitatea în motoarele de căutare."
+    },
+    "features": {
+      "responsive": "Design Responsiv",
+      "performance": "Performanță Înaltă",
+      "seo": "Optimizat SEO",
+      "modern": "Tehnologii Moderne",
+      "support": "Suport Continuu",
+      "security": "Securitate Enterprise"
+    }
+  },
+  "about": {
+    "title": "Despre Noi",
+    "subtitle": "20+ Ani de Excelență în Dezvoltare Web",
+    "description": "Suntem dezvoltatori web pasionați cu decenii de experiență în crearea de soluții digitale care contează. Expertiza noastră cuprinde framework-uri moderne, optimizarea performanței și designul experienței utilizatorilor.",
+    "teamImage": "Echipa Noastră",
+    "description1": "Suntem o echipă de experți frontend cu experiență internațională, având lucrat la Google, Amazon și Facebook. Transformăm idei complexe în soluții web elegante și eficiente.",
+    "description2": "Fiecare proiect primește o abordare personalizată focalizată pe utilizatori și performanță, oferind rezultate măsurabile pentru clienții noștri.",
+    "experience": {
+      "years": "20+",
+      "yearsLabel": "Ani Experiență",
+      "projects": "500+",
+      "projectsLabel": "Proiecte Finalizate",
+      "clients": "200+", 
+      "clientsLabel": "Clienți Mulțumiți",
+      "technologies": "50+",
+      "technologiesLabel": "Tehnologii"
+    },
+    "skills": {
+      "frontend": "Dezvoltare Frontend",
+      "backend": "Integrare Backend",
+      "ui": "Design UI/UX",
+      "performance": "Optimizarea Performanței",
+      "seo": "SEO & Analytics",
+      "consulting": "Consultanță Tehnică"
+    }
+  },
+  "contact": {
+    "title": "Să Lucrăm Împreună",
+    "subtitle": "Gata să transformi ideile în realitate? Trimite-ne un mesaj și primește o soluție adaptată afacerii tale.",
+    "emailUs": "Trimite Email",
+    "responseTime": "Timp de Răspuns",
+    "within24Hours": "În 24 de ore",
+    "basedIn": "Localizare",
+    "availableWorldwide": "Disponibili Global",
+    "sendMessage": "Trimite Mesaj",
+    "scheduleCall": "Programează Apel",
+    "modal": {
+      "title": "Trimite-ne un Mesaj",
+      "name": "Numele Tău",
+      "namePlaceholder": "Introdu numele complet",
+      "email": "Adresa de Email",
+      "emailPlaceholder": "Introdu adresa de email",
+      "message": "Mesajul Tău",
+      "messagePlaceholder": "Povestește-ne despre proiectul tău...",
+      "sendMessage": "Trimite Mesaj",
+      "sending": "Se trimite...",
+      "captcha": {
+        "answer": "Răspunsul Tău",
+        "placeholder": "Introdu răspunsul"
+      }
+    },
+    "form": {
+      "name": "Numele Tău",
+      "email": "Adresa de Email", 
+      "message": "Mesajul Tău",
+      "captcha": "Rezolvă pentru a verifica că ești om",
+      "submit": "Trimite Mesaj",
+      "sending": "Se trimite...",
+      "success": "Mesaj trimis cu succes! Îți vom răspunde în curând.",
+      "error": "Trimiterea mesajului a eșuat. Te rugăm să încerci din nou.",
+      "required": "Acest câmp este obligatoriu",
+      "emailInvalid": "Te rugăm să introduci o adresă de email validă",
+      "messageShort": "Mesajul trebuie să aibă cel puțin 10 caractere"
+    },
+    "info": {
+      "email": "Email",
+      "response": "Timp de Răspuns", 
+      "responseValue": "În 24 de ore",
+      "availability": "Disponibilitate",
+      "availabilityValue": "Luni - Vineri, 9:00 - 17:00"
+    }
+  },
+  "admin": {
+    "title": "Panoul Admin - Mesaje de Contact",
+    "login": {
+      "title": "Autentificare Admin",
+      "keyLabel": "Cheie Admin", 
+      "keyPlaceholder": "Introdu cheia admin",
+      "loginButton": "Autentificare",
+      "error": "Cheie admin invalidă",
+      "success": "Autentificat cu succes!"
+    },
+    "messages": {
+      "refresh": "Reîmprospătează Mesajele",
+      "exportJson": "Exportă JSON",
+      "exportCsv": "Exportă CSV", 
+      "clearLocal": "Șterge Local",
+      "loading": "Se încarcă mesajele...",
+      "noMessages": "Nu au fost găsite mesaje",
+      "total": "Total Mesaje",
+      "new": "Nou",
+      "read": "Citit",
+      "markAsRead": "Marchează ca citit",
+      "viewMessage": "Vezi mesajul complet",
+      "columns": {
+        "status": "Status",
+        "name": "Nume", 
+        "email": "Email",
+        "message": "Mesaj",
+        "timestamp": "Data",
+        "actions": "Acțiuni"
+      }
+    }
+  },
+  "common": {
+    "loading": "Se încarcă...",
+    "error": "Eroare",
+    "success": "Succes",
+    "cancel": "Anulează",
+    "confirm": "Confirmă",
+    "save": "Salvează",
+    "delete": "Șterge",
+    "edit": "Editează",
+    "view": "Vezi",
+    "close": "Închide",
+    "back": "Înapoi",
+    "next": "Următorul",
+    "previous": "Anterior",
+    "search": "Caută",
+    "filter": "Filtrează",
+    "sort": "Sortează",
+    "actions": "Acțiuni",
+    "status": "Status",
+    "date": "Data",
+    "name": "Nume",
+    "email": "Email",
+    "message": "Mesaj",
+    "language": "Schimbă Limba"
+  },
+  "footer": {
+    "copyright": "© {{year}} Web Firm Solutions. Toate drepturile rezervate.",
+    "builtWith": "Construit cu Angular și Material Design",
+    "websiteAriaLabel": "Vizitează site-ul nostru la webfirmsolutions.com"
+  },
+  "seo": {
+    "title": "Web Firm Solutions - Servicii Premium de Design Web & Dezvoltare Frontend",
+    "description": "Servicii profesionale de design web și dezvoltare frontend cu peste 20 de ani de experiență. Specializați în Angular, React și tehnologii web moderne pentru experiențe utilizator excepționale.",
+    "keywords": "design web, dezvoltare frontend, UX/UI, SEO, consultanță tehnică, web interactiv, servicii web premium, dezvoltare Angular, dezvoltare React, design responsiv"
+  }
+}

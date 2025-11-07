@@ -16,7 +16,7 @@ export class TranslationService {
   private readonly http = inject(HttpClient);
   
   // Available languages
-  private readonly supportedLanguages: Language[] = ['en'];
+  private readonly supportedLanguages: Language[] = ['en', 'ro'];
   private readonly defaultLanguage: Language = 'en';
   
   // Current language state
@@ -135,6 +135,27 @@ export class TranslationService {
       'about.description1': 'We are a team of frontend experts with international experience, having worked at Google, Amazon, and Facebook. We turn complex ideas into elegant, efficient web solutions.',
       'about.description2': 'Every project gets a personalized approach focused on users and performance, delivering measurable results for our clients.'
     };
+
+    // If current language is Romanian, provide Romanian fallbacks
+    if (this.currentLanguageSignal() === 'ro') {
+      const roFallbackMap: Record<string, string> = {
+        'navigation.menu': 'Navigare principală',
+        'navigation.services': 'Servicii',
+        'navigation.about': 'Despre Noi',
+        'navigation.contact': 'Contact',
+        'common.language': 'Schimbă Limba',
+        'hero.title': 'Transformă-ți Ideile în',
+        'hero.titleAccent': 'Experiențe Web Ultra Interactive',
+        'hero.titleEnd': '',
+        'hero.subtitle': 'Cu peste 20 de ani de experiență internațională, creăm site-uri web interactive, optimizate SEO, care cresc vizibilitatea și conversiile.',
+        'services.title': 'Serviciile Noastre Premium',
+        'services.subtitle': 'Oferim soluții de vârf adaptate nevoilor afacerii tale',
+        'about.title': 'Despre Noi',
+        'contact.title': 'Să Lucrăm Împreună',
+        'footer.copyright': '© {{year}} Web Firm Solutions. Toate drepturile rezervate.'
+      };
+      return roFallbackMap[keyPath] || keyPath;
+    }
     
     return fallbackMap[keyPath] || keyPath;
   }
@@ -142,17 +163,20 @@ export class TranslationService {
   /**
    * Change the current language
    */
-  setLanguage(language: Language): Observable<boolean> {
-    if (!this.supportedLanguages.includes(language)) {
-      console.error(`Language ${language} is not supported`);
-      return of(false);
-    }
+  setCurrentLanguage(language: string): void {
+    console.log(`TranslationService: Setting language to ${language}`);
     
-    if (language === this.currentLanguageSignal()) {
-      return of(true); // Already loaded
+    if (this.isLanguageSupported(language)) {
+      const typedLanguage = language as Language;
+      localStorage.setItem('preferred-language', language);
+      
+      // Load translations first, then signals will automatically update
+      this.loadLanguage(typedLanguage).subscribe(() => {
+        console.log(`TranslationService: Language change completed for ${language}`);
+      });
+    } else {
+      console.warn(`TranslationService: Language ${language} not supported`);
     }
-    
-    return this.loadLanguage(language);
   }
 
   /**
@@ -273,7 +297,7 @@ export class TranslationService {
     
     const preferredLang = storedLang || browserLang || this.defaultLanguage;
     
-    return this.setLanguage(preferredLang);
+    return this.loadLanguage(preferredLang);
   }
 
   /**
