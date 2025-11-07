@@ -51,6 +51,7 @@ export class LanguageSelectorComponent implements OnInit {
   private readonly languageOptions: LanguageOption[] = [
     { code: 'en', name: 'English', flag: '🇺🇸' },
     { code: 'ro', name: 'Română', flag: '🇷🇴' },
+    { code: 'uk', name: 'Українська', flag: '🇺🇦' },
     { code: 'fr', name: 'Français', flag: '🇫🇷' },
     { code: 'es', name: 'Español', flag: '🇪🇸' },
     { code: 'de', name: 'Deutsch', flag: '🇩🇪' }

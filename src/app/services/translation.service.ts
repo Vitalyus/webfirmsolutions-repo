@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject, of } from 'rxjs';
 import { catchError, tap, switchMap } from 'rxjs/operators';
 
-export type Language = 'en' | 'ro' | 'fr' | 'es' | 'de';
+export type Language = 'en' | 'ro' | 'uk' | 'fr' | 'es' | 'de';
 
 export interface TranslationData {
   [key: string]: string | TranslationData;
@@ -16,7 +16,7 @@ export class TranslationService {
   private readonly http = inject(HttpClient);
   
   // Available languages
-  private readonly supportedLanguages: Language[] = ['en', 'ro'];
+  private readonly supportedLanguages: Language[] = ['en', 'ro', 'uk'];
   private readonly defaultLanguage: Language = 'en';
   
   // Current language state
@@ -156,6 +156,27 @@ export class TranslationService {
       };
       return roFallbackMap[keyPath] || keyPath;
     }
+
+    // If current language is Ukrainian, provide Ukrainian fallbacks
+    if (this.currentLanguageSignal() === 'uk') {
+      const ukFallbackMap: Record<string, string> = {
+        'navigation.menu': 'Головне меню',
+        'navigation.services': 'Послуги',
+        'navigation.about': 'Про нас',
+        'navigation.contact': 'Контакти',
+        'common.language': 'Змінити мову',
+        'hero.title': 'Перетворіть свої ідеї в',
+        'hero.titleAccent': 'Ультра-інтерактивні',
+        'hero.titleEnd': 'Веб-досвіди',
+        'hero.subtitle': 'З понад 20 роками міжнародного досвіду ми створюємо інтерактивні, SEO-оптимізовані веб-сайти, які підвищують видимість і конверсії.',
+        'services.title': 'Наші преміум-послуги',
+        'services.subtitle': 'Ми надаємо передові рішення, адаптовані до потреб вашого бізнесу',
+        'about.title': 'Про нас',
+        'contact.title': 'Давайте працювати разом',
+        'footer.copyright': '© {{year}} Web Firm Solutions. Всі права захищені.'
+      };
+      return ukFallbackMap[keyPath] || keyPath;
+    }
     
     return fallbackMap[keyPath] || keyPath;
   }
@@ -244,6 +265,7 @@ export class TranslationService {
     const displayNames: Record<Language, string> = {
       en: 'English',
       ro: 'Română',
+      uk: 'Українська',
       fr: 'Français',
       es: 'Español',
       de: 'Deutsch'
