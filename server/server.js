@@ -8,7 +8,11 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-const MESSAGES_FILE = path.join(__dirname, 'data', 'messages.json');
+const NODE_ENV = process.env.NODE_ENV || 'development';
+const ADMIN_KEY = process.env.ADMIN_KEY || 'webfirm_admin_2024';
+const CORS_ORIGIN = process.env.CORS_ORIGIN || 'http://localhost:4200';
+const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, 'data');
+const MESSAGES_FILE = path.join(DATA_DIR, 'messages.json');
 
 // Security middleware
 app.use(helmet());
@@ -27,7 +31,7 @@ app.use('/api/contact', limiter);
 
 // CORS configuration
 app.use(cors({
-  origin: ['http://localhost:4200', 'https://webfirmsolutions.com'],
+  origin: NODE_ENV === 'production' ? [CORS_ORIGIN] : ['http://localhost:4200', 'http://localhost:4201'],
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
@@ -38,11 +42,10 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
 
 // Ensure data directory exists
 async function ensureDataDirectory() {
-  const dataDir = path.join(__dirname, 'data');
   try {
-    await fs.access(dataDir);
+    await fs.access(DATA_DIR);
   } catch (error) {
-    await fs.mkdir(dataDir, { recursive: true });
+    await fs.mkdir(DATA_DIR, { recursive: true });
   }
   
   // Initialize messages file if it doesn't exist
@@ -257,7 +260,7 @@ app.get('/api/admin/messages', async (req, res) => {
   try {
     // Simple authentication - in production use proper auth
     const adminKey = req.query.key;
-    if (adminKey !== 'webfirm_admin_2024') {
+    if (adminKey !== ADMIN_KEY) {
       return res.status(401).json({
         success: false,
         error: 'Unauthorized'
@@ -285,7 +288,7 @@ app.get('/api/admin/messages', async (req, res) => {
 app.post('/api/admin/messages/:id/read', async (req, res) => {
   try {
     const adminKey = req.query.key;
-    if (adminKey !== 'webfirm_admin_2024') {
+    if (adminKey !== ADMIN_KEY) {
       return res.status(401).json({
         success: false,
         error: 'Unauthorized'

@@ -62,11 +62,20 @@ export class CaptchaService {
       return false;
     }
 
-    const numericAnswer = parseInt(userAnswer.trim(), 10);
+    // Ensure userAnswer is a string and handle null/undefined cases
+    const answerStr = userAnswer ? String(userAnswer).trim() : '';
+    if (!answerStr) {
+      console.warn('CaptchaService: Empty answer provided');
+      return false;
+    }
+
+    const numericAnswer = parseInt(answerStr, 10);
     const isValid = !isNaN(numericAnswer) && numericAnswer === this.currentChallenge.answer;
     
     console.log('CaptchaService: Validating answer', {
-      userAnswer: numericAnswer,
+      originalInput: userAnswer,
+      processedAnswer: answerStr,
+      numericAnswer: numericAnswer,
       correctAnswer: this.currentChallenge.answer,
       isValid
     });

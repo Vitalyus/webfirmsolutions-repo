@@ -132,9 +132,10 @@ export class ContactComponent implements OnInit {
         return;
       }
       
-      // Validate captcha
-      if (!this.captchaChallenge || !this.formData.captcha || 
-          !this.captchaService.validateAnswer(this.formData.captcha, this.captchaChallenge.id)) {
+      // Validate captcha - ensure we have valid data
+      const captchaAnswer = this.formData.captcha ? String(this.formData.captcha).trim() : '';
+      if (!this.captchaChallenge || !captchaAnswer || 
+          !this.captchaService.validateAnswer(captchaAnswer, this.captchaChallenge.id)) {
         this.snackBar.open(
           'Please solve the captcha correctly.',
           '⚠️',
