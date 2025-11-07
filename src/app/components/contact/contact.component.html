@@ -116,6 +116,7 @@
           mat-stroked-button 
           (click)="closeModal()"
           class="cancel-button"
+          [disabled]="isSubmitting"
         >
           Cancel
         </button>
@@ -124,9 +125,11 @@
           mat-raised-button 
           color="primary"
           class="send-button"
+          [disabled]="isSubmitting"
         >
-          <mat-icon>send</mat-icon>
-          Send Message
+          <mat-spinner diameter="20" *ngIf="isSubmitting" style="margin-right: 8px;"></mat-spinner>
+          <mat-icon *ngIf="!isSubmitting">send</mat-icon>
+          {{ isSubmitting ? 'Sending...' : 'Send Message' }}
         </button>
       </div>
     </form>

@@ -15,7 +15,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { HttpClientModule } from '@angular/common/http';
 import { ContactFormData } from '../../shared/interfaces';
+import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'app-contact',
@@ -30,7 +33,9 @@ import { ContactFormData } from '../../shared/interfaces';
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    HttpClientModule
   ],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
@@ -42,9 +47,11 @@ export class ContactComponent implements OnInit {
   private readonly snackBar = inject(MatSnackBar);
   private readonly formBuilder = inject(FormBuilder);
   private readonly cdr = inject(ChangeDetectorRef);
+  private readonly messageService = inject(MessageService);
 
   contactForm: FormGroup;
   isModalOpen = false;
+  isSubmitting = false;
 
   // Legacy formData property for template compatibility
   formData: ContactFormData = {
@@ -108,23 +115,46 @@ export class ContactComponent implements OnInit {
   onSubmit(): void {
     try {
       if (this.formData.name && this.formData.email && this.formData.message) {
-        // Simulate form submission
-        alert(`Thank you ${this.formData.name}! Your message has been sent.`);
+        this.isSubmitting = true;
+        this.cdr.markForCheck();
         
-        // Reset form
-        this.formData = { name: '', email: '', message: '' };
-        this.closeModal();
-        
-        this.snackBar.open(
-          'Message sent successfully! We\'ll get back to you soon.', 
-          '✓', 
-          {
-            duration: 5000,
-            panelClass: ['success-snackbar'],
-            horizontalPosition: 'right',
-            verticalPosition: 'top'
+        // Submit message via MessageService
+        this.messageService.submitMessage(this.formData).subscribe({
+          next: (response) => {
+            console.log('Message submitted successfully:', response);
+            
+            // Reset form
+            this.formData = { name: '', email: '', message: '' };
+            this.isSubmitting = false;
+            this.closeModal();
+            
+            this.snackBar.open(
+              'Message sent successfully! We\'ll get back to you soon.', 
+              '✓', 
+              {
+                duration: 5000,
+                panelClass: ['success-snackbar'],
+                horizontalPosition: 'right',
+                verticalPosition: 'top'
+              }
+            );
+            this.cdr.markForCheck();
+          },
+          error: (error) => {
+            console.error('Message submission failed:', error);
+            this.isSubmitting = false;
+            this.cdr.markForCheck();
+            
+            this.snackBar.open(
+              'Failed to send message. Please try again or contact us directly.',
+              '❌',
+              {
+                duration: 5000,
+                panelClass: ['error-snackbar']
+              }
+            );
           }
-        );
+        });
       } else {
         this.snackBar.open(
           'Please fill in all required fields.',
@@ -137,6 +167,9 @@ export class ContactComponent implements OnInit {
       }
     } catch (error) {
       console.error('Form submission error:', error);
+      this.isSubmitting = false;
+      this.cdr.markForCheck();
+      
       this.snackBar.open(
         'An error occurred. Please try again.',
         '❌',

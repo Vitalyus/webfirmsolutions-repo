@@ -1,9 +1,16 @@
 <!-- Main App Template -->
-<app-header></app-header>
+<app-header *ngIf="!isAdminRoute"></app-header>
+
 <main>
-  <app-hero id="hero"></app-hero>
-  <app-services id="services"></app-services>
-  <app-about id="about"></app-about>
-  <app-contact id="contact"></app-contact>
+  <router-outlet></router-outlet>
 </main>
-<app-footer></app-footer>
+
+<app-footer *ngIf="!isAdminRoute"></app-footer>
+
+<!-- Admin Panel Modal/Overlay (pentru keyboard shortcut) -->
+<div *ngIf="showAdminPanel" class="admin-overlay" (click)="closeAdminPanel()">
+  <div class="admin-modal" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="closeAdminPanel()">×</button>
+    <app-admin></app-admin>
+  </div>
+</div>

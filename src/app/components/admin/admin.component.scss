@@ -1,0 +1,212 @@
+.admin-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  .admin-card {
+    margin-bottom: 20px;
+    
+    mat-card-header {
+      margin-bottom: 20px;
+      
+      mat-card-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 1.5rem;
+        
+        mat-icon {
+          color: var(--primary-color);
+        }
+      }
+    }
+  }
+}
+
+.login-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  
+  .full-width {
+    width: 100%;
+  }
+}
+
+.admin-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  
+  @media (max-width: 600px) {
+    flex-direction: column;
+    
+    button {
+      width: 100%;
+    }
+  }
+}
+
+.loading-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 0;
+  
+  p {
+    margin: 0;
+    color: var(--text-secondary);
+  }
+}
+
+.no-messages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 0;
+  color: var(--text-secondary);
+  
+  mat-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+  }
+  
+  p {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+}
+
+.messages-table {
+  margin-bottom: 20px;
+  overflow-x: auto;
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .message-cell {
+    max-width: 300px;
+    
+    .message-preview {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: help;
+    }
+  }
+  
+  mat-chip-set {
+    mat-chip {
+      font-size: 0.75rem;
+      height: 24px;
+      
+      &.status-new {
+        background-color: var(--accent-color);
+        color: white;
+      }
+      
+      &.status-read {
+        background-color: var(--primary-color);
+        color: white;
+      }
+    }
+  }
+  
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  button[mat-icon-button] {
+    mat-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+.statistics {
+  .stat-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    
+    mat-card-content {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      
+      .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        
+        .stat-label {
+          font-size: 0.875rem;
+          color: var(--text-secondary);
+          font-weight: 500;
+        }
+        
+        .stat-value {
+          font-size: 1.5rem;
+          font-weight: 600;
+          
+          &.new {
+            color: var(--accent-color);
+          }
+          
+          &.read {
+            color: var(--primary-color);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .admin-container {
+    padding: 10px;
+  }
+  
+  .messages-table {
+    font-size: 0.875rem;
+    
+    .message-cell {
+      max-width: 200px;
+    }
+  }
+  
+  .statistics {
+    .stat-card {
+      mat-card-content {
+        justify-content: space-around;
+        gap: 16px;
+      }
+    }
+  }
+}
+
+// Material overrides
+.success-snackbar {
+  background-color: #4caf50 !important;
+  color: white !important;
+}
+
+.error-snackbar {
+  background-color: #f44336 !important;
+  color: white !important;
+}

@@ -1,11 +1,12 @@
 import { Component, OnInit, OnDestroy, inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
+
 import { HeaderComponent } from './components/header/header.component';
-import { HeroComponent } from './components/hero/hero.component';
-import { ServicesComponent } from './components/services/services.component';
-import { AboutComponent } from './components/about/about.component';
-import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AdminComponent } from './components/admin/admin.component';
 import { SEOService } from './services/seo.service';
 
 @Component({
@@ -13,12 +14,11 @@ import { SEOService } from './services/seo.service';
   standalone: true,
   imports: [
     CommonModule,
+    HttpClientModule,
+    RouterOutlet,
     HeaderComponent,
-    HeroComponent,
-    ServicesComponent,
-    AboutComponent,
-    ContactComponent,
-    FooterComponent
+    FooterComponent,
+    AdminComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
@@ -28,12 +28,27 @@ export class AppComponent implements OnInit, OnDestroy {
   
   private readonly seoService = inject(SEOService);
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly router = inject(Router);
+  
+  showAdminPanel = false;
+  isAdminRoute = false;
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.initializeSEO();
       this.setupPerformanceMonitoring();
+      this.setupAdminPanelShortcut();
     }
+    
+    // Track route changes
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.isAdminRoute = event.urlAfterRedirects.includes('/admin');
+      });
+      
+    // Check initial route
+    this.isAdminRoute = this.router.url.includes('/admin');
   }
 
   ngOnDestroy(): void {
@@ -93,5 +108,23 @@ export class AppComponent implements OnInit, OnDestroy {
         lazyImages.forEach(img => imageObserver.observe(img));
       }, 0);
     }
+  }
+
+  private setupAdminPanelShortcut(): void {
+    // Admin panel shortcut: Ctrl+Shift+A (or Cmd+Shift+A on Mac)
+    document.addEventListener('keydown', (event: KeyboardEvent) => {
+      if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key === 'A') {
+        event.preventDefault();
+        this.toggleAdminPanel();
+      }
+    });
+  }
+
+  toggleAdminPanel(): void {
+    this.showAdminPanel = !this.showAdminPanel;
+  }
+
+  closeAdminPanel(): void {
+    this.showAdminPanel = false;
   }
 }
