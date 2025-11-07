@@ -214,3 +214,153 @@
     }
   }
 }
+
+// Modal Styles
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+
+  .modal-content {
+    background: white;
+    border-radius: 16px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease-out;
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid #e0e0e0;
+
+      h3 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .close-button {
+        color: var(--text-secondary);
+        
+        &:hover {
+          background: rgba(0, 0, 0, 0.04);
+        }
+      }
+    }
+
+    .contact-form {
+      padding: 2rem;
+
+      mat-form-field {
+        width: 100%;
+        margin-bottom: 1rem;
+
+        &:last-of-type {
+          margin-bottom: 2rem;
+        }
+      }
+
+      .modal-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+
+        .cancel-button {
+          min-width: 100px;
+        }
+
+        .send-button {
+          min-width: 140px;
+
+          mat-icon {
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { 
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// Mobile modal styles
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: 1rem;
+
+    .modal-content {
+      width: 100%;
+      max-width: none;
+
+      .modal-header {
+        padding: 1rem 1.5rem;
+
+        h3 {
+          font-size: 1.3rem;
+        }
+      }
+
+      .contact-form {
+        padding: 1.5rem;
+
+        .modal-actions {
+          flex-direction: column;
+
+          .cancel-button,
+          .send-button {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-overlay {
+    padding: 0.5rem;
+
+    .modal-content {
+      .modal-header {
+        padding: 1rem;
+
+        h3 {
+          font-size: 1.2rem;
+        }
+      }
+
+      .contact-form {
+        padding: 1rem;
+      }
+    }
+  }
+}

@@ -1,8 +1,7 @@
 // Import Angular Material base themes
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
-// Material Icons
-@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+// Material Icons imported via link tag in index.html
 
 /* Custom Material overrides and global styles */
 html, body {
@@ -75,6 +74,74 @@ main {
   position: relative;
   margin-top: 64px; // Compensate for fixed header height
   padding-top: 0;
+  
+  @media (max-width: 768px) {
+    margin-top: 60px; // Medium screens
+  }
+  
+  @media (max-width: 600px) {
+    margin-top: 56px; // Smaller header on mobile
+  }
+  
+  @media (max-width: 480px) {
+    margin-top: 52px; // Even smaller on tiny screens
+  }
+}
+
+// SEO and Performance optimizations
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+// Optimize image loading
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  image-rendering: optimizeQuality;
+  
+  &[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s;
+    
+    &.loaded {
+      opacity: 1;
+    }
+  }
+}
+
+// Critical above-the-fold optimizations
+.above-the-fold {
+  contain: layout style paint;
+  will-change: transform;
+}
+
+// Performance optimizations for animations
+.animate-on-scroll {
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+  
+  &.animate {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Reduce layout shifts
+.skeleton-loader {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 // Custom gradient class for hero section

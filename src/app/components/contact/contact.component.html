@@ -15,7 +15,7 @@
             <mat-icon>email</mat-icon>
             <div>
               <h4>Email Us</h4>
-              <p>vitalie.condor@gmail.com</p>
+              <p>contact@webfirmsolutions.com</p>
             </div>
           </div>
           
@@ -60,3 +60,75 @@
     </mat-card>
   </div>
 </section>
+
+<!-- Contact Modal -->
+<div class="modal-overlay" *ngIf="isModalOpen" (click)="onModalBackdropClick($event)">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>Send Us a Message</h3>
+      <button mat-icon-button (click)="closeModal()" class="close-button">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    
+    <form (ngSubmit)="onSubmit()" class="contact-form">
+      <mat-form-field appearance="outline">
+        <mat-label>Your Name</mat-label>
+        <input 
+          matInput 
+          [(ngModel)]="formData.name" 
+          name="name"
+          required
+          placeholder="Enter your full name"
+        >
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email Address</mat-label>
+        <input 
+          matInput 
+          type="email"
+          [(ngModel)]="formData.email" 
+          name="email"
+          required
+          placeholder="Enter your email address"
+        >
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Your Message</mat-label>
+        <textarea 
+          matInput 
+          [(ngModel)]="formData.message" 
+          name="message"
+          required
+          rows="5"
+          placeholder="Tell us about your project..."
+        ></textarea>
+        <mat-icon matSuffix>message</mat-icon>
+      </mat-form-field>
+
+      <div class="modal-actions">
+        <button 
+          type="button" 
+          mat-stroked-button 
+          (click)="closeModal()"
+          class="cancel-button"
+        >
+          Cancel
+        </button>
+        <button 
+          type="submit" 
+          mat-raised-button 
+          color="primary"
+          class="send-button"
+        >
+          <mat-icon>send</mat-icon>
+          Send Message
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

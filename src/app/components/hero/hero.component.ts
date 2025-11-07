@@ -122,15 +122,21 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
       const heroContent = this.elementRef.nativeElement?.querySelector('.hero-content');
       
       if (heroContent) {
+        // First add initial class for animation setup
+        heroContent.classList.add('initial');
+        
         // Use performance service to measure animation time
         this.performanceService.measureExecutionTime(() => {
           // Use RAF for smooth animation outside Angular zone
           this.ngZone.runOutsideAngular(() => {
             requestAnimationFrame(() => {
+              heroContent.classList.remove('initial');
               heroContent.classList.add('animate');
             });
           });
         }, 'hero-animation-init', 'HeroComponent');
+        
+        this.loggingService.debug('Hero animation initialized successfully', {}, 'HeroComponent');
       } else {
         this.loggingService.warn('Hero content element not found for animation', {}, 'HeroComponent');
       }

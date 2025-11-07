@@ -8,6 +8,11 @@
   height: 64px;
   width: 100% !important;
   background-color: #1976d2 !important;
+  padding: 0 16px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  overflow: hidden;
 
   .logo {
     display: flex;
@@ -34,6 +39,9 @@
   .nav-menu {
     display: flex;
     gap: 4px;
+    align-items: center;
+    flex-shrink: 0;
+    height: 100%;
 
     .nav-button {
       display: flex;
@@ -42,20 +50,41 @@
       padding: 8px 16px;
       border-radius: 4px;
       color: white;
+      white-space: nowrap;
+      min-width: 0;
+      height: 100%;
       
       mat-icon {
         font-size: 20px;
         width: 20px;
         height: 20px;
+        flex-shrink: 0;
       }
 
       .nav-label {
         font-size: 14px;
         font-weight: 500;
+        flex-shrink: 0;
       }
 
       &:hover {
         background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      // When in column mode (mobile)
+      &.mobile-column {
+        flex-direction: column;
+        gap: 0px;
+        justify-content: center;
+        align-items: center;
+        
+        mat-icon {
+          margin-bottom: 0px;
+        }
+        
+        .nav-label {
+          margin-top: 1px;
+        }
       }
     }
   }
@@ -64,30 +93,34 @@
 // Responsive design
 @media (max-width: 768px) {
   .header-toolbar {
-    padding: 0 16px;
+    padding: 0 12px;
+    height: 60px;
 
     .logo {
       font-size: 1.1rem;
+      flex-shrink: 0;
 
       .logo-icon {
-        font-size: 24px;
-        width: 24px;
-        height: 24px;
+        font-size: 22px;
+        width: 22px;
+        height: 22px;
       }
     }
 
     .nav-menu {
+      gap: 2px;
+      
       .nav-button {
-        padding: 6px 12px;
+        padding: 6px 10px;
         
         .nav-label {
-          font-size: 13px;
+          font-size: 12px;
         }
 
         mat-icon {
-          font-size: 18px;
-          width: 18px;
-          height: 18px;
+          font-size: 16px;
+          width: 16px;
+          height: 16px;
         }
       }
     }
@@ -96,24 +129,143 @@
 
 @media (max-width: 600px) {
   .header-toolbar {
-    padding: 0 12px;
+    padding: 0 8px;
+    height: 56px;
+
+    .logo {
+      font-size: 1rem;
+      max-width: 50%;
+
+      .logo-icon {
+        font-size: 18px;
+        width: 18px;
+        height: 18px;
+      }
+
+      .logo-text {
+        font-size: 0.9rem;
+      }
+    }
 
     .nav-menu {
+      gap: 1px;
+      max-width: 50%;
+      overflow: hidden;
+
       .nav-button {
         flex-direction: column;
-        gap: 2px;
-        padding: 8px 8px;
-        min-width: 0;
+        gap: 0px;
+        padding: 2px 6px;
+        min-width: 50px;
+        max-width: 70px;
+        border-radius: 4px;
+        justify-content: center;
+        align-items: center;
 
         .nav-label {
-          font-size: 11px;
+          font-size: 9px;
           line-height: 1;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 100%;
+          margin-top: -2px; // Bring text closer to icon
         }
 
         mat-icon {
-          font-size: 16px;
-          width: 16px;
-          height: 16px;
+          font-size: 14px;
+          width: 14px;
+          height: 14px;
+          margin-bottom: -2px; // Bring icon closer to text
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .header-toolbar {
+    padding: 0 6px;
+    height: 52px;
+
+    .logo {
+      font-size: 0.85rem;
+      max-width: 45%;
+
+      .logo-text {
+        display: none; // Hide text on very small screens
+      }
+
+      .logo-icon {
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .nav-menu {
+      gap: 0;
+      max-width: 55%;
+      justify-content: flex-end;
+
+      .nav-button {
+        padding: 3px 4px;
+        min-width: 45px;
+        max-width: 60px;
+        justify-content: center;
+        align-items: center;
+        
+        .nav-label {
+          font-size: 8px;
+          max-width: 100%;
+          margin-top: -2px; // Bring text closer to icon
+        }
+
+        mat-icon {
+          font-size: 12px;
+          width: 12px;
+          height: 12px;
+          margin-bottom: -2px; // Bring icon closer to text
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .header-toolbar {
+    padding: 0 4px;
+
+    .logo {
+      max-width: 40%;
+      
+      .logo-icon {
+        font-size: 18px;
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    .nav-menu {
+      max-width: 60%;
+      
+      .nav-button {
+        padding: 2px 3px;
+        min-width: 40px;
+        max-width: 50px;
+        justify-content: center;
+        align-items: center;
+        
+        .nav-label {
+          font-size: 7px;
+          margin-top: -2px; // Bring text closer to icon
+        }
+
+        mat-icon {
+          font-size: 11px;
+          width: 11px;
+          height: 11px;
+          margin-bottom: -2px; // Bring icon closer to text
         }
       }
     }

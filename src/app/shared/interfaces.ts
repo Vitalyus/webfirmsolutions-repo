@@ -148,7 +148,7 @@ export type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 export const APP_CONFIG: DeepReadonly<AppConfig> = {
   company: {
     name: 'Web Firm Solutions',
-    email: 'vitalie.condor@gmail.com',
+    email: 'contact@webfirmsolutions.com',
     website: 'https://webfirmsolutions.com/',
   },
   ui: {

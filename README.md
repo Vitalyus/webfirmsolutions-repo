@@ -174,7 +174,7 @@ Acest proiect este licențiat sub MIT License - vezi fișierul [LICENSE](LICENSE
 ## 📞 Contact
 
 **Web Firm Solutions**
-- Email: vitalie.condor@gmail.com
+- Email: contact@webfirmsolutions.com
 - Website: https://webfirmsolutions.com/
 
 ---

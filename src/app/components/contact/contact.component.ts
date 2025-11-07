@@ -3,6 +3,7 @@ import {
   ElementRef, 
   OnInit, 
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   inject 
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -40,6 +41,7 @@ export class ContactComponent implements OnInit {
   private readonly dialog = inject(MatDialog);
   private readonly snackBar = inject(MatSnackBar);
   private readonly formBuilder = inject(FormBuilder);
+  private readonly cdr = inject(ChangeDetectorRef);
 
   contactForm: FormGroup;
   isModalOpen = false;
@@ -89,10 +91,12 @@ export class ContactComponent implements OnInit {
 
   openModal(): void {
     this.isModalOpen = true;
+    this.cdr.markForCheck();
   }
 
   closeModal(): void {
     this.isModalOpen = false;
+    this.cdr.markForCheck();
   }
 
   onModalBackdropClick(event: Event): void {
@@ -145,6 +149,7 @@ export class ContactComponent implements OnInit {
   }
 
   openContactDialog(): void {
+    console.log('Opening contact modal...');
     this.openModal();
   }
 }
