@@ -110,6 +110,47 @@
         <mat-icon matSuffix>message</mat-icon>
       </mat-form-field>
 
+      <!-- Honeypot field for bot detection (hidden) -->
+      <input 
+        type="text" 
+        [(ngModel)]="honeypotField" 
+        name="website"
+        style="position: absolute; left: -9999px; visibility: hidden;"
+        tabindex="-1"
+        autocomplete="off"
+      >
+
+      <!-- Captcha Challenge -->
+      <div class="captcha-section" *ngIf="captchaChallenge">
+        <div class="captcha-challenge">
+          <mat-icon class="captcha-icon">quiz</mat-icon>
+          <span class="captcha-question">{{ captchaChallenge.question }}</span>
+          <button 
+            type="button" 
+            mat-icon-button 
+            (click)="refreshCaptcha()"
+            matTooltip="Generate new challenge"
+            class="refresh-captcha"
+          >
+            <mat-icon>refresh</mat-icon>
+          </button>
+        </div>
+        
+        <mat-form-field appearance="outline" class="captcha-input">
+          <mat-label>Your Answer</mat-label>
+          <input 
+            matInput 
+            type="number"
+            [(ngModel)]="formData.captcha" 
+            name="captcha"
+            required
+            placeholder="Enter the answer"
+            autocomplete="off"
+          >
+          <mat-icon matSuffix>calculate</mat-icon>
+        </mat-form-field>
+      </div>
+
       <div class="modal-actions">
         <button 
           type="button" 

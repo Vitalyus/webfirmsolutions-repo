@@ -75,6 +75,67 @@ async function saveMessages(messages) {
   }
 }
 
+// Simple in-memory captcha store (in production, use Redis or similar)
+const captchaStore = new Map();
+
+// Generate mathematical captcha
+function generateCaptcha() {
+  const operations = [
+    { symbol: '+', operation: (a, b) => a + b },
+    { symbol: '-', operation: (a, b) => a - b },
+    { symbol: '*', operation: (a, b) => a * b }
+  ];
+
+  const num1 = Math.floor(Math.random() * 10) + 1;
+  const num2 = Math.floor(Math.random() * 10) + 1;
+  const operation = operations[Math.floor(Math.random() * operations.length)];
+  
+  let firstNum = num1;
+  let secondNum = num2;
+  if (operation.symbol === '-' && num1 < num2) {
+    firstNum = num2;
+    secondNum = num1;
+  }
+  
+  if (operation.symbol === '*') {
+    firstNum = Math.floor(Math.random() * 5) + 1;
+    secondNum = Math.floor(Math.random() * 5) + 1;
+  }
+
+  const answer = operation.operation(firstNum, secondNum);
+  const question = `${firstNum} ${operation.symbol} ${secondNum}`;
+  const id = Math.random().toString(36).substring(2, 15);
+
+  captchaStore.set(id, { answer, timestamp: Date.now() });
+  
+  // Clean old captchas (older than 10 minutes)
+  setTimeout(() => captchaStore.delete(id), 10 * 60 * 1000);
+
+  return { question, id };
+}
+
+// Validate captcha
+function validateCaptcha(captchaId, userAnswer) {
+  const stored = captchaStore.get(captchaId);
+  if (!stored) {
+    return false;
+  }
+  
+  // Check if captcha is expired (10 minutes)
+  if (Date.now() - stored.timestamp > 10 * 60 * 1000) {
+    captchaStore.delete(captchaId);
+    return false;
+  }
+  
+  const numericAnswer = parseInt(userAnswer, 10);
+  const isValid = !isNaN(numericAnswer) && numericAnswer === stored.answer;
+  
+  // Remove captcha after validation attempt
+  captchaStore.delete(captchaId);
+  
+  return isValid;
+}
+
 // Validate contact form data
 function validateContactData(data) {
   const { name, email, message } = data;
@@ -105,6 +166,23 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// Generate captcha
+app.get('/api/captcha', (req, res) => {
+  try {
+    const captcha = generateCaptcha();
+    res.json({
+      success: true,
+      captcha
+    });
+  } catch (error) {
+    console.error('Captcha generation error:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to generate captcha'
+    });
+  }
+});
+
 // Submit contact form
 app.post('/api/contact', async (req, res) => {
   try {
@@ -117,7 +195,17 @@ app.post('/api/contact', async (req, res) => {
       });
     }
     
-    const { name, email, message } = req.body;
+    const { name, email, message, captcha, captchaId } = req.body;
+    
+    // Validate captcha if provided
+    if (captcha && captchaId) {
+      if (!validateCaptcha(captchaId, captcha)) {
+        return res.status(400).json({
+          success: false,
+          error: 'Invalid or expired captcha. Please try again.'
+        });
+      }
+    }
     
     // Create message object
     const newMessage = {

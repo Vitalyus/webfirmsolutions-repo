@@ -45,10 +45,15 @@ export class MessageService {
   /**
    * Submit contact form message
    */
-  submitMessage(formData: ContactFormData): Observable<ContactSubmissionResponse> {
+  submitMessage(formData: ContactFormData, captchaId?: string): Observable<ContactSubmissionResponse> {
     console.log('MessageService: Submitting contact message', { email: formData.email });
     
-    return this.http.post<ContactSubmissionResponse>(`${this.API_BASE_URL}/contact`, formData)
+    const payload = {
+      ...formData,
+      captchaId
+    };
+    
+    return this.http.post<ContactSubmissionResponse>(`${this.API_BASE_URL}/contact`, payload)
       .pipe(
         retry(2),
         tap(response => {

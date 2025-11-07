@@ -275,6 +275,58 @@
         }
       }
 
+      // Captcha section styles
+      .captcha-section {
+        margin: 16px 0;
+        padding: 16px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+        
+        .captcha-challenge {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 12px;
+          padding: 12px;
+          background-color: white;
+          border-radius: 6px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+          
+          .captcha-icon {
+            color: var(--primary-color);
+            font-size: 20px;
+          }
+          
+          .captcha-question {
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: 2px;
+            flex: 1;
+          }
+          
+          .refresh-captcha {
+            color: var(--accent-color);
+            
+            &:hover {
+              background-color: rgba(255, 193, 7, 0.1);
+            }
+          }
+        }
+        
+        .captcha-input {
+          width: 200px;
+          
+          input {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+          }
+        }
+      }
+
       .modal-actions {
         display: flex;
         gap: 1rem;

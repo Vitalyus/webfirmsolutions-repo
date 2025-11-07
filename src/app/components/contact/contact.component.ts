@@ -16,8 +16,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpClientModule } from '@angular/common/http';
-import { ContactFormData } from '../../shared/interfaces';
+import { ContactFormData, CaptchaChallenge } from '../../shared/interfaces';
+import { CaptchaService } from '../../services/captcha.service';
 import { MessageService } from '../../services/message.service';
 
 @Component({
@@ -35,6 +37,7 @@ import { MessageService } from '../../services/message.service';
     MatDialogModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
+    MatTooltipModule,
     HttpClientModule
   ],
   templateUrl: './contact.component.html',
@@ -48,24 +51,32 @@ export class ContactComponent implements OnInit {
   private readonly formBuilder = inject(FormBuilder);
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly messageService = inject(MessageService);
+  private readonly captchaService = inject(CaptchaService);
 
   contactForm: FormGroup;
   isModalOpen = false;
   isSubmitting = false;
+  captchaChallenge: CaptchaChallenge | null = null;
+  honeypotField = '';
 
   // Legacy formData property for template compatibility
-  formData: ContactFormData = {
+  formData = {
     name: '',
     email: '',
-    message: ''
+    message: '',
+    captcha: ''
   };
 
   constructor() {
     this.contactForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
-      message: ['', [Validators.required, Validators.minLength(10)]]
+      message: ['', [Validators.required, Validators.minLength(10)]],
+      captcha: ['', [Validators.required]]
     });
+    
+    // Generate initial captcha challenge
+    this.generateNewCaptcha();
   }
 
   ngOnInit(): void {
@@ -98,6 +109,7 @@ export class ContactComponent implements OnInit {
 
   openModal(): void {
     this.isModalOpen = true;
+    this.generateNewCaptcha();
     this.cdr.markForCheck();
   }
 
@@ -114,17 +126,38 @@ export class ContactComponent implements OnInit {
 
   onSubmit(): void {
     try {
+      // Check honeypot field for bot detection
+      if (this.honeypotField && this.honeypotField.trim() !== '') {
+        console.warn('Bot detected via honeypot field');
+        return;
+      }
+      
+      // Validate captcha
+      if (!this.captchaChallenge || !this.formData.captcha || 
+          !this.captchaService.validateAnswer(this.formData.captcha, this.captchaChallenge.id)) {
+        this.snackBar.open(
+          'Please solve the captcha correctly.',
+          '⚠️',
+          {
+            duration: 3000,
+            panelClass: ['warning-snackbar']
+          }
+        );
+        this.generateNewCaptcha();
+        return;
+      }
+
       if (this.formData.name && this.formData.email && this.formData.message) {
         this.isSubmitting = true;
         this.cdr.markForCheck();
         
         // Submit message via MessageService
-        this.messageService.submitMessage(this.formData).subscribe({
+        this.messageService.submitMessage(this.formData, this.captchaChallenge?.id).subscribe({
           next: (response) => {
             console.log('Message submitted successfully:', response);
             
             // Reset form
-            this.formData = { name: '', email: '', message: '' };
+            this.formData = { name: '', email: '', message: '', captcha: '' };
             this.isSubmitting = false;
             this.closeModal();
             
@@ -143,6 +176,7 @@ export class ContactComponent implements OnInit {
           error: (error) => {
             console.error('Message submission failed:', error);
             this.isSubmitting = false;
+            this.generateNewCaptcha(); // Generate new captcha on error
             this.cdr.markForCheck();
             
             this.snackBar.open(
@@ -184,5 +218,15 @@ export class ContactComponent implements OnInit {
   openContactDialog(): void {
     console.log('Opening contact modal...');
     this.openModal();
+  }
+
+  generateNewCaptcha(): void {
+    this.captchaChallenge = this.captchaService.generateChallenge();
+    this.formData.captcha = ''; // Clear previous answer
+    this.cdr.markForCheck();
+  }
+
+  refreshCaptcha(): void {
+    this.generateNewCaptcha();
   }
 }

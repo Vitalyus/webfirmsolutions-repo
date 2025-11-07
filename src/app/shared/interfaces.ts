@@ -47,6 +47,7 @@ export interface ContactFormData {
   readonly phone?: string;
   readonly company?: string;
   readonly source?: ContactSource;
+  readonly captcha?: string;
 }
 
 /** Contact dialog configuration */
@@ -59,6 +60,13 @@ export interface ContactDialogData {
 export interface ContactDialogResult {
   readonly action: 'sent' | 'cancelled';
   readonly data?: ContactFormData;
+}
+
+/** Mathematical captcha challenge */
+export interface CaptchaChallenge {
+  readonly question: string;
+  readonly answer: number;
+  readonly id: string;
 }
 
 // =============================================================================
