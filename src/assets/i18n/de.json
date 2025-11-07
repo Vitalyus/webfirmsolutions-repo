@@ -1,0 +1,129 @@
+{
+  "navigation": {
+    "menu": "Hauptnavigation",
+    "services": "Dienstleistungen",
+    "about": "Über uns",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "title": "Verwandeln Sie Ihre Ideen in",
+    "titleAccent": "Ultra-interaktive",
+    "titleEnd": "Web-Erlebnisse",
+    "subtitle": "Mit über 20 Jahren internationaler Erfahrung erstellen wir interaktive, SEO-optimierte Websites, die Sichtbarkeit und Conversions steigern. Spezialisiert auf Angular, React und moderne Web-Technologien.",
+    "seoContent": "Professionelle Webdesign- und Frontend-Entwicklungsdienstleistungen. Experten in responsivem Design, Benutzererfahrungsoptimierung und modernen Web-Technologien. Wir betreuen Kunden weltweit mit Premium-Web-Entwicklungslösungen.",
+    "ctaButton": "Lassen Sie uns anfangen",
+    "secondaryButton": "Unsere Arbeiten ansehen",
+    "ctaAriaLabel": "Kontaktieren Sie uns, um Ihr Projekt zu starten",
+    "secondaryAriaLabel": "Unsere Dienstleistungen und Portfolio ansehen",
+    "features": {
+      "performance": {
+        "title": "Schnelle Leistung",
+        "description": "Blitzschnelle Ladezeiten"
+      },
+      "mobile": {
+        "title": "Mobile First",
+        "description": "Responsive auf allen Geräten"
+      },
+      "seo": {
+        "title": "SEO optimiert",
+        "description": "Für Suchmaschinen entwickelt"
+      }
+    }
+  },
+  "services": {
+    "title": "Unsere Premium-Dienstleistungen",
+    "subtitle": "Wir liefern hochmoderne Lösungen, die auf Ihre Geschäftsanforderungen zugeschnitten sind",
+    "learnMore": "Mehr erfahren",
+    "learnMoreAbout": "Mehr erfahren über",
+    "web-design-ux-ui": {
+      "title": "Webdesign & UX/UI",
+      "description": "Intuitive, visuell beeindruckende Designs, die Benutzer begeistern und höhere Conversion-Raten auf allen Geräten fördern."
+    },
+    "advanced-frontend-development": {
+      "title": "Erweiterte Frontend-Entwicklung",
+      "description": "Hochleistungs-Web-Apps mit React, Angular, Vue oder Vanilla JS, vollständig für SEO und Geschwindigkeit optimiert."
+    },
+    "technical-consulting-seo": {
+      "title": "Technische Beratung & SEO",
+      "description": "Skalierbare, sichere und hochleistungsfähige Strategien zur Maximierung des Geschäftseinflusses und der Sichtbarkeit in Suchmaschinen."
+    }
+  },
+  "about": {
+    "title": "Über uns",
+    "teamImage": "Unser Team",
+    "description1": "Wir sind ein Team von Frontend-Experten mit internationaler Erfahrung, die bei Google, Amazon und Facebook gearbeitet haben. Wir verwandeln komplexe Ideen in elegante, effiziente Web-Lösungen.",
+    "description2": "Jedes Projekt erhält einen personalisierten Ansatz, der sich auf Benutzer und Leistung konzentriert und messbare Ergebnisse für unsere Kunden liefert."
+  },
+  "contact": {
+    "title": "Lassen Sie uns zusammenarbeiten",
+    "subtitle": "Bereit, Ihre Ideen in die Realität umzusetzen?",
+    "name": "Name",
+    "email": "E-Mail",
+    "company": "Unternehmen (optional)",
+    "subject": "Betreff",
+    "message": "Nachricht",
+    "captcha": "Lösen Sie: {{question}}",
+    "send": "Nachricht senden",
+    "sending": "Wird gesendet...",
+    "success": "Danke! Ihre Nachricht wurde erfolgreich gesendet.",
+    "error": "Entschuldigung, beim Senden der Nachricht ist ein Fehler aufgetreten.",
+    "validation": {
+      "nameRequired": "Name ist erforderlich",
+      "emailRequired": "E-Mail ist erforderlich",
+      "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+      "subjectRequired": "Betreff ist erforderlich",
+      "messageRequired": "Nachricht ist erforderlich",
+      "captchaRequired": "Bitte lösen Sie die Aufgabe",
+      "captchaIncorrect": "Falsche Antwort auf die Aufgabe"
+    }
+  },
+  "admin": {
+    "title": "Admin-Panel",
+    "accessKey": "Zugriffsschlüssel",
+    "login": "Anmelden",
+    "loginError": "Falscher Zugriffsschlüssel",
+    "messages": "Nachrichten",
+    "noMessages": "Keine Nachrichten",
+    "exportJson": "JSON exportieren",
+    "exportCsv": "CSV exportieren",
+    "refresh": "Aktualisieren",
+    "date": "Datum",
+    "name": "Name",
+    "email": "E-Mail",
+    "company": "Unternehmen",
+    "subject": "Betreff",
+    "message": "Nachricht",
+    "actions": "Aktionen"
+  },
+  "common": {
+    "language": "Sprache ändern",
+    "loading": "Wird geladen...",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "close": "Schließen",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "save": "Speichern",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Vorherig",
+    "search": "Suchen",
+    "filter": "Filter",
+    "sort": "Sortieren",
+    "all": "Alle",
+    "none": "Keine",
+    "yes": "Ja",
+    "no": "Nein"
+  },
+  "footer": {
+    "copyright": "© {{year}} Web Firm Solutions. Alle Rechte vorbehalten.",
+    "websiteAriaLabel": "Besuchen Sie unsere Website unter webfirmsolutions.com"
+  },
+  "seo": {
+    "title": "Web Firm Solutions - Professionelle Webentwicklung und Design",
+    "description": "Experten-Webentwicklungsdienstleistungen, Frontend-Entwicklung und UX/UI-Design. Spezialisiert auf Angular, React und moderne Web-Technologien mit über 20 Jahren Erfahrung.",
+    "keywords": "Webentwicklung, Frontend-Entwicklung, Webdesign, UX UI Design, Angular Entwicklung, React Entwicklung, professionelle Websites, SEO Optimierung"
+  }
+}

@@ -16,7 +16,7 @@ export class TranslationService {
   private readonly http = inject(HttpClient);
   
   // Available languages
-  private readonly supportedLanguages: Language[] = ['en', 'ro', 'uk'];
+  private readonly supportedLanguages: Language[] = ['en', 'ro', 'uk', 'de', 'fr'];
   private readonly defaultLanguage: Language = 'en';
   
   // Current language state
@@ -176,6 +176,48 @@ export class TranslationService {
         'footer.copyright': '© {{year}} Web Firm Solutions. Всі права захищені.'
       };
       return ukFallbackMap[keyPath] || keyPath;
+    }
+
+    // If current language is German, provide German fallbacks
+    if (this.currentLanguageSignal() === 'de') {
+      const deFallbackMap: Record<string, string> = {
+        'navigation.menu': 'Hauptnavigation',
+        'navigation.services': 'Dienstleistungen',
+        'navigation.about': 'Über uns',
+        'navigation.contact': 'Kontakt',
+        'common.language': 'Sprache ändern',
+        'hero.title': 'Verwandeln Sie Ihre Ideen in',
+        'hero.titleAccent': 'Ultra-interaktive',
+        'hero.titleEnd': 'Web-Erlebnisse',
+        'hero.subtitle': 'Mit über 20 Jahren internationaler Erfahrung erstellen wir interaktive, SEO-optimierte Websites, die Sichtbarkeit und Conversions steigern.',
+        'services.title': 'Unsere Premium-Dienstleistungen',
+        'services.subtitle': 'Wir liefern hochmoderne Lösungen, die auf Ihre Geschäftsanforderungen zugeschnitten sind',
+        'about.title': 'Über uns',
+        'contact.title': 'Lassen Sie uns zusammenarbeiten',
+        'footer.copyright': '© {{year}} Web Firm Solutions. Alle Rechte vorbehalten.'
+      };
+      return deFallbackMap[keyPath] || keyPath;
+    }
+
+    // If current language is French, provide French fallbacks
+    if (this.currentLanguageSignal() === 'fr') {
+      const frFallbackMap: Record<string, string> = {
+        'navigation.menu': 'Navigation principale',
+        'navigation.services': 'Services',
+        'navigation.about': 'À propos',
+        'navigation.contact': 'Contact',
+        'common.language': 'Changer de langue',
+        'hero.title': 'Transformez vos idées en',
+        'hero.titleAccent': 'Expériences Web Ultra-interactives',
+        'hero.titleEnd': '',
+        'hero.subtitle': 'Avec plus de 20 ans d\'expérience internationale, nous créons des sites web interactifs et optimisés SEO qui augmentent la visibilité et les conversions.',
+        'services.title': 'Nos Services Premium',
+        'services.subtitle': 'Nous livrons des solutions de pointe adaptées aux besoins de votre entreprise',
+        'about.title': 'À propos de nous',
+        'contact.title': 'Travaillons ensemble',
+        'footer.copyright': '© {{year}} Web Firm Solutions. Tous droits réservés.'
+      };
+      return frFallbackMap[keyPath] || keyPath;
     }
     
     return fallbackMap[keyPath] || keyPath;

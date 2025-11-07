@@ -33,7 +33,7 @@ import { Language, LanguageOption } from '../../shared/interfaces';
               *ngFor="let language of availableLanguages()"
               (click)="selectLanguage(language.code)"
               [class.active]="language.code === currentLanguageCode()"
-              class="language-option">
+              class="language-option mat-mdc-menu-item">
         <span class="language-flag">{{ language.flag }}</span>
         <span class="language-name">{{ language.name }}</span>
         <mat-icon *ngIf="language.code === currentLanguageCode()"
