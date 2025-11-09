@@ -1,7 +1,10 @@
 import { Injectable, inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { filter, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { TranslationService } from './translation.service';
 
 export interface SEOData {
   title?: string;
@@ -15,6 +18,26 @@ export interface SEOData {
   modifiedTime?: string;
 }
 
+export interface SEOMetaData {
+  meta: {
+    title: string;
+    description: string;
+    keywords: string;
+    author: string;
+    ogTitle: string;
+    ogDescription: string;
+    twitterTitle: string;
+    twitterDescription: string;
+  };
+  schema: {
+    organizationName: string;
+    organizationDescription: string;
+    serviceAreaServed: string;
+    priceRange: string;
+    services: string[];
+  };
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,9 +45,12 @@ export class SEOService {
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
   private readonly router = inject(Router);
+  private readonly http = inject(HttpClient);
+  private readonly translationService = inject(TranslationService);
 
   constructor() {
     this.initializeRouteTracking();
+    this.initializeLanguageTracking();
   }
 
   private initializeRouteTracking(): void {
@@ -33,6 +59,51 @@ export class SEOService {
       .subscribe((event: NavigationEnd) => {
         this.updateCanonicalUrl(event.urlAfterRedirects);
       });
+  }
+
+  private initializeLanguageTracking(): void {
+    // Watch for language changes and update SEO
+    this.translationService.currentLanguage$.subscribe(language => {
+      this.loadSEOForLanguage(language);
+    });
+  }
+
+  private loadSEOForLanguage(language: string): void {
+    const seoPath = `/assets/i18n/seo/${language}.json`;
+    
+    this.http.get<SEOMetaData>(seoPath)
+      .pipe(
+        catchError(error => {
+          console.warn(`Failed to load SEO data for language ${language}, using English fallback`, error);
+          return this.http.get<SEOMetaData>('/assets/i18n/seo/en.json');
+        })
+      )
+      .subscribe(seoData => {
+        this.applySEOData(seoData);
+      });
+  }
+
+  private applySEOData(seoData: SEOMetaData): void {
+    // Update title
+    this.title.setTitle(seoData.meta.title);
+    
+    // Update meta tags
+    this.updateMetaTag('name', 'description', seoData.meta.description);
+    this.updateMetaTag('name', 'keywords', seoData.meta.keywords);
+    this.updateMetaTag('name', 'author', seoData.meta.author);
+    
+    // Update Open Graph
+    this.updateMetaTag('property', 'og:title', seoData.meta.ogTitle);
+    this.updateMetaTag('property', 'og:description', seoData.meta.ogDescription);
+    this.updateMetaTag('property', 'og:type', 'website');
+    
+    // Update Twitter Card
+    this.updateMetaTag('name', 'twitter:card', 'summary_large_image');
+    this.updateMetaTag('name', 'twitter:title', seoData.meta.twitterTitle);
+    this.updateMetaTag('name', 'twitter:description', seoData.meta.twitterDescription);
+    
+    // Update structured data
+    this.updateOrganizationSchema(seoData.schema);
   }
 
   updateSEO(data: SEOData): void {
@@ -127,6 +198,33 @@ export class SEOService {
     script.type = 'application/ld+json';
     script.text = JSON.stringify(data);
     document.head.appendChild(script);
+  }
+
+  private updateOrganizationSchema(schemaData: SEOMetaData['schema']): void {
+    const organizationSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      'name': schemaData.organizationName,
+      'description': schemaData.organizationDescription,
+      'url': 'https://webfirmsolutions.com',
+      'logo': 'https://webfirmsolutions.com/assets/logo.png',
+      'email': 'contact@webfirmsolutions.com',
+      'areaServed': schemaData.serviceAreaServed,
+      'priceRange': schemaData.priceRange,
+      'hasOfferCatalog': {
+        '@type': 'OfferCatalog',
+        'name': 'Web Development Services',
+        'itemListElement': schemaData.services.map(service => ({
+          '@type': 'Offer',
+          'itemOffered': {
+            '@type': 'Service',
+            'name': service
+          }
+        }))
+      }
+    };
+    
+    this.updateStructuredData(organizationSchema);
   }
 
   private updateMetaTag(attrName: string, attrValue: string, content: string): void {

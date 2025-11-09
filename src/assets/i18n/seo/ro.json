@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "title": "Web Firm Solutions - Servicii Premium de Web Design și Dezvoltare Frontend",
+    "description": "Servicii profesionale de web design și dezvoltare frontend cu peste 20 de ani de experiență internațională. Specializați în Angular, React și tehnologii web moderne pentru experiențe de utilizator excepționale.",
+    "keywords": "web design, dezvoltare frontend, UX/UI, optimizare SEO, dezvoltare Angular, dezvoltare React, design responsive, consultanță tehnică, servicii web premium, dezvoltare web internațională",
+    "author": "Web Firm Solutions",
+    "ogTitle": "Web Firm Solutions - Transformă-ți Ideile în Experiențe Web Ultra Interactive",
+    "ogDescription": "Servicii experte de web design și dezvoltare frontend. Peste 20 de ani de experiență în crearea de site-uri optimizate SEO, de înaltă performanță, care cresc vizibilitatea și conversiile.",
+    "twitterTitle": "Web Firm Solutions - Dezvoltare Web Premium",
+    "twitterDescription": "Servicii profesionale de web design și dezvoltare frontend. Angular, React, tehnologii web moderne. Peste 20 de ani de experiență internațională."
+  },
+  "schema": {
+    "organizationName": "Web Firm Solutions",
+    "organizationDescription": "Companie lider în web design și dezvoltare frontend cu experiență internațională",
+    "serviceAreaServed": "În întreaga lume",
+    "priceRange": "$$$$",
+    "services": [
+      "Web Design & UX/UI",
+      "Dezvoltare Frontend Avansată",
+      "Consultanță Tehnică & SEO"
+    ]
+  }
+}

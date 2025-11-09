@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "title": "Web Firm Solutions - Conception Web Premium et Développement Frontend",
+    "description": "Services professionnels de conception web et développement frontend avec plus de 20 ans d'expérience internationale. Spécialisés en Angular, React et technologies web modernes pour des expériences utilisateur exceptionnelles.",
+    "keywords": "conception web, développement frontend, UX/UI, optimisation SEO, développement Angular, développement React, design responsive, conseil technique, services web premium, développement web international",
+    "author": "Web Firm Solutions",
+    "ogTitle": "Web Firm Solutions - Transformez Vos Idées en Expériences Web Ultra-Interactives",
+    "ogDescription": "Services experts de conception web et développement frontend. Plus de 20 ans d'expérience dans la création de sites web optimisés SEO et haute performance qui augmentent la visibilité et les conversions.",
+    "twitterTitle": "Web Firm Solutions - Développement Web Premium",
+    "twitterDescription": "Services professionnels de conception web et développement frontend. Angular, React, technologies web modernes. Plus de 20 ans d'expérience internationale."
+  },
+  "schema": {
+    "organizationName": "Web Firm Solutions",
+    "organizationDescription": "Entreprise leader en conception web et développement frontend avec expérience internationale",
+    "serviceAreaServed": "Dans le monde entier",
+    "priceRange": "$$$$",
+    "services": [
+      "Conception Web & UX/UI",
+      "Développement Frontend Avancé",
+      "Conseil Technique & SEO"
+    ]
+  }
+}
