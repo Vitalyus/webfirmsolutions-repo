@@ -36,7 +36,11 @@ export class TranslationService {
   constructor() {
     // Load default language on initialization
     console.log('TranslationService: Constructor called');
-    const targetLanguage = this.getStoredLanguage() || this.defaultLanguage;
+    
+    // Detect user's language based on browser/location
+    const detectedLanguage = this.detectUserLanguage();
+    const targetLanguage = this.getStoredLanguage() || detectedLanguage;
+    console.log('TranslationService: Detected language:', detectedLanguage);
     console.log('TranslationService: Target language:', targetLanguage);
     
     // Subscribe to the observable to actually trigger the HTTP request
@@ -48,6 +52,47 @@ export class TranslationService {
         console.error('TranslationService: Loading failed:', error);
       }
     });
+  }
+
+  /**
+   * Detect user's preferred language based on browser settings
+   */
+  private detectUserLanguage(): Language {
+    if (typeof window === 'undefined' || !window.navigator) {
+      return this.defaultLanguage;
+    }
+
+    // Get browser language (e.g., 'en-US', 'ro-RO', 'uk-UA')
+    const browserLang = window.navigator.language || (window.navigator as any).userLanguage;
+    
+    if (!browserLang) {
+      return this.defaultLanguage;
+    }
+
+    // Extract language code (first 2 characters)
+    const langCode = browserLang.toLowerCase().substring(0, 2);
+    
+    // Map language codes to supported languages
+    const languageMap: Record<string, Language> = {
+      'en': 'en', // English
+      'ro': 'ro', // Romanian
+      'uk': 'uk', // Ukrainian
+      'ru': 'uk', // Russian -> Ukrainian (given the context)
+      'de': 'de', // German
+      'fr': 'fr', // French
+      'es': 'es'  // Spanish
+    };
+
+    const mappedLang = languageMap[langCode];
+    
+    // Return mapped language if supported, otherwise default
+    if (mappedLang && this.supportedLanguages.includes(mappedLang)) {
+      console.log(`TranslationService: Detected language "${langCode}" mapped to "${mappedLang}"`);
+      return mappedLang;
+    }
+
+    console.log(`TranslationService: Language "${langCode}" not supported, using default "${this.defaultLanguage}"`);
+    return this.defaultLanguage;
   }
 
   /**
