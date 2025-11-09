@@ -1,0 +1,166 @@
+<div class="admin-container">
+  <mat-card class="admin-card">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>admin_panel_settings</mat-icon>
+        {{ 'admin.title' | translate }}
+      </mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <!-- Login Section -->
+      <div *ngIf="!isAuthenticated" class="login-section">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ 'admin.login.keyLabel' | translate }}</mat-label>
+          <input matInput 
+                 type="password" 
+                 [(ngModel)]="adminKey" 
+                 (keyup.enter)="login()"
+                 [placeholder]="'admin.login.keyPlaceholder' | translate">
+        </mat-form-field>
+        <button mat-raised-button 
+                color="primary" 
+                (click)="login()"
+                [disabled]="!adminKey">
+          {{ 'admin.login.loginButton' | translate }}
+        </button>
+      </div>
+
+      <!-- Messages Section -->
+      <div *ngIf="isAuthenticated">
+        <div class="admin-actions">
+          <button mat-raised-button 
+                  color="primary" 
+                  (click)="loadMessages()"
+                  [disabled]="isLoading">
+            <mat-icon>refresh</mat-icon>
+            {{ 'admin.messages.refresh' | translate }}
+          </button>
+          
+          <button mat-raised-button 
+                  color="accent" 
+                  (click)="exportJSON()"
+                  [disabled]="messages.length === 0">
+            <mat-icon>download</mat-icon>
+            {{ 'admin.messages.exportJson' | translate }}
+          </button>
+          
+          <button mat-raised-button 
+                  color="accent" 
+                  (click)="exportCSV()"
+                  [disabled]="messages.length === 0">
+            <mat-icon>table_chart</mat-icon>
+            {{ 'admin.messages.exportCsv' | translate }}
+          </button>
+          
+          <button mat-raised-button 
+                  color="warn" 
+                  (click)="clearLocal()">
+            <mat-icon>clear_all</mat-icon>
+            {{ 'admin.messages.clearLocal' | translate }}
+          </button>
+        </div>
+
+        <div *ngIf="isLoading" class="loading-section">
+          <mat-spinner diameter="40"></mat-spinner>
+          <p>{{ 'admin.messages.loading' | translate }}</p>
+        </div>
+
+        <div *ngIf="!isLoading && messages.length === 0" class="no-messages">
+          <mat-icon>inbox</mat-icon>
+          <p>{{ 'admin.messages.noMessages' | translate }}</p>
+        </div>
+
+        <!-- Messages Table -->
+        <div *ngIf="!isLoading && messages.length > 0" class="messages-table">
+          <table mat-table [dataSource]="messages" class="full-width">
+            <!-- Status Column -->
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef>{{ 'admin.messages.columns.status' | translate }}</th>
+              <td mat-cell *matCellDef="let message">
+                <mat-chip-set>
+                  <mat-chip [class]="'status-' + message.status">
+                    {{message.status | uppercase}}
+                  </mat-chip>
+                </mat-chip-set>
+              </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>{{ 'admin.messages.columns.name' | translate }}</th>
+              <td mat-cell *matCellDef="let message">{{message.name}}</td>
+            </ng-container>
+
+            <!-- Email Column -->
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef>{{ 'admin.messages.columns.email' | translate }}</th>
+              <td mat-cell *matCellDef="let message">
+                <a [href]="'mailto:' + message.email">{{message.email}}</a>
+              </td>
+            </ng-container>
+
+            <!-- Message Column -->
+            <ng-container matColumnDef="message">
+              <th mat-header-cell *matHeaderCellDef>{{ 'admin.messages.columns.message' | translate }}</th>
+              <td mat-cell *matCellDef="let message" class="message-cell">
+                <div class="message-preview" [title]="message.message">
+                  {{message.message.length > 100 ? (message.message | slice:0:100) + '...' : message.message}}
+                </div>
+              </td>
+            </ng-container>
+
+            <!-- Timestamp Column -->
+            <ng-container matColumnDef="timestamp">
+              <th mat-header-cell *matHeaderCellDef>{{ 'admin.messages.columns.timestamp' | translate }}</th>
+              <td mat-cell *matCellDef="let message">
+                {{message.timestamp | date:'short'}}
+              </td>
+            </ng-container>
+
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef>{{ 'admin.messages.columns.actions' | translate }}</th>
+              <td mat-cell *matCellDef="let message">
+                <button mat-icon-button 
+                        *ngIf="message.status === 'new'"
+                        (click)="markAsRead(message.id)"
+                        [matTooltip]="'admin.messages.markAsRead' | translate">
+                  <mat-icon>mark_email_read</mat-icon>
+                </button>
+                <button mat-icon-button 
+                        (click)="viewMessage(message)"
+                        [matTooltip]="'admin.messages.viewMessage' | translate">
+                  <mat-icon>visibility</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+
+        <!-- Statistics -->
+        <div *ngIf="messages.length > 0" class="statistics">
+          <mat-card class="stat-card">
+            <mat-card-content>
+              <div class="stat-item">
+                <span class="stat-label">{{ 'admin.messages.total' | translate }}:</span>
+                <span class="stat-value">{{messages.length}}</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">{{ 'admin.messages.new' | translate }}:</span>
+                <span class="stat-value new">{{getNewMessagesCount()}}</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">{{ 'admin.messages.read' | translate }}:</span>
+                <span class="stat-value read">{{getReadMessagesCount()}}</span>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

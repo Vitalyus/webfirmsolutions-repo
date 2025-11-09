@@ -67,6 +67,32 @@
     "sending": "Wird gesendet...",
     "success": "Danke! Ihre Nachricht wurde erfolgreich gesendet.",
     "error": "Entschuldigung, beim Senden der Nachricht ist ein Fehler aufgetreten.",
+    "emailUs": "Schreiben Sie uns",
+    "responseTime": "Antwortzeit",
+    "within24Hours": "Innerhalb von 24 Stunden",
+    "basedIn": "Standort",
+    "availableWorldwide": "Weltweit verfügbar",
+    "sendMessage": "Nachricht senden",
+    "scheduleCall": "Anruf vereinbaren",
+    "modal": {
+      "title": "Senden Sie uns eine Nachricht",
+      "name": "Ihr Name",
+      "namePlaceholder": "Geben Sie Ihren vollständigen Namen ein",
+      "email": "E-Mail-Adresse",
+      "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
+      "message": "Ihre Nachricht",
+      "messagePlaceholder": "Erzählen Sie uns von Ihrem Projekt...",
+      "sendMessage": "Nachricht senden",
+      "sending": "Wird gesendet...",
+      "cancel": "Abbrechen",
+      "success": "Nachricht erfolgreich gesendet! Wir werden uns in Kürze bei Ihnen melden.",
+      "error": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.",
+      "captcha": {
+        "answer": "Ihre Antwort",
+        "placeholder": "Geben Sie die Antwort ein",
+        "refresh": "Neue Herausforderung generieren"
+      }
+    },
     "validation": {
       "nameRequired": "Name ist erforderlich",
       "emailRequired": "E-Mail ist erforderlich",
@@ -74,26 +100,49 @@
       "subjectRequired": "Betreff ist erforderlich",
       "messageRequired": "Nachricht ist erforderlich",
       "captchaRequired": "Bitte lösen Sie die Aufgabe",
-      "captchaIncorrect": "Falsche Antwort auf die Aufgabe"
+      "captchaIncorrect": "Falsche Antwort auf die Aufgabe",
+      "allRequired": "Bitte füllen Sie alle erforderlichen Felder aus."
     }
   },
   "admin": {
-    "title": "Admin-Panel",
-    "accessKey": "Zugriffsschlüssel",
-    "login": "Anmelden",
-    "loginError": "Falscher Zugriffsschlüssel",
-    "messages": "Nachrichten",
-    "noMessages": "Keine Nachrichten",
-    "exportJson": "JSON exportieren",
-    "exportCsv": "CSV exportieren",
-    "refresh": "Aktualisieren",
-    "date": "Datum",
-    "name": "Name",
-    "email": "E-Mail",
-    "company": "Unternehmen",
-    "subject": "Betreff",
-    "message": "Nachricht",
-    "actions": "Aktionen"
+    "title": "Admin-Panel - Kontaktnachrichten",
+    "login": {
+      "title": "Admin-Anmeldung",
+      "keyLabel": "Admin-Schlüssel",
+      "keyPlaceholder": "Admin-Schlüssel eingeben",
+      "loginButton": "Anmelden",
+      "error": "Ungültiger Admin-Schlüssel",
+      "success": "Erfolgreich authentifiziert!"
+    },
+    "messages": {
+      "refresh": "Nachrichten aktualisieren",
+      "exportJson": "JSON exportieren",
+      "exportCsv": "CSV exportieren",
+      "clearLocal": "Lokal löschen",
+      "loading": "Nachrichten werden geladen...",
+      "noMessages": "Keine Nachrichten gefunden",
+      "loaded": "{{count}} Nachrichten geladen",
+      "loadError": "Fehler beim Laden der Nachrichten",
+      "total": "Gesamtnachrichten",
+      "new": "Neu",
+      "read": "Gelesen",
+      "markAsRead": "Als gelesen markieren",
+      "markedAsRead": "Nachricht als gelesen markiert",
+      "markError": "Markieren fehlgeschlagen",
+      "viewMessage": "Vollständige Nachricht ansehen",
+      "viewFrom": "Von",
+      "viewDate": "Datum",
+      "clearConfirm": "Sind Sie sicher, dass Sie lokale Nachrichten löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.",
+      "cleared": "Lokale Nachrichten gelöscht",
+      "columns": {
+        "status": "Status",
+        "name": "Name",
+        "email": "E-Mail",
+        "message": "Nachricht",
+        "timestamp": "Datum",
+        "actions": "Aktionen"
+      }
+    }
   },
   "common": {
     "language": "Sprache ändern",

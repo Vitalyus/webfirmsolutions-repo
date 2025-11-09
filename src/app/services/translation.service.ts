@@ -247,42 +247,48 @@ export class TranslationService {
    */
   private loadLanguage(language: Language): Observable<boolean> {
     this.isLoadingSignal.set(true);
-    console.log(`TranslationService: Loading ${language}.json from /assets/i18n/${language}.json`);
+    console.log(`TranslationService: Loading translations for ${language}`);
     
-    return this.http.get<TranslationData>(`/assets/i18n/${language}.json`)
+    // Load translations via HTTP
+    return this.http.get(`/assets/i18n/${language}.json`, { 
+      responseType: 'text',
+      headers: {
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache'
+      }
+    })
       .pipe(
-        tap(translations => {
-          console.log(`TranslationService: HTTP request successful for ${language}`, translations);
-          this.translationsSignal.set(translations);
-          this.currentLanguageSignal.set(language);
-          this.currentLanguageSubject.next(language);
-          this.storeLanguage(language);
-          this.isLoadingSignal.set(false);
-          
-          console.log(`TranslationService: Loaded translations for ${language}`, Object.keys(translations));
+        switchMap((textResponse: string) => {
+          try {
+            console.log(`TranslationService: Successfully loaded translations for ${language}`);
+            const translations = JSON.parse(textResponse) as TranslationData;
+            
+            this.translationsSignal.set(translations);
+            this.currentLanguageSignal.set(language);
+            this.currentLanguageSubject.next(language);
+            this.storeLanguage(language);
+            this.isLoadingSignal.set(false);
+            
+            console.log(`TranslationService: Loaded HTTP translations for ${language}`, Object.keys(translations));
+            return of(true);
+          } catch (parseError) {
+            console.error(`TranslationService: Failed to parse HTTP response for ${language}:`, parseError);
+            throw parseError;
+          }
         }),
         catchError(error => {
           console.error(`TranslationService: HTTP request failed for ${language}:`, error);
-          console.error('Error details:', {
-            status: error.status,
-            statusText: error.statusText,
-            url: error.url,
-            message: error.message
-          });
           this.isLoadingSignal.set(false);
           
-          // Fallback to default language if it's different
+          // Final fallback to default language embedded translations
           if (language !== this.defaultLanguage) {
-            console.log(`TranslationService: Falling back to default language: ${this.defaultLanguage}`);
+            console.log(`TranslationService: Final fallback to embedded ${this.defaultLanguage}`);
             return this.loadLanguage(this.defaultLanguage);
           }
           
-          console.error('TranslationService: No fallback available, using empty translations');
+          console.error('TranslationService: All fallbacks failed, using empty translations');
           return of(false);
-        }),
-        tap(() => {}),
-        // Convert to boolean result
-        switchMap(() => of(true))
+        })
       );
   }
 

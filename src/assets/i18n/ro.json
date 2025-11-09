@@ -103,9 +103,13 @@
       "messagePlaceholder": "Povestește-ne despre proiectul tău...",
       "sendMessage": "Trimite Mesaj",
       "sending": "Se trimite...",
+      "cancel": "Anulează",
+      "success": "Mesaj trimis cu succes! Îți vom răspunde în curând.",
+      "error": "Trimiterea mesajului a eșuat. Te rugăm să încerci din nou sau contactează-ne direct.",
       "captcha": {
         "answer": "Răspunsul Tău",
-        "placeholder": "Introdu răspunsul"
+        "placeholder": "Introdu răspunsul",
+        "refresh": "Generează o nouă provocare"
       }
     },
     "form": {
@@ -120,6 +124,9 @@
       "required": "Acest câmp este obligatoriu",
       "emailInvalid": "Te rugăm să introduci o adresă de email validă",
       "messageShort": "Mesajul trebuie să aibă cel puțin 10 caractere"
+    },
+    "validation": {
+      "allRequired": "Te rugăm să completezi toate câmpurile obligatorii."
     },
     "info": {
       "email": "Email",
@@ -146,11 +153,19 @@
       "clearLocal": "Șterge Local",
       "loading": "Se încarcă mesajele...",
       "noMessages": "Nu au fost găsite mesaje",
+      "loaded": "Încărcate {{count}} mesaje",
+      "loadError": "Încărcarea mesajelor a eșuat",
       "total": "Total Mesaje",
       "new": "Nou",
       "read": "Citit",
       "markAsRead": "Marchează ca citit",
+      "markedAsRead": "Mesaj marcat ca citit",
+      "markError": "Marcarea a eșuat",
       "viewMessage": "Vezi mesajul complet",
+      "viewFrom": "De la",
+      "viewDate": "Data",
+      "clearConfirm": "Ești sigur că vrei să ștergi mesajele locale? Această acțiune nu poate fi anulată.",
+      "cleared": "Mesaje locale șterse",
       "columns": {
         "status": "Status",
         "name": "Nume", 

@@ -67,6 +67,32 @@
     "sending": "Envoi en cours...",
     "success": "Merci ! Votre message a été envoyé avec succès.",
     "error": "Désolé, une erreur s'est produite lors de l'envoi du message.",
+    "emailUs": "Envoyez-nous un e-mail",
+    "responseTime": "Temps de réponse",
+    "within24Hours": "Dans les 24 heures",
+    "basedIn": "Basé à",
+    "availableWorldwide": "Disponible dans le monde entier",
+    "sendMessage": "Envoyer un message",
+    "scheduleCall": "Planifier un appel",
+    "modal": {
+      "title": "Envoyez-nous un message",
+      "name": "Votre nom",
+      "namePlaceholder": "Entrez votre nom complet",
+      "email": "Adresse e-mail",
+      "emailPlaceholder": "Entrez votre adresse e-mail",
+      "message": "Votre message",
+      "messagePlaceholder": "Parlez-nous de votre projet...",
+      "sendMessage": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "cancel": "Annuler",
+      "success": "Message envoyé avec succès ! Nous vous répondrons bientôt.",
+      "error": "L'envoi du message a échoué. Veuillez réessayer ou nous contacter directement.",
+      "captcha": {
+        "answer": "Votre réponse",
+        "placeholder": "Entrez la réponse",
+        "refresh": "Générer un nouveau défi"
+      }
+    },
     "validation": {
       "nameRequired": "Le nom est requis",
       "emailRequired": "L'e-mail est requis",
@@ -74,26 +100,49 @@
       "subjectRequired": "Le sujet est requis",
       "messageRequired": "Le message est requis",
       "captchaRequired": "Veuillez résoudre le problème",
-      "captchaIncorrect": "Réponse incorrecte au problème"
+      "captchaIncorrect": "Réponse incorrecte au problème",
+      "allRequired": "Veuillez remplir tous les champs obligatoires."
     }
   },
   "admin": {
-    "title": "Panneau d'administration",
-    "accessKey": "Clé d'accès",
-    "login": "Se connecter",
-    "loginError": "Clé d'accès incorrecte",
-    "messages": "Messages",
-    "noMessages": "Aucun message",
-    "exportJson": "Exporter JSON",
-    "exportCsv": "Exporter CSV",
-    "refresh": "Actualiser",
-    "date": "Date",
-    "name": "Nom",
-    "email": "E-mail",
-    "company": "Entreprise",
-    "subject": "Sujet",
-    "message": "Message",
-    "actions": "Actions"
+    "title": "Panneau d'administration - Messages de contact",
+    "login": {
+      "title": "Connexion administrateur",
+      "keyLabel": "Clé administrateur",
+      "keyPlaceholder": "Entrez la clé administrateur",
+      "loginButton": "Se connecter",
+      "error": "Clé administrateur invalide",
+      "success": "Authentification réussie !"
+    },
+    "messages": {
+      "refresh": "Actualiser les messages",
+      "exportJson": "Exporter JSON",
+      "exportCsv": "Exporter CSV",
+      "clearLocal": "Effacer local",
+      "loading": "Chargement des messages...",
+      "noMessages": "Aucun message trouvé",
+      "loaded": "{{count}} messages chargés",
+      "loadError": "Échec du chargement des messages",
+      "total": "Total des messages",
+      "new": "Nouveau",
+      "read": "Lu",
+      "markAsRead": "Marquer comme lu",
+      "markedAsRead": "Message marqué comme lu",
+      "markError": "Échec du marquage",
+      "viewMessage": "Voir le message complet",
+      "viewFrom": "De",
+      "viewDate": "Date",
+      "clearConfirm": "Êtes-vous sûr de vouloir effacer les messages locaux ? Cette action ne peut pas être annulée.",
+      "cleared": "Messages locaux effacés",
+      "columns": {
+        "status": "Statut",
+        "name": "Nom",
+        "email": "E-mail",
+        "message": "Message",
+        "timestamp": "Date",
+        "actions": "Actions"
+      }
+    }
   },
   "common": {
     "language": "Changer de langue",

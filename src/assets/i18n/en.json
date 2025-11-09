@@ -103,9 +103,13 @@
       "messagePlaceholder": "Tell us about your project...",
       "sendMessage": "Send Message",
       "sending": "Sending...",
+      "cancel": "Cancel",
+      "success": "Message sent successfully! We'll get back to you soon.",
+      "error": "Failed to send message. Please try again or contact us directly.",
       "captcha": {
         "answer": "Your Answer",
-        "placeholder": "Enter the answer"
+        "placeholder": "Enter the answer",
+        "refresh": "Generate new challenge"
       }
     },
     "form": {
@@ -120,6 +124,9 @@
       "required": "This field is required",
       "emailInvalid": "Please enter a valid email address",
       "messageShort": "Message must be at least 10 characters long"
+    },
+    "validation": {
+      "allRequired": "Please fill in all required fields."
     },
     "info": {
       "email": "Email",
@@ -146,11 +153,19 @@
       "clearLocal": "Clear Local",
       "loading": "Loading messages...",
       "noMessages": "No messages found",
+      "loaded": "Loaded {{count}} messages",
+      "loadError": "Failed to load messages",
       "total": "Total Messages",
       "new": "New",
       "read": "Read",
       "markAsRead": "Mark as read",
+      "markedAsRead": "Message marked as read",
+      "markError": "Failed to mark as read",
       "viewMessage": "View full message",
+      "viewFrom": "From",
+      "viewDate": "Date",
+      "clearConfirm": "Are you sure you want to clear local messages? This action cannot be undone.",
+      "cleared": "Local messages cleared",
       "columns": {
         "status": "Status",
         "name": "Name", 

@@ -22,6 +22,7 @@ import { ContactFormData, CaptchaChallenge } from '../../shared/interfaces';
 import { CaptchaService } from '../../services/captcha.service';
 import { MessageService } from '../../services/message.service';
 import { TranslationService } from '../../services/translation.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-contact',
@@ -39,7 +40,8 @@ import { TranslationService } from '../../services/translation.service';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatTooltipModule,
-    HttpClientModule
+    HttpClientModule,
+    TranslatePipe
   ],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
@@ -139,7 +141,7 @@ export class ContactComponent implements OnInit {
       if (!this.captchaChallenge || !captchaAnswer || 
           !this.captchaService.validateAnswer(captchaAnswer, this.captchaChallenge.id)) {
         this.snackBar.open(
-          'Please solve the captcha correctly.',
+          this.translationService.translate('contact.validation.captchaIncorrect'),
           '⚠️',
           {
             duration: 3000,
@@ -165,7 +167,7 @@ export class ContactComponent implements OnInit {
             this.closeModal();
             
             this.snackBar.open(
-              'Message sent successfully! We\'ll get back to you soon.', 
+              this.translationService.translate('contact.modal.success'), 
               '✓', 
               {
                 duration: 5000,
@@ -183,7 +185,7 @@ export class ContactComponent implements OnInit {
             this.cdr.markForCheck();
             
             this.snackBar.open(
-              'Failed to send message. Please try again or contact us directly.',
+              this.translationService.translate('contact.modal.error'),
               '❌',
               {
                 duration: 5000,
@@ -194,7 +196,7 @@ export class ContactComponent implements OnInit {
         });
       } else {
         this.snackBar.open(
-          'Please fill in all required fields.',
+          this.translationService.translate('contact.validation.allRequired'),
           '⚠️',
           {
             duration: 3000,
@@ -208,7 +210,7 @@ export class ContactComponent implements OnInit {
       this.cdr.markForCheck();
       
       this.snackBar.open(
-        'An error occurred. Please try again.',
+        this.translationService.translate('contact.modal.error'),
         '❌',
         {
           duration: 3000,
