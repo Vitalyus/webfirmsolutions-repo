@@ -1,17 +1,17 @@
 {
   "meta": {
-    "title": "Web Firm Solutions - Premium Web Design & Frontend Development Services",
-    "description": "Professional web design and frontend development with 20+ years of international experience. Specializing in Angular, React, and modern web technologies for exceptional user experiences.",
-    "keywords": "web design, frontend development, UX/UI, SEO optimization, Angular development, React development, responsive design, technical consulting, premium web services, international web development",
+    "title": "Web Firm Solutions - Premium Web Design & Frontend Development for Startups",
+    "description": "Professional web design and frontend development for startups and new businesses. Specializing in Angular, React, and modern web technologies for exceptional presentation websites.",
+    "keywords": "web design, frontend development, startup websites, presentation websites, UX/UI, SEO optimization, Angular development, React development, responsive design, new business websites, technical consulting, premium web services",
     "author": "Web Firm Solutions",
-    "ogTitle": "Web Firm Solutions - Transform Your Ideas into Ultra Interactive Web Experiences",
-    "ogDescription": "Expert web design and frontend development services. 20+ years of experience creating SEO-optimized, high-performance websites that elevate visibility and conversions.",
-    "twitterTitle": "Web Firm Solutions - Premium Web Development",
-    "twitterDescription": "Professional web design & frontend development services. Angular, React, modern web technologies. 20+ years international experience."
+    "ogTitle": "Web Firm Solutions - Transform Your Startup Ideas into Ultra Interactive Web Experiences",
+    "ogDescription": "Expert web design and frontend development services for startups and new businesses. Creating SEO-optimized, high-performance presentation websites that elevate your brand visibility.",
+    "twitterTitle": "Web Firm Solutions - Premium Web Development for Startups",
+    "twitterDescription": "Professional web design & frontend development for startups and new businesses. Angular, React, modern web technologies. Presentation websites that drive growth."
   },
   "schema": {
     "organizationName": "Web Firm Solutions",
-    "organizationDescription": "Leading web design and frontend development company with international experience",
+    "organizationDescription": "Professional web design and frontend development company specializing in presentation websites for startups and new businesses",
     "serviceAreaServed": "Worldwide",
     "priceRange": "$$$$",
     "services": [

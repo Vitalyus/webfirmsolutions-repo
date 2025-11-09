@@ -21,9 +21,6 @@ export class Technologies {
     { name: 'React', icon: 'psychology', color: '#61DAFB', category: 'frontend' },
     { name: 'TypeScript', icon: 'terminal', color: '#3178C6', category: 'language' },
     { name: 'Node.js', icon: 'dns', color: '#339933', category: 'backend' },
-    { name: 'Python', icon: 'smart_toy', color: '#3776AB', category: 'backend' },
-    { name: 'Docker', icon: 'sailing', color: '#2496ED', category: 'devops' },
-    { name: 'AWS', icon: 'cloud', color: '#FF9900', category: 'cloud' },
     { name: 'MongoDB', icon: 'storage', color: '#47A248', category: 'database' },
   ];
 

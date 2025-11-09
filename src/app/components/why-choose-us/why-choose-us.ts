@@ -25,17 +25,17 @@ export class WhyChooseUs implements OnInit, OnDestroy {
     {
       id: 'experience',
       icon: 'workspace_premium',
-      value: 10,
+      value: 50,
       suffix: '+',
-      label: 'Years Experience',
+      label: 'Projects Completed',
       color: 'primary'
     },
     {
       id: 'projects',
       icon: 'rocket_launch',
-      value: 100,
+      value: 30,
       suffix: '+',
-      label: 'Projects Delivered',
+      label: 'Happy Clients',
       color: 'accent'
     },
     {
