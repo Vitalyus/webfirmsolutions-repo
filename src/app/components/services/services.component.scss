@@ -1,21 +1,51 @@
 .services-section {
-  padding: 4rem 0;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 6rem 0;
+  background: linear-gradient(180deg, #F8FAFC 0%, #EEF2FF 50%, #F8FAFC 100%);
   min-height: 100vh;
   display: flex;
   align-items: center;
+  position: relative;
+
+  // Decorative background elements
+  &::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(79, 70, 229, 0.08) 0%, transparent 70%);
+    top: 10%;
+    right: -100px;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, transparent 70%);
+    bottom: 10%;
+    left: -100px;
+    border-radius: 50%;
+    pointer-events: none;
+  }
 
   .container {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 2rem;
     width: 100%;
+    position: relative;
+    z-index: 1;
 
     .section-title {
       text-align: center;
-      margin-bottom: 1rem;
-      color: #1976d2;
-      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.02em;
       opacity: 1;
       transform: translateY(0);
       transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
@@ -28,8 +58,13 @@
 
     .section-subtitle {
       text-align: center;
-      margin-bottom: 4rem;
-      color: rgba(0, 0, 0, 0.6);
+      margin-bottom: 5rem;
+      color: var(--text-secondary);
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
       opacity: 1;
       transform: translateY(0);
       transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) 0.2s;
@@ -42,19 +77,20 @@
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2.5rem;
       align-items: stretch;
 
       .service-card {
         opacity: 1;
         transform: translateY(0) scale(1);
-        transition: all 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
-        border-radius: 16px;
+        transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+        border-radius: 24px;
         overflow: hidden;
         position: relative;
-        background: white;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        background: #FFFFFF;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        border: 1px solid rgba(0, 0, 0, 0.04);
 
         &.animate-in {
           opacity: 1;
@@ -62,12 +98,17 @@
         }
 
         &:hover {
-          transform: translateY(-8px) scale(1.02);
-          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+          transform: translateY(-12px);
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+          border-color: rgba(79, 70, 229, 0.2);
+
+          .service-icon-container {
+            transform: scale(1.1) rotate(5deg);
+          }
         }
 
         mat-card-header {
-          padding: 2rem 2rem 1rem;
+          padding: 2.5rem 2rem 1rem;
           display: flex;
           justify-content: center;
 
@@ -75,30 +116,32 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin-bottom: 1rem;
+            width: 100px;
+            height: 100px;
+            border-radius: 24px;
+            margin-bottom: 1.5rem;
+            transition: all var(--transition-slow);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 
             &.service-primary {
-              background: linear-gradient(135deg, #1976d2, #42a5f5);
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
               color: white;
             }
 
             &.service-accent {
-              background: linear-gradient(135deg, #ffc107, #ff9800);
+              background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
               color: white;
             }
 
             &.service-warn {
-              background: linear-gradient(135deg, #f44336, #e57373);
+              background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
               color: white;
             }
 
             .service-icon {
-              font-size: 36px;
-              width: 36px;
-              height: 36px;
+              font-size: 48px;
+              width: 48px;
+              height: 48px;
               animation: float 3s ease-in-out infinite;
             }
           }
