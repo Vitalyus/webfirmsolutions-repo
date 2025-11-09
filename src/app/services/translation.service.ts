@@ -39,8 +39,22 @@ export class TranslationService {
     
     // Detect user's language based on browser/location
     const detectedLanguage = this.detectUserLanguage();
-    const targetLanguage = this.getStoredLanguage() || detectedLanguage;
-    console.log('TranslationService: Detected language:', detectedLanguage);
+    const storedLanguage = this.getStoredLanguage();
+    
+    // Priority: stored language only if it exists AND matches detected language region
+    // Otherwise use detected language (first visit or different region)
+    let targetLanguage: Language;
+    
+    if (storedLanguage) {
+      // If user manually selected a language before, respect it
+      targetLanguage = storedLanguage;
+      console.log('TranslationService: Using stored language:', storedLanguage);
+    } else {
+      // First visit - use detected language
+      targetLanguage = detectedLanguage;
+      console.log('TranslationService: First visit - using detected language:', detectedLanguage);
+    }
+    
     console.log('TranslationService: Target language:', targetLanguage);
     
     // Subscribe to the observable to actually trigger the HTTP request
@@ -59,18 +73,24 @@ export class TranslationService {
    */
   private detectUserLanguage(): Language {
     if (typeof window === 'undefined' || !window.navigator) {
+      console.log('TranslationService: No window/navigator, using default');
       return this.defaultLanguage;
     }
 
     // Get browser language (e.g., 'en-US', 'ro-RO', 'uk-UA')
     const browserLang = window.navigator.language || (window.navigator as any).userLanguage;
     
+    console.log('TranslationService: Browser language:', browserLang);
+    
     if (!browserLang) {
+      console.log('TranslationService: No browser language detected');
       return this.defaultLanguage;
     }
 
     // Extract language code (first 2 characters)
     const langCode = browserLang.toLowerCase().substring(0, 2);
+    
+    console.log('TranslationService: Extracted language code:', langCode);
     
     // Map language codes to supported languages
     const languageMap: Record<string, Language> = {
@@ -85,13 +105,16 @@ export class TranslationService {
 
     const mappedLang = languageMap[langCode];
     
+    console.log('TranslationService: Mapped language:', mappedLang);
+    console.log('TranslationService: Supported languages:', this.supportedLanguages);
+    
     // Return mapped language if supported, otherwise default
     if (mappedLang && this.supportedLanguages.includes(mappedLang)) {
-      console.log(`TranslationService: Detected language "${langCode}" mapped to "${mappedLang}"`);
+      console.log(`TranslationService: ✅ Language "${langCode}" mapped to "${mappedLang}"`);
       return mappedLang;
     }
 
-    console.log(`TranslationService: Language "${langCode}" not supported, using default "${this.defaultLanguage}"`);
+    console.log(`TranslationService: ❌ Language "${langCode}" not supported, using default "${this.defaultLanguage}"`);
     return this.defaultLanguage;
   }
 
@@ -206,15 +229,39 @@ export class TranslationService {
         'navigation.about': 'Despre Noi',
         'navigation.contact': 'Contact',
         'common.language': 'Schimbă Limba',
+        'footer.copyright': '© {{year}} Web Firm Solutions. Toate drepturile rezervate.',
+        'footer.websiteAriaLabel': 'Vizitați site-ul nostru la webfirmsolutions.com',
+        'contact.title': 'Să Lucrăm Împreună',
+        'contact.subtitle': 'Gata să transformăm ideile în realitate?',
         'hero.title': 'Transformă-ți Ideile în',
         'hero.titleAccent': 'Experiențe Web Ultra Interactive',
         'hero.titleEnd': '',
-        'hero.subtitle': 'Cu peste 20 de ani de experiență internațională, creăm site-uri web interactive, optimizate SEO, care cresc vizibilitatea și conversiile.',
+        'hero.subtitle': 'Cu peste 20 de ani de experiență internațională, creăm site-uri web interactive, optimizate SEO, care cresc vizibilitatea și conversiile. Specializați în Angular, React și tehnologii web moderne.',
+        'hero.seoContent': 'Servicii profesionale de web design și dezvoltare frontend. Expert în design responsive, optimizare experiență utilizator și tehnologii web moderne. Servim clienți din întreaga lume cu soluții premium de dezvoltare web.',
+        'hero.ctaButton': 'Să Începem',
+        'hero.secondaryButton': 'Vezi Lucrările Noastre',
+        'hero.ctaAriaLabel': 'Contactează-ne pentru a începe proiectul tău',
+        'hero.secondaryAriaLabel': 'Vezi serviciile și portofoliul nostru',
+        'hero.features.performance.title': 'Performanță Rapidă',
+        'hero.features.performance.description': 'Timpi de încărcare fulgerători',
+        'hero.features.mobile.title': 'Mobile First',
+        'hero.features.mobile.description': 'Responsive pe toate dispozitivele',
+        'hero.features.seo.title': 'Optimizat SEO',
+        'hero.features.seo.description': 'Construit pentru motoarele de căutare',
         'services.title': 'Serviciile Noastre Premium',
         'services.subtitle': 'Oferim soluții de vârf adaptate nevoilor afacerii tale',
+        'services.learnMore': 'Află Mai Mult',
+        'services.learnMoreAbout': 'Află mai mult despre',
+        'services.web-design-ux-ui.title': 'Web Design & UX/UI',
+        'services.web-design-ux-ui.description': 'Design-uri intuitive și vizual uimitoare care încântă utilizatorii și cresc rata de conversie pe toate dispozitivele.',
+        'services.advanced-frontend-development.title': 'Dezvoltare Frontend Avansată',
+        'services.advanced-frontend-development.description': 'Aplicații web de înaltă performanță cu React, Angular, Vue sau Vanilla JS, complet optimizate pentru SEO și viteză.',
+        'services.technical-consulting-seo.title': 'Consultanță Tehnică & SEO',
+        'services.technical-consulting-seo.description': 'Strategii scalabile, securizate și performante pentru a maximiza impactul afacerii și vizibilitatea în motoarele de căutare.',
         'about.title': 'Despre Noi',
-        'contact.title': 'Să Lucrăm Împreună',
-        'footer.copyright': '© {{year}} Web Firm Solutions. Toate drepturile rezervate.',
+        'about.teamImage': 'Echipa Noastră',
+        'about.description1': 'Suntem o echipă de experți frontend cu experiență internațională, având colaborări cu Google, Amazon și Facebook. Transformăm idei complexe în soluții web elegante și eficiente.',
+        'about.description2': 'Fiecare proiect primește o abordare personalizată centrată pe utilizatori și performanță, oferind rezultate măsurabile pentru clienții noștri.',
         // Why Choose Us
         'whyChooseUs.title': 'De Ce Să Ne Alegi',
         'whyChooseUs.subtitle': 'Oferim rezultate excepționale cu expertiză dovedită și dedicare',
@@ -244,15 +291,39 @@ export class TranslationService {
         'navigation.about': 'Про нас',
         'navigation.contact': 'Контакти',
         'common.language': 'Змінити мову',
+        'footer.copyright': '© {{year}} Web Firm Solutions. Всі права захищені.',
+        'footer.websiteAriaLabel': 'Відвідайте наш сайт webfirmsolutions.com',
+        'contact.title': 'Давайте працювати разом',
+        'contact.subtitle': 'Готові перетворити ідеї в реальність?',
         'hero.title': 'Перетворіть свої ідеї в',
         'hero.titleAccent': 'Ультра-інтерактивні',
         'hero.titleEnd': 'Веб-досвіди',
-        'hero.subtitle': 'З понад 20 роками міжнародного досвіду ми створюємо інтерактивні, SEO-оптимізовані веб-сайти, які підвищують видимість і конверсії.',
+        'hero.subtitle': 'З понад 20 роками міжнародного досвіду ми створюємо інтерактивні, SEO-оптимізовані веб-сайти, які підвищують видимість і конверсії. Спеціалізуємося на Angular, React та сучасних веб-технологіях.',
+        'hero.seoContent': 'Професійні послуги веб-дизайну та frontend розробки. Експерти в адаптивному дизайні, оптимізації користувацького досвіду та сучасних веб-технологіях. Обслуговуємо клієнтів по всьому світу преміум рішеннями веб-розробки.',
+        'hero.ctaButton': 'Розпочнемо',
+        'hero.secondaryButton': 'Переглянути Роботи',
+        'hero.ctaAriaLabel': 'Зв\'яжіться з нами, щоб розпочати проект',
+        'hero.secondaryAriaLabel': 'Перегляньте наші послуги та портфоліо',
+        'hero.features.performance.title': 'Швидка Продуктивність',
+        'hero.features.performance.description': 'Блискавична швидкість завантаження',
+        'hero.features.mobile.title': 'Mobile First',
+        'hero.features.mobile.description': 'Адаптивний на всіх пристроях',
+        'hero.features.seo.title': 'SEO Оптимізовано',
+        'hero.features.seo.description': 'Створено для пошукових систем',
         'services.title': 'Наші преміум-послуги',
         'services.subtitle': 'Ми надаємо передові рішення, адаптовані до потреб вашого бізнесу',
+        'services.learnMore': 'Дізнатися Більше',
+        'services.learnMoreAbout': 'Дізнатися більше про',
+        'services.web-design-ux-ui.title': 'Веб Дизайн & UX/UI',
+        'services.web-design-ux-ui.description': 'Інтуїтивні, візуально приголомшливі дизайни, які радують користувачів і підвищують коефіцієнт конверсії на всіх пристроях.',
+        'services.advanced-frontend-development.title': 'Розширена Frontend Розробка',
+        'services.advanced-frontend-development.description': 'Високопродуктивні веб-додатки з React, Angular, Vue або Vanilla JS, повністю оптимізовані для SEO та швидкості.',
+        'services.technical-consulting-seo.title': 'Технічний Консалтинг & SEO',
+        'services.technical-consulting-seo.description': 'Масштабовані, безпечні та високопродуктивні стратегії для максимізації бізнес-впливу та видимості в пошукових системах.',
         'about.title': 'Про нас',
-        'contact.title': 'Давайте працювати разом',
-        'footer.copyright': '© {{year}} Web Firm Solutions. Всі права захищені.',
+        'about.teamImage': 'Наша Команда',
+        'about.description1': 'Ми команда frontend експертів з міжнародним досвідом, що працювали в Google, Amazon та Facebook. Ми перетворюємо складні ідеї в елегантні, ефективні веб-рішення.',
+        'about.description2': 'Кожен проект отримує персоналізований підхід, зосереджений на користувачах та продуктивності, забезпечуючи вимірні результати для наших клієнтів.',
         // Why Choose Us
         'whyChooseUs.title': 'Чому обирають нас',
         'whyChooseUs.subtitle': 'Ми забезпечуємо виняткові результати з перевіреною експертизою та відданістю',
@@ -282,15 +353,39 @@ export class TranslationService {
         'navigation.about': 'Über uns',
         'navigation.contact': 'Kontakt',
         'common.language': 'Sprache ändern',
+        'footer.copyright': '© {{year}} Web Firm Solutions. Alle Rechte vorbehalten.',
+        'footer.websiteAriaLabel': 'Besuchen Sie unsere Website unter webfirmsolutions.com',
+        'contact.title': 'Lassen Sie uns zusammenarbeiten',
+        'contact.subtitle': 'Bereit, Ihre Ideen in die Realität umzusetzen?',
         'hero.title': 'Verwandeln Sie Ihre Ideen in',
         'hero.titleAccent': 'Ultra-interaktive',
         'hero.titleEnd': 'Web-Erlebnisse',
-        'hero.subtitle': 'Mit über 20 Jahren internationaler Erfahrung erstellen wir interaktive, SEO-optimierte Websites, die Sichtbarkeit und Conversions steigern.',
+        'hero.subtitle': 'Mit über 20 Jahren internationaler Erfahrung erstellen wir interaktive, SEO-optimierte Websites, die Sichtbarkeit und Conversions steigern. Spezialisiert auf Angular, React und moderne Webtechnologien.',
+        'hero.seoContent': 'Professionelle Webdesign- und Frontend-Entwicklungsdienste. Experten für responsives Design, Benutzererfahrungsoptimierung und moderne Webtechnologien. Wir bedienen Kunden weltweit mit Premium-Webentwicklungslösungen.',
+        'hero.ctaButton': 'Loslegen',
+        'hero.secondaryButton': 'Unsere Arbeiten ansehen',
+        'hero.ctaAriaLabel': 'Kontaktieren Sie uns, um mit Ihrem Projekt zu beginnen',
+        'hero.secondaryAriaLabel': 'Sehen Sie sich unsere Dienstleistungen und unser Portfolio an',
+        'hero.features.performance.title': 'Schnelle Leistung',
+        'hero.features.performance.description': 'Blitzschnelle Ladezeiten',
+        'hero.features.mobile.title': 'Mobile First',
+        'hero.features.mobile.description': 'Responsive auf allen Geräten',
+        'hero.features.seo.title': 'SEO Optimiert',
+        'hero.features.seo.description': 'Für Suchmaschinen entwickelt',
         'services.title': 'Unsere Premium-Dienstleistungen',
         'services.subtitle': 'Wir liefern hochmoderne Lösungen, die auf Ihre Geschäftsanforderungen zugeschnitten sind',
+        'services.learnMore': 'Mehr Erfahren',
+        'services.learnMoreAbout': 'Mehr erfahren über',
+        'services.web-design-ux-ui.title': 'Webdesign & UX/UI',
+        'services.web-design-ux-ui.description': 'Intuitive, visuell beeindruckende Designs, die Benutzer begeistern und höhere Conversion-Raten auf allen Geräten fördern.',
+        'services.advanced-frontend-development.title': 'Fortgeschrittene Frontend-Entwicklung',
+        'services.advanced-frontend-development.description': 'Hochleistungs-Web-Apps mit React, Angular, Vue oder Vanilla JS, vollständig optimiert für SEO und Geschwindigkeit.',
+        'services.technical-consulting-seo.title': 'Technische Beratung & SEO',
+        'services.technical-consulting-seo.description': 'Skalierbare, sichere und leistungsstarke Strategien zur Maximierung der Geschäftswirkung und Suchmaschinen-Sichtbarkeit.',
         'about.title': 'Über uns',
-        'contact.title': 'Lassen Sie uns zusammenarbeiten',
-        'footer.copyright': '© {{year}} Web Firm Solutions. Alle Rechte vorbehalten.',
+        'about.teamImage': 'Unser Team',
+        'about.description1': 'Wir sind ein Team von Frontend-Experten mit internationaler Erfahrung, die bei Google, Amazon und Facebook gearbeitet haben. Wir verwandeln komplexe Ideen in elegante, effiziente Web-Lösungen.',
+        'about.description2': 'Jedes Projekt erhält einen personalisierten Ansatz, der sich auf Benutzer und Leistung konzentriert und messbare Ergebnisse für unsere Kunden liefert.',
         // Why Choose Us
         'whyChooseUs.title': 'Warum uns wählen',
         'whyChooseUs.subtitle': 'Wir liefern außergewöhnliche Ergebnisse mit nachgewiesener Expertise und Engagement',
@@ -320,15 +415,39 @@ export class TranslationService {
         'navigation.about': 'À propos',
         'navigation.contact': 'Contact',
         'common.language': 'Changer de langue',
+        'footer.copyright': '© {{year}} Web Firm Solutions. Tous droits réservés.',
+        'footer.websiteAriaLabel': 'Visitez notre site Web sur webfirmsolutions.com',
+        'contact.title': 'Travaillons ensemble',
+        'contact.subtitle': 'Prêt à transformer vos idées en réalité?',
         'hero.title': 'Transformez vos idées en',
         'hero.titleAccent': 'Expériences Web Ultra-interactives',
         'hero.titleEnd': '',
-        'hero.subtitle': 'Avec plus de 20 ans d\'expérience internationale, nous créons des sites web interactifs et optimisés SEO qui augmentent la visibilité et les conversions.',
+        'hero.subtitle': 'Avec plus de 20 ans d\'expérience internationale, nous créons des sites web interactifs et optimisés SEO qui augmentent la visibilité et les conversions. Spécialisés en Angular, React et technologies web modernes.',
+        'hero.seoContent': 'Services professionnels de conception web et développement frontend. Experts en design responsive, optimisation de l\'expérience utilisateur et technologies web modernes. Au service de clients du monde entier avec des solutions de développement web premium.',
+        'hero.ctaButton': 'Commencer',
+        'hero.secondaryButton': 'Voir Nos Travaux',
+        'hero.ctaAriaLabel': 'Contactez-nous pour démarrer votre projet',
+        'hero.secondaryAriaLabel': 'Consultez nos services et notre portfolio',
+        'hero.features.performance.title': 'Performance Rapide',
+        'hero.features.performance.description': 'Temps de chargement ultra-rapides',
+        'hero.features.mobile.title': 'Mobile First',
+        'hero.features.mobile.description': 'Responsive sur tous les appareils',
+        'hero.features.seo.title': 'Optimisé SEO',
+        'hero.features.seo.description': 'Conçu pour les moteurs de recherche',
         'services.title': 'Nos Services Premium',
         'services.subtitle': 'Nous livrons des solutions de pointe adaptées aux besoins de votre entreprise',
+        'services.learnMore': 'En Savoir Plus',
+        'services.learnMoreAbout': 'En savoir plus sur',
+        'services.web-design-ux-ui.title': 'Conception Web & UX/UI',
+        'services.web-design-ux-ui.description': 'Des designs intuitifs et visuellement époustouflants qui ravissent les utilisateurs et augmentent les taux de conversion sur tous les appareils.',
+        'services.advanced-frontend-development.title': 'Développement Frontend Avancé',
+        'services.advanced-frontend-development.description': 'Applications web haute performance avec React, Angular, Vue ou Vanilla JS, entièrement optimisées pour le SEO et la vitesse.',
+        'services.technical-consulting-seo.title': 'Conseil Technique & SEO',
+        'services.technical-consulting-seo.description': 'Stratégies évolutives, sécurisées et performantes pour maximiser l\'impact commercial et la visibilité dans les moteurs de recherche.',
         'about.title': 'À propos de nous',
-        'contact.title': 'Travaillons ensemble',
-        'footer.copyright': '© {{year}} Web Firm Solutions. Tous droits réservés.',
+        'about.teamImage': 'Notre Équipe',
+        'about.description1': 'Nous sommes une équipe d\'experts frontend avec une expérience internationale, ayant travaillé chez Google, Amazon et Facebook. Nous transformons des idées complexes en solutions web élégantes et efficaces.',
+        'about.description2': 'Chaque projet reçoit une approche personnalisée centrée sur les utilisateurs et la performance, offrant des résultats mesurables pour nos clients.',
         // Why Choose Us
         'whyChooseUs.title': 'Pourquoi nous choisir',
         'whyChooseUs.subtitle': 'Nous offrons des résultats exceptionnels avec une expertise éprouvée et un engagement total',
