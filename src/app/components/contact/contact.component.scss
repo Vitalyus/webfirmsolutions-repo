@@ -130,6 +130,8 @@
 
           div {
             text-align: left;
+            flex: 1;
+            min-width: 0;
 
             h4 {
               margin: 0 0 0.25rem 0;
@@ -142,6 +144,8 @@
               margin: 0;
               color: var(--text-secondary);
               font-size: 0.95rem;
+              word-break: break-word;
+              overflow-wrap: break-word;
             }
 
             .email-link {
@@ -154,6 +158,8 @@
               transition: all 0.2s ease;
               position: relative;
               z-index: 1;
+              word-break: break-all;
+              overflow-wrap: anywhere;
 
               &:hover {
                 color: #1565c0;
