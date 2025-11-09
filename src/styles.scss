@@ -1,6 +1,9 @@
 // Import Angular Material base themes
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
+// Import skeleton loader styles
+@import './app/styles/skeleton-loader';
+
 // Material Icons imported via link tag in index.html
 
 /* Custom Material overrides and global styles */
@@ -14,10 +17,45 @@ html, body {
   color: #0F172A;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden; // Prevent horizontal scroll
+  width: 100%;
+}
+
+// iOS Safari viewport height fix
+@supports (-webkit-touch-callout: none) {
+  html, body {
+    height: -webkit-fill-available;
+  }
 }
 
 * {
   box-sizing: border-box;
+}
+
+// Prevent zoom on mobile input focus
+@media (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important; // Prevents zoom on iOS
+  }
+}
+
+// Accessibility improvements
+:focus-visible {
+  outline: 3px solid rgba(79, 70, 229, 0.5);
+  outline-offset: 2px;
+}
+
+// Reduced motion for accessibility
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 // Custom CSS variables for our theme - 2025 Modern Design System
@@ -71,6 +109,19 @@ html, body {
   --transition-fast: 150ms cubic-bezier(0.4, 0.0, 0.2, 1);
   --transition-base: 250ms cubic-bezier(0.4, 0.0, 0.2, 1);
   --transition-slow: 400ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  
+  /* Z-index layers */
+  --z-header: 1000;
+  --z-modal: 2000;
+  --z-tooltip: 3000;
+  --z-dropdown: 1500;
+  
+  /* Spacing scale */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
 }
 
 // Smooth animations - Refined for 2025 (removed global transition - too aggressive)
@@ -81,6 +132,42 @@ html, body {
 .mat-elevation-z2 { box-shadow: var(--elevation-2) !important; }
 .mat-elevation-z4 { box-shadow: var(--elevation-4) !important; }
 .mat-elevation-z8 { box-shadow: var(--elevation-8) !important; }
+
+// Modern Toast Notifications
+.modern-toast {
+  &.toast-success {
+    --mdc-snackbar-container-color: #10B981;
+    --mdc-snackbar-supporting-text-color: #FFFFFF;
+    --mat-snack-bar-button-color: #FFFFFF;
+  }
+  
+  &.toast-error {
+    --mdc-snackbar-container-color: #EF4444;
+    --mdc-snackbar-supporting-text-color: #FFFFFF;
+    --mat-snack-bar-button-color: #FFFFFF;
+  }
+  
+  &.toast-warning {
+    --mdc-snackbar-container-color: #F59E0B;
+    --mdc-snackbar-supporting-text-color: #FFFFFF;
+    --mat-snack-bar-button-color: #FFFFFF;
+  }
+  
+  &.toast-info {
+    --mdc-snackbar-container-color: #06B6D4;
+    --mdc-snackbar-supporting-text-color: #FFFFFF;
+    --mat-snack-bar-button-color: #FFFFFF;
+  }
+
+  .mat-mdc-snack-bar-container {
+    border-radius: 12px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+  }
+  
+  .mat-mdc-button {
+    font-weight: 600 !important;
+  }
+}
 
 // Ensure header toolbar stays fixed
 app-root {
@@ -110,26 +197,17 @@ app-header {
 main {
   display: block;
   width: 100%;
-  position: relative;
-  margin-top: 72px; // Compensate for fixed header height (updated to 72px)
-  padding-top: 0;
-  min-height: calc(100vh - 72px);
-  
-  @media (max-width: 768px) {
-    margin-top: 64px; // Medium screens
-    min-height: calc(100vh - 64px);
-  }
-  
-  @media (max-width: 600px) {
-    margin-top: 56px; // Smaller header on mobile
-  }
-  
-  @media (max-width: 480px) {
-    margin-top: 52px; // Even smaller on tiny screens
-  }
+  min-height: 100vh;
+  padding-top: 72px;
+  overflow-x: hidden; // Prevent horizontal scroll on mobile
 }
 
-// SEO and Performance optimizations
+// Mobile viewport fix
+@supports (-webkit-touch-callout: none) {
+  main {
+    min-height: -webkit-fill-available;
+  }
+}// SEO and Performance optimizations
 html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;

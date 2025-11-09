@@ -6,7 +6,8 @@
   
   <div class="spacer"></div>
   
-  <nav class="nav-menu" role="navigation" [attr.aria-label]="'navigation.menu' | translate">
+  <!-- Desktop Navigation -->
+  <nav class="nav-menu desktop-nav" role="navigation" [attr.aria-label]="'navigation.menu' | translate">
     <button 
       mat-button
       *ngFor="let item of navItems; trackBy: trackByHref" 
@@ -22,6 +23,44 @@
   </nav>
 
   <div class="header-actions">
-    <app-language-selector></app-language-selector>
+    <app-language-selector class="desktop-only"></app-language-selector>
+    <app-language-selector class="mobile-only"></app-language-selector>
+    
+    <!-- Mobile Menu Button -->
+    <button 
+      mat-icon-button 
+      class="mobile-menu-button"
+      (click)="toggleMobileMenu()"
+      [attr.aria-label]="mobileMenuOpen ? 'Close menu' : 'Open menu'"
+      [attr.aria-expanded]="mobileMenuOpen"
+    >
+      <mat-icon>{{ mobileMenuOpen ? 'close' : 'menu' }}</mat-icon>
+    </button>
   </div>
 </mat-toolbar>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-nav-overlay" [class.open]="mobileMenuOpen" (click)="closeMobileMenu()"></div>
+<nav class="mobile-nav-drawer" [class.open]="mobileMenuOpen" role="navigation">
+  <div class="mobile-nav-content">
+    <div class="mobile-nav-header">
+      <div class="mobile-logo">
+        <mat-icon class="logo-icon">web</mat-icon>
+        <span class="logo-text">{{ companyName }}</span>
+      </div>
+    </div>
+    
+    <div class="mobile-nav-items">
+      <button 
+        mat-button
+        *ngFor="let item of navItems; trackBy: trackByHref" 
+        (click)="onMobileNavigate($event, item.href)"
+        class="mobile-nav-item"
+        type="button"
+      >
+        <mat-icon>{{ item.icon }}</mat-icon>
+        <span>{{ ('navigation.' + item.href.slice(1)) | translate }}</span>
+      </button>
+    </div>
+  </div>
+</nav>

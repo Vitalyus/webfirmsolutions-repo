@@ -30,6 +30,9 @@ export class HeaderComponent implements OnDestroy {
   private readonly scrollService = inject(ScrollService);
   private readonly loggingService = inject(LoggingService);
   
+  // Mobile menu state
+  mobileMenuOpen = false;
+  
   // Immutable navigation items with proper typing
   readonly navItems: ReadonlyArray<NavItem> = [
     { 
@@ -53,6 +56,44 @@ export class HeaderComponent implements OnDestroy {
   ] as const;
 
   readonly companyName = APP_CONFIG.company.name;
+
+  /**
+   * Toggle mobile menu state
+   */
+  toggleMobileMenu(): void {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+    
+    // Prevent body scroll when menu is open
+    if (this.mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
+    this.loggingService.trackUserAction(
+      'mobile-menu-toggle', 
+      this.mobileMenuOpen ? 'open' : 'close', 
+      'HeaderComponent'
+    );
+  }
+
+  /**
+   * Close mobile menu
+   */
+  closeMobileMenu(): void {
+    if (this.mobileMenuOpen) {
+      this.mobileMenuOpen = false;
+      document.body.style.overflow = '';
+    }
+  }
+
+  /**
+   * Handle mobile navigation with auto-close
+   */
+  onMobileNavigate(event: Event, href: string): void {
+    this.closeMobileMenu();
+    this.onNavigate(event, href);
+  }
 
   /**
    * Handle navigation click with enterprise-grade error handling and validation
@@ -116,7 +157,10 @@ export class HeaderComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
+    // Ensure body scroll is restored
+    document.body.style.overflow = '';
     // Clean up any potential memory leaks
     // In this case, no cleanup needed as we're using injection
+    this.loggingService.debug('HeaderComponent destroyed', {}, 'HeaderComponent');
   }
 }

@@ -210,48 +210,83 @@
   }
 }
 
-// Responsive design
+// Responsive design - Mobile First
 @media (max-width: 1024px) {
   .contact-section {
-    padding: 3rem 1.5rem;
+    padding: 4rem 1.5rem;
 
     .contact-card .contact-content {
-      padding: 2.5rem;
+      padding: 2.5rem 2rem;
+
+      h2 {
+        font-size: clamp(1.75rem, 4vw, 2.25rem);
+      }
+
+      p {
+        font-size: clamp(0.95rem, 2vw, 1.0625rem);
+      }
     }
   }
 }
 
 @media (max-width: 768px) {
   .contact-section {
-    padding: 2rem 1rem;
+    padding: 3rem 1.25rem;
 
     .contact-card .contact-content {
-      padding: 2rem;
+      padding: 2rem 1.5rem;
+
+      h2 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        margin-bottom: 0.875rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+      }
 
       .contact-info {
         grid-template-columns: 1fr;
         gap: 1rem;
+        margin-bottom: 2rem;
 
         .info-item {
-          padding: 1rem;
+          padding: 1.25rem 1rem;
           text-align: center;
           flex-direction: column;
-          gap: 0.5rem;
+          gap: 0.625rem;
+          border-radius: 16px;
+
+          mat-icon {
+            font-size: 32px;
+            width: 32px;
+            height: 32px;
+          }
 
           div {
             text-align: center;
+
+            .info-label {
+              font-size: 0.8125rem;
+            }
+
+            .info-value {
+              font-size: 0.95rem;
+            }
           }
         }
       }
 
       .contact-actions {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+        gap: 1rem;
 
-        .contact-button,
-        .secondary-button {
+        button {
           width: 100%;
-          max-width: 300px;
+          padding: 14px 28px;
+          font-size: 1rem;
         }
       }
     }
@@ -260,29 +295,112 @@
 
 @media (max-width: 480px) {
   .contact-section {
-    padding: 1.5rem 0.75rem;
+    padding: 2.5rem 1rem;
 
-    .contact-card .contact-content {
-      padding: 1.5rem;
+    .contact-card {
+      border-radius: 24px;
 
-      .contact-header {
-        margin-bottom: 2rem;
+      .contact-content {
+        padding: 1.75rem 1.25rem;
 
-        .contact-icon {
-          font-size: 48px;
-          width: 48px;
-          height: 48px;
+        h2 {
+          font-size: clamp(1.375rem, 6vw, 1.75rem);
+          margin-bottom: 0.75rem;
         }
 
-        .contact-subtitle {
-          font-size: 1rem;
+        p {
+          font-size: 0.875rem;
+          line-height: 1.6;
+          margin-bottom: 1.75rem;
+        }
+
+        .contact-info {
+          gap: 0.875rem;
+          margin-bottom: 1.75rem;
+
+          .info-item {
+            padding: 1rem 0.875rem;
+            border-radius: 14px;
+
+            mat-icon {
+              font-size: 28px;
+              width: 28px;
+              height: 28px;
+            }
+
+            div {
+              .info-label {
+                font-size: 0.75rem;
+                margin-bottom: 0.25rem;
+              }
+
+              .info-value {
+                font-size: 0.875rem;
+              }
+            }
+          }
+        }
+
+        .contact-actions {
+          gap: 0.875rem;
+
+          button {
+            padding: 12px 24px;
+            font-size: 0.95rem;
+
+            mat-icon {
+              font-size: 18px;
+              width: 18px;
+              height: 18px;
+            }
+          }
         }
       }
     }
   }
 }
 
-// Modal Styles
+@media (max-width: 360px) {
+  .contact-section {
+    padding: 2rem 0.875rem;
+
+    .contact-card .contact-content {
+      padding: 1.5rem 1rem;
+
+      h2 {
+        font-size: 1.375rem;
+      }
+
+      p {
+        font-size: 0.8125rem;
+      }
+
+      .contact-info .info-item {
+        padding: 0.875rem 0.75rem;
+
+        mat-icon {
+          font-size: 24px;
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      .contact-actions button {
+        padding: 11px 20px;
+      .contact-actions button {
+        padding: 11px 20px;
+        font-size: 0.875rem;
+      }
+    }
+      .contact-actions button {
+        padding: 11px 20px;
+        font-size: 0.875rem;
+      }
+    }
+  }
+}
+
+// Modal Styles - Mobile Optimized
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -297,16 +415,16 @@
   z-index: 9999;
   animation: fadeIn 0.3s ease-out;
   overflow-y: auto;
-  padding: 20px 0;
+  padding: 20px;
 
   .modal-content {
     background: white;
-    border-radius: 16px;
-    max-width: 500px;
-    width: 90%;
+    border-radius: 20px;
+    max-width: 540px;
+    width: 100%;
     max-height: 90vh;
     overflow-y: auto;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     animation: slideIn 0.3s ease-out;
 
     .modal-header {
@@ -433,32 +551,79 @@
   }
 }
 
-// Mobile modal styles
+// Mobile modal styles - Enhanced
 @media (max-width: 768px) {
   .modal-overlay {
     padding: 1rem;
+    align-items: flex-start;
+    padding-top: 2rem;
 
     .modal-content {
       width: 100%;
       max-width: none;
+      border-radius: 16px;
+      max-height: calc(100vh - 3rem);
 
       .modal-header {
-        padding: 1rem 1.5rem;
+        padding: 1.25rem 1.5rem;
 
         h3 {
-          font-size: 1.3rem;
+          font-size: 1.25rem;
+        }
+
+        .close-button mat-icon {
+          font-size: 22px;
+          width: 22px;
+          height: 22px;
         }
       }
 
       .contact-form {
         padding: 1.5rem;
 
+        mat-form-field {
+          margin-bottom: 0.875rem;
+
+          &:last-of-type {
+            margin-bottom: 1.5rem;
+          }
+        }
+
+        .captcha-section {
+          padding: 12px;
+          margin: 12px 0;
+
+          .captcha-challenge {
+            padding: 10px;
+            gap: 10px;
+
+            .captcha-question {
+              font-size: 16px;
+              letter-spacing: 1.5px;
+            }
+
+            .captcha-icon,
+            .refresh-captcha mat-icon {
+              font-size: 18px;
+              width: 18px;
+              height: 18px;
+            }
+          }
+
+          mat-form-field {
+            font-size: 16px; // Prevent zoom on iOS
+          }
+        }
+
         .modal-actions {
           flex-direction: column;
+          gap: 0.875rem;
 
           .cancel-button,
           .send-button {
             width: 100%;
+            padding: 12px 24px;
+            font-size: 1rem;
           }
         }
       }
@@ -468,18 +633,28 @@
 
 @media (max-width: 480px) {
   .modal-overlay {
-    padding: 0.5rem;
+    padding: 0.75rem;
+    padding-top: 1.5rem;
 
     .modal-content {
+      border-radius: 14px;
+
       .modal-header {
-        padding: 1rem;
+        padding: 1rem 1.25rem;
 
         h3 {
-          font-size: 1.2rem;
+          font-size: 1.125rem;
+        }
+
+        .close-button mat-icon {
+          font-size: 20px;
+          width: 20px;
+          height: 20px;
         }
       }
 
       .contact-form {
+        padding: 1.25rem;
         padding: 1rem;
       }
     }

@@ -19,10 +19,12 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   transition: all var(--transition-base);
+  will-change: transform, box-shadow;
 
   &.scrolled {
     background: rgba(255, 255, 255, 0.95) !important;
     box-shadow: 0 4px 32px rgba(0, 0, 0, 0.1);
+    border-bottom-color: rgba(79, 70, 229, 0.1);
   }
 
   .logo {
@@ -63,6 +65,25 @@
     align-items: center;
     gap: 12px;
     flex-shrink: 0;
+
+    .desktop-only {
+      display: block;
+    }
+
+    .mobile-only {
+      display: none;
+    }
+
+    .mobile-menu-button {
+      display: none;
+      color: var(--primary-color);
+      
+      mat-icon {
+        font-size: 28px;
+        width: 28px;
+        height: 28px;
+      }
+    }
   }
 
   .nav-menu {
@@ -84,18 +105,43 @@
       height: auto;
       font-weight: 500;
       transition: all var(--transition-fast);
+      position: relative;
+      overflow: hidden;
+      
+      // Hover glow effect
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(79, 70, 229, 0.1);
+        transform: translate(-50%, -50%);
+        transition: width 0.3s, height 0.3s;
+      }
+      
+      &:hover::before {
+        width: 120%;
+        height: 120%;
+      }
       
       mat-icon {
         font-size: 20px;
         width: 20px;
         height: 20px;
         flex-shrink: 0;
+        position: relative;
+        z-index: 1;
       }
 
       .nav-label {
         font-size: 15px;
         font-weight: 500;
         flex-shrink: 0;
+        position: relative;
+        z-index: 1;
       }
 
       &:hover {
@@ -108,6 +154,23 @@
         background-color: rgba(79, 70, 229, 0.12);
         color: var(--primary-color);
         font-weight: 600;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 40%;
+          height: 3px;
+          background: var(--gradient-primary);
+          border-radius: 2px 2px 0 0;
+        }
+      }
+      
+      &:focus-visible {
+        outline: 2px solid rgba(79, 70, 229, 0.5);
+        outline-offset: 2px;
       }
 
       // When in column mode (mobile)
@@ -127,95 +190,267 @@
       }
     }
   }
+
+  .desktop-nav {
+    display: flex;
+  }
 }
 
-// Responsive design
-@media (max-width: 768px) {
-  .header-toolbar {
-    padding: 0 12px;
-    height: 60px;
+// Mobile Navigation Drawer Styles
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 
-    .logo {
-      font-size: 1.1rem;
-      flex-shrink: 0;
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
 
-      .logo-icon {
-        font-size: 22px;
-        width: 22px;
-        height: 22px;
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 85%;
+  max-width: 400px;
+  height: 100%;
+  background: #FFFFFF;
+  z-index: 1001;
+  overflow-y: auto;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+  transition: right 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+
+  &.open {
+    right: 0;
+  }
+
+  .mobile-nav-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+
+    .mobile-nav-header {
+      padding: 1.5rem 1.5rem 1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+      .mobile-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .logo-icon {
+          font-size: 32px;
+          width: 32px;
+          height: 32px;
+          color: #FFFFFF;
+        }
+
+        .logo-text {
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: #FFFFFF;
+          letter-spacing: -0.02em;
+        }
       }
     }
 
-    .nav-menu {
-      gap: 2px;
-      
-      .nav-button {
-        padding: 6px 10px;
-        
-        .nav-label {
-          font-size: 12px;
-        }
+    .mobile-nav-items {
+      flex: 1;
+      padding: 1rem 0;
+      overflow-y: auto;
+
+      .mobile-nav-item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 1rem 1.5rem;
+        text-align: left;
+        font-size: 1.0625rem;
+        font-weight: 500;
+        color: var(--text-primary);
+        border-radius: 0;
+        transition: all 0.2s ease;
+        border-left: 4px solid transparent;
 
         mat-icon {
-          font-size: 16px;
-          width: 16px;
-          height: 16px;
+          font-size: 24px;
+          width: 24px;
+          height: 24px;
+          color: var(--primary-color);
+        }
+
+        &:hover {
+          background: rgba(79, 70, 229, 0.08);
+          border-left-color: var(--primary-color);
+          padding-left: 1.75rem;
+        }
+
+        &:active {
+          background: rgba(79, 70, 229, 0.12);
+        }
+      }
+    }
+
+    .mobile-nav-footer {
+      padding: 1.5rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      background: #F8FAFC;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      app-language-selector {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        button {
+          min-width: 56px;
+          min-height: 56px;
         }
       }
     }
   }
 }
 
-@media (max-width: 600px) {
+// Responsive design - Mobile First
+@media (max-width: 768px) {
   .header-toolbar {
-    padding: 0 8px;
-    height: 56px;
+    padding: 0 16px;
+    height: 64px;
 
     .logo {
-      font-size: 1rem;
-      max-width: 50%;
+      font-size: 1.125rem;
+      flex-shrink: 0;
+      gap: 10px;
 
       .logo-icon {
-        font-size: 18px;
-        width: 18px;
-        height: 18px;
+        font-size: 26px;
+        width: 26px;
+        height: 26px;
       }
 
       .logo-text {
-        font-size: 0.9rem;
+        font-size: 1.0625rem;
+      }
+    }
+
+    .desktop-nav {
+      display: none !important;
+    }
+
+    .header-actions {
+      .desktop-only {
+        display: none;
+      }
+
+      .mobile-only {
+        display: block;
+      }
+
+      .mobile-menu-button {
+        display: flex;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .header-toolbar {
+    padding: 0 12px;
+    height: 60px;
+
+    .logo {
+      font-size: 1rem;
+      gap: 8px;
+
+      .logo-icon {
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
+      }
+
+      .logo-text {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .mobile-nav-drawer {
+    width: 90%;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-toolbar {
+    .nav-menu {
+      gap: 4px;
+
+      .nav-button {
+        padding: 8px 12px;
+        
+        .nav-label {
+          font-size: 0.875rem;
+        }
+
+        mat-icon {
+          font-size: 18px;
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+    
+    app-language-selector {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .header-toolbar {
+    padding: 0 8px;
+    height: 52px;
+
+    .logo {
+      .logo-text {
+        display: none; // Hide text on very small screens
       }
     }
 
     .nav-menu {
       gap: 1px;
-      max-width: 50%;
-      overflow: hidden;
 
       .nav-button {
-        flex-direction: column;
-        gap: 0px;
-        padding: 2px 6px;
-        min-width: 50px;
-        max-width: 70px;
-        border-radius: 4px;
-        justify-content: center;
-        align-items: center;
+        padding: 5px 6px;
+        min-width: 52px;
 
         .nav-label {
-          font-size: 9px;
-          line-height: 1;
+          font-size: 0.65rem;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
           max-width: 100%;
-          margin-top: -2px; // Bring text closer to icon
         }
 
         mat-icon {
-          font-size: 14px;
-          width: 14px;
-          height: 14px;
-          margin-bottom: -2px; // Bring icon closer to text
+          font-size: 16px;
+          width: 16px;
+          height: 16px;
         }
       }
     }
