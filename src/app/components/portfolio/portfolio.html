@@ -1,0 +1,50 @@
+<section class="portfolio-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our Portfolio</h2>
+      <p class="section-subtitle">Showcasing our best work and successful projects</p>
+    </div>
+
+    <div class="category-filters">
+      <button 
+        mat-button
+        *ngFor="let category of categories"
+        [class.active]="selectedCategory() === category"
+        (click)="selectCategory(category)"
+        class="filter-button"
+      >
+        {{ category | titlecase }}
+      </button>
+    </div>
+
+    <div class="projects-grid">
+      <mat-card 
+        class="project-card"
+        *ngFor="let project of filteredProjects; trackBy: trackByProject"
+        [attr.data-category]="project.category"
+      >
+        <div class="project-image">
+          <div class="image-placeholder">
+            <mat-icon class="project-icon">{{ project.icon }}</mat-icon>
+          </div>
+          <div class="project-overlay">
+            <button mat-fab color="primary" class="view-button">
+              <mat-icon>visibility</mat-icon>
+            </button>
+          </div>
+        </div>
+
+        <mat-card-content class="project-content">
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-description">{{ project.description }}</p>
+          
+          <div class="project-tags">
+            <mat-chip *ngFor="let tag of project.tags" class="project-tag">
+              {{ tag }}
+            </mat-chip>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>

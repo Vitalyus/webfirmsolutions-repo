@@ -133,7 +133,24 @@ export class TranslationService {
       'about.title': 'About Us',
       'about.teamImage': 'Our Team',
       'about.description1': 'We are a team of frontend experts with international experience, having worked at Google, Amazon, and Facebook. We turn complex ideas into elegant, efficient web solutions.',
-      'about.description2': 'Every project gets a personalized approach focused on users and performance, delivering measurable results for our clients.'
+      'about.description2': 'Every project gets a personalized approach focused on users and performance, delivering measurable results for our clients.',
+      // Why Choose Us
+      'whyChooseUs.title': 'Why Choose Us',
+      'whyChooseUs.subtitle': 'We deliver exceptional results with proven expertise and dedication',
+      'whyChooseUs.experience.label': 'Years Experience',
+      'whyChooseUs.projects.label': 'Projects Delivered',
+      'whyChooseUs.support.label': 'Support Available',
+      'whyChooseUs.satisfaction.label': 'Client Satisfaction',
+      // Technologies
+      'technologies.title': 'Our Technology Stack',
+      'technologies.subtitle': 'Cutting-edge tools and technologies we use to build amazing products',
+      // Portfolio
+      'portfolio.title': 'Our Portfolio',
+      'portfolio.subtitle': 'Showcasing our best work and successful projects',
+      'portfolio.all': 'All',
+      'portfolio.web': 'Web',
+      'portfolio.mobile': 'Mobile',
+      'portfolio.design': 'Design'
     };
 
     // If current language is Romanian, provide Romanian fallbacks
@@ -152,7 +169,24 @@ export class TranslationService {
         'services.subtitle': 'Oferim soluții de vârf adaptate nevoilor afacerii tale',
         'about.title': 'Despre Noi',
         'contact.title': 'Să Lucrăm Împreună',
-        'footer.copyright': '© {{year}} Web Firm Solutions. Toate drepturile rezervate.'
+        'footer.copyright': '© {{year}} Web Firm Solutions. Toate drepturile rezervate.',
+        // Why Choose Us
+        'whyChooseUs.title': 'De Ce Să Ne Alegi',
+        'whyChooseUs.subtitle': 'Oferim rezultate excepționale cu expertiză dovedită și dedicare',
+        'whyChooseUs.experience.label': 'Ani de Experiență',
+        'whyChooseUs.projects.label': 'Proiecte Livrate',
+        'whyChooseUs.support.label': 'Suport Disponibil',
+        'whyChooseUs.satisfaction.label': 'Satisfacția Clienților',
+        // Technologies
+        'technologies.title': 'Tehnologiile Noastre',
+        'technologies.subtitle': 'Unelte și tehnologii de ultimă generație pentru produse incredibile',
+        // Portfolio
+        'portfolio.title': 'Portofoliul Nostru',
+        'portfolio.subtitle': 'Prezentăm cele mai bune lucrări și proiecte de succes',
+        'portfolio.all': 'Toate',
+        'portfolio.web': 'Web',
+        'portfolio.mobile': 'Mobil',
+        'portfolio.design': 'Design'
       };
       return roFallbackMap[keyPath] || keyPath;
     }
@@ -173,7 +207,24 @@ export class TranslationService {
         'services.subtitle': 'Ми надаємо передові рішення, адаптовані до потреб вашого бізнесу',
         'about.title': 'Про нас',
         'contact.title': 'Давайте працювати разом',
-        'footer.copyright': '© {{year}} Web Firm Solutions. Всі права захищені.'
+        'footer.copyright': '© {{year}} Web Firm Solutions. Всі права захищені.',
+        // Why Choose Us
+        'whyChooseUs.title': 'Чому обирають нас',
+        'whyChooseUs.subtitle': 'Ми забезпечуємо виняткові результати з перевіреною експертизою та відданістю',
+        'whyChooseUs.experience.label': 'Років досвіду',
+        'whyChooseUs.projects.label': 'Виконаних проєктів',
+        'whyChooseUs.support.label': 'Підтримка доступна',
+        'whyChooseUs.satisfaction.label': 'Задоволених клієнтів',
+        // Technologies
+        'technologies.title': 'Наш технологічний стек',
+        'technologies.subtitle': 'Передові інструменти та технології для створення чудових продуктів',
+        // Portfolio
+        'portfolio.title': 'Наше портфоліо',
+        'portfolio.subtitle': 'Демонструємо наші найкращі роботи та успішні проєкти',
+        'portfolio.all': 'Усі',
+        'portfolio.web': 'Веб',
+        'portfolio.mobile': 'Мобільні',
+        'portfolio.design': 'Дизайн'
       };
       return ukFallbackMap[keyPath] || keyPath;
     }
@@ -194,7 +245,24 @@ export class TranslationService {
         'services.subtitle': 'Wir liefern hochmoderne Lösungen, die auf Ihre Geschäftsanforderungen zugeschnitten sind',
         'about.title': 'Über uns',
         'contact.title': 'Lassen Sie uns zusammenarbeiten',
-        'footer.copyright': '© {{year}} Web Firm Solutions. Alle Rechte vorbehalten.'
+        'footer.copyright': '© {{year}} Web Firm Solutions. Alle Rechte vorbehalten.',
+        // Why Choose Us
+        'whyChooseUs.title': 'Warum uns wählen',
+        'whyChooseUs.subtitle': 'Wir liefern außergewöhnliche Ergebnisse mit nachgewiesener Expertise und Engagement',
+        'whyChooseUs.experience.label': 'Jahre Erfahrung',
+        'whyChooseUs.projects.label': 'Projekte geliefert',
+        'whyChooseUs.support.label': 'Support verfügbar',
+        'whyChooseUs.satisfaction.label': 'Kundenzufriedenheit',
+        // Technologies
+        'technologies.title': 'Unser Technologie-Stack',
+        'technologies.subtitle': 'Modernste Tools und Technologien zum Erstellen großartiger Produkte',
+        // Portfolio
+        'portfolio.title': 'Unser Portfolio',
+        'portfolio.subtitle': 'Präsentation unserer besten Arbeiten und erfolgreichen Projekte',
+        'portfolio.all': 'Alle',
+        'portfolio.web': 'Web',
+        'portfolio.mobile': 'Mobil',
+        'portfolio.design': 'Design'
       };
       return deFallbackMap[keyPath] || keyPath;
     }
@@ -215,7 +283,24 @@ export class TranslationService {
         'services.subtitle': 'Nous livrons des solutions de pointe adaptées aux besoins de votre entreprise',
         'about.title': 'À propos de nous',
         'contact.title': 'Travaillons ensemble',
-        'footer.copyright': '© {{year}} Web Firm Solutions. Tous droits réservés.'
+        'footer.copyright': '© {{year}} Web Firm Solutions. Tous droits réservés.',
+        // Why Choose Us
+        'whyChooseUs.title': 'Pourquoi nous choisir',
+        'whyChooseUs.subtitle': 'Nous offrons des résultats exceptionnels avec une expertise éprouvée et un engagement total',
+        'whyChooseUs.experience.label': 'Années d\'expérience',
+        'whyChooseUs.projects.label': 'Projets livrés',
+        'whyChooseUs.support.label': 'Support disponible',
+        'whyChooseUs.satisfaction.label': 'Satisfaction client',
+        // Technologies
+        'technologies.title': 'Notre stack technologique',
+        'technologies.subtitle': 'Des outils et technologies de pointe pour créer de superbes produits',
+        // Portfolio
+        'portfolio.title': 'Notre portfolio',
+        'portfolio.subtitle': 'Présentation de nos meilleurs travaux et projets réussis',
+        'portfolio.all': 'Tous',
+        'portfolio.web': 'Web',
+        'portfolio.mobile': 'Mobile',
+        'portfolio.design': 'Design'
       };
       return frFallbackMap[keyPath] || keyPath;
     }

@@ -1,0 +1,22 @@
+<section class="technologies-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our Technology Stack</h2>
+      <p class="section-subtitle">Cutting-edge tools and technologies we use to build amazing products</p>
+    </div>
+
+    <div class="tech-grid">
+      <div 
+        class="tech-card"
+        *ngFor="let tech of technologies; trackBy: trackByTech"
+        [style.--tech-color]="tech.color"
+      >
+        <div class="tech-icon-wrapper">
+          <mat-icon class="tech-icon">{{ tech.icon }}</mat-icon>
+        </div>
+        <h3 class="tech-name">{{ tech.name }}</h3>
+        <span class="tech-category">{{ tech.category }}</span>
+      </div>
+    </div>
+  </div>
+</section>
