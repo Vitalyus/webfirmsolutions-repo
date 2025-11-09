@@ -21,6 +21,7 @@ export class Technologies {
     { name: 'React', icon: 'psychology', color: '#61DAFB', category: 'frontend' },
     { name: 'TypeScript', icon: 'terminal', color: '#3178C6', category: 'language' },
     { name: 'Node.js', icon: 'dns', color: '#339933', category: 'backend' },
+    { name: 'WordPress', icon: 'web', color: '#21759B', category: 'cms' },
     { name: 'MongoDB', icon: 'storage', color: '#47A248', category: 'database' },
   ];
 

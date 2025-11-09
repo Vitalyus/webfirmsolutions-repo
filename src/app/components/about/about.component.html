@@ -1,14 +1,59 @@
-<section>
-  <h2 class="section-title">{{ 'about.title' | translate }}</h2>
-  <div class="about">
-    <img 
-      src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=800&q=80" 
-      [alt]="'about.teamImage' | translate" 
-      loading="lazy"
-    >
-    <div class="content">
-      <p>{{ 'about.description1' | translate }}</p>
-      <p>{{ 'about.description2' | translate }}</p>
+<section class="about-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">{{ 'about.title' | translate }}</h2>
+      <div class="title-decoration"></div>
+    </div>
+    
+    <div class="about-content">
+      <div class="about-image-wrapper">
+        <div class="image-decoration"></div>
+        <img 
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop&auto=format" 
+          alt="Professional Team" 
+          class="about-image"
+        >
+        <div class="floating-badge">
+          <div class="badge-icon">
+            <span class="icon">🚀</span>
+          </div>
+          <div class="badge-text">
+            <strong>Professional</strong>
+            <span>Frontend Experts</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about-text">
+        <div class="text-block">
+          <div class="block-icon">
+            <span>💼</span>
+          </div>
+          <p>{{ 'about.description1' | translate }}</p>
+        </div>
+        
+        <div class="text-block">
+          <div class="block-icon">
+            <span>⚡</span>
+          </div>
+          <p>{{ 'about.description2' | translate }}</p>
+        </div>
+
+        <div class="key-points">
+          <div class="point">
+            <div class="point-icon">✓</div>
+            <span>Modern Technologies</span>
+          </div>
+          <div class="point">
+            <div class="point-icon">✓</div>
+            <span>SEO Optimized</span>
+          </div>
+          <div class="point">
+            <div class="point-icon">✓</div>
+            <span>Fast Delivery</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

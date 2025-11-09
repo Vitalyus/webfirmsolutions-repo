@@ -29,7 +29,7 @@ export class AboutComponent implements OnInit {
     );
 
     setTimeout(() => {
-      const elements = this.elementRef.nativeElement.querySelectorAll('.section-title, .about img, .about .content');
+      const elements = this.elementRef.nativeElement.querySelectorAll('.section-header, .about-image-wrapper, .about-text');
       elements.forEach((el: Element) => observer.observe(el));
     }, 100);
   }
