@@ -1,6 +1,6 @@
 .portfolio-section {
-  padding: 6rem 0;
-  background: linear-gradient(180deg, #FFFFFF 0%, #EEF2FF 50%, #FFFFFF 100%);
+  padding: 6rem 2rem;
+  background: var(--background-color);
   position: relative;
 
   .container {
@@ -79,8 +79,8 @@
       overflow: hidden;
       transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
       cursor: pointer;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      background: white;
+      border: 1px solid var(--border-color, rgba(0, 0, 0, 0.06));
+      background: var(--surface-color);
 
       &:hover {
         transform: translateY(-12px);

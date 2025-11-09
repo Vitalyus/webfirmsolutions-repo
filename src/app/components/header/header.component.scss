@@ -13,16 +13,16 @@
   overflow: hidden;
   
   // Glassmorphism effect
-  background: rgba(255, 255, 255, 0.85) !important;
+  background: var(--glass-bg) !important;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.2));
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   transition: all var(--transition-base);
   will-change: transform, box-shadow;
 
   &.scrolled {
-    background: rgba(255, 255, 255, 0.95) !important;
+    background: var(--glass-bg) !important;
     box-shadow: 0 4px 32px rgba(0, 0, 0, 0.1);
     border-bottom-color: rgba(79, 70, 229, 0.1);
   }
@@ -65,6 +65,22 @@
     align-items: center;
     gap: 12px;
     flex-shrink: 0;
+
+    .theme-toggle-button {
+      color: var(--primary-color);
+      transition: all var(--transition-fast);
+      
+      mat-icon {
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
+      }
+      
+      &:hover {
+        transform: rotate(180deg) scale(1.1);
+        color: var(--accent-color);
+      }
+    }
 
     .desktop-only {
       display: block;
@@ -223,7 +239,7 @@
   width: 85%;
   max-width: 400px;
   height: 100%;
-  background: #FFFFFF;
+  background: var(--surface-color);
   z-index: 1001;
   overflow-y: auto;
   box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
@@ -241,7 +257,7 @@
 
     .mobile-nav-header {
       padding: 1.5rem 1.5rem 1rem;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      border-bottom: 1px solid var(--border-color, rgba(0, 0, 0, 0.08));
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 
       .mobile-logo {
@@ -305,8 +321,8 @@
 
     .mobile-nav-footer {
       padding: 1.5rem;
-      border-top: 1px solid rgba(0, 0, 0, 0.08);
-      background: #F8FAFC;
+      border-top: 1px solid var(--border-color, rgba(0, 0, 0, 0.08));
+      background: var(--background-color);
       display: flex;
       justify-content: center;
       align-items: center;

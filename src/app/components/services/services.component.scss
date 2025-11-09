@@ -1,6 +1,6 @@
 .services-section {
   padding: 6rem 0;
-  background: linear-gradient(180deg, #F8FAFC 0%, #EEF2FF 50%, #F8FAFC 100%);
+  background: var(--background-color);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -88,9 +88,9 @@
         border-radius: 24px;
         overflow: hidden;
         position: relative;
-        background: #FFFFFF;
+        background: var(--surface-color);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-        border: 1px solid rgba(0, 0, 0, 0.04);
+        border: 1px solid var(--border-color, rgba(0, 0, 0, 0.04));
         will-change: transform;
         cursor: pointer;
 
@@ -198,13 +198,13 @@
           .service-title {
             margin-bottom: 1rem;
             font-weight: 600;
-            color: rgba(0, 0, 0, 0.87);
+            color: var(--text-primary);
             transition: all 0.3s ease;
           }
 
           .service-description {
             line-height: 1.6;
-            color: rgba(0, 0, 0, 0.6);
+            color: var(--text-secondary);
           }
         }
 

@@ -1,6 +1,6 @@
 .contact-section {
   padding: 6rem 2rem;
-  background: linear-gradient(180deg, #F8FAFC 0%, #EEF2FF 100%);
+  background: var(--background-color);
   position: relative;
   overflow: hidden;
 
@@ -28,8 +28,8 @@
     padding: 0;
     border-radius: 32px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-    background: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.04);
+    background: var(--surface-color);
+    border: 1px solid var(--border-color, rgba(0, 0, 0, 0.04));
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);

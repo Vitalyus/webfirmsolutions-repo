@@ -23,6 +23,17 @@
   </nav>
 
   <div class="header-actions">
+    <!-- Theme Toggle Button -->
+    <button 
+      mat-icon-button 
+      (click)="themeService.toggleTheme()"
+      class="theme-toggle-button"
+      [attr.aria-label]="themeService.currentTheme() === 'light' ? 'Switch to dark mode' : 'Switch to light mode'"
+      type="button"
+    >
+      <mat-icon>{{ themeService.currentTheme() === 'light' ? 'dark_mode' : 'light_mode' }}</mat-icon>
+    </button>
+    
     <app-language-selector class="desktop-only"></app-language-selector>
     <app-language-selector class="mobile-only"></app-language-selector>
     

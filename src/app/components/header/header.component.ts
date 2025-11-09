@@ -9,6 +9,7 @@ import { LanguageSelectorComponent } from '../language-selector/language-selecto
 import { NavItem, APP_CONFIG, isNonEmptyString } from '../../shared/interfaces';
 import { ScrollService } from '../../shared/scroll.service';
 import { LoggingService } from '../../shared/logging.service';
+import { ThemeService } from '../../services/theme';
 
 @Component({
   selector: 'app-header',
@@ -29,6 +30,7 @@ import { LoggingService } from '../../shared/logging.service';
 export class HeaderComponent implements OnDestroy {
   private readonly scrollService = inject(ScrollService);
   private readonly loggingService = inject(LoggingService);
+  readonly themeService = inject(ThemeService);
   
   // Mobile menu state
   mobileMenuOpen = false;
