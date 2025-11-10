@@ -62,8 +62,28 @@
     "subtitle": "20+ Years of Excellence in Web Development",
     "description": "We are passionate web developers with decades of experience creating digital solutions that matter. Our expertise spans modern frameworks, performance optimization, and user experience design.",
     "teamImage": "Our Team",
+    "professionalExcellence": "Professional Excellence",
+    "ourApproach": "Our Approach",
+    "startupReady": "Startup Ready",
     "description1": "We are a team of frontend experts with international experience, having worked at Google, Amazon, and Facebook. We turn complex ideas into elegant, efficient web solutions.",
     "description2": "Every project gets a personalized approach focused on users and performance, delivering measurable results for our clients.",
+    "stats": {
+      "projects": "Projects",
+      "clients": "Clients",
+      "satisfaction": "Satisfaction"
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Us",
+      "modernTech": "Modern Tech Stack",
+      "seoOptimized": "SEO Optimized",
+      "fastDelivery": "Fast Delivery",
+      "support247": "24/7 Support"
+    },
+    "quote": {
+      "text": "Transforming startup ideas into stunning web experiences",
+      "author": "WebFirm Team",
+      "role": "Frontend Experts"
+    },
     "experience": {
       "years": "20+",
       "yearsLabel": "Years Experience",
@@ -272,7 +292,9 @@
     "name": "Name",
     "email": "Email",
     "message": "Message",
-    "language": "Change Language"
+    "language": "Change Language",
+    "switchToLight": "Switch to Light Mode",
+    "switchToDark": "Switch to Dark Mode"
   },
   "footer": {
     "copyright": "© {{year}} Web Firm Solutions. All rights reserved.",

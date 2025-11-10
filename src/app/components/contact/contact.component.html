@@ -14,7 +14,7 @@
           <div class="info-item">
             <mat-icon>email</mat-icon>
             <div>
-              <h4>Email Us</h4>
+              <h4>{{ translations.emailUs }}</h4>
               <p>contact@webfirmsolutions.com</p>
             </div>
           </div>
@@ -22,16 +22,16 @@
           <div class="info-item">
             <mat-icon>schedule</mat-icon>
             <div>
-              <h4>Response Time</h4>
-              <p>Within 24 hours</p>
+              <h4>{{ translations.responseTime }}</h4>
+              <p>{{ translations.within24Hours }}</p>
             </div>
           </div>
           
           <div class="info-item">
             <mat-icon>location_on</mat-icon>
             <div>
-              <h4>Based In</h4>
-              <p>Available Worldwide</p>
+              <h4>{{ translations.basedIn }}</h4>
+              <p>{{ translations.availableWorldwide }}</p>
             </div>
           </div>
         </div>
@@ -44,7 +44,7 @@
             (click)="openContactDialog()"
           >
             <mat-icon>send</mat-icon>
-            Send Message
+            {{ translations.sendMessage }}
           </button>
           
           <button 
@@ -53,7 +53,7 @@
             class="secondary-button"
           >
             <mat-icon>schedule</mat-icon>
-            Schedule Call
+            {{ translations.scheduleCall }}
           </button>
         </div>
       </mat-card-content>
@@ -65,7 +65,7 @@
 <div class="modal-overlay" *ngIf="isModalOpen" (click)="onModalBackdropClick($event)">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <div class="modal-header">
-      <h3>Send Us a Message</h3>
+      <h3>{{ translations.modal.title }}</h3>
       <button mat-icon-button (click)="closeModal()" class="close-button">
         <mat-icon>close</mat-icon>
       </button>
@@ -73,39 +73,39 @@
     
     <form (ngSubmit)="onSubmit()" class="contact-form">
       <mat-form-field appearance="outline">
-        <mat-label>Your Name</mat-label>
+        <mat-label>{{ translations.modal.name }}</mat-label>
         <input 
           matInput 
           [(ngModel)]="formData.name" 
           name="name"
           required
-          placeholder="Enter your full name"
+          [placeholder]="translations.modal.namePlaceholder"
         >
         <mat-icon matSuffix>person</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Email Address</mat-label>
+        <mat-label>{{ translations.modal.email }}</mat-label>
         <input 
           matInput 
           type="email"
           [(ngModel)]="formData.email" 
           name="email"
           required
-          placeholder="Enter your email address"
+          [placeholder]="translations.modal.emailPlaceholder"
         >
         <mat-icon matSuffix>email</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Your Message</mat-label>
+        <mat-label>{{ translations.modal.message }}</mat-label>
         <textarea 
           matInput 
           [(ngModel)]="formData.message" 
           name="message"
           required
           rows="3"
-          placeholder="Tell us about your project..."
+          [placeholder]="translations.modal.messagePlaceholder"
         ></textarea>
         <mat-icon matSuffix>message</mat-icon>
       </mat-form-field>
@@ -137,14 +137,14 @@
         </div>
         
         <mat-form-field appearance="outline" class="captcha-input">
-          <mat-label>Your Answer</mat-label>
+          <mat-label>{{ translations.modal.captcha.answer }}</mat-label>
           <input 
             matInput 
             type="number"
             [(ngModel)]="formData.captcha" 
             name="captcha"
             required
-            placeholder="Enter the answer"
+            [placeholder]="translations.modal.captcha.placeholder"
             autocomplete="off"
           >
           <mat-icon matSuffix>calculate</mat-icon>
@@ -159,7 +159,7 @@
           class="cancel-button"
           [disabled]="isSubmitting"
         >
-          Cancel
+          {{ translations.common.cancel }}
         </button>
         <button 
           type="submit" 
@@ -170,7 +170,7 @@
         >
           <mat-spinner diameter="20" *ngIf="isSubmitting" style="margin-right: 8px;"></mat-spinner>
           <mat-icon *ngIf="!isSubmitting">send</mat-icon>
-          {{ isSubmitting ? 'Sending...' : 'Send Message' }}
+          {{ isSubmitting ? translations.modal.sending : translations.modal.sendMessage }}
         </button>
       </div>
     </form>

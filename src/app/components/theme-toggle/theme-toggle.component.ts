@@ -42,7 +42,9 @@ export class ThemeToggleComponent {
   );
 
   tooltipText = computed(() => 
-    this.themeService.currentTheme() === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'
+    this.themeService.currentTheme() === 'dark' 
+      ? 'Switch to Light Mode'
+      : 'Switch to Dark Mode'
   );
 
   toggleTheme(): void {

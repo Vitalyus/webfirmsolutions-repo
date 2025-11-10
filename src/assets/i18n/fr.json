@@ -62,8 +62,28 @@
     "subtitle": "Excellence en Développement Web",
     "description": "Nous sommes des développeurs web passionnés avec une expérience dans la création de solutions digitales qui comptent. Notre expertise couvre les frameworks modernes, l'optimisation des performances et le design UX.",
     "teamImage": "Notre Équipe",
+    "professionalExcellence": "Excellence Professionnelle",
+    "ourApproach": "Notre Approche",
+    "startupReady": "Prêt pour Startup",
     "description1": "Nous sommes des développeurs frontend professionnels spécialisés dans la création de sites de présentation pour startups et nouvelles entreprises. Nous transformons les idées en solutions web modernes et performantes.",
     "description2": "Chaque projet reçoit une approche personnalisée axée sur les utilisateurs et la performance, offrant des résultats mesurables pour nos clients.",
+    "stats": {
+      "projects": "Projets",
+      "clients": "Clients",
+      "satisfaction": "Satisfaction"
+    },
+    "whyChooseUs": {
+      "title": "Pourquoi Nous Choisir",
+      "modernTech": "Technologies Modernes",
+      "seoOptimized": "Optimisé SEO",
+      "fastDelivery": "Livraison Rapide",
+      "support247": "Support 24/7"
+    },
+    "quote": {
+      "text": "Transformer les idées de startup en expériences web époustouflantes",
+      "author": "Équipe WebFirm",
+      "role": "Experts Frontend"
+    },
     "experience": {
       "years": "20+",
       "yearsLabel": "Ans d'Expérience",
@@ -272,7 +292,9 @@
     "name": "Nom",
     "email": "Email",
     "message": "Message",
-    "language": "Changer la Langue"
+    "language": "Changer la Langue",
+    "switchToLight": "Passer en Mode Clair",
+    "switchToDark": "Passer en Mode Sombre"
   },
   "footer": {
     "copyright": "© {{year}} Web Firm Solutions. Tous droits réservés.",

@@ -62,8 +62,28 @@
     "subtitle": "Exzellenz in der Webentwicklung",
     "description": "Wir sind leidenschaftliche Webentwickler mit Erfahrung in der Erstellung digitaler Lösungen, die zählen. Unsere Expertise umfasst moderne Frameworks, Leistungsoptimierung und UX-Design.",
     "teamImage": "Unser Team",
+    "professionalExcellence": "Professionelle Exzellenz",
+    "ourApproach": "Unser Ansatz",
+    "startupReady": "Startup-Bereit",
     "description1": "Wir sind professionelle Frontend-Entwickler, die sich auf die Erstellung von Präsentationswebsites für Startups und neue Unternehmen spezialisiert haben. Wir verwandeln Ideen in moderne und leistungsstarke Web-Lösungen.",
     "description2": "Jedes Projekt erhält einen personalisierten Ansatz mit Fokus auf Benutzer und Leistung, der messbare Ergebnisse für unsere Kunden liefert.",
+    "stats": {
+      "projects": "Projekte",
+      "clients": "Kunden",
+      "satisfaction": "Zufriedenheit"
+    },
+    "whyChooseUs": {
+      "title": "Warum Uns Wählen",
+      "modernTech": "Moderne Technologien",
+      "seoOptimized": "SEO-Optimiert",
+      "fastDelivery": "Schnelle Lieferung",
+      "support247": "24/7-Support"
+    },
+    "quote": {
+      "text": "Startup-Ideen in atemberaubende Web-Erlebnisse verwandeln",
+      "author": "WebFirm Team",
+      "role": "Frontend-Experten"
+    },
     "experience": {
       "years": "20+",
       "yearsLabel": "Jahre Erfahrung",
@@ -272,7 +292,9 @@
     "name": "Name",
     "email": "E-Mail",
     "message": "Nachricht",
-    "language": "Sprache Wechseln"
+    "language": "Sprache Wechseln",
+    "switchToLight": "Zum Hellen Modus Wechseln",
+    "switchToDark": "Zum Dunklen Modus Wechseln"
   },
   "footer": {
     "copyright": "© {{year}} Web Firm Solutions. Alle Rechte vorbehalten.",

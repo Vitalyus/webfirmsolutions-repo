@@ -62,8 +62,28 @@
     "subtitle": "Excelență în Dezvoltare Web",
     "description": "Suntem dezvoltatori web pasionați cu experiență în crearea de soluții digitale care contează. Expertiza noastră acoperă framework-uri moderne, optimizare performanță și design UX.",
     "teamImage": "Echipa Noastră",
+    "professionalExcellence": "Excelență Profesională",
+    "ourApproach": "Abordarea Noastră",
+    "startupReady": "Gata Pentru Startup",
     "description1": "Suntem dezvoltatori frontend profesioniști specializați în crearea de site-uri de prezentare pentru startup-uri și afaceri noi. Transformăm idei în soluții web moderne și performante.",
     "description2": "Fiecare proiect primește o abordare personalizată focusată pe utilizatori și performanță, oferind rezultate măsurabile pentru clienții noștri.",
+    "stats": {
+      "projects": "Proiecte",
+      "clients": "Clienți",
+      "satisfaction": "Satisfacție"
+    },
+    "whyChooseUs": {
+      "title": "De Ce Să Ne Alegi",
+      "modernTech": "Tehnologii Moderne",
+      "seoOptimized": "Optimizat SEO",
+      "fastDelivery": "Livrare Rapidă",
+      "support247": "Suport 24/7"
+    },
+    "quote": {
+      "text": "Transformăm ideile startup-urilor în experiențe web uimitoare",
+      "author": "Echipa WebFirm",
+      "role": "Experți Frontend"
+    },
     "experience": {
       "years": "20+",
       "yearsLabel": "Ani Experiență",
@@ -272,7 +292,9 @@
     "name": "Nume",
     "email": "Email",
     "message": "Mesaj",
-    "language": "Schimbă Limba"
+    "language": "Schimbă Limba",
+    "switchToLight": "Comută la Mod Luminos",
+    "switchToDark": "Comută la Mod Întunecat"
   },
   "footer": {
     "copyright": "© {{year}} Web Firm Solutions. Toate drepturile rezervate.",
