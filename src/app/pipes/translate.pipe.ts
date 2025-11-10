@@ -15,42 +15,28 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
   private lastKey = '';
   private lastParams: Record<string, string | number> | undefined;
   private lastValue = '';
-  private lastLanguage = '';
+  private currentLanguage = '';
 
   constructor() {
-    // Subscribe to language changes to force re-calculation
-    this.languageSubscription = this.translationService.currentLanguage$.subscribe((language) => {
-      console.log(`TranslatePipe: Language changed to ${language}, clearing cache`);
-      // Clear cache when language changes
-      this.lastKey = '';
-      this.lastParams = undefined;
-      this.lastValue = '';
-      this.lastLanguage = language;
-      
-      // Force change detection
+    // Subscribe to language changes to trigger updates
+    this.languageSubscription = this.translationService.currentLanguage$.subscribe((lang) => {
+      // Reset cache when language changes
+      if (this.currentLanguage !== lang) {
+        this.currentLanguage = lang;
+        this.lastKey = '';
+        this.lastValue = '';
+        this.lastParams = undefined;
+      }
       this.cdr?.markForCheck();
     });
   }
 
   transform(key: string, params?: Record<string, string | number>): string {
-    const currentLanguage = this.translationService.getCurrentLanguage();
-    
-    // Force recalculation if language, key, or params changed
-    const paramsChanged = JSON.stringify(params) !== JSON.stringify(this.lastParams);
-    const needsRecalculation = 
-      key !== this.lastKey || 
-      paramsChanged || 
-      currentLanguage !== this.lastLanguage;
-    
-    if (needsRecalculation) {
-      console.log(`TranslatePipe: Recalculating translation for key: ${key}, language: ${currentLanguage}`);
-      
+    // Check if we need to recalculate
+    if (key !== this.lastKey || JSON.stringify(params) !== JSON.stringify(this.lastParams)) {
       this.lastKey = key;
       this.lastParams = params;
-      this.lastLanguage = currentLanguage;
       this.lastValue = this.translationService.translate(key, params);
-      
-      console.log(`TranslatePipe: Translation result: "${this.lastValue}"`);
     }
     
     return this.lastValue;

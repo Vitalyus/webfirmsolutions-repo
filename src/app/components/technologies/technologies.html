@@ -1,22 +1,20 @@
 <section class="technologies-section">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">Our Technology Stack</h2>
-      <p class="section-subtitle">Cutting-edge tools and technologies we use to build amazing products</p>
+      <h2 class="section-title">{{ 'technologies.title' | translate }}</h2>
+      <p class="section-subtitle">{{ 'technologies.subtitle' | translate }}</p>
+      <div class="gradient-line"></div>
     </div>
 
     <div class="tech-grid">
-      <div 
-        class="tech-card"
-        *ngFor="let tech of technologies; trackBy: trackByTech"
-        [style.--tech-color]="tech.color"
-      >
-        <div class="tech-icon-wrapper">
-          <mat-icon class="tech-icon">{{ tech.icon }}</mat-icon>
+      @for (tech of technologies(); track tech.name) {
+        <div class="tech-card glass-effect">
+          <div class="tech-icon" [style.color]="tech.color">{{ tech.icon }}</div>
+          <h3 class="tech-name">{{ tech.name }}</h3>
+          <p class="tech-description">{{ tech.description | translate }}</p>
+          <div class="card-glow" [style.background]="'linear-gradient(135deg, ' + tech.color + '40, ' + tech.color + '20)'"></div>
         </div>
-        <h3 class="tech-name">{{ tech.name }}</h3>
-        <span class="tech-category">{{ tech.category }}</span>
-      </div>
+      }
     </div>
   </div>
 </section>

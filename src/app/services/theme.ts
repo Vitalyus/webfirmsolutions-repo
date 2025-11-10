@@ -1,68 +1,58 @@
 import { Injectable, signal, effect } from '@angular/core';
 
+export type ThemeMode = 'light' | 'dark';
+
 @Injectable({
   providedIn: 'root',
 })
-export class ThemeService {
-  // Theme signal: 'light' or 'dark', default is 'light' (white)
-  private themeSignal = signal<'light' | 'dark'>('light');
+export class Theme {
+  private readonly STORAGE_KEY = 'theme-mode';
   
-  // Public readonly signal
-  public currentTheme = this.themeSignal.asReadonly();
+  // Signal for reactive theme state
+  currentTheme = signal<ThemeMode>(this.getInitialTheme());
 
   constructor() {
-    // Apply initial theme class immediately
-    document.body.classList.add('light-theme');
-    
-    // Load theme from localStorage or default to 'light'
-    const savedTheme = this.loadThemeFromStorage();
-    this.themeSignal.set(savedTheme);
-    
-    // Apply theme class to document body
+    // Apply theme on initialization
     effect(() => {
-      const theme = this.themeSignal();
-      document.body.classList.remove('light-theme', 'dark-theme');
-      document.body.classList.add(`${theme}-theme`);
+      this.applyTheme(this.currentTheme());
     });
   }
 
-  /**
-   * Toggle between light and dark themes
-   */
+  private getInitialTheme(): ThemeMode {
+    // Check localStorage first
+    const stored = localStorage.getItem(this.STORAGE_KEY) as ThemeMode;
+    if (stored === 'light' || stored === 'dark') {
+      return stored;
+    }
+
+    // Check system preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+
+    return 'light';
+  }
+
+  private applyTheme(theme: ThemeMode): void {
+    const root = document.documentElement;
+    
+    if (theme === 'dark') {
+      root.classList.add('dark-theme');
+      root.classList.remove('light-theme');
+    } else {
+      root.classList.add('light-theme');
+      root.classList.remove('dark-theme');
+    }
+
+    // Save to localStorage
+    localStorage.setItem(this.STORAGE_KEY, theme);
+  }
+
   toggleTheme(): void {
-    const newTheme = this.themeSignal() === 'light' ? 'dark' : 'light';
-    this.themeSignal.set(newTheme);
-    this.saveThemeToStorage(newTheme);
+    this.currentTheme.set(this.currentTheme() === 'light' ? 'dark' : 'light');
   }
 
-  /**
-   * Set a specific theme
-   */
-  setTheme(theme: 'light' | 'dark'): void {
-    this.themeSignal.set(theme);
-    this.saveThemeToStorage(theme);
-  }
-
-  /**
-   * Load theme from localStorage
-   */
-  private loadThemeFromStorage(): 'light' | 'dark' {
-    if (typeof window !== 'undefined' && window.localStorage) {
-      const saved = localStorage.getItem('app-theme');
-      if (saved === 'light' || saved === 'dark') {
-        return saved;
-      }
-    }
-    return 'light'; // Default to light (white) theme
-  }
-
-  /**
-   * Save theme to localStorage
-   */
-  private saveThemeToStorage(theme: 'light' | 'dark'): void {
-    if (typeof window !== 'undefined' && window.localStorage) {
-      localStorage.setItem('app-theme', theme);
-    }
+  setTheme(theme: ThemeMode): void {
+    this.currentTheme.set(theme);
   }
 }
-

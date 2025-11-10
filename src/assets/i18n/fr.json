@@ -1,28 +1,29 @@
 {
   "navigation": {
-    "menu": "Navigation principale",
+    "home": "Accueil",
     "services": "Services",
-    "about": "À propos",
-    "contact": "Contact"
+    "about": "À Propos",
+    "contact": "Contact",
+    "menu": "Menu principal"
   },
   "hero": {
-    "title": "Transformez vos idées en",
-    "titleAccent": "Expériences Web Ultra-interactives",
-    "titleEnd": "",
-    "subtitle": "Avec plus de 20 ans d'expérience internationale, nous créons des sites web interactifs et optimisés SEO qui augmentent la visibilité et les conversions. Spécialisés en Angular, React et technologies web modernes.",
-    "seoContent": "Services professionnels de conception web et développement frontend. Experts en design responsive, optimisation de l'expérience utilisateur et technologies web modernes. Nous servons des clients dans le monde entier avec des solutions de développement web premium.",
+    "title": "Transformons Vos Idées en",
+    "titleAccent": "Expériences Web",
+    "titleEnd": "Ultra Interactives",
+    "subtitle": "Avec une expérience internationale, nous créons des sites web interactifs et optimisés SEO qui augmentent la visibilité et les conversions. Spécialisés en Angular, React et technologies web modernes.",
+    "seoContent": "Services professionnels de web design et développement frontend. Experts en design responsive, optimisation UX et technologies web modernes. Nous servons des clients dans le monde entier avec des solutions premium.",
     "ctaButton": "Commençons",
-    "secondaryButton": "Voir nos travaux",
-    "ctaAriaLabel": "Contactez-nous pour commencer votre projet",
+    "secondaryButton": "Voir Portfolio",
+    "ctaAriaLabel": "Contactez-nous pour démarrer votre projet",
     "secondaryAriaLabel": "Voir nos services et portfolio",
     "features": {
       "performance": {
-        "title": "Performance rapide",
+        "title": "Performance Rapide",
         "description": "Temps de chargement ultra-rapides"
       },
       "mobile": {
         "title": "Mobile First",
-        "description": "Responsive sur tous les appareils"
+        "description": "Responsive sur tous appareils"
       },
       "seo": {
         "title": "Optimisé SEO",
@@ -32,112 +33,216 @@
   },
   "services": {
     "title": "Nos Services Premium",
-    "subtitle": "Nous livrons des solutions de pointe adaptées aux besoins de votre entreprise",
-    "learnMore": "En savoir plus",
+    "subtitle": "Nous offrons des solutions de pointe adaptées aux besoins de votre entreprise",
+    "learnMore": "En Savoir Plus",
     "learnMoreAbout": "En savoir plus sur",
     "web-design-ux-ui": {
-      "title": "Design Web & UX/UI",
+      "title": "Web Design & UX/UI",
       "description": "Designs intuitifs et visuellement époustouflants qui ravissent les utilisateurs et augmentent les taux de conversion sur tous les appareils."
     },
     "advanced-frontend-development": {
       "title": "Développement Frontend Avancé",
-      "description": "Applications web haute performance avec React, Angular, Vue ou Vanilla JS, entièrement optimisées pour le SEO et la vitesse."
+      "description": "Applications web haute performance avec React, Angular, Vue ou JavaScript, entièrement optimisées pour le SEO et la vitesse."
     },
     "technical-consulting-seo": {
       "title": "Conseil Technique & SEO",
-      "description": "Stratégies évolutives, sécurisées et haute performance pour maximiser l'impact commercial et la visibilité dans les moteurs de recherche."
+      "description": "Stratégies évolutives, sécurisées et performantes pour maximiser l'impact commercial et la visibilité dans les moteurs de recherche."
+    },
+    "features": {
+      "responsive": "Design Responsive",
+      "performance": "Haute Performance",
+      "seo": "Optimisé SEO",
+      "modern": "Technologies Modernes",
+      "support": "Support Continu",
+      "security": "Sécurité Entreprise"
     }
   },
   "about": {
-    "title": "À propos de nous",
-    "teamImage": "Notre équipe",
-    "description1": "Nous sommes une équipe d'experts frontend avec une expérience internationale, ayant travaillé chez Google, Amazon et Facebook. Nous transformons des idées complexes en solutions web élégantes et efficaces.",
-    "description2": "Chaque projet reçoit une approche personnalisée axée sur les utilisateurs et la performance, livrant des résultats mesurables pour nos clients."
+    "title": "À Propos de Nous",
+    "subtitle": "Excellence en Développement Web",
+    "description": "Nous sommes des développeurs web passionnés avec une expérience dans la création de solutions digitales qui comptent. Notre expertise couvre les frameworks modernes, l'optimisation des performances et le design UX.",
+    "teamImage": "Notre Équipe",
+    "description1": "Nous sommes des développeurs frontend professionnels spécialisés dans la création de sites de présentation pour startups et nouvelles entreprises. Nous transformons les idées en solutions web modernes et performantes.",
+    "description2": "Chaque projet reçoit une approche personnalisée axée sur les utilisateurs et la performance, offrant des résultats mesurables pour nos clients.",
+    "experience": {
+      "years": "20+",
+      "yearsLabel": "Ans d'Expérience",
+      "projects": "500+",
+      "projectsLabel": "Projets Réalisés",
+      "clients": "200+",
+      "clientsLabel": "Clients Satisfaits",
+      "technologies": "50+",
+      "technologiesLabel": "Technologies"
+    },
+    "skills": {
+      "frontend": "Développement Frontend",
+      "backend": "Intégration Backend",
+      "ui": "Design UI/UX",
+      "performance": "Optimisation Performance",
+      "seo": "SEO & Analytics",
+      "consulting": "Conseil Technique"
+    }
+  },
+  "whyChooseUs": {
+    "title": "Pourquoi Nous Choisir",
+    "experience": {
+      "label": "Projets Réalisés"
+    },
+    "projects": {
+      "label": "Clients Satisfaits"
+    },
+    "satisfaction": {
+      "label": "Satisfaction Client"
+    },
+    "features": {
+      "fast": {
+        "title": "Rapide comme l'Éclair",
+        "description": "Optimisé pour la vitesse et la performance"
+      },
+      "modern": {
+        "title": "Design Moderne",
+        "description": "Interfaces belles et contemporaines"
+      },
+      "secure": {
+        "title": "Sûr & Fiable",
+        "description": "Construit avec les meilleures pratiques de sécurité"
+      },
+      "responsive": {
+        "title": "Entièrement Responsive",
+        "description": "Parfait sur tous les appareils"
+      }
+    }
+  },
+  "technologies": {
+    "title": "Technologies que Nous Utilisons",
+    "subtitle": "Outils modernes pour des solutions puissantes",
+    "angular": {
+      "description": "Framework entreprise pour applications évolutives"
+    },
+    "react": {
+      "description": "Bibliothèque UI dynamique et flexible"
+    },
+    "typescript": {
+      "description": "JavaScript typé pour un code fiable"
+    },
+    "nodejs": {
+      "description": "Runtime JavaScript côté serveur"
+    },
+    "wordpress": {
+      "description": "CMS puissant pour sites content-driven"
+    },
+    "mongodb": {
+      "description": "Base de données NoSQL flexible"
+    }
+  },
+  "portfolio": {
+    "title": "Nos Réalisations",
+    "subtitle": "Sites web époustouflants pour startups et entreprises",
+    "categories": {
+      "all": "Tous les Projets",
+      "web": "Sites Web",
+      "ecommerce": "E-Commerce",
+      "landing": "Pages d'Atterrissage"
+    },
+    "projects": {
+      "ecommerce": {
+        "title": "Plateforme E-Commerce",
+        "description": "Boutique en ligne complète avec intégration paiement"
+      },
+      "corporate": {
+        "title": "Site Corporate",
+        "description": "Site professionnel de présentation d'entreprise"
+      },
+      "startup": {
+        "title": "Landing Page Startup",
+        "description": "Page d'atterrissage moderne pour startup tech"
+      },
+      "restaurant": {
+        "title": "Site Restaurant",
+        "description": "Beau site avec réservations en ligne"
+      },
+      "saas": {
+        "title": "Dashboard SaaS",
+        "description": "Application web avancée avec analytics"
+      },
+      "blog": {
+        "title": "Plateforme Blog",
+        "description": "Système de gestion de contenu avec SEO"
+      }
+    }
   },
   "contact": {
-    "title": "Travaillons ensemble",
-    "subtitle": "Prêt à transformer vos idées en réalité ?",
-    "name": "Nom",
-    "email": "E-mail",
-    "company": "Entreprise (optionnel)",
-    "subject": "Sujet",
-    "message": "Message",
-    "captcha": "Résolvez : {{question}}",
-    "send": "Envoyer le message",
-    "sending": "Envoi en cours...",
-    "success": "Merci ! Votre message a été envoyé avec succès.",
-    "error": "Désolé, une erreur s'est produite lors de l'envoi du message.",
-    "emailUs": "Envoyez-nous un e-mail",
-    "responseTime": "Temps de réponse",
-    "within24Hours": "Dans les 24 heures",
-    "basedIn": "Basé à",
-    "availableWorldwide": "Disponible dans le monde entier",
-    "sendMessage": "Envoyer un message",
-    "scheduleCall": "Planifier un appel",
+    "title": "Travaillons Ensemble",
+    "subtitle": "Prêt à transformer vos idées en réalité ? Envoyez-nous un message et recevez une solution personnalisée pour votre entreprise.",
+    "emailUs": "Envoyez Email",
+    "responseTime": "Temps de Réponse",
+    "within24Hours": "Sous 24 heures",
+    "basedIn": "Localisation",
+    "availableWorldwide": "Disponible Globalement",
+    "sendMessage": "Envoyer Message",
+    "scheduleCall": "Planifier Appel",
     "modal": {
-      "title": "Envoyez-nous un message",
-      "name": "Votre nom",
+      "title": "Envoyez-nous un Message",
+      "name": "Votre Nom",
       "namePlaceholder": "Entrez votre nom complet",
-      "email": "Adresse e-mail",
-      "emailPlaceholder": "Entrez votre adresse e-mail",
-      "message": "Votre message",
+      "email": "Adresse Email",
+      "emailPlaceholder": "Entrez votre email",
+      "message": "Votre Message",
       "messagePlaceholder": "Parlez-nous de votre projet...",
-      "sendMessage": "Envoyer le message",
+      "sendMessage": "Envoyer Message",
       "sending": "Envoi en cours...",
-      "cancel": "Annuler",
-      "success": "Message envoyé avec succès ! Nous vous répondrons bientôt.",
-      "error": "L'envoi du message a échoué. Veuillez réessayer ou nous contacter directement.",
       "captcha": {
-        "answer": "Votre réponse",
-        "placeholder": "Entrez la réponse",
-        "refresh": "Générer un nouveau défi"
+        "answer": "Votre Réponse",
+        "placeholder": "Entrez la réponse"
       }
     },
-    "validation": {
-      "nameRequired": "Le nom est requis",
-      "emailRequired": "L'e-mail est requis",
-      "emailInvalid": "Veuillez entrer une adresse e-mail valide",
-      "subjectRequired": "Le sujet est requis",
-      "messageRequired": "Le message est requis",
-      "captchaRequired": "Veuillez résoudre le problème",
-      "captchaIncorrect": "Réponse incorrecte au problème",
-      "allRequired": "Veuillez remplir tous les champs obligatoires."
+    "form": {
+      "name": "Votre Nom",
+      "email": "Adresse Email",
+      "message": "Votre Message",
+      "captcha": "Résolvez pour vérifier que vous êtes humain",
+      "submit": "Envoyer Message",
+      "sending": "Envoi...",
+      "success": "Message envoyé avec succès ! Nous répondrons bientôt.",
+      "error": "Erreur lors de l'envoi. Veuillez réessayer.",
+      "required": "Ce champ est obligatoire",
+      "emailInvalid": "Veuillez entrer une adresse email valide",
+      "messageShort": "Le message doit contenir au moins 10 caractères"
+    },
+    "info": {
+      "email": "Email",
+      "response": "Temps de Réponse",
+      "responseValue": "Sous 24 heures",
+      "availability": "Disponibilité",
+      "availabilityValue": "Lundi - Vendredi, 9:00 - 17:00"
     }
   },
   "admin": {
-    "title": "Panneau d'administration - Messages de contact",
+    "title": "Panneau Admin - Messages Contact",
     "login": {
-      "title": "Connexion administrateur",
-      "keyLabel": "Clé administrateur",
-      "keyPlaceholder": "Entrez la clé administrateur",
-      "loginButton": "Se connecter",
-      "error": "Clé administrateur invalide",
-      "success": "Authentification réussie !"
+      "title": "Connexion Admin",
+      "keyLabel": "Clé Admin",
+      "keyPlaceholder": "Entrez la clé admin",
+      "loginButton": "Connexion",
+      "error": "Clé admin invalide",
+      "success": "Authentifié avec succès !"
     },
     "messages": {
-      "refresh": "Actualiser les messages",
-      "exportJson": "Exporter JSON",
-      "exportCsv": "Exporter CSV",
-      "clearLocal": "Effacer local",
+      "refresh": "Actualiser Messages",
+      "exportJson": "Export JSON",
+      "exportCsv": "Export CSV",
+      "clearLocal": "Effacer Local",
       "loading": "Chargement des messages...",
       "noMessages": "Aucun message trouvé",
-      "loaded": "{{count}} messages chargés",
-      "loadError": "Échec du chargement des messages",
-      "total": "Total des messages",
+      "total": "Total Messages",
       "new": "Nouveau",
       "read": "Lu",
       "markAsRead": "Marquer comme lu",
-      "markedAsRead": "Message marqué comme lu",
-      "markError": "Échec du marquage",
       "viewMessage": "Voir le message complet",
-      "viewFrom": "De",
-      "viewDate": "Date",
-      "clearConfirm": "Êtes-vous sûr de vouloir effacer les messages locaux ? Cette action ne peut pas être annulée.",
-      "cleared": "Messages locaux effacés",
       "columns": {
         "status": "Statut",
         "name": "Nom",
-        "email": "E-mail",
+        "email": "Email",
         "message": "Message",
         "timestamp": "Date",
         "actions": "Actions"
@@ -145,34 +250,38 @@
     }
   },
   "common": {
-    "language": "Changer de langue",
     "loading": "Chargement...",
     "error": "Erreur",
     "success": "Succès",
-    "close": "Fermer",
     "cancel": "Annuler",
     "confirm": "Confirmer",
-    "save": "Sauvegarder",
-    "edit": "Modifier",
+    "save": "Enregistrer",
     "delete": "Supprimer",
+    "edit": "Modifier",
+    "view": "Voir",
+    "close": "Fermer",
     "back": "Retour",
     "next": "Suivant",
     "previous": "Précédent",
     "search": "Rechercher",
     "filter": "Filtrer",
     "sort": "Trier",
-    "all": "Tous",
-    "none": "Aucun",
-    "yes": "Oui",
-    "no": "Non"
+    "actions": "Actions",
+    "status": "Statut",
+    "date": "Date",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "language": "Changer la Langue"
   },
   "footer": {
     "copyright": "© {{year}} Web Firm Solutions. Tous droits réservés.",
+    "builtWith": "Construit avec Angular et Material Design",
     "websiteAriaLabel": "Visitez notre site web à webfirmsolutions.com"
   },
   "seo": {
-    "title": "Web Firm Solutions - Développement Web et Design Professionnels",
-    "description": "Services experts de développement web, développement frontend et design UX/UI. Spécialisés en Angular, React et technologies web modernes avec plus de 20 ans d'expérience.",
-    "keywords": "développement web, développement frontend, design web, design UX UI, développement Angular, développement React, sites web professionnels, optimisation SEO"
+    "title": "Web Firm Solutions - Services Premium de Web Design & Développement Frontend",
+    "description": "Services professionnels de web design et développement frontend. Spécialisés en Angular, React et technologies web modernes pour des expériences utilisateur exceptionnelles.",
+    "keywords": "web design, développement frontend, UX/UI, SEO, conseil technique, web interactif, services web premium, développement Angular, développement React, design responsive"
   }
 }

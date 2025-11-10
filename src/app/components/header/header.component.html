@@ -1,18 +1,12 @@
 <mat-toolbar color="primary" class="header-toolbar" role="banner">
   <div class="logo">
-    <div class="logo-icon-wrapper">
-      <mat-icon class="logo-icon" aria-hidden="true">web</mat-icon>
-    </div>
-    <div class="logo-text-wrapper">
-      <span class="logo-brand">WebFirm</span>
-      <span class="logo-suffix">Solutions</span>
-    </div>
+    <mat-icon class="logo-icon" aria-hidden="true">web</mat-icon>
+    <span class="logo-text">{{ companyName }}</span>
   </div>
   
   <div class="spacer"></div>
   
-  <!-- Desktop Navigation -->
-  <nav class="nav-menu desktop-nav" role="navigation" [attr.aria-label]="'navigation.menu' | translate">
+  <nav class="nav-menu" role="navigation" [attr.aria-label]="'navigation.menu' | translate">
     <button 
       mat-button
       *ngFor="let item of navItems; trackBy: trackByHref" 
@@ -28,60 +22,7 @@
   </nav>
 
   <div class="header-actions">
-    <!-- Theme Toggle Button -->
-    <button 
-      mat-icon-button 
-      (click)="themeService.toggleTheme()"
-      class="theme-toggle-button"
-      [attr.aria-label]="themeService.currentTheme() === 'light' ? 'Switch to dark mode' : 'Switch to light mode'"
-      type="button"
-    >
-      <mat-icon>{{ themeService.currentTheme() === 'light' ? 'dark_mode' : 'light_mode' }}</mat-icon>
-    </button>
-    
-    <app-language-selector class="desktop-only"></app-language-selector>
-    <app-language-selector class="mobile-only"></app-language-selector>
-    
-    <!-- Mobile Menu Button -->
-    <button 
-      mat-icon-button 
-      class="mobile-menu-button"
-      (click)="toggleMobileMenu()"
-      [attr.aria-label]="mobileMenuOpen ? 'Close menu' : 'Open menu'"
-      [attr.aria-expanded]="mobileMenuOpen"
-    >
-      <mat-icon>{{ mobileMenuOpen ? 'close' : 'menu' }}</mat-icon>
-    </button>
+    <app-theme-toggle></app-theme-toggle>
+    <app-language-selector></app-language-selector>
   </div>
 </mat-toolbar>
-
-<!-- Mobile Navigation Drawer -->
-<div class="mobile-nav-overlay" [class.open]="mobileMenuOpen" (click)="closeMobileMenu()"></div>
-<nav class="mobile-nav-drawer" [class.open]="mobileMenuOpen" role="navigation">
-  <div class="mobile-nav-content">
-    <div class="mobile-nav-header">
-      <div class="mobile-logo">
-        <div class="logo-icon-wrapper-mobile">
-          <mat-icon class="logo-icon">web</mat-icon>
-        </div>
-        <div class="logo-text-wrapper-mobile">
-          <span class="logo-brand">WebFirm</span>
-          <span class="logo-suffix">Solutions</span>
-        </div>
-      </div>
-    </div>
-    
-    <div class="mobile-nav-items">
-      <button 
-        mat-button
-        *ngFor="let item of navItems; trackBy: trackByHref" 
-        (click)="onMobileNavigate($event, item.href)"
-        class="mobile-nav-item"
-        type="button"
-      >
-        <mat-icon>{{ item.icon }}</mat-icon>
-        <span>{{ ('navigation.' + item.href.slice(1)) | translate }}</span>
-      </button>
-    </div>
-  </div>
-</nav>

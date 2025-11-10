@@ -33,7 +33,7 @@ import { Language, LanguageOption } from '../../shared/interfaces';
               *ngFor="let language of availableLanguages()"
               (click)="selectLanguage(language.code)"
               [class.active]="language.code === currentLanguageCode()"
-              class="language-option mat-mdc-menu-item">
+              class="language-option">
         <span class="language-flag">{{ language.flag }}</span>
         <span class="language-name">{{ language.name }}</span>
         <mat-icon *ngIf="language.code === currentLanguageCode()"
@@ -51,10 +51,9 @@ export class LanguageSelectorComponent implements OnInit {
   private readonly languageOptions: LanguageOption[] = [
     { code: 'en', name: 'English', flag: '🇺🇸' },
     { code: 'ro', name: 'Română', flag: '🇷🇴' },
-    { code: 'uk', name: 'Українська', flag: '🇺🇦' },
     { code: 'fr', name: 'Français', flag: '🇫🇷' },
-    { code: 'es', name: 'Español', flag: '🇪🇸' },
-    { code: 'de', name: 'Deutsch', flag: '🇩🇪' }
+    { code: 'de', name: 'Deutsch', flag: '��' },
+    { code: 'uk', name: 'Українська', flag: '��' }
   ];
 
   // Reactive signals
@@ -91,9 +90,18 @@ export class LanguageSelectorComponent implements OnInit {
       return; // Prevent language changes while loading
     }
 
-    // Use setCurrentLanguage which handles the language switching internally
-    this.translationService.setCurrentLanguage(language);
-    console.log(`LanguageSelector: Successfully changed to ${language}`);
+    this.translationService.setLanguage(language).subscribe({
+      next: (success) => {
+        if (success) {
+          console.log(`LanguageSelector: Successfully changed to ${language}`);
+        } else {
+          console.error(`LanguageSelector: Failed to change to ${language}`);
+        }
+      },
+      error: (error) => {
+        console.error(`LanguageSelector: Error changing to ${language}:`, error);
+      }
+    });
   }
 
   /**

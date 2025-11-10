@@ -26,14 +26,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/robots.txt",
-              "src/sitemap.xml",
-              {
-                "glob": ".htaccess",
-                "input": "src",
-                "output": "/"
-              }
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss"
@@ -42,28 +35,20 @@
           },
           "configurations": {
             "production": {
-              "optimization": {
-                "scripts": true,
-                "styles": {
-                  "minify": true,
-                  "inlineCritical": true
-                },
-                "fonts": true
-              },
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
+              "optimization": true,
               "extractLicenses": true,
+              "sourceMap": false,
+              "outputHashing": "all",
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "1.5MB",
-                  "maximumError": "2MB"
+                  "maximumWarning": "800kB",
+                  "maximumError": "1.5MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "20kB",
-                  "maximumError": "30kB"
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
                 }
               ]
             },

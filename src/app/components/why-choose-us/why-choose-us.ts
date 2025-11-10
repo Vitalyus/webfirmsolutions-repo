@@ -1,116 +1,84 @@
 import { Component, OnInit, OnDestroy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 
 interface Stat {
-  id: string;
-  icon: string;
   value: number;
   suffix: string;
   label: string;
-  color: string;
+  icon: string;
 }
 
 @Component({
   selector: 'app-why-choose-us',
-  imports: [CommonModule, MatCardModule, MatIconModule],
+  standalone: true,
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './why-choose-us.html',
   styleUrl: './why-choose-us.scss',
 })
 export class WhyChooseUs implements OnInit, OnDestroy {
   private animationFrameId?: number;
-  
-  stats: Stat[] = [
-    {
-      id: 'experience',
-      icon: 'workspace_premium',
-      value: 50,
-      suffix: '+',
-      label: 'Projects Completed',
-      color: 'primary'
-    },
-    {
-      id: 'projects',
-      icon: 'rocket_launch',
-      value: 30,
-      suffix: '+',
-      label: 'Happy Clients',
-      color: 'accent'
-    },
-    {
-      id: 'support',
-      icon: 'support_agent',
-      value: 24,
-      suffix: '/7',
-      label: 'Support Available',
-      color: 'warn'
-    },
-    {
-      id: 'satisfaction',
-      icon: 'favorite',
-      value: 98,
-      suffix: '%',
-      label: 'Client Satisfaction',
-      color: 'success'
-    }
-  ];
+  private observer?: IntersectionObserver;
 
-  animatedValues = signal<{ [key: string]: number }>({});
+  stats = signal<Stat[]>([
+    { value: 50, suffix: '+', label: 'whyChooseUs.experience.label', icon: '🏆' },
+    { value: 30, suffix: '+', label: 'whyChooseUs.projects.label', icon: '🎯' },
+    { value: 98, suffix: '%', label: 'whyChooseUs.satisfaction.label', icon: '⭐' }
+  ]);
+
+  currentValues = signal<number[]>([0, 0, 0]);
+  isVisible = signal(false);
 
   ngOnInit(): void {
-    this.observeSection();
+    this.setupIntersectionObserver();
   }
 
   ngOnDestroy(): void {
     if (this.animationFrameId) {
       cancelAnimationFrame(this.animationFrameId);
     }
+    this.observer?.disconnect();
   }
 
-  private observeSection(): void {
-    const observer = new IntersectionObserver(
+  private setupIntersectionObserver(): void {
+    this.observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !this.isVisible()) {
+            this.isVisible.set(true);
             this.animateCounters();
-            observer.disconnect();
           }
         });
       },
       { threshold: 0.3 }
     );
 
-    const section = document.querySelector('.why-choose-us-section');
-    if (section) {
-      observer.observe(section);
-    }
+    // Observe the component after a small delay to ensure DOM is ready
+    setTimeout(() => {
+      const element = document.querySelector('.why-choose-us-section');
+      if (element) {
+        this.observer?.observe(element);
+      }
+    }, 100);
   }
 
   private animateCounters(): void {
-    const duration = 2000; // 2 seconds
+    const duration = 2000;
     const startTime = performance.now();
-    const initialValues: { [key: string]: number } = {};
-    
-    this.stats.forEach(stat => {
-      initialValues[stat.id] = 0;
-    });
-    
-    this.animatedValues.set(initialValues);
+    const startValues = [0, 0, 0];
+    const endValues = this.stats().map(s => s.value);
 
     const animate = (currentTime: number) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
       
-      // Easing function (easeOutExpo)
-      const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
       
-      const newValues: { [key: string]: number } = {};
-      this.stats.forEach(stat => {
-        newValues[stat.id] = Math.floor(stat.value * easeProgress);
-      });
+      const newValues = endValues.map((end, i) => 
+        Math.floor(startValues[i] + (end - startValues[i]) * easeOutQuart)
+      );
       
-      this.animatedValues.set(newValues);
+      this.currentValues.set(newValues);
 
       if (progress < 1) {
         this.animationFrameId = requestAnimationFrame(animate);
@@ -120,7 +88,7 @@ export class WhyChooseUs implements OnInit, OnDestroy {
     this.animationFrameId = requestAnimationFrame(animate);
   }
 
-  trackByStat(index: number, stat: Stat): string {
-    return stat.id;
+  getDisplayValue(index: number): string {
+    return this.currentValues()[index]?.toString() || '0';
   }
 }

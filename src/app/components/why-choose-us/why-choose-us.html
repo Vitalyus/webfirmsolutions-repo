@@ -1,30 +1,47 @@
 <section class="why-choose-us-section">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">Why Choose Us</h2>
-      <p class="section-subtitle">We deliver exceptional results with proven expertise and dedication</p>
+      <h2 class="section-title">{{ 'whyChooseUs.title' | translate }}</h2>
+      <div class="gradient-line"></div>
     </div>
 
     <div class="stats-grid">
-      <mat-card 
-        class="stat-card" 
-        *ngFor="let stat of stats; trackBy: trackByStat"
-        [attr.data-color]="stat.color"
-      >
-        <mat-card-content>
-          <div class="stat-icon-container" [class]="'stat-' + stat.color">
-            <mat-icon class="stat-icon">{{ stat.icon }}</mat-icon>
-          </div>
-          
+      @for (stat of stats(); track stat.label; let i = $index) {
+        <div class="stat-card glass-effect" [class.visible]="isVisible()">
+          <div class="stat-icon">{{ stat.icon }}</div>
           <div class="stat-value">
-            <span class="stat-number">{{ animatedValues()[stat.id] || 0 }}</span>
-            <span class="stat-suffix">{{ stat.suffix }}</span>
+            {{ getDisplayValue(i) }}{{ stat.suffix }}
           </div>
-          
-          <h3 class="stat-label">{{ stat.label }}</h3>
-          <p class="stat-description">Building excellence through experience and innovation</p>
-        </mat-card-content>
-      </mat-card>
+          <div class="stat-label">{{ stat.label | translate }}</div>
+          <div class="card-glow"></div>
+        </div>
+      }
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card glass-effect">
+        <div class="feature-icon">⚡</div>
+        <h3 class="feature-title">{{ 'whyChooseUs.features.fast.title' | translate }}</h3>
+        <p class="feature-description">{{ 'whyChooseUs.features.fast.description' | translate }}</p>
+      </div>
+
+      <div class="feature-card glass-effect">
+        <div class="feature-icon">🎨</div>
+        <h3 class="feature-title">{{ 'whyChooseUs.features.modern.title' | translate }}</h3>
+        <p class="feature-description">{{ 'whyChooseUs.features.modern.description' | translate }}</p>
+      </div>
+
+      <div class="feature-card glass-effect">
+        <div class="feature-icon">🔒</div>
+        <h3 class="feature-title">{{ 'whyChooseUs.features.secure.title' | translate }}</h3>
+        <p class="feature-description">{{ 'whyChooseUs.features.secure.description' | translate }}</p>
+      </div>
+
+      <div class="feature-card glass-effect">
+        <div class="feature-icon">📱</div>
+        <h3 class="feature-title">{{ 'whyChooseUs.features.responsive.title' | translate }}</h3>
+        <p class="feature-description">{{ 'whyChooseUs.features.responsive.description' | translate }}</p>
+      </div>
     </div>
   </div>
 </section>

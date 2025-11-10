@@ -1,56 +1,115 @@
 <section class="about-section">
   <div class="container">
+    <!-- Title -->
     <div class="section-header">
       <h2 class="section-title">{{ 'about.title' | translate }}</h2>
-      <div class="title-decoration"></div>
+      <div class="gradient-line"></div>
     </div>
-    
-    <div class="about-content">
-      <div class="about-image-wrapper">
-        <div class="image-decoration"></div>
-        <img 
-          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop&auto=format" 
-          alt="Professional Team" 
-          class="about-image"
-        >
-        <div class="floating-badge">
-          <div class="badge-icon">
-            <span class="icon">🚀</span>
+
+    <!-- Bento Grid Layout -->
+    <div class="bento-grid">
+      <!-- Large Card - Main Content -->
+      <div class="bento-card main-card glass-effect">
+        <div class="card-glow"></div>
+        <div class="floating-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+        </div>
+        <div class="content-wrapper">
+          <div class="icon-badge">
+            <span class="emoji">💼</span>
           </div>
-          <div class="badge-text">
-            <strong>Professional</strong>
-            <span>Frontend Experts</span>
+          <h3 class="card-title">Professional Excellence</h3>
+          <p class="card-text">{{ 'about.description1' | translate }}</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Angular</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">TypeScript</span>
           </div>
         </div>
       </div>
-      
-      <div class="about-text">
-        <div class="text-block">
-          <div class="block-icon">
-            <span>💼</span>
-          </div>
-          <p>{{ 'about.description1' | translate }}</p>
-        </div>
-        
-        <div class="text-block">
-          <div class="block-icon">
-            <span>⚡</span>
-          </div>
-          <p>{{ 'about.description2' | translate }}</p>
-        </div>
 
-        <div class="key-points">
-          <div class="point">
-            <div class="point-icon">✓</div>
-            <span>Modern Technologies</span>
+      <!-- Stats Card -->
+      <div class="bento-card stats-card glass-effect">
+        <div class="card-glow purple"></div>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Projects</div>
           </div>
-          <div class="point">
-            <div class="point-icon">✓</div>
-            <span>SEO Optimized</span>
+          <div class="stat-item">
+            <div class="stat-number">30+</div>
+            <div class="stat-label">Clients</div>
           </div>
-          <div class="point">
-            <div class="point-icon">✓</div>
-            <span>Fast Delivery</span>
+          <div class="stat-item">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">Satisfaction</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vision Card -->
+      <div class="bento-card vision-card glass-effect">
+        <div class="card-glow blue"></div>
+        <div class="icon-badge small">
+          <span class="emoji">⚡</span>
+        </div>
+        <h3 class="card-title small">Our Approach</h3>
+        <p class="card-text small">{{ 'about.description2' | translate }}</p>
+      </div>
+
+      <!-- Image Card -->
+      <div class="bento-card image-card">
+        <div class="image-wrapper">
+          <img 
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=600&fit=crop&auto=format" 
+            alt="Team collaboration"
+            class="team-image"
+          >
+          <div class="image-overlay">
+            <div class="overlay-badge">
+              <span class="badge-icon">🚀</span>
+              <span class="badge-text">Startup Ready</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Card -->
+      <div class="bento-card features-card glass-effect">
+        <div class="card-glow pink"></div>
+        <h3 class="features-title">Why Choose Us</h3>
+        <div class="features-list">
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span class="feature-text">Modern Tech Stack</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span class="feature-text">SEO Optimized</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span class="feature-text">Fast Delivery</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span class="feature-text">24/7 Support</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quote Card -->
+      <div class="bento-card quote-card glass-effect">
+        <div class="card-glow orange"></div>
+        <div class="quote-icon">"</div>
+        <p class="quote-text">Transforming startup ideas into stunning web experiences</p>
+        <div class="quote-author">
+          <div class="author-avatar">WF</div>
+          <div class="author-info">
+            <div class="author-name">WebFirm Team</div>
+            <div class="author-role">Frontend Experts</div>
           </div>
         </div>
       </div>

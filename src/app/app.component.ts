@@ -9,7 +9,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { SEOService } from './services/seo.service';
 import { TranslationService } from './services/translation.service';
-import { ThemeService } from './services/theme';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +29,6 @@ export class AppComponent implements OnInit, OnDestroy {
   
   private readonly seoService = inject(SEOService);
   private readonly translationService = inject(TranslationService);
-  private readonly themeService = inject(ThemeService);
   private readonly platformId = inject(PLATFORM_ID);
   private readonly router = inject(Router);
   

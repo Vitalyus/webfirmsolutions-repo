@@ -1,20 +1,21 @@
 {
   "navigation": {
-    "menu": "Hauptnavigation",
+    "home": "Startseite",
     "services": "Dienstleistungen",
-    "about": "Über uns",
-    "contact": "Kontakt"
+    "about": "Über Uns",
+    "contact": "Kontakt",
+    "menu": "Hauptmenü"
   },
   "hero": {
     "title": "Verwandeln Sie Ihre Ideen in",
-    "titleAccent": "Ultra-interaktive",
-    "titleEnd": "Web-Erlebnisse",
-    "subtitle": "Mit über 20 Jahren internationaler Erfahrung erstellen wir interaktive, SEO-optimierte Websites, die Sichtbarkeit und Conversions steigern. Spezialisiert auf Angular, React und moderne Web-Technologien.",
-    "seoContent": "Professionelle Webdesign- und Frontend-Entwicklungsdienstleistungen. Experten in responsivem Design, Benutzererfahrungsoptimierung und modernen Web-Technologien. Wir betreuen Kunden weltweit mit Premium-Web-Entwicklungslösungen.",
-    "ctaButton": "Lassen Sie uns anfangen",
-    "secondaryButton": "Unsere Arbeiten ansehen",
+    "titleAccent": "Web-Erlebnisse",
+    "titleEnd": "Ultra Interaktiv",
+    "subtitle": "Mit internationaler Erfahrung erstellen wir interaktive, SEO-optimierte Websites, die Sichtbarkeit und Conversions steigern. Spezialisiert auf Angular, React und moderne Web-Technologien.",
+    "seoContent": "Professionelle Webdesign- und Frontend-Entwicklungsdienstleistungen. Experten für responsives Design, UX-Optimierung und moderne Web-Technologien. Wir betreuen Kunden weltweit mit Premium-Lösungen.",
+    "ctaButton": "Legen Wir Los",
+    "secondaryButton": "Portfolio Ansehen",
     "ctaAriaLabel": "Kontaktieren Sie uns, um Ihr Projekt zu starten",
-    "secondaryAriaLabel": "Unsere Dienstleistungen und Portfolio ansehen",
+    "secondaryAriaLabel": "Sehen Sie unsere Dienstleistungen und Portfolio",
     "features": {
       "performance": {
         "title": "Schnelle Leistung",
@@ -25,83 +26,195 @@
         "description": "Responsive auf allen Geräten"
       },
       "seo": {
-        "title": "SEO optimiert",
+        "title": "SEO-Optimiert",
         "description": "Für Suchmaschinen entwickelt"
       }
     }
   },
   "services": {
     "title": "Unsere Premium-Dienstleistungen",
-    "subtitle": "Wir liefern hochmoderne Lösungen, die auf Ihre Geschäftsanforderungen zugeschnitten sind",
-    "learnMore": "Mehr erfahren",
+    "subtitle": "Wir bieten modernste Lösungen, die auf die Bedürfnisse Ihres Unternehmens zugeschnitten sind",
+    "learnMore": "Mehr Erfahren",
     "learnMoreAbout": "Mehr erfahren über",
     "web-design-ux-ui": {
       "title": "Webdesign & UX/UI",
-      "description": "Intuitive, visuell beeindruckende Designs, die Benutzer begeistern und höhere Conversion-Raten auf allen Geräten fördern."
+      "description": "Intuitive und visuell beeindruckende Designs, die Benutzer begeistern und Conversion-Raten auf allen Geräten erhöhen."
     },
     "advanced-frontend-development": {
-      "title": "Erweiterte Frontend-Entwicklung",
-      "description": "Hochleistungs-Web-Apps mit React, Angular, Vue oder Vanilla JS, vollständig für SEO und Geschwindigkeit optimiert."
+      "title": "Fortgeschrittene Frontend-Entwicklung",
+      "description": "Hochleistungs-Webanwendungen mit React, Angular, Vue oder JavaScript, vollständig für SEO und Geschwindigkeit optimiert."
     },
     "technical-consulting-seo": {
       "title": "Technische Beratung & SEO",
-      "description": "Skalierbare, sichere und hochleistungsfähige Strategien zur Maximierung des Geschäftseinflusses und der Sichtbarkeit in Suchmaschinen."
+      "description": "Skalierbare, sichere und leistungsstarke Strategien zur Maximierung der Geschäftswirkung und Suchmaschinen-Sichtbarkeit."
+    },
+    "features": {
+      "responsive": "Responsives Design",
+      "performance": "Hohe Leistung",
+      "seo": "SEO-Optimiert",
+      "modern": "Moderne Technologien",
+      "support": "Kontinuierliche Unterstützung",
+      "security": "Enterprise-Sicherheit"
     }
   },
   "about": {
-    "title": "Über uns",
+    "title": "Über Uns",
+    "subtitle": "Exzellenz in der Webentwicklung",
+    "description": "Wir sind leidenschaftliche Webentwickler mit Erfahrung in der Erstellung digitaler Lösungen, die zählen. Unsere Expertise umfasst moderne Frameworks, Leistungsoptimierung und UX-Design.",
     "teamImage": "Unser Team",
-    "description1": "Wir sind ein Team von Frontend-Experten mit internationaler Erfahrung, die bei Google, Amazon und Facebook gearbeitet haben. Wir verwandeln komplexe Ideen in elegante, effiziente Web-Lösungen.",
-    "description2": "Jedes Projekt erhält einen personalisierten Ansatz, der sich auf Benutzer und Leistung konzentriert und messbare Ergebnisse für unsere Kunden liefert."
+    "description1": "Wir sind professionelle Frontend-Entwickler, die sich auf die Erstellung von Präsentationswebsites für Startups und neue Unternehmen spezialisiert haben. Wir verwandeln Ideen in moderne und leistungsstarke Web-Lösungen.",
+    "description2": "Jedes Projekt erhält einen personalisierten Ansatz mit Fokus auf Benutzer und Leistung, der messbare Ergebnisse für unsere Kunden liefert.",
+    "experience": {
+      "years": "20+",
+      "yearsLabel": "Jahre Erfahrung",
+      "projects": "500+",
+      "projectsLabel": "Abgeschlossene Projekte",
+      "clients": "200+",
+      "clientsLabel": "Zufriedene Kunden",
+      "technologies": "50+",
+      "technologiesLabel": "Technologien"
+    },
+    "skills": {
+      "frontend": "Frontend-Entwicklung",
+      "backend": "Backend-Integration",
+      "ui": "UI/UX-Design",
+      "performance": "Leistungsoptimierung",
+      "seo": "SEO & Analytics",
+      "consulting": "Technische Beratung"
+    }
+  },
+  "whyChooseUs": {
+    "title": "Warum Uns Wählen",
+    "experience": {
+      "label": "Abgeschlossene Projekte"
+    },
+    "projects": {
+      "label": "Zufriedene Kunden"
+    },
+    "satisfaction": {
+      "label": "Kundenzufriedenheit"
+    },
+    "features": {
+      "fast": {
+        "title": "Blitzschnell",
+        "description": "Für Geschwindigkeit und Leistung optimiert"
+      },
+      "modern": {
+        "title": "Modernes Design",
+        "description": "Schöne und zeitgemäße Oberflächen"
+      },
+      "secure": {
+        "title": "Sicher & Zuverlässig",
+        "description": "Nach bewährten Sicherheitspraktiken entwickelt"
+      },
+      "responsive": {
+        "title": "Vollständig Responsive",
+        "description": "Perfekt auf allen Geräten"
+      }
+    }
+  },
+  "technologies": {
+    "title": "Technologien, die Wir Verwenden",
+    "subtitle": "Moderne Werkzeuge für leistungsstarke Lösungen",
+    "angular": {
+      "description": "Enterprise-Framework für skalierbare Anwendungen"
+    },
+    "react": {
+      "description": "Dynamische und flexible UI-Bibliothek"
+    },
+    "typescript": {
+      "description": "Typsicheres JavaScript für zuverlässigen Code"
+    },
+    "nodejs": {
+      "description": "Serverseitige JavaScript-Laufzeitumgebung"
+    },
+    "wordpress": {
+      "description": "Leistungsstarkes CMS für inhaltsbasierte Websites"
+    },
+    "mongodb": {
+      "description": "Flexible NoSQL-Datenbank"
+    }
+  },
+  "portfolio": {
+    "title": "Unsere Arbeiten",
+    "subtitle": "Beeindruckende Websites für Startups und Unternehmen",
+    "categories": {
+      "all": "Alle Projekte",
+      "web": "Websites",
+      "ecommerce": "E-Commerce",
+      "landing": "Landing Pages"
+    },
+    "projects": {
+      "ecommerce": {
+        "title": "E-Commerce-Plattform",
+        "description": "Vollständiger Online-Shop mit Zahlungsintegration"
+      },
+      "corporate": {
+        "title": "Unternehmenswebsite",
+        "description": "Professionelle Business-Präsentationswebsite"
+      },
+      "startup": {
+        "title": "Startup Landing Page",
+        "description": "Moderne Landing Page für Tech-Startup"
+      },
+      "restaurant": {
+        "title": "Restaurant-Website",
+        "description": "Schöne Website mit Online-Reservierungen"
+      },
+      "saas": {
+        "title": "SaaS-Dashboard",
+        "description": "Fortgeschrittene Webanwendung mit Analytics"
+      },
+      "blog": {
+        "title": "Blog-Plattform",
+        "description": "Content-Management-System mit SEO"
+      }
+    }
   },
   "contact": {
-    "title": "Lassen Sie uns zusammenarbeiten",
-    "subtitle": "Bereit, Ihre Ideen in die Realität umzusetzen?",
-    "name": "Name",
-    "email": "E-Mail",
-    "company": "Unternehmen (optional)",
-    "subject": "Betreff",
-    "message": "Nachricht",
-    "captcha": "Lösen Sie: {{question}}",
-    "send": "Nachricht senden",
-    "sending": "Wird gesendet...",
-    "success": "Danke! Ihre Nachricht wurde erfolgreich gesendet.",
-    "error": "Entschuldigung, beim Senden der Nachricht ist ein Fehler aufgetreten.",
-    "emailUs": "Schreiben Sie uns",
+    "title": "Lassen Sie Uns Zusammenarbeiten",
+    "subtitle": "Bereit, Ihre Ideen in die Realität umzusetzen? Senden Sie uns eine Nachricht und erhalten Sie eine maßgeschneiderte Lösung für Ihr Unternehmen.",
+    "emailUs": "E-Mail Senden",
     "responseTime": "Antwortzeit",
     "within24Hours": "Innerhalb von 24 Stunden",
     "basedIn": "Standort",
-    "availableWorldwide": "Weltweit verfügbar",
-    "sendMessage": "Nachricht senden",
-    "scheduleCall": "Anruf vereinbaren",
+    "availableWorldwide": "Weltweit Verfügbar",
+    "sendMessage": "Nachricht Senden",
+    "scheduleCall": "Anruf Vereinbaren",
     "modal": {
-      "title": "Senden Sie uns eine Nachricht",
+      "title": "Senden Sie Uns eine Nachricht",
       "name": "Ihr Name",
       "namePlaceholder": "Geben Sie Ihren vollständigen Namen ein",
       "email": "E-Mail-Adresse",
       "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
       "message": "Ihre Nachricht",
       "messagePlaceholder": "Erzählen Sie uns von Ihrem Projekt...",
-      "sendMessage": "Nachricht senden",
+      "sendMessage": "Nachricht Senden",
       "sending": "Wird gesendet...",
-      "cancel": "Abbrechen",
-      "success": "Nachricht erfolgreich gesendet! Wir werden uns in Kürze bei Ihnen melden.",
-      "error": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.",
       "captcha": {
         "answer": "Ihre Antwort",
-        "placeholder": "Geben Sie die Antwort ein",
-        "refresh": "Neue Herausforderung generieren"
+        "placeholder": "Geben Sie die Antwort ein"
       }
     },
-    "validation": {
-      "nameRequired": "Name ist erforderlich",
-      "emailRequired": "E-Mail ist erforderlich",
+    "form": {
+      "name": "Ihr Name",
+      "email": "E-Mail-Adresse",
+      "message": "Ihre Nachricht",
+      "captcha": "Lösen Sie zur Verifizierung, dass Sie ein Mensch sind",
+      "submit": "Nachricht Senden",
+      "sending": "Wird gesendet...",
+      "success": "Nachricht erfolgreich gesendet! Wir werden bald antworten.",
+      "error": "Fehler beim Senden. Bitte versuchen Sie es erneut.",
+      "required": "Dieses Feld ist erforderlich",
       "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
-      "subjectRequired": "Betreff ist erforderlich",
-      "messageRequired": "Nachricht ist erforderlich",
-      "captchaRequired": "Bitte lösen Sie die Aufgabe",
-      "captchaIncorrect": "Falsche Antwort auf die Aufgabe",
-      "allRequired": "Bitte füllen Sie alle erforderlichen Felder aus."
+      "messageShort": "Die Nachricht muss mindestens 10 Zeichen enthalten"
+    },
+    "info": {
+      "email": "E-Mail",
+      "response": "Antwortzeit",
+      "responseValue": "Innerhalb von 24 Stunden",
+      "availability": "Verfügbarkeit",
+      "availabilityValue": "Montag - Freitag, 9:00 - 17:00"
     }
   },
   "admin": {
@@ -109,31 +222,23 @@
     "login": {
       "title": "Admin-Anmeldung",
       "keyLabel": "Admin-Schlüssel",
-      "keyPlaceholder": "Admin-Schlüssel eingeben",
+      "keyPlaceholder": "Geben Sie den Admin-Schlüssel ein",
       "loginButton": "Anmelden",
       "error": "Ungültiger Admin-Schlüssel",
       "success": "Erfolgreich authentifiziert!"
     },
     "messages": {
-      "refresh": "Nachrichten aktualisieren",
-      "exportJson": "JSON exportieren",
-      "exportCsv": "CSV exportieren",
-      "clearLocal": "Lokal löschen",
+      "refresh": "Nachrichten Aktualisieren",
+      "exportJson": "JSON-Export",
+      "exportCsv": "CSV-Export",
+      "clearLocal": "Lokal Löschen",
       "loading": "Nachrichten werden geladen...",
       "noMessages": "Keine Nachrichten gefunden",
-      "loaded": "{{count}} Nachrichten geladen",
-      "loadError": "Fehler beim Laden der Nachrichten",
-      "total": "Gesamtnachrichten",
+      "total": "Nachrichten Gesamt",
       "new": "Neu",
       "read": "Gelesen",
       "markAsRead": "Als gelesen markieren",
-      "markedAsRead": "Nachricht als gelesen markiert",
-      "markError": "Markieren fehlgeschlagen",
-      "viewMessage": "Vollständige Nachricht ansehen",
-      "viewFrom": "Von",
-      "viewDate": "Datum",
-      "clearConfirm": "Sind Sie sicher, dass Sie lokale Nachrichten löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.",
-      "cleared": "Lokale Nachrichten gelöscht",
+      "viewMessage": "Vollständige Nachricht anzeigen",
       "columns": {
         "status": "Status",
         "name": "Name",
@@ -145,34 +250,38 @@
     }
   },
   "common": {
-    "language": "Sprache ändern",
     "loading": "Wird geladen...",
     "error": "Fehler",
     "success": "Erfolg",
-    "close": "Schließen",
     "cancel": "Abbrechen",
     "confirm": "Bestätigen",
     "save": "Speichern",
-    "edit": "Bearbeiten",
     "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "view": "Ansehen",
+    "close": "Schließen",
     "back": "Zurück",
     "next": "Weiter",
-    "previous": "Vorherig",
+    "previous": "Zurück",
     "search": "Suchen",
-    "filter": "Filter",
+    "filter": "Filtern",
     "sort": "Sortieren",
-    "all": "Alle",
-    "none": "Keine",
-    "yes": "Ja",
-    "no": "Nein"
+    "actions": "Aktionen",
+    "status": "Status",
+    "date": "Datum",
+    "name": "Name",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "language": "Sprache Wechseln"
   },
   "footer": {
     "copyright": "© {{year}} Web Firm Solutions. Alle Rechte vorbehalten.",
+    "builtWith": "Erstellt mit Angular und Material Design",
     "websiteAriaLabel": "Besuchen Sie unsere Website unter webfirmsolutions.com"
   },
   "seo": {
-    "title": "Web Firm Solutions - Professionelle Webentwicklung und Design",
-    "description": "Experten-Webentwicklungsdienstleistungen, Frontend-Entwicklung und UX/UI-Design. Spezialisiert auf Angular, React und moderne Web-Technologien mit über 20 Jahren Erfahrung.",
-    "keywords": "Webentwicklung, Frontend-Entwicklung, Webdesign, UX UI Design, Angular Entwicklung, React Entwicklung, professionelle Websites, SEO Optimierung"
+    "title": "Web Firm Solutions - Premium-Webdesign & Frontend-Entwicklungsdienstleistungen",
+    "description": "Professionelle Webdesign- und Frontend-Entwicklungsdienstleistungen. Spezialisiert auf Angular, React und moderne Web-Technologien für außergewöhnliche Benutzererlebnisse.",
+    "keywords": "Webdesign, Frontend-Entwicklung, UX/UI, SEO, technische Beratung, interaktives Web, Premium-Webdienste, Angular-Entwicklung, React-Entwicklung, responsives Design"
   }
 }

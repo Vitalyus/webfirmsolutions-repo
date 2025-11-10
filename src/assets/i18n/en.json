@@ -83,6 +83,94 @@
       "consulting": "Technical Consulting"
     }
   },
+  "whyChooseUs": {
+    "title": "Why Choose Us",
+    "experience": {
+      "label": "Projects Completed"
+    },
+    "projects": {
+      "label": "Happy Clients"
+    },
+    "satisfaction": {
+      "label": "Client Satisfaction"
+    },
+    "features": {
+      "fast": {
+        "title": "Lightning Fast",
+        "description": "Optimized for speed and performance"
+      },
+      "modern": {
+        "title": "Modern Design",
+        "description": "Beautiful, contemporary interfaces"
+      },
+      "secure": {
+        "title": "Secure & Reliable",
+        "description": "Built with security best practices"
+      },
+      "responsive": {
+        "title": "Fully Responsive",
+        "description": "Perfect on all devices"
+      }
+    }
+  },
+  "technologies": {
+    "title": "Technologies We Use",
+    "subtitle": "Modern tools for powerful solutions",
+    "angular": {
+      "description": "Enterprise-grade framework for scalable applications"
+    },
+    "react": {
+      "description": "Dynamic and flexible UI library"
+    },
+    "typescript": {
+      "description": "Type-safe JavaScript for reliable code"
+    },
+    "nodejs": {
+      "description": "Server-side JavaScript runtime"
+    },
+    "wordpress": {
+      "description": "Powerful CMS for content-driven sites"
+    },
+    "mongodb": {
+      "description": "Flexible NoSQL database"
+    }
+  },
+  "portfolio": {
+    "title": "Our Work",
+    "subtitle": "Stunning websites for startups and businesses",
+    "categories": {
+      "all": "All Projects",
+      "web": "Websites",
+      "ecommerce": "E-Commerce",
+      "landing": "Landing Pages"
+    },
+    "projects": {
+      "ecommerce": {
+        "title": "E-Commerce Platform",
+        "description": "Full-featured online store with payment integration"
+      },
+      "corporate": {
+        "title": "Corporate Website",
+        "description": "Professional business presentation site"
+      },
+      "startup": {
+        "title": "Startup Landing Page",
+        "description": "Modern landing page for tech startup"
+      },
+      "restaurant": {
+        "title": "Restaurant Website",
+        "description": "Beautiful site with online reservations"
+      },
+      "saas": {
+        "title": "SaaS Dashboard",
+        "description": "Advanced web application with analytics"
+      },
+      "blog": {
+        "title": "Blog Platform",
+        "description": "Content management system with SEO"
+      }
+    }
+  },
   "contact": {
     "title": "Let's Work Together",
     "subtitle": "Ready to transform your ideas into reality? Send us a message and receive a tailored solution for your business.",
@@ -103,13 +191,9 @@
       "messagePlaceholder": "Tell us about your project...",
       "sendMessage": "Send Message",
       "sending": "Sending...",
-      "cancel": "Cancel",
-      "success": "Message sent successfully! We'll get back to you soon.",
-      "error": "Failed to send message. Please try again or contact us directly.",
       "captcha": {
         "answer": "Your Answer",
-        "placeholder": "Enter the answer",
-        "refresh": "Generate new challenge"
+        "placeholder": "Enter the answer"
       }
     },
     "form": {
@@ -124,9 +208,6 @@
       "required": "This field is required",
       "emailInvalid": "Please enter a valid email address",
       "messageShort": "Message must be at least 10 characters long"
-    },
-    "validation": {
-      "allRequired": "Please fill in all required fields."
     },
     "info": {
       "email": "Email",
@@ -153,19 +234,11 @@
       "clearLocal": "Clear Local",
       "loading": "Loading messages...",
       "noMessages": "No messages found",
-      "loaded": "Loaded {{count}} messages",
-      "loadError": "Failed to load messages",
       "total": "Total Messages",
       "new": "New",
       "read": "Read",
       "markAsRead": "Mark as read",
-      "markedAsRead": "Message marked as read",
-      "markError": "Failed to mark as read",
       "viewMessage": "View full message",
-      "viewFrom": "From",
-      "viewDate": "Date",
-      "clearConfirm": "Are you sure you want to clear local messages? This action cannot be undone.",
-      "cleared": "Local messages cleared",
       "columns": {
         "status": "Status",
         "name": "Name", 

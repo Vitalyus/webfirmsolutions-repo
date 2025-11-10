@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject, of } from 'rxjs';
 import { catchError, tap, switchMap } from 'rxjs/operators';
 
-export type Language = 'en' | 'ro' | 'uk' | 'fr' | 'es' | 'de';
+export type Language = 'en' | 'ro' | 'fr' | 'es' | 'de' | 'uk';
 
 export interface TranslationData {
   [key: string]: string | TranslationData;
@@ -16,7 +16,7 @@ export class TranslationService {
   private readonly http = inject(HttpClient);
   
   // Available languages
-  private readonly supportedLanguages: Language[] = ['en', 'ro', 'uk', 'de', 'fr'];
+  private readonly supportedLanguages: Language[] = ['en', 'ro', 'fr', 'de', 'uk'];
   private readonly defaultLanguage: Language = 'en';
   
   // Current language state
@@ -36,25 +36,7 @@ export class TranslationService {
   constructor() {
     // Load default language on initialization
     console.log('TranslationService: Constructor called');
-    
-    // Detect user's language based on browser/location
-    const detectedLanguage = this.detectUserLanguage();
-    const storedLanguage = this.getStoredLanguage();
-    
-    // Priority: stored language only if it exists AND matches detected language region
-    // Otherwise use detected language (first visit or different region)
-    let targetLanguage: Language;
-    
-    if (storedLanguage) {
-      // If user manually selected a language before, respect it
-      targetLanguage = storedLanguage;
-      console.log('TranslationService: Using stored language:', storedLanguage);
-    } else {
-      // First visit - use detected language
-      targetLanguage = detectedLanguage;
-      console.log('TranslationService: First visit - using detected language:', detectedLanguage);
-    }
-    
+    const targetLanguage = this.getStoredLanguage() || this.defaultLanguage;
     console.log('TranslationService: Target language:', targetLanguage);
     
     // Subscribe to the observable to actually trigger the HTTP request
@@ -66,56 +48,6 @@ export class TranslationService {
         console.error('TranslationService: Loading failed:', error);
       }
     });
-  }
-
-  /**
-   * Detect user's preferred language based on browser settings
-   */
-  private detectUserLanguage(): Language {
-    if (typeof window === 'undefined' || !window.navigator) {
-      console.log('TranslationService: No window/navigator, using default');
-      return this.defaultLanguage;
-    }
-
-    // Get browser language (e.g., 'en-US', 'ro-RO', 'uk-UA')
-    const browserLang = window.navigator.language || (window.navigator as any).userLanguage;
-    
-    console.log('TranslationService: Browser language:', browserLang);
-    
-    if (!browserLang) {
-      console.log('TranslationService: No browser language detected');
-      return this.defaultLanguage;
-    }
-
-    // Extract language code (first 2 characters)
-    const langCode = browserLang.toLowerCase().substring(0, 2);
-    
-    console.log('TranslationService: Extracted language code:', langCode);
-    
-    // Map language codes to supported languages
-    const languageMap: Record<string, Language> = {
-      'en': 'en', // English
-      'ro': 'ro', // Romanian
-      'uk': 'uk', // Ukrainian
-      'ru': 'uk', // Russian -> Ukrainian (given the context)
-      'de': 'de', // German
-      'fr': 'fr', // French
-      'es': 'es'  // Spanish
-    };
-
-    const mappedLang = languageMap[langCode];
-    
-    console.log('TranslationService: Mapped language:', mappedLang);
-    console.log('TranslationService: Supported languages:', this.supportedLanguages);
-    
-    // Return mapped language if supported, otherwise default
-    if (mappedLang && this.supportedLanguages.includes(mappedLang)) {
-      console.log(`TranslationService: ✅ Language "${langCode}" mapped to "${mappedLang}"`);
-      return mappedLang;
-    }
-
-    console.log(`TranslationService: ❌ Language "${langCode}" not supported, using default "${this.defaultLanguage}"`);
-    return this.defaultLanguage;
   }
 
   /**
@@ -176,7 +108,7 @@ export class TranslationService {
       'hero.title': 'Transform Your Ideas into',
       'hero.titleAccent': 'Ultra Interactive',
       'hero.titleEnd': 'Web Experiences',
-      'hero.subtitle': 'Professional web development for startups and new businesses. We craft interactive, SEO-optimized websites that elevate your brand visibility and drive conversions. Specialized in Angular, React, and modern web technologies.',
+      'hero.subtitle': 'With 20+ years of international experience, we craft interactive, SEO-optimized websites that elevate visibility and conversions. Specialized in Angular, React, and modern web technologies.',
       'hero.seoContent': 'Professional web design and frontend development services. Expert in responsive design, user experience optimization, and modern web technologies. Serving clients worldwide with premium web development solutions.',
       'hero.ctaButton': 'Let\'s Get Started',
       'hero.secondaryButton': 'View Our Work',
@@ -200,274 +132,47 @@ export class TranslationService {
       'services.technical-consulting-seo.description': 'Scalable, secure, and high-performing strategies to maximize business impact and search engine visibility.',
       'about.title': 'About Us',
       'about.teamImage': 'Our Team',
-      'about.description1': 'We are professional frontend developers specializing in creating presentation websites for startups and new businesses. We transform your ideas into elegant, efficient web solutions that drive growth.',
-      'about.description2': 'Every project receives a personalized approach focused on user experience and performance, delivering measurable results that help launch and scale your business.',
-      // Why Choose Us
+      'about.description1': 'We are professional frontend developers specializing in creating presentation websites for startups and new businesses. We turn ideas into modern, high-performance web solutions.',
+      'about.description2': 'Every project gets a personalized approach focused on users and performance, delivering measurable results for our clients.',
       'whyChooseUs.title': 'Why Choose Us',
-      'whyChooseUs.subtitle': 'We deliver exceptional results with proven expertise and dedication',
       'whyChooseUs.experience.label': 'Projects Completed',
       'whyChooseUs.projects.label': 'Happy Clients',
-      'whyChooseUs.support.label': 'Support Available',
       'whyChooseUs.satisfaction.label': 'Client Satisfaction',
-      // Technologies
-      'technologies.title': 'Our Technology Stack',
-      'technologies.subtitle': 'Cutting-edge tools and technologies we use to build amazing products',
-      // Portfolio
-      'portfolio.title': 'Our Portfolio',
-      'portfolio.subtitle': 'Showcasing our best work and successful projects',
-      'portfolio.all': 'All',
-      'portfolio.web': 'Web',
-      'portfolio.mobile': 'Mobile',
-      'portfolio.design': 'Design'
+      'whyChooseUs.features.fast.title': 'Lightning Fast',
+      'whyChooseUs.features.fast.description': 'Optimized for speed and performance',
+      'whyChooseUs.features.modern.title': 'Modern Design',
+      'whyChooseUs.features.modern.description': 'Beautiful, contemporary interfaces',
+      'whyChooseUs.features.secure.title': 'Secure & Reliable',
+      'whyChooseUs.features.secure.description': 'Built with security best practices',
+      'whyChooseUs.features.responsive.title': 'Fully Responsive',
+      'whyChooseUs.features.responsive.description': 'Perfect on all devices',
+      'technologies.title': 'Technologies We Use',
+      'technologies.subtitle': 'Modern tools for powerful solutions',
+      'technologies.angular.description': 'Enterprise-grade framework for scalable applications',
+      'technologies.react.description': 'Dynamic and flexible UI library',
+      'technologies.typescript.description': 'Type-safe JavaScript for reliable code',
+      'technologies.nodejs.description': 'Server-side JavaScript runtime',
+      'technologies.wordpress.description': 'Powerful CMS for content-driven sites',
+      'technologies.mongodb.description': 'Flexible NoSQL database',
+      'portfolio.title': 'Our Work',
+      'portfolio.subtitle': 'Stunning websites for startups and businesses',
+      'portfolio.categories.all': 'All Projects',
+      'portfolio.categories.web': 'Websites',
+      'portfolio.categories.ecommerce': 'E-Commerce',
+      'portfolio.categories.landing': 'Landing Pages',
+      'portfolio.projects.ecommerce.title': 'E-Commerce Platform',
+      'portfolio.projects.ecommerce.description': 'Full-featured online store with payment integration',
+      'portfolio.projects.corporate.title': 'Corporate Website',
+      'portfolio.projects.corporate.description': 'Professional business presentation site',
+      'portfolio.projects.startup.title': 'Startup Landing Page',
+      'portfolio.projects.startup.description': 'Modern landing page for tech startup',
+      'portfolio.projects.restaurant.title': 'Restaurant Website',
+      'portfolio.projects.restaurant.description': 'Beautiful site with online reservations',
+      'portfolio.projects.saas.title': 'SaaS Dashboard',
+      'portfolio.projects.saas.description': 'Advanced web application with analytics',
+      'portfolio.projects.blog.title': 'Blog Platform',
+      'portfolio.projects.blog.description': 'Content management system with SEO'
     };
-
-    // If current language is Romanian, provide Romanian fallbacks
-    if (this.currentLanguageSignal() === 'ro') {
-      const roFallbackMap: Record<string, string> = {
-        'navigation.menu': 'Navigare principală',
-        'navigation.services': 'Servicii',
-        'navigation.about': 'Despre Noi',
-        'navigation.contact': 'Contact',
-        'common.language': 'Schimbă Limba',
-        'footer.copyright': '© {{year}} Web Firm Solutions. Toate drepturile rezervate.',
-        'footer.websiteAriaLabel': 'Vizitați site-ul nostru la webfirmsolutions.com',
-        'contact.title': 'Să Lucrăm Împreună',
-        'contact.subtitle': 'Gata să transformăm ideile în realitate?',
-        'hero.title': 'Transformă-ți Ideile în',
-        'hero.titleAccent': 'Experiențe Web Ultra Interactive',
-        'hero.titleEnd': '',
-        'hero.subtitle': 'Dezvoltare web profesională pentru startup-uri și afaceri noi. Creăm site-uri web interactive, optimizate SEO, care cresc vizibilitatea brandului tău și conversiile. Specializați în Angular, React și tehnologii web moderne.',
-        'hero.seoContent': 'Servicii profesionale de web design și dezvoltare frontend. Expert în design responsive, optimizare experiență utilizator și tehnologii web moderne. Servim clienți din întreaga lume cu soluții premium de dezvoltare web.',
-        'hero.ctaButton': 'Să Începem',
-        'hero.secondaryButton': 'Vezi Lucrările Noastre',
-        'hero.ctaAriaLabel': 'Contactează-ne pentru a începe proiectul tău',
-        'hero.secondaryAriaLabel': 'Vezi serviciile și portofoliul nostru',
-        'hero.features.performance.title': 'Performanță Rapidă',
-        'hero.features.performance.description': 'Timpi de încărcare fulgerători',
-        'hero.features.mobile.title': 'Mobile First',
-        'hero.features.mobile.description': 'Responsive pe toate dispozitivele',
-        'hero.features.seo.title': 'Optimizat SEO',
-        'hero.features.seo.description': 'Construit pentru motoarele de căutare',
-        'services.title': 'Serviciile Noastre Premium',
-        'services.subtitle': 'Oferim soluții de vârf adaptate nevoilor afacerii tale',
-        'services.learnMore': 'Află Mai Mult',
-        'services.learnMoreAbout': 'Află mai mult despre',
-        'services.web-design-ux-ui.title': 'Web Design & UX/UI',
-        'services.web-design-ux-ui.description': 'Design-uri intuitive și vizual uimitoare care încântă utilizatorii și cresc rata de conversie pe toate dispozitivele.',
-        'services.advanced-frontend-development.title': 'Dezvoltare Frontend Avansată',
-        'services.advanced-frontend-development.description': 'Aplicații web de înaltă performanță cu React, Angular, Vue sau Vanilla JS, complet optimizate pentru SEO și viteză.',
-        'services.technical-consulting-seo.title': 'Consultanță Tehnică & SEO',
-        'services.technical-consulting-seo.description': 'Strategii scalabile, securizate și performante pentru a maximiza impactul afacerii și vizibilitatea în motoarele de căutare.',
-        'about.title': 'Despre Noi',
-        'about.teamImage': 'Echipa Noastră',
-        'about.description1': 'Suntem dezvoltatori frontend profesioniști specializați în crearea de site-uri de prezentare pentru startup-uri și afaceri noi. Transformăm ideile tale în soluții web elegante și eficiente care generează creștere.',
-        'about.description2': 'Fiecare proiect primește o abordare personalizată, centrată pe experiența utilizatorilor și performanță, oferind rezultate măsurabile care ajută la lansarea și scalarea afacerii tale.',
-        // Why Choose Us
-        'whyChooseUs.title': 'De Ce Să Ne Alegi',
-        'whyChooseUs.subtitle': 'Oferim rezultate excepționale cu expertiză dovedită și dedicare',
-        'whyChooseUs.experience.label': 'Proiecte Finalizate',
-        'whyChooseUs.projects.label': 'Clienți Mulțumiți',
-        'whyChooseUs.support.label': 'Suport Disponibil',
-        'whyChooseUs.satisfaction.label': 'Satisfacția Clienților',
-        // Technologies
-        'technologies.title': 'Tehnologiile Noastre',
-        'technologies.subtitle': 'Unelte și tehnologii de ultimă generație pentru produse incredibile',
-        // Portfolio
-        'portfolio.title': 'Portofoliul Nostru',
-        'portfolio.subtitle': 'Prezentăm cele mai bune lucrări și proiecte de succes',
-        'portfolio.all': 'Toate',
-        'portfolio.web': 'Web',
-        'portfolio.mobile': 'Mobil',
-        'portfolio.design': 'Design'
-      };
-      return roFallbackMap[keyPath] || keyPath;
-    }
-
-    // If current language is Ukrainian, provide Ukrainian fallbacks
-    if (this.currentLanguageSignal() === 'uk') {
-      const ukFallbackMap: Record<string, string> = {
-        'navigation.menu': 'Головне меню',
-        'navigation.services': 'Послуги',
-        'navigation.about': 'Про нас',
-        'navigation.contact': 'Контакти',
-        'common.language': 'Змінити мову',
-        'footer.copyright': '© {{year}} Web Firm Solutions. Всі права захищені.',
-        'footer.websiteAriaLabel': 'Відвідайте наш сайт webfirmsolutions.com',
-        'contact.title': 'Давайте працювати разом',
-        'contact.subtitle': 'Готові перетворити ідеї в реальність?',
-        'hero.title': 'Перетворіть свої ідеї в',
-        'hero.titleAccent': 'Ультра-інтерактивні',
-        'hero.titleEnd': 'Веб-досвіди',
-        'hero.subtitle': 'Професійна веб-розробка для стартапів і нових бізнесів. Ми створюємо інтерактивні, SEO-оптимізовані веб-сайти, які підвищують видимість вашого бренду та конверсії. Спеціалізуємося на Angular, React та сучасних веб-технологіях.',
-        'hero.seoContent': 'Професійні послуги веб-дизайну та frontend розробки. Експерти в адаптивному дизайні, оптимізації користувацького досвіду та сучасних веб-технологіях. Обслуговуємо клієнтів по всьому світу преміум рішеннями веб-розробки.',
-        'hero.ctaButton': 'Розпочнемо',
-        'hero.secondaryButton': 'Переглянути Роботи',
-        'hero.ctaAriaLabel': 'Зв\'яжіться з нами, щоб розпочати проект',
-        'hero.secondaryAriaLabel': 'Перегляньте наші послуги та портфоліо',
-        'hero.features.performance.title': 'Швидка Продуктивність',
-        'hero.features.performance.description': 'Блискавична швидкість завантаження',
-        'hero.features.mobile.title': 'Mobile First',
-        'hero.features.mobile.description': 'Адаптивний на всіх пристроях',
-        'hero.features.seo.title': 'SEO Оптимізовано',
-        'hero.features.seo.description': 'Створено для пошукових систем',
-        'services.title': 'Наші преміум-послуги',
-        'services.subtitle': 'Ми надаємо передові рішення, адаптовані до потреб вашого бізнесу',
-        'services.learnMore': 'Дізнатися Більше',
-        'services.learnMoreAbout': 'Дізнатися більше про',
-        'services.web-design-ux-ui.title': 'Веб Дизайн & UX/UI',
-        'services.web-design-ux-ui.description': 'Інтуїтивні, візуально приголомшливі дизайни, які радують користувачів і підвищують коефіцієнт конверсії на всіх пристроях.',
-        'services.advanced-frontend-development.title': 'Розширена Frontend Розробка',
-        'services.advanced-frontend-development.description': 'Високопродуктивні веб-додатки з React, Angular, Vue або Vanilla JS, повністю оптимізовані для SEO та швидкості.',
-        'services.technical-consulting-seo.title': 'Технічний Консалтинг & SEO',
-        'services.technical-consulting-seo.description': 'Масштабовані, безпечні та високопродуктивні стратегії для максимізації бізнес-впливу та видимості в пошукових системах.',
-        'about.title': 'Про нас',
-        'about.teamImage': 'Наша Команда',
-        'about.description1': 'Ми професійні frontend розробники, які спеціалізуються на створенні презентаційних веб-сайтів для стартапів і нових бізнесів. Ми перетворюємо ваші ідеї в елегантні, ефективні веб-рішення, що стимулюють зростання.',
-        'about.description2': 'Кожен проект отримує персоналізований підхід, зосереджений на користувацькому досвіді та продуктивності, забезпечуючи вимірні результати, які допомагають запустити та масштабувати ваш бізнес.',
-        // Why Choose Us
-        'whyChooseUs.title': 'Чому обирають нас',
-        'whyChooseUs.subtitle': 'Ми забезпечуємо виняткові результати з перевіреною експертизою та відданістю',
-        'whyChooseUs.experience.label': 'Завершених проєктів',
-        'whyChooseUs.projects.label': 'Задоволених клієнтів',
-        'whyChooseUs.support.label': 'Підтримка доступна',
-        'whyChooseUs.satisfaction.label': 'Задоволених клієнтів',
-        // Technologies
-        'technologies.title': 'Наш технологічний стек',
-        'technologies.subtitle': 'Передові інструменти та технології для створення чудових продуктів',
-        // Portfolio
-        'portfolio.title': 'Наше портфоліо',
-        'portfolio.subtitle': 'Демонструємо наші найкращі роботи та успішні проєкти',
-        'portfolio.all': 'Усі',
-        'portfolio.web': 'Веб',
-        'portfolio.mobile': 'Мобільні',
-        'portfolio.design': 'Дизайн'
-      };
-      return ukFallbackMap[keyPath] || keyPath;
-    }
-
-    // If current language is German, provide German fallbacks
-    if (this.currentLanguageSignal() === 'de') {
-      const deFallbackMap: Record<string, string> = {
-        'navigation.menu': 'Hauptnavigation',
-        'navigation.services': 'Dienstleistungen',
-        'navigation.about': 'Über uns',
-        'navigation.contact': 'Kontakt',
-        'common.language': 'Sprache ändern',
-        'footer.copyright': '© {{year}} Web Firm Solutions. Alle Rechte vorbehalten.',
-        'footer.websiteAriaLabel': 'Besuchen Sie unsere Website unter webfirmsolutions.com',
-        'contact.title': 'Lassen Sie uns zusammenarbeiten',
-        'contact.subtitle': 'Bereit, Ihre Ideen in die Realität umzusetzen?',
-        'hero.title': 'Verwandeln Sie Ihre Ideen in',
-        'hero.titleAccent': 'Ultra-interaktive',
-        'hero.titleEnd': 'Web-Erlebnisse',
-        'hero.subtitle': 'Professionelle Webentwicklung für Startups und neue Unternehmen. Wir erstellen interaktive, SEO-optimierte Websites, die die Sichtbarkeit Ihrer Marke und Conversions steigern. Spezialisiert auf Angular, React und moderne Webtechnologien.',
-        'hero.seoContent': 'Professionelle Webdesign- und Frontend-Entwicklungsdienste. Experten für responsives Design, Benutzererfahrungsoptimierung und moderne Webtechnologien. Wir bedienen Kunden weltweit mit Premium-Webentwicklungslösungen.',
-        'hero.ctaButton': 'Loslegen',
-        'hero.secondaryButton': 'Unsere Arbeiten ansehen',
-        'hero.ctaAriaLabel': 'Kontaktieren Sie uns, um mit Ihrem Projekt zu beginnen',
-        'hero.secondaryAriaLabel': 'Sehen Sie sich unsere Dienstleistungen und unser Portfolio an',
-        'hero.features.performance.title': 'Schnelle Leistung',
-        'hero.features.performance.description': 'Blitzschnelle Ladezeiten',
-        'hero.features.mobile.title': 'Mobile First',
-        'hero.features.mobile.description': 'Responsive auf allen Geräten',
-        'hero.features.seo.title': 'SEO Optimiert',
-        'hero.features.seo.description': 'Für Suchmaschinen entwickelt',
-        'services.title': 'Unsere Premium-Dienstleistungen',
-        'services.subtitle': 'Wir liefern hochmoderne Lösungen, die auf Ihre Geschäftsanforderungen zugeschnitten sind',
-        'services.learnMore': 'Mehr Erfahren',
-        'services.learnMoreAbout': 'Mehr erfahren über',
-        'services.web-design-ux-ui.title': 'Webdesign & UX/UI',
-        'services.web-design-ux-ui.description': 'Intuitive, visuell beeindruckende Designs, die Benutzer begeistern und höhere Conversion-Raten auf allen Geräten fördern.',
-        'services.advanced-frontend-development.title': 'Fortgeschrittene Frontend-Entwicklung',
-        'services.advanced-frontend-development.description': 'Hochleistungs-Web-Apps mit React, Angular, Vue oder Vanilla JS, vollständig optimiert für SEO und Geschwindigkeit.',
-        'services.technical-consulting-seo.title': 'Technische Beratung & SEO',
-        'services.technical-consulting-seo.description': 'Skalierbare, sichere und leistungsstarke Strategien zur Maximierung der Geschäftswirkung und Suchmaschinen-Sichtbarkeit.',
-        'about.title': 'Über uns',
-        'about.teamImage': 'Unser Team',
-        'about.description1': 'Wir sind professionelle Frontend-Entwickler, die sich auf die Erstellung von Präsentationswebsites für Startups und neue Unternehmen spezialisiert haben. Wir verwandeln Ihre Ideen in elegante, effiziente Web-Lösungen, die Wachstum fördern.',
-        'about.description2': 'Jedes Projekt erhält einen personalisierten Ansatz, der sich auf Benutzererfahrung und Leistung konzentriert und messbare Ergebnisse liefert, die helfen, Ihr Unternehmen zu starten und zu skalieren.',
-        // Why Choose Us
-        'whyChooseUs.title': 'Warum uns wählen',
-        'whyChooseUs.subtitle': 'Wir liefern außergewöhnliche Ergebnisse mit nachgewiesener Expertise und Engagement',
-        'whyChooseUs.experience.label': 'Abgeschlossene Projekte',
-        'whyChooseUs.projects.label': 'Zufriedene Kunden',
-        'whyChooseUs.support.label': 'Support verfügbar',
-        'whyChooseUs.satisfaction.label': 'Kundenzufriedenheit',
-        // Technologies
-        'technologies.title': 'Unser Technologie-Stack',
-        'technologies.subtitle': 'Modernste Tools und Technologien zum Erstellen großartiger Produkte',
-        // Portfolio
-        'portfolio.title': 'Unser Portfolio',
-        'portfolio.subtitle': 'Präsentation unserer besten Arbeiten und erfolgreichen Projekte',
-        'portfolio.all': 'Alle',
-        'portfolio.web': 'Web',
-        'portfolio.mobile': 'Mobil',
-        'portfolio.design': 'Design'
-      };
-      return deFallbackMap[keyPath] || keyPath;
-    }
-
-    // If current language is French, provide French fallbacks
-    if (this.currentLanguageSignal() === 'fr') {
-      const frFallbackMap: Record<string, string> = {
-        'navigation.menu': 'Navigation principale',
-        'navigation.services': 'Services',
-        'navigation.about': 'À propos',
-        'navigation.contact': 'Contact',
-        'common.language': 'Changer de langue',
-        'footer.copyright': '© {{year}} Web Firm Solutions. Tous droits réservés.',
-        'footer.websiteAriaLabel': 'Visitez notre site Web sur webfirmsolutions.com',
-        'contact.title': 'Travaillons ensemble',
-        'contact.subtitle': 'Prêt à transformer vos idées en réalité?',
-        'hero.title': 'Transformez vos idées en',
-        'hero.titleAccent': 'Expériences Web Ultra-interactives',
-        'hero.titleEnd': '',
-        'hero.subtitle': 'Développement web professionnel pour startups et nouvelles entreprises. Nous créons des sites web interactifs et optimisés SEO qui augmentent la visibilité de votre marque et les conversions. Spécialisés en Angular, React et technologies web modernes.',
-        'hero.seoContent': 'Services professionnels de conception web et développement frontend. Experts en design responsive, optimisation de l\'expérience utilisateur et technologies web modernes. Au service de clients du monde entier avec des solutions de développement web premium.',
-        'hero.ctaButton': 'Commencer',
-        'hero.secondaryButton': 'Voir Nos Travaux',
-        'hero.ctaAriaLabel': 'Contactez-nous pour démarrer votre projet',
-        'hero.secondaryAriaLabel': 'Consultez nos services et notre portfolio',
-        'hero.features.performance.title': 'Performance Rapide',
-        'hero.features.performance.description': 'Temps de chargement ultra-rapides',
-        'hero.features.mobile.title': 'Mobile First',
-        'hero.features.mobile.description': 'Responsive sur tous les appareils',
-        'hero.features.seo.title': 'Optimisé SEO',
-        'hero.features.seo.description': 'Conçu pour les moteurs de recherche',
-        'services.title': 'Nos Services Premium',
-        'services.subtitle': 'Nous livrons des solutions de pointe adaptées aux besoins de votre entreprise',
-        'services.learnMore': 'En Savoir Plus',
-        'services.learnMoreAbout': 'En savoir plus sur',
-        'services.web-design-ux-ui.title': 'Conception Web & UX/UI',
-        'services.web-design-ux-ui.description': 'Des designs intuitifs et visuellement époustouflants qui ravissent les utilisateurs et augmentent les taux de conversion sur tous les appareils.',
-        'services.advanced-frontend-development.title': 'Développement Frontend Avancé',
-        'services.advanced-frontend-development.description': 'Applications web haute performance avec React, Angular, Vue ou Vanilla JS, entièrement optimisées pour le SEO et la vitesse.',
-        'services.technical-consulting-seo.title': 'Conseil Technique & SEO',
-        'services.technical-consulting-seo.description': 'Stratégies évolutives, sécurisées et performantes pour maximiser l\'impact commercial et la visibilité dans les moteurs de recherche.',
-        'about.title': 'À propos de nous',
-        'about.teamImage': 'Notre Équipe',
-        'about.description1': 'Nous sommes des développeurs frontend professionnels spécialisés dans la création de sites web de présentation pour startups et nouvelles entreprises. Nous transformons vos idées en solutions web élégantes et efficaces qui favorisent la croissance.',
-        'about.description2': 'Chaque projet reçoit une approche personnalisée centrée sur l\'expérience utilisateur et la performance, offrant des résultats mesurables qui aident à lancer et développer votre entreprise.',
-        // Why Choose Us
-        'whyChooseUs.title': 'Pourquoi nous choisir',
-        'whyChooseUs.subtitle': 'Nous offrons des résultats exceptionnels avec une expertise éprouvée et un engagement total',
-        'whyChooseUs.experience.label': 'Projets réalisés',
-        'whyChooseUs.projects.label': 'Clients satisfaits',
-        'whyChooseUs.support.label': 'Support disponible',
-        'whyChooseUs.satisfaction.label': 'Satisfaction client',
-        // Technologies
-        'technologies.title': 'Notre stack technologique',
-        'technologies.subtitle': 'Des outils et technologies de pointe pour créer de superbes produits',
-        // Portfolio
-        'portfolio.title': 'Notre portfolio',
-        'portfolio.subtitle': 'Présentation de nos meilleurs travaux et projets réussis',
-        'portfolio.all': 'Tous',
-        'portfolio.web': 'Web',
-        'portfolio.mobile': 'Mobile',
-        'portfolio.design': 'Design'
-      };
-      return frFallbackMap[keyPath] || keyPath;
-    }
     
     return fallbackMap[keyPath] || keyPath;
   }
@@ -475,20 +180,17 @@ export class TranslationService {
   /**
    * Change the current language
    */
-  setCurrentLanguage(language: string): void {
-    console.log(`TranslationService: Setting language to ${language}`);
-    
-    if (this.isLanguageSupported(language)) {
-      const typedLanguage = language as Language;
-      localStorage.setItem('preferred-language', language);
-      
-      // Load translations first, then signals will automatically update
-      this.loadLanguage(typedLanguage).subscribe(() => {
-        console.log(`TranslationService: Language change completed for ${language}`);
-      });
-    } else {
-      console.warn(`TranslationService: Language ${language} not supported`);
+  setLanguage(language: Language): Observable<boolean> {
+    if (!this.supportedLanguages.includes(language)) {
+      console.error(`Language ${language} is not supported`);
+      return of(false);
     }
+    
+    if (language === this.currentLanguageSignal()) {
+      return of(true); // Already loaded
+    }
+    
+    return this.loadLanguage(language);
   }
 
   /**
@@ -496,48 +198,42 @@ export class TranslationService {
    */
   private loadLanguage(language: Language): Observable<boolean> {
     this.isLoadingSignal.set(true);
-    console.log(`TranslationService: Loading translations for ${language}`);
+    console.log(`TranslationService: Loading ${language}.json from /assets/i18n/${language}.json`);
     
-    // Load translations via HTTP
-    return this.http.get(`/assets/i18n/${language}.json`, { 
-      responseType: 'text',
-      headers: {
-        'Cache-Control': 'no-cache',
-        'Pragma': 'no-cache'
-      }
-    })
+    return this.http.get<TranslationData>(`/assets/i18n/${language}.json`)
       .pipe(
-        switchMap((textResponse: string) => {
-          try {
-            console.log(`TranslationService: Successfully loaded translations for ${language}`);
-            const translations = JSON.parse(textResponse) as TranslationData;
-            
-            this.translationsSignal.set(translations);
-            this.currentLanguageSignal.set(language);
-            this.currentLanguageSubject.next(language);
-            this.storeLanguage(language);
-            this.isLoadingSignal.set(false);
-            
-            console.log(`TranslationService: Loaded HTTP translations for ${language}`, Object.keys(translations));
-            return of(true);
-          } catch (parseError) {
-            console.error(`TranslationService: Failed to parse HTTP response for ${language}:`, parseError);
-            throw parseError;
-          }
+        tap(translations => {
+          console.log(`TranslationService: HTTP request successful for ${language}`, translations);
+          this.translationsSignal.set(translations);
+          this.currentLanguageSignal.set(language);
+          this.currentLanguageSubject.next(language);
+          this.storeLanguage(language);
+          this.isLoadingSignal.set(false);
+          
+          console.log(`TranslationService: Loaded translations for ${language}`, Object.keys(translations));
         }),
         catchError(error => {
           console.error(`TranslationService: HTTP request failed for ${language}:`, error);
+          console.error('Error details:', {
+            status: error.status,
+            statusText: error.statusText,
+            url: error.url,
+            message: error.message
+          });
           this.isLoadingSignal.set(false);
           
-          // Final fallback to default language embedded translations
+          // Fallback to default language if it's different
           if (language !== this.defaultLanguage) {
-            console.log(`TranslationService: Final fallback to embedded ${this.defaultLanguage}`);
+            console.log(`TranslationService: Falling back to default language: ${this.defaultLanguage}`);
             return this.loadLanguage(this.defaultLanguage);
           }
           
-          console.error('TranslationService: All fallbacks failed, using empty translations');
+          console.error('TranslationService: No fallback available, using empty translations');
           return of(false);
-        })
+        }),
+        tap(() => {}),
+        // Convert to boolean result
+        switchMap(() => of(true))
       );
   }
 
@@ -562,10 +258,10 @@ export class TranslationService {
     const displayNames: Record<Language, string> = {
       en: 'English',
       ro: 'Română',
-      uk: 'Українська',
       fr: 'Français',
       es: 'Español',
-      de: 'Deutsch'
+      de: 'Deutsch',
+      uk: 'Українська'
     };
     
     return displayNames[language] || language;
@@ -616,7 +312,7 @@ export class TranslationService {
     
     const preferredLang = storedLang || browserLang || this.defaultLanguage;
     
-    return this.loadLanguage(preferredLang);
+    return this.setLanguage(preferredLang);
   }
 
   /**

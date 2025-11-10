@@ -70,7 +70,7 @@ export interface CaptchaChallenge {
 }
 
 /** Translation system interfaces */
-export type Language = 'en' | 'ro' | 'uk' | 'fr' | 'es' | 'de';
+export type Language = 'en' | 'ro' | 'fr' | 'es' | 'de' | 'uk';
 
 export interface TranslationData {
   [key: string]: string | TranslationData;

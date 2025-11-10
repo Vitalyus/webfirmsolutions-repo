@@ -1,54 +1,48 @@
-.hero-section {
-  min-height: 100vh;
+.hero {
+  position: relative;
+  min-height: 80vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-  position: relative;
+  text-align: center;
+  padding: 4rem 2rem;
   overflow: hidden;
-  padding: 140px 24px 80px; // Increased top padding for fixed header
+  color: white;
 
-  // Animated gradient mesh background
-  &::before {
-    content: '';
+  .hero-background {
     position: absolute;
-    width: 100%;
-    height: 100%;
     top: 0;
     left: 0;
-    background: 
-      radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 40% 20%, rgba(167, 139, 250, 0.3) 0%, transparent 50%);
-    animation: mesh-flow 20s ease-in-out infinite;
-    opacity: 0.6;
-  }
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0.9;
 
-  // Floating particles
-  &::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-image: 
-      radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-      radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-      radial-gradient(circle at 50% 70%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 300px 300px, 400px 400px, 200px 200px;
-    animation: float 30s linear infinite;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(25, 118, 210, 0.8) 0%,
+        rgba(25, 118, 210, 0.6) 50%,
+        rgba(255, 193, 7, 0.4) 100%
+      );
+    }
   }
 
   .hero-content {
     max-width: 1200px;
     z-index: 1;
-    opacity: 1;
+    opacity: 1; // Make visible by default to prevent flash
     transform: translateY(0);
     transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
-    text-align: center;
 
-    // Initial state for animation
+    // Initial state for animation (will be applied by JS if needed)
     &.initial {
       opacity: 0;
       transform: translateY(50px);
@@ -76,151 +70,65 @@
       }
 
       h1 {
-        font-weight: 700;
-        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 600;
         margin-bottom: 1.5rem;
-        line-height: 1.1;
-        letter-spacing: -0.02em;
-        color: #FFFFFF;
-        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        will-change: transform;
-
-        .hero-title-line {
-          display: inline;
-        }
+        line-height: 1.2;
 
         .accent-text {
-          background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF69B4 100%);
+          background: linear-gradient(45deg, #ffc107, #ff9800);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          display: inline-block;
-          animation: shimmer 3s ease-in-out infinite;
-          background-size: 200% auto;
-          font-weight: 800;
-          filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
         }
       }
 
       .hero-subtitle {
-        font-size: clamp(1.125rem, 2vw, 1.5rem);
-        max-width: 700px;
+        font-size: 1.25rem;
+        max-width: 800px;
         margin: 0 auto;
-        color: rgba(255, 255, 255, 0.95);
-        line-height: 1.7;
-        font-weight: 400;
+        opacity: 0.9;
+        line-height: 1.6;
       }
     }
 
     .hero-actions {
       display: flex;
-      gap: 1.5rem;
+      gap: 1rem;
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
       margin-bottom: 4rem;
 
       .cta-button {
-        font-size: 1.125rem;
-        font-weight: 600;
-        padding: 16px 40px;
-        border-radius: var(--radius-full);
-        background: #FFFFFF;
-        color: #4F46E5;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        border: none;
-        transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-        position: relative;
-        overflow: hidden;
-        
-        // Ripple effect container
-        &::before {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 0;
-          height: 0;
-          border-radius: 50%;
-          background: rgba(79, 70, 229, 0.3);
-          transform: translate(-50%, -50%);
-          transition: width 0.6s, height 0.6s;
-        }
-        
-        &:active::before {
-          width: 300px;
-          height: 300px;
-        }
-
-        &:hover {
-          transform: translateY(-4px) scale(1.05);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
-                      0 0 0 4px rgba(255, 255, 255, 0.3),
-                      0 0 30px rgba(79, 70, 229, 0.6);
-          background: linear-gradient(135deg, #FFFFFF 0%, #F0F0FF 100%);
-        }
-
-        &:active {
-          transform: translateY(-2px) scale(1.02);
-        }
+        font-size: 1.1rem;
+        padding: 12px 32px;
+        border-radius: 8px;
+        box-shadow: var(--elevation-4);
         
         mat-icon {
           margin-right: 8px;
-          position: relative;
-          z-index: 1;
         }
 
         &:hover {
-          transform: translateY(-4px) scale(1.02);
-          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-          background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
-        }
-
-        &:active {
-          transform: translateY(-2px) scale(0.98);
-        }
-        
-        &:focus-visible {
-          outline: 3px solid rgba(255, 255, 255, 0.5);
-          outline-offset: 4px;
+          transform: translateY(-2px);
+          box-shadow: var(--elevation-8);
         }
       }
 
       .secondary-button {
-        font-size: 1.125rem;
-        font-weight: 500;
-        padding: 16px 40px;
-        border-radius: var(--radius-full);
+        font-size: 1rem;
+        padding: 10px 24px;
+        border-radius: 8px;
         color: white;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+        border-color: rgba(255, 255, 255, 0.5);
 
         mat-icon {
           margin-right: 8px;
-          transition: transform 0.3s ease;
         }
 
         &:hover {
-          background: rgba(255, 255, 255, 0.25);
-          border-color: rgba(255, 255, 255, 0.5);
-          transform: translateY(-4px) scale(1.05);
-          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3),
-                      0 0 0 3px rgba(255, 255, 255, 0.2);
-
-          mat-icon {
-            transform: translateX(4px);
-          }
-        }
-
-        &:active {
-          transform: translateY(-2px) scale(1.02);
-        }
-        
-        &:focus-visible {
-          outline: 3px solid rgba(255, 255, 255, 0.5);
-          outline-offset: 4px;
+          background-color: rgba(255, 255, 255, 0.1);
+          border-color: white;
         }
       }
     }
@@ -228,185 +136,95 @@
 
   .hero-features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    max-width: 1200px;
+    max-width: 1000px;
     width: 100%;
     margin-top: 2rem;
 
     .feature-card {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 20px;
-      padding: 2.5rem 2rem;
-      transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-      will-change: transform;
-      cursor: pointer;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
       text-align: center;
 
       &:hover {
-        background: rgba(255, 255, 255, 0.25);
-        border-color: rgba(255, 255, 255, 0.4);
-        transform: translateY(-12px) scale(1.03);
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35),
-                    0 0 0 2px rgba(255, 255, 255, 0.3);
-      }
-
-      &:active {
-        transform: translateY(-8px) scale(1.01);
+        transform: translateY(-8px);
+        box-shadow: var(--elevation-8);
       }
 
       mat-card-content {
-        padding: 0;
+        padding: 2rem 1rem;
 
         mat-icon {
-          font-size: 56px;
-          width: 56px;
-          height: 56px;
-          color: #FFFFFF;
-          margin-bottom: 1.5rem;
-          filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+          font-size: 48px;
+          width: 48px;
+          height: 48px;
+          color: var(--primary-color);
+          margin-bottom: 1rem;
         }
 
         h3 {
-          margin-bottom: 0.75rem;
+          margin-bottom: 0.5rem;
           font-weight: 600;
-          font-size: 1.25rem;
-          color: #FFFFFF;
+          color: var(--text-primary);
         }
 
         p {
-          color: rgba(255, 255, 255, 0.9);
-          font-size: 1rem;
+          color: var(--text-secondary);
+          font-size: 0.9rem;
           margin: 0;
-          line-height: 1.6;
         }
       }
     }
   }
 }
 
-// Animations
-@keyframes mesh-flow {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -50px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0px); }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-// Responsive design - Mobile First Approach (IMPROVED)
+// Responsive design
 @media (max-width: 1024px) {
-  .hero-section {
-    padding: 100px 24px 60px;
+  .hero {
+    min-height: 70vh;
+    padding: 3rem 1.5rem;
 
     .hero-content .hero-text {
-      h1 {
-        font-size: clamp(2rem, 5vw, 3.5rem);
-        margin-bottom: 1.25rem;
-      }
-
       .hero-subtitle {
-        font-size: clamp(1rem, 2vw, 1.25rem);
+        font-size: 1.1rem;
       }
-    }
-
-    .hero-features {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
     }
   }
 }
 
 @media (max-width: 768px) {
-  .hero-section {
-    min-height: 100vh;
-    padding: 90px 20px 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  .hero {
+    min-height: 60vh;
+    padding: 2rem 1rem;
 
     .hero-content {
-      .hero-text {
-        margin-bottom: 2.5rem;
-
-        h1 {
-          font-size: clamp(1.875rem, 7vw, 2.75rem);
-          line-height: 1.15;
-          margin-bottom: 1.25rem;
-          letter-spacing: -0.015em;
-          
-          // Better word breaking on mobile
-          word-wrap: break-word;
-          overflow-wrap: break-word;
-          hyphens: auto;
-        }
-
-        .hero-subtitle {
-          font-size: clamp(1rem, 3.5vw, 1.25rem);
-          line-height: 1.6;
-          max-width: 600px;
-          padding: 0 10px;
-        }
-      }
-
       .hero-actions {
         flex-direction: column;
         gap: 1rem;
-        margin-bottom: 3rem;
 
         .cta-button,
         .secondary-button {
           width: 100%;
-          max-width: 100%;
-          padding: 15px 32px;
-          font-size: 1.0625rem;
-          
-          mat-icon {
-            font-size: 20px;
-            width: 20px;
-            height: 20px;
-          }
+          max-width: 300px;
         }
       }
     }
 
     .hero-features {
       grid-template-columns: 1fr;
-      gap: 1.25rem;
-      margin-top: 2rem;
+      gap: 1rem;
+      margin-top: 1rem;
 
-      .feature-card {
-        padding: 1.75rem 1.5rem;
+      .feature-card mat-card-content {
+        padding: 1.5rem 1rem;
 
-        mat-card-content {
-          mat-icon {
-            font-size: 42px;
-            width: 42px;
-            height: 42px;
-            margin-bottom: 0.875rem;
-          }
-
-          h3 {
-            font-size: 1.1875rem;
-            margin-bottom: 0.625rem;
-            font-weight: 600;
-          }
-
-          p {
-            font-size: 0.9375rem;
-            line-height: 1.5;
-          }
+        mat-icon {
+          font-size: 36px;
+          width: 36px;
+          height: 36px;
         }
       }
     }
@@ -414,215 +232,11 @@
 }
 
 @media (max-width: 480px) {
-  .hero-section {
-    min-height: 100vh;
-    padding: 80px 16px 40px;
+  .hero {
+    padding: 1.5rem 0.5rem;
 
-    .hero-content {
-      .hero-text {
-        margin-bottom: 2rem;
-
-        h1 {
-          font-size: clamp(1.625rem, 8.5vw, 2.25rem);
-          line-height: 1.2;
-          margin-bottom: 1rem;
-          letter-spacing: -0.01em;
-          
-          // Optimize for small screens
-          .accent-text {
-            display: inline;
-            background-size: 200% auto;
-          }
-        }
-
-        .hero-subtitle {
-          font-size: clamp(0.9375rem, 4vw, 1.0625rem);
-          line-height: 1.55;
-          padding: 0 5px;
-        }
-      }
-
-      .hero-actions {
-        gap: 0.875rem;
-        margin-bottom: 2.5rem;
-
-        .cta-button,
-        .secondary-button {
-          padding: 13px 28px;
-          font-size: 1rem;
-          border-radius: 50px;
-
-          mat-icon {
-            font-size: 19px;
-            width: 19px;
-            height: 19px;
-            margin-right: 6px;
-          }
-        }
-      }
-    }
-
-    .hero-features {
-      gap: 1rem;
-      margin-top: 1.75rem;
-
-      .feature-card {
-        padding: 1.5rem 1.25rem;
-        border-radius: 18px;
-
-        mat-card-content {
-          mat-icon {
-            font-size: 38px;
-            width: 38px;
-            height: 38px;
-            margin-bottom: 0.75rem;
-          }
-
-          h3 {
-            font-size: 1.0625rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-          }
-
-          p {
-            font-size: 0.875rem;
-            line-height: 1.5;
-          }
-        }
-      }
-    }
-  }
-}
-
-// Extra small devices - Ultra Compact
-@media (max-width: 360px) {
-  .hero-section {
-    padding: 70px 14px 36px;
-
-    .hero-content {
-      .hero-text {
-        margin-bottom: 1.75rem;
-
-        h1 {
-          font-size: 1.5rem;
-          line-height: 1.25;
-          margin-bottom: 0.875rem;
-        }
-
-        .hero-subtitle {
-          font-size: 0.875rem;
-          line-height: 1.5;
-        }
-      }
-
-      .hero-actions {
-        gap: 0.75rem;
-        margin-bottom: 2rem;
-
-        .cta-button,
-        .secondary-button {
-          padding: 12px 24px;
-          font-size: 0.9375rem;
-
-          mat-icon {
-            font-size: 18px;
-            width: 18px;
-            height: 18px;
-            margin-right: 5px;
-          }
-        }
-      }
-    }
-
-    .hero-features {
-      gap: 0.875rem;
-      
-      .feature-card {
-        padding: 1.25rem 1rem;
-        border-radius: 16px;
-
-        mat-card-content {
-          mat-icon {
-            font-size: 34px;
-            width: 34px;
-            height: 34px;
-          }
-
-          h3 {
-            font-size: 1rem;
-          }
-
-          p {
-            font-size: 0.8125rem;
-          }
-        }
-      }
-    }
-  }
-}
-
-// Landscape orientation on mobile
-@media (max-width: 896px) and (max-height: 414px) and (orientation: landscape) {
-  .hero-section {
-    min-height: auto;
-    padding: 70px 20px 40px;
-
-    .hero-content {
-      .hero-text {
-        margin-bottom: 1.5rem;
-
-        h1 {
-          font-size: 2rem;
-          margin-bottom: 0.75rem;
-        }
-
-        .hero-subtitle {
-          font-size: 1rem;
-        }
-      }
-
-      .hero-actions {
-        flex-direction: row;
-        gap: 1rem;
-        margin-bottom: 2rem;
-
-        .cta-button,
-        .secondary-button {
-          width: auto;
-          max-width: none;
-          padding: 10px 24px;
-          font-size: 0.95rem;
-        }
-      }
-    }
-
-    .hero-features {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-top: 1.5rem;
-
-      .feature-card {
-        padding: 1rem 0.875rem;
-
-        mat-card-content {
-          mat-icon {
-            font-size: 32px;
-            width: 32px;
-            height: 32px;
-            margin-bottom: 0.5rem;
-          }
-
-          h3 {
-            font-size: 0.9375rem;
-            margin-bottom: 0.375rem;
-          }
-
-          p {
-            font-size: 0.8125rem;
-            line-height: 1.4;
-          }
-        }
-      }
+    .hero-content .hero-text .hero-subtitle {
+      font-size: 1rem;
     }
   }
 }

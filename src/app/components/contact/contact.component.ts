@@ -14,7 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,8 +22,6 @@ import { ContactFormData, CaptchaChallenge } from '../../shared/interfaces';
 import { CaptchaService } from '../../services/captcha.service';
 import { MessageService } from '../../services/message.service';
 import { TranslationService } from '../../services/translation.service';
-import { TranslatePipe } from '../../pipes/translate.pipe';
-import { ToastService } from '../../shared/toast.service';
 
 @Component({
   selector: 'app-contact',
@@ -41,8 +39,7 @@ import { ToastService } from '../../shared/toast.service';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatTooltipModule,
-    HttpClientModule,
-    TranslatePipe
+    HttpClientModule
   ],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
@@ -50,8 +47,8 @@ import { ToastService } from '../../shared/toast.service';
 })
 export class ContactComponent implements OnInit {
   private readonly elementRef = inject(ElementRef);
-  private readonly toastService = inject(ToastService);
   private readonly dialog = inject(MatDialog);
+  private readonly snackBar = inject(MatSnackBar);
   private readonly formBuilder = inject(FormBuilder);
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly messageService = inject(MessageService);
@@ -141,8 +138,13 @@ export class ContactComponent implements OnInit {
       const captchaAnswer = this.formData.captcha ? String(this.formData.captcha).trim() : '';
       if (!this.captchaChallenge || !captchaAnswer || 
           !this.captchaService.validateAnswer(captchaAnswer, this.captchaChallenge.id)) {
-        this.toastService.warning(
-          this.translationService.translate('contact.validation.captchaIncorrect')
+        this.snackBar.open(
+          'Please solve the captcha correctly.',
+          '⚠️',
+          {
+            duration: 3000,
+            panelClass: ['warning-snackbar']
+          }
         );
         this.generateNewCaptcha();
         return;
@@ -162,8 +164,15 @@ export class ContactComponent implements OnInit {
             this.isSubmitting = false;
             this.closeModal();
             
-            this.toastService.success(
-              this.translationService.translate('contact.modal.success')
+            this.snackBar.open(
+              'Message sent successfully! We\'ll get back to you soon.', 
+              '✓', 
+              {
+                duration: 5000,
+                panelClass: ['success-snackbar'],
+                horizontalPosition: 'right',
+                verticalPosition: 'top'
+              }
             );
             this.cdr.markForCheck();
           },
@@ -173,14 +182,24 @@ export class ContactComponent implements OnInit {
             this.generateNewCaptcha(); // Generate new captcha on error
             this.cdr.markForCheck();
             
-            this.toastService.error(
-              this.translationService.translate('contact.modal.error')
+            this.snackBar.open(
+              'Failed to send message. Please try again or contact us directly.',
+              '❌',
+              {
+                duration: 5000,
+                panelClass: ['error-snackbar']
+              }
             );
           }
         });
       } else {
-        this.toastService.warning(
-          this.translationService.translate('contact.validation.allRequired')
+        this.snackBar.open(
+          'Please fill in all required fields.',
+          '⚠️',
+          {
+            duration: 3000,
+            panelClass: ['warning-snackbar']
+          }
         );
       }
     } catch (error) {
@@ -188,8 +207,13 @@ export class ContactComponent implements OnInit {
       this.isSubmitting = false;
       this.cdr.markForCheck();
       
-      this.toastService.error(
-        this.translationService.translate('contact.modal.error')
+      this.snackBar.open(
+        'An error occurred. Please try again.',
+        '❌',
+        {
+          duration: 3000,
+          panelClass: ['error-snackbar']
+        }
       );
     }
   }

@@ -14,26 +14,24 @@
           <div class="info-item">
             <mat-icon>email</mat-icon>
             <div>
-              <h4>{{ 'contact.emailUs' | translate }}</h4>
-              <a href="mailto:contact@webfirmsolutions.com" class="email-link">
-                contact@webfirmsolutions.com
-              </a>
+              <h4>Email Us</h4>
+              <p>contact@webfirmsolutions.com</p>
             </div>
           </div>
           
           <div class="info-item">
             <mat-icon>schedule</mat-icon>
             <div>
-              <h4>{{ 'contact.responseTime' | translate }}</h4>
-              <p>{{ 'contact.within24Hours' | translate }}</p>
+              <h4>Response Time</h4>
+              <p>Within 24 hours</p>
             </div>
           </div>
           
           <div class="info-item">
             <mat-icon>location_on</mat-icon>
             <div>
-              <h4>{{ 'contact.basedIn' | translate }}</h4>
-              <p>{{ 'contact.availableWorldwide' | translate }}</p>
+              <h4>Based In</h4>
+              <p>Available Worldwide</p>
             </div>
           </div>
         </div>
@@ -46,7 +44,7 @@
             (click)="openContactDialog()"
           >
             <mat-icon>send</mat-icon>
-            {{ 'contact.sendMessage' | translate }}
+            Send Message
           </button>
           
           <button 
@@ -55,7 +53,7 @@
             class="secondary-button"
           >
             <mat-icon>schedule</mat-icon>
-            {{ 'contact.scheduleCall' | translate }}
+            Schedule Call
           </button>
         </div>
       </mat-card-content>
@@ -67,7 +65,7 @@
 <div class="modal-overlay" *ngIf="isModalOpen" (click)="onModalBackdropClick($event)">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <div class="modal-header">
-      <h3>{{ 'contact.modal.title' | translate }}</h3>
+      <h3>Send Us a Message</h3>
       <button mat-icon-button (click)="closeModal()" class="close-button">
         <mat-icon>close</mat-icon>
       </button>
@@ -75,39 +73,39 @@
     
     <form (ngSubmit)="onSubmit()" class="contact-form">
       <mat-form-field appearance="outline">
-        <mat-label>{{ 'contact.modal.name' | translate }}</mat-label>
+        <mat-label>Your Name</mat-label>
         <input 
           matInput 
           [(ngModel)]="formData.name" 
           name="name"
           required
-          [placeholder]="'contact.modal.namePlaceholder' | translate"
+          placeholder="Enter your full name"
         >
         <mat-icon matSuffix>person</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>{{ 'contact.modal.email' | translate }}</mat-label>
+        <mat-label>Email Address</mat-label>
         <input 
           matInput 
           type="email"
           [(ngModel)]="formData.email" 
           name="email"
           required
-          [placeholder]="'contact.modal.emailPlaceholder' | translate"
+          placeholder="Enter your email address"
         >
         <mat-icon matSuffix>email</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>{{ 'contact.modal.message' | translate }}</mat-label>
+        <mat-label>Your Message</mat-label>
         <textarea 
           matInput 
           [(ngModel)]="formData.message" 
           name="message"
           required
-          rows="5"
-          [placeholder]="'contact.modal.messagePlaceholder' | translate"
+          rows="3"
+          placeholder="Tell us about your project..."
         ></textarea>
         <mat-icon matSuffix>message</mat-icon>
       </mat-form-field>
@@ -131,7 +129,7 @@
             type="button" 
             mat-icon-button 
             (click)="refreshCaptcha()"
-            [matTooltip]="'contact.modal.captcha.refresh' | translate"
+            matTooltip="Generate new challenge"
             class="refresh-captcha"
           >
             <mat-icon>refresh</mat-icon>
@@ -139,14 +137,14 @@
         </div>
         
         <mat-form-field appearance="outline" class="captcha-input">
-          <mat-label>{{ 'contact.modal.captcha.answer' | translate }}</mat-label>
+          <mat-label>Your Answer</mat-label>
           <input 
             matInput 
             type="number"
             [(ngModel)]="formData.captcha" 
             name="captcha"
             required
-            [placeholder]="'contact.modal.captcha.placeholder' | translate"
+            placeholder="Enter the answer"
             autocomplete="off"
           >
           <mat-icon matSuffix>calculate</mat-icon>
@@ -161,7 +159,7 @@
           class="cancel-button"
           [disabled]="isSubmitting"
         >
-          {{ 'contact.modal.cancel' | translate }}
+          Cancel
         </button>
         <button 
           type="submit" 
@@ -172,7 +170,7 @@
         >
           <mat-spinner diameter="20" *ngIf="isSubmitting" style="margin-right: 8px;"></mat-spinner>
           <mat-icon *ngIf="!isSubmitting">send</mat-icon>
-          {{ isSubmitting ? ('contact.modal.sending' | translate) : ('contact.modal.sendMessage' | translate) }}
+          {{ isSubmitting ? 'Sending...' : 'Send Message' }}
         </button>
       </div>
     </form>
