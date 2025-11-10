@@ -369,232 +369,66 @@
   }
 }
 
-// ============================================
-// DARK THEME - Modal Professional Styling
-// ============================================
+// Dark theme - optimized
 :host-context(.dark-theme) {
   .modal-overlay {
     background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(8px);
-
-    .modal-content {
-      background: var(--surface-elevated, #1a1a1a);
-      border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8),
-                  0 0 1px rgba(255, 255, 255, 0.1);
-
-      .modal-header {
-        border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
-        background: var(--surface-color, #111111);
-
-        h3 {
-          color: var(--text-primary, #ffffff);
-        }
-
-        .close-button {
-          color: var(--text-secondary, rgba(255, 255, 255, 0.70));
-          
-          &:hover {
-            background: var(--surface-hover, #1f1f1f);
-            color: var(--text-primary, #ffffff);
-          }
-        }
-      }
-
-      .contact-form {
-        background: var(--surface-elevated, #1a1a1a);
-
-        // Form fields
-        mat-form-field {
-          .mat-mdc-text-field-wrapper {
-            background-color: var(--surface-color, #111111);
-          }
-
-          .mat-mdc-form-field-focus-overlay {
-            background-color: rgba(255, 255, 255, 0.02);
-          }
-
-          label {
-            color: var(--text-secondary, rgba(255, 255, 255, 0.70)) !important;
-          }
-
-          input, textarea {
-            color: var(--text-primary, #ffffff) !important;
-          }
-
-          .mat-mdc-form-field-error {
-            color: var(--warn-color, #ef4444) !important;
-          }
-        }
-
-        // Captcha section for dark theme
-        .captcha-section {
-          background-color: var(--surface-color, #111111);
-          border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
-
-          .captcha-challenge {
-            background-color: var(--surface-elevated, #1a1a1a);
-            border: 1px solid var(--border-color-hover, rgba(255, 255, 255, 0.16));
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-
-            .captcha-icon {
-              color: var(--primary-color, #60a5fa);
-            }
-
-            .captcha-question {
-              color: var(--text-primary, #ffffff);
-              text-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
-            }
-
-            .refresh-captcha {
-              color: var(--accent-color, #fbbf24);
-              
-              &:hover {
-                background-color: rgba(251, 191, 36, 0.15);
-              }
-            }
-          }
-
-          .captcha-input {
-            input {
-              background-color: var(--surface-color, #111111);
-              color: var(--text-primary, #ffffff);
-              border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
-
-              &:focus {
-                border-color: var(--primary-color, #60a5fa);
-                box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
-              }
-            }
-          }
-        }
-
-        .modal-actions {
-          .cancel-button {
-            color: var(--text-secondary, rgba(255, 255, 255, 0.70));
-            border-color: var(--border-color, rgba(255, 255, 255, 0.08));
-
-            &:hover {
-              background: var(--surface-hover, #1f1f1f);
-              color: var(--text-primary, #ffffff);
-            }
-          }
-
-          .send-button {
-            background-color: var(--primary-color, #60a5fa);
-            color: #000000;
-            box-shadow: 0 4px 12px rgba(96, 165, 250, 0.3);
-
-            &:hover {
-              background-color: #93c5fd;
-              box-shadow: 0 6px 20px rgba(96, 165, 250, 0.4);
-            }
-
-            &:disabled {
-              background-color: var(--surface-hover, #1f1f1f);
-              color: var(--text-disabled, rgba(255, 255, 255, 0.38));
-              box-shadow: none;
-            }
-          }
-        }
-
-        // Success/Error messages
-        .success-message {
-          color: var(--success-color, #10b981);
-          background-color: rgba(16, 185, 129, 0.1);
-          border-color: rgba(16, 185, 129, 0.3);
-        }
-
-        .error-message {
-          color: var(--warn-color, #ef4444);
-          background-color: rgba(239, 68, 68, 0.1);
-          border-color: rgba(239, 68, 68, 0.3);
-        }
-      }
+  }
+  
+  .modal-content {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  }
+  
+  .modal-header {
+    background: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+    
+    h3 { color: var(--text-primary); }
+    .close-button { 
+      color: var(--text-secondary);
+      &:hover { background: var(--surface-hover); }
     }
   }
-
-  // Contact section dark theme
+  
+  .contact-form {
+    background: var(--surface-elevated);
+    
+    mat-form-field {
+      .mat-mdc-text-field-wrapper { background-color: var(--surface-color); }
+      label { color: var(--text-secondary) !important; }
+      input, textarea { color: var(--text-primary) !important; }
+    }
+    
+    .captcha-section {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+    }
+    
+    .cancel-button {
+      color: var(--text-secondary);
+      &:hover { background: var(--surface-hover); }
+    }
+    
+    .send-button {
+      background-color: var(--primary-color);
+      &:hover { background-color: #93c5fd; }
+    }
+  }
+  
   .contact-section {
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-
-    .contact-card {
-      background: var(--surface-elevated, #1a1a1a);
-      border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
-
-      &:hover {
-        border-color: var(--border-color-hover, rgba(255, 255, 255, 0.16));
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6),
-                    0 0 0 1px rgba(96, 165, 250, 0.1);
-      }
-
-      .contact-content {
-        .contact-header {
-          .contact-icon {
-            color: var(--primary-color, #60a5fa);
-          }
-
-          h2 {
-            color: var(--text-primary, #ffffff);
-          }
-
-          .contact-subtitle {
-            color: var(--text-secondary, rgba(255, 255, 255, 0.70));
-          }
-        }
-
-        .contact-info {
-          .info-item {
-            background: var(--surface-color, #111111);
-            border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
-
-            &:hover {
-              background: var(--surface-hover, #1f1f1f);
-              border-color: var(--primary-color, #60a5fa);
-              box-shadow: 0 4px 12px rgba(96, 165, 250, 0.2);
-            }
-
-            mat-icon {
-              color: var(--primary-color, #60a5fa);
-            }
-
-            div {
-              h4 {
-                color: var(--text-primary, #ffffff);
-              }
-
-              p {
-                color: var(--text-secondary, rgba(255, 255, 255, 0.70));
-              }
-            }
-          }
-        }
-
-        .contact-actions {
-          .contact-button {
-            background-color: var(--primary-color, #60a5fa);
-            color: #000000;
-            box-shadow: 0 4px 12px rgba(96, 165, 250, 0.3);
-
-            &:hover {
-              background-color: #93c5fd;
-              box-shadow: 0 8px 20px rgba(96, 165, 250, 0.4);
-            }
-          }
-
-          .secondary-button {
-            color: var(--text-primary, #ffffff);
-            border-color: var(--border-color, rgba(255, 255, 255, 0.08));
-
-            &:hover {
-              background-color: var(--surface-hover, #1f1f1f);
-              border-color: var(--accent-color, #fbbf24);
-            }
-          }
-        }
-      }
-    }
   }
+  
+  .contact-card {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border-color);
+  }
+  
+  .contact-icon, .info-item mat-icon { color: var(--primary-color); }
+  .contact-subtitle, .info-item p { color: var(--text-secondary); }
 }
 
 @keyframes fadeIn {

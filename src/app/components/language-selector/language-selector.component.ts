@@ -34,8 +34,10 @@ import { Language, LanguageOption } from '../../shared/interfaces';
               (click)="selectLanguage(language.code)"
               [class.active]="language.code === currentLanguageCode()"
               class="language-option">
-        <span class="language-flag">{{ language.flag }}</span>
-        <span class="language-name">{{ language.name }}</span>
+        <span class="language-flag-name">
+          <span class="language-flag">{{ language.flag }}</span>
+          <span class="language-name">{{ language.name }}</span>
+        </span>
         <mat-icon *ngIf="language.code === currentLanguageCode()"
                   class="check-icon">check</mat-icon>
       </button>
@@ -52,8 +54,8 @@ export class LanguageSelectorComponent implements OnInit {
     { code: 'en', name: 'English', flag: '🇺🇸' },
     { code: 'ro', name: 'Română', flag: '🇷🇴' },
     { code: 'fr', name: 'Français', flag: '🇫🇷' },
-    { code: 'de', name: 'Deutsch', flag: '��' },
-    { code: 'uk', name: 'Українська', flag: '��' }
+    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+    { code: 'uk', name: 'Українська', flag: '🇺🇦' }
   ];
 
   // Reactive signals
