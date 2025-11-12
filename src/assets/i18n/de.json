@@ -7,10 +7,10 @@
     "menu": "Hauptmenü"
   },
   "hero": {
-    "title": "Verwandeln Sie Ihre Ideen in",
-    "titleAccent": "Web-Erlebnisse",
-    "titleEnd": "Ultra Interaktiv",
-    "subtitle": "Mit internationaler Erfahrung erstellen wir interaktive, SEO-optimierte Websites, die Sichtbarkeit und Conversions steigern. Spezialisiert auf Angular, React und moderne Web-Technologien.",
+    "title": "Bauen Sie Ihre Digitale Präsenz mit",
+    "titleAccent": "Modernen Web-Lösungen",
+    "titleEnd": "Die Konvertieren",
+    "subtitle": "Full-Stack-Entwicklungsteam mit 9 Jahren Erfahrung in der Erstellung leistungsstarker Webanwendungen. Spezialisiert auf Angular, React, Node.js und skalierbare Architekturen, die Geschäftsergebnisse liefern.",
     "seoContent": "Professionelle Webdesign- und Frontend-Entwicklungsdienstleistungen. Experten für responsives Design, UX-Optimierung und moderne Web-Technologien. Wir betreuen Kunden weltweit mit Premium-Lösungen.",
     "ctaButton": "Legen Wir Los",
     "secondaryButton": "Portfolio Ansehen",
@@ -59,8 +59,8 @@
   },
   "about": {
     "title": "Über Uns",
-    "subtitle": "Exzellenz in der Webentwicklung",
-    "description": "Wir sind leidenschaftliche Webentwickler mit Erfahrung in der Erstellung digitaler Lösungen, die zählen. Unsere Expertise umfasst moderne Frameworks, Leistungsoptimierung und UX-Design.",
+    "subtitle": "9 Jahre Erstellung Digitaler Lösungen",
+    "description": "Full-Stack-Entwicklungsteam mit Leidenschaft für die Erstellung effizienter, skalierbarer Webanwendungen. Erfahren in Frontend- und Backend-Technologien, liefern wir komplette Lösungen vom Design bis zur Bereitstellung.",
     "teamImage": "Unser Team",
     "professionalExcellence": "Professionelle Exzellenz",
     "ourApproach": "Unser Ansatz",

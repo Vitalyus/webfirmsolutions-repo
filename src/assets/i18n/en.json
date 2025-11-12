@@ -2,213 +2,213 @@
   "navigation": {
     "home": "Home",
     "services": "Services", 
-    "about": "About Us",
+    "about": "About",
     "contact": "Contact",
     "menu": "Main navigation"
   },
   "hero": {
-    "title": "Transform Your Ideas into",
-    "titleAccent": "Ultra Interactive",
-    "titleEnd": "Web Experiences",
-    "subtitle": "With 20+ years of international experience, we craft interactive, SEO-optimized websites that elevate visibility and conversions. Specialized in Angular, React, and modern web technologies.",
-    "seoContent": "Professional web design and frontend development services. Expert in responsive design, user experience optimization, and modern web technologies. Serving clients worldwide with premium web development solutions.",
-    "ctaButton": "Let's Get Started",
-    "secondaryButton": "View Our Work",
-    "ctaAriaLabel": "Contact us to get started with your project",
-    "secondaryAriaLabel": "View our services and portfolio",
+    "title": "Build Your Digital Presence with",
+    "titleAccent": "Modern Web Solutions",
+    "titleEnd": "That Convert",
+    "subtitle": "Full-stack developer with 9 years of experience crafting high-performance web applications. Specialized in Angular, React, Node.js, and scalable architectures that drive business results.",
+    "seoContent": "Professional full-stack web development services by experienced developer. Expert in frontend and backend development, responsive design, API integration, and modern web technologies. Delivering custom solutions for startups and established businesses.",
+    "ctaButton": "Start Your Project",
+    "secondaryButton": "View Portfolio",
+    "ctaAriaLabel": "Contact me to start your web development project",
+    "secondaryAriaLabel": "View my portfolio and completed projects",
     "features": {
       "performance": {
-        "title": "Fast Performance",
-        "description": "Lightning-fast loading times"
+        "title": "Optimized Performance",
+        "description": "Fast, efficient code"
       },
       "mobile": {
-        "title": "Mobile First",
-        "description": "Responsive across all devices"
+        "title": "Responsive Design",
+        "description": "Works on all devices"
       },
       "seo": {
-        "title": "SEO Optimized",
-        "description": "Built for search engines"
+        "title": "SEO Ready",
+        "description": "Search engine optimized"
       }
     }
   },
   "services": {
-    "title": "Our Premium Services",
-    "subtitle": "We deliver cutting-edge solutions tailored to your business needs",
+    "title": "What I Offer",
+    "subtitle": "Comprehensive web development services tailored to your needs",
     "learnMore": "Learn More",
     "learnMoreAbout": "Learn more about",
     "web-design-ux-ui": {
-      "title": "Web Design & UX/UI",
-      "description": "Intuitive, visually stunning designs that delight users and drive higher conversion rates across devices."
+      "title": "Frontend Development",
+      "description": "Modern, responsive interfaces built with Angular, React, or Vue.js. Clean code, pixel-perfect design, and exceptional user experience."
     },
     "advanced-frontend-development": {
-      "title": "Advanced Frontend Development", 
-      "description": "High-performance web apps with React, Angular, Vue, or Vanilla JS, fully optimized for SEO and speed."
+      "title": "Backend Development", 
+      "description": "Robust server-side solutions with Node.js, Express, and RESTful APIs. Database design, authentication, and scalable architecture."
     },
     "technical-consulting-seo": {
-      "title": "Technical Consulting & SEO",
-      "description": "Scalable, secure, and high-performing strategies to maximize business impact and search engine visibility."
+      "title": "Full-Stack Solutions & SEO",
+      "description": "Complete web applications from concept to deployment. Performance optimization, SEO implementation, and technical consulting."
     },
     "features": {
       "responsive": "Responsive Design",
       "performance": "High Performance",
       "seo": "SEO Optimized",
-      "modern": "Modern Technologies",
-      "support": "Ongoing Support",
-      "security": "Enterprise Security"
+      "modern": "Modern Stack",
+      "support": "Maintenance Support",
+      "security": "Secure Code"
     }
   },
   "about": {
     "title": "About Us",
-    "subtitle": "20+ Years of Excellence in Web Development",
-    "description": "We are passionate web developers with decades of experience creating digital solutions that matter. Our expertise spans modern frameworks, performance optimization, and user experience design.",
-    "teamImage": "Our Team",
-    "professionalExcellence": "Professional Excellence",
+    "subtitle": "9 Years of Crafting Digital Solutions",
+    "description": "Full-stack development team passionate about creating efficient, scalable web applications. Experienced in both frontend and backend technologies, delivering complete solutions from design to deployment.",
+    "teamImage": "Our Team at Work",
+    "professionalExcellence": "Professional Development",
     "ourApproach": "Our Approach",
-    "startupReady": "Startup Ready",
-    "description1": "We are a team of frontend experts with international experience, having worked at Google, Amazon, and Facebook. We turn complex ideas into elegant, efficient web solutions.",
-    "description2": "Every project gets a personalized approach focused on users and performance, delivering measurable results for our clients.",
+    "startupReady": "Ready to Build",
+    "description1": "With 9 years of professional experience, we specialize in building modern web applications using cutting-edge technologies. From single-page applications to complex backend systems, we deliver quality code that scales.",
+    "description2": "Every project receives careful attention to detail, focusing on clean architecture, performance optimization, and user-centric design that delivers real business value.",
     "stats": {
-      "projects": "Projects",
-      "clients": "Clients",
-      "satisfaction": "Satisfaction"
+      "projects": "Completed Projects",
+      "clients": "Satisfied Clients",
+      "satisfaction": "Success Rate"
     },
     "whyChooseUs": {
-      "title": "Why Choose Us",
-      "modernTech": "Modern Tech Stack",
-      "seoOptimized": "SEO Optimized",
-      "fastDelivery": "Fast Delivery",
-      "support247": "24/7 Support"
+      "title": "Why Work With Us",
+      "modernTech": "Latest Technologies",
+      "seoOptimized": "SEO Best Practices",
+      "fastDelivery": "Timely Delivery",
+      "support247": "Ongoing Support"
     },
     "quote": {
-      "text": "Transforming startup ideas into stunning web experiences",
+      "text": "Turning complex requirements into elegant, maintainable solutions",
       "author": "WebFirm Team",
-      "role": "Frontend Experts"
+      "role": "Full-Stack Developers"
     },
     "experience": {
-      "years": "20+",
-      "yearsLabel": "Years Experience",
-      "projects": "500+",
-      "projectsLabel": "Projects Completed",
-      "clients": "200+", 
+      "years": "9",
+      "yearsLabel": "Years of Experience",
+      "projects": "85+",
+      "projectsLabel": "Projects Delivered",
+      "clients": "45+", 
       "clientsLabel": "Happy Clients",
-      "technologies": "50+",
-      "technologiesLabel": "Technologies"
+      "technologies": "25+",
+      "technologiesLabel": "Technologies Mastered"
     },
     "skills": {
       "frontend": "Frontend Development",
-      "backend": "Backend Integration",
-      "ui": "UI/UX Design",
+      "backend": "Backend Development",
+      "ui": "UI/UX Implementation",
       "performance": "Performance Optimization",
       "seo": "SEO & Analytics",
       "consulting": "Technical Consulting"
     }
   },
   "whyChooseUs": {
-    "title": "Why Choose Us",
+    "title": "Why Work With Us",
     "experience": {
-      "label": "Projects Completed"
+      "label": "Projects Delivered"
     },
     "projects": {
       "label": "Happy Clients"
     },
     "satisfaction": {
-      "label": "Client Satisfaction"
+      "label": "Success Rate"
     },
     "features": {
       "fast": {
-        "title": "Lightning Fast",
-        "description": "Optimized for speed and performance"
+        "title": "Fast & Efficient",
+        "description": "Optimized code for best performance"
       },
       "modern": {
-        "title": "Modern Design",
-        "description": "Beautiful, contemporary interfaces"
+        "title": "Modern Tech Stack",
+        "description": "Latest frameworks and tools"
       },
       "secure": {
-        "title": "Secure & Reliable",
-        "description": "Built with security best practices"
+        "title": "Secure & Tested",
+        "description": "Following security best practices"
       },
       "responsive": {
         "title": "Fully Responsive",
-        "description": "Perfect on all devices"
+        "description": "Perfect on any screen size"
       }
     }
   },
   "technologies": {
-    "title": "Technologies We Use",
-    "subtitle": "Modern tools for powerful solutions",
+    "title": "Technology Stack",
+    "subtitle": "Tools I work with daily",
     "angular": {
-      "description": "Enterprise-grade framework for scalable applications"
+      "description": "Enterprise applications with Angular 17+"
     },
     "react": {
-      "description": "Dynamic and flexible UI library"
+      "description": "Dynamic UIs with React & Next.js"
     },
     "typescript": {
-      "description": "Type-safe JavaScript for reliable code"
+      "description": "Type-safe development with TypeScript"
     },
     "nodejs": {
-      "description": "Server-side JavaScript runtime"
+      "description": "Backend APIs with Node.js & Express"
     },
     "wordpress": {
-      "description": "Powerful CMS for content-driven sites"
+      "description": "Custom WordPress themes & plugins"
     },
     "mongodb": {
-      "description": "Flexible NoSQL database"
+      "description": "Database design with MongoDB & PostgreSQL"
     }
   },
   "portfolio": {
-    "title": "Our Work",
-    "subtitle": "Stunning websites for startups and businesses",
+    "title": "Recent Projects",
+    "subtitle": "Real solutions for real businesses",
     "categories": {
       "all": "All Projects",
-      "web": "Websites",
+      "web": "Web Apps",
       "ecommerce": "E-Commerce",
       "landing": "Landing Pages"
     },
     "projects": {
       "ecommerce": {
         "title": "E-Commerce Platform",
-        "description": "Full-featured online store with payment integration"
+        "description": "Full-featured online store with payment gateway integration and admin dashboard"
       },
       "corporate": {
-        "title": "Corporate Website",
-        "description": "Professional business presentation site"
+        "title": "Corporate Web Application",
+        "description": "Enterprise management system with real-time data visualization"
       },
       "startup": {
-        "title": "Startup Landing Page",
-        "description": "Modern landing page for tech startup"
+        "title": "SaaS Product Landing",
+        "description": "Modern landing page with lead generation and analytics"
       },
       "restaurant": {
-        "title": "Restaurant Website",
-        "description": "Beautiful site with online reservations"
+        "title": "Restaurant Management System",
+        "description": "Complete solution with online ordering and reservation system"
       },
       "saas": {
-        "title": "SaaS Dashboard",
-        "description": "Advanced web application with analytics"
+        "title": "Analytics Dashboard",
+        "description": "Real-time data visualization platform with complex charts"
       },
       "blog": {
-        "title": "Blog Platform",
-        "description": "Content management system with SEO"
+        "title": "Content Management Platform",
+        "description": "Custom CMS with SEO optimization and multi-language support"
       }
     }
   },
   "contact": {
-    "title": "Let's Work Together",
-    "subtitle": "Ready to transform your ideas into reality? Send us a message and receive a tailored solution for your business.",
+    "title": "Let's Build Together",
+    "subtitle": "Have a project in mind? Let's discuss how we can help bring your ideas to life with modern web technologies.",
     "emailUs": "Email Us",
     "responseTime": "Response Time",
     "within24Hours": "Within 24 hours",
     "basedIn": "Based In",
-    "availableWorldwide": "Available Worldwide",
+    "availableWorldwide": "Remote Worldwide",
     "sendMessage": "Send Message",
     "scheduleCall": "Schedule Call",
     "modal": {
-      "title": "Send Us a Message",
+      "title": "Get In Touch",
       "name": "Your Name",
       "namePlaceholder": "Enter your full name",
       "email": "Email Address",
-      "emailPlaceholder": "Enter your email address",
-      "message": "Your Message",
-      "messagePlaceholder": "Tell us about your project...",
+      "emailPlaceholder": "your@email.com",
+      "message": "Project Details",
+      "messagePlaceholder": "Tell me about your project, timeline, and requirements...",
       "sendMessage": "Send Message",
       "sending": "Sending...",
       "captcha": {
@@ -219,22 +219,22 @@
     "form": {
       "name": "Your Name",
       "email": "Email Address", 
-      "message": "Your Message",
-      "captcha": "Solve to verify you're human",
+      "message": "Project Details",
+      "captcha": "Verify you're human",
       "submit": "Send Message",
       "sending": "Sending...",
-      "success": "Message sent successfully! We'll get back to you soon.",
-      "error": "Failed to send message. Please try again.",
+      "success": "Message sent! We'll get back to you within 24 hours.",
+      "error": "Failed to send message. Please try again or email directly.",
       "required": "This field is required",
       "emailInvalid": "Please enter a valid email address",
-      "messageShort": "Message must be at least 10 characters long"
+      "messageShort": "Please provide more details (at least 10 characters)"
     },
     "info": {
       "email": "Email",
       "response": "Response Time", 
       "responseValue": "Within 24 hours",
       "availability": "Availability",
-      "availabilityValue": "Monday - Friday, 9 AM - 5 PM"
+      "availabilityValue": "Monday - Friday, 9 AM - 6 PM EET"
     }
   },
   "admin": {
@@ -297,13 +297,13 @@
     "switchToDark": "Switch to Dark Mode"
   },
   "footer": {
-    "copyright": "© {{year}} Web Firm Solutions. All rights reserved.",
-    "builtWith": "Built with Angular and Material Design",
+    "copyright": "© {{year}} WebFirm Solutions - Full-Stack Development Team. All rights reserved.",
+    "builtWith": "Built with Angular & Node.js",
     "websiteAriaLabel": "Visit our website at webfirmsolutions.com"
   },
   "seo": {
-    "title": "Web Firm Solutions - Premium Web Design & Frontend Development Services",
-    "description": "Professional web design and frontend development services with 20+ years of experience. Specializing in Angular, React, and modern web technologies for exceptional user experiences.",
-    "keywords": "web design, frontend development, UX/UI, SEO, technical consulting, interactive web, premium web services, Angular development, React development, responsive design"
+    "title": "WebFirm Solutions - Full-Stack Web Development | 9 Years Experience | Angular, React, Node.js",
+    "description": "Experienced full-stack development team specializing in modern web applications. 9 years of expertise in Angular, React, Node.js, and scalable architectures. Available for projects and consulting.",
+    "keywords": "full-stack developer, web development, Angular developer, React developer, Node.js, TypeScript, JavaScript, frontend development, backend development, API development, responsive design, SEO optimization, freelance developer, web applications"
   }
 }
