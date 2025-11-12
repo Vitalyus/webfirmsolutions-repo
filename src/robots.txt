@@ -8,13 +8,56 @@ Sitemap: https://webfirmsolutions.com/sitemap.xml
 User-agent: *
 Disallow: /admin
 Disallow: /api/
+Disallow: /*.json$
 
-# Allow specific bots
+# Allow specific bots (Google)
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
 
-User-agent: Bingbot
+User-agent: Googlebot-Image
 Allow: /
 
-# Crawl delay
-Crawl-delay: 10
+# Allow Bing & Yahoo
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Allow Yandex
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# Allow DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# Allow Baidu (Chinese search)
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+# Allow Seznam (Czech search)
+User-agent: SeznamBot
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Crawl delay for other bots
+Crawl-delay: 5

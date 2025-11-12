@@ -28,10 +28,15 @@
               "src/favicon.ico",
               "src/favicon.svg",
               "src/assets",
-              "src/.htaccess",
               "src/robots.txt",
               "src/sitemap.xml",
-              "src/site.webmanifest"
+              "src/BingSiteAuth.xml",
+              "src/.htaccess",
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "/assets"
+              }
             ],
             "styles": [
               "src/styles.scss"
