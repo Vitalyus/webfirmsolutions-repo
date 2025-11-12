@@ -59,15 +59,26 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private initializeTranslations(): void {
-    // Initialize translation service - this will load the default language
-    console.log('Initializing translation system...');
+    // Force load the current language synchronously
+    const currentLang = this.translationService.getCurrentLanguage();
+    console.log('Initializing translation system with language:', currentLang);
     
-    // Test translation service
-    setTimeout(() => {
-      console.log('Current language:', this.translationService.currentLanguage());
-      console.log('Test translation:', this.translationService.translate('contact.title'));
-      console.log('Available translations:', this.translationService.translations());
-    }, 1000);
+    // Wait for translations to load before showing the app
+    this.translationService.setLanguage(currentLang).subscribe({
+      next: (success) => {
+        if (success) {
+          console.log('Translations loaded successfully');
+          console.log('Current language:', this.translationService.currentLanguage());
+          console.log('Test translation:', this.translationService.translate('contact.title'));
+          console.log('Available translations:', this.translationService.translations());
+        } else {
+          console.error('Failed to load translations');
+        }
+      },
+      error: (error) => {
+        console.error('Error loading translations:', error);
+      }
+    });
   }
 
   private initializeSEO(): void {
