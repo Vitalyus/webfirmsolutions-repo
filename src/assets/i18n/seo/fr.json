@@ -1,0 +1,22 @@
+{
+  "title": "Web Firm Solutions - Design Web Premium et Services de Développement Frontend",
+  "description": "Services professionnels de design web et développement frontend avec 9 ans d'expérience. Nous nous spécialisons dans Angular, React et les technologies web modernes pour des expériences utilisateur exceptionnelles.",
+  "keywords": "design web, développement frontend, design UX/UI, optimisation SEO, conseil technique, développement Angular, développement React, design responsive, services web premium, applications web personnalisées",
+  "og": {
+    "title": "Web Firm Solutions - Design Web et Développement Frontend Premium",
+    "description": "Transformez votre présence numérique avec notre équipe professionnelle de développement web. 9 ans d'expérience, 85+ projets réussis, 45+ clients satisfaits dans le monde entier.",
+    "image": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=1200&q=80",
+    "imageAlt": "Web Firm Solutions - Services Professionnels de Développement Web"
+  },
+  "twitter": {
+    "title": "Web Firm Solutions - Design Web et Développement Premium",
+    "description": "Services professionnels de développement web avec 9 ans d'expérience. Spécialisés en Angular, React et technologies web modernes.",
+    "imageAlt": "Web Firm Solutions - Services Professionnels de Développement Web"
+  },
+  "structuredData": {
+    "name": "Web Firm Solutions",
+    "alternateName": "WebFirmSolutions",
+    "description": "Services professionnels de design web et développement frontend avec 9 ans d'expérience internationale. Spécialisés en Angular, React et technologies web modernes.",
+    "foundingDate": "2016"
+  }
+}

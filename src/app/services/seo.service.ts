@@ -1,7 +1,10 @@
 import { Injectable, inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { filter } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 export interface SEOData {
   title?: string;
@@ -15,6 +18,29 @@ export interface SEOData {
   modifiedTime?: string;
 }
 
+export interface MultiLanguageSEO {
+  title: string;
+  description: string;
+  keywords: string;
+  og: {
+    title: string;
+    description: string;
+    image: string;
+    imageAlt: string;
+  };
+  twitter: {
+    title: string;
+    description: string;
+    imageAlt: string;
+  };
+  structuredData: {
+    name: string;
+    alternateName: string;
+    description: string;
+    foundingDate: string;
+  };
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,6 +48,17 @@ export class SEOService {
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
   private readonly router = inject(Router);
+  private readonly http = inject(HttpClient);
+
+  private readonly baseUrl = 'https://webfirmsolutions.com';
+  private readonly supportedLanguages = ['en', 'ro', 'fr', 'de', 'uk'];
+  private readonly languageLocales = {
+    en: 'en_US',
+    ro: 'ro_RO',
+    fr: 'fr_FR',
+    de: 'de_DE',
+    uk: 'uk_UA'
+  };
 
   constructor() {
     this.initializeRouteTracking();
@@ -204,5 +241,155 @@ export class SEOService {
     };
 
     this.updateStructuredData(breadcrumbData);
+  }
+
+  // Load SEO data for specific language
+  loadLanguageSEO(lang: string): Observable<MultiLanguageSEO | null> {
+    return this.http.get<MultiLanguageSEO>(`/assets/i18n/seo/${lang}.json`).pipe(
+      catchError(error => {
+        console.error(`Failed to load SEO data for language: ${lang}`, error);
+        return of(null);
+      })
+    );
+  }
+
+  // Update SEO with language-specific data
+  updateSEOForLanguage(lang: string, currentPath: string = '/'): void {
+    this.loadLanguageSEO(lang).subscribe(seoData => {
+      if (seoData) {
+        // Update basic meta tags
+        this.updateTitle(seoData.title);
+        this.updateDescription(seoData.description);
+        this.updateKeywords(seoData.keywords);
+
+        // Update Open Graph
+        this.updateMetaTag('property', 'og:title', seoData.og.title);
+        this.updateMetaTag('property', 'og:description', seoData.og.description);
+        this.updateMetaTag('property', 'og:image', seoData.og.image);
+        this.updateMetaTag('property', 'og:image:alt', seoData.og.imageAlt);
+        this.updateMetaTag('property', 'og:locale', this.languageLocales[lang as keyof typeof this.languageLocales]);
+
+        // Update Twitter Card
+        this.updateMetaTag('name', 'twitter:title', seoData.twitter.title);
+        this.updateMetaTag('name', 'twitter:description', seoData.twitter.description);
+        this.updateMetaTag('name', 'twitter:image:alt', seoData.twitter.imageAlt);
+
+        // Update hreflang tags
+        this.updateHreflangTags(currentPath, lang);
+
+        // Update html lang attribute
+        document.documentElement.lang = lang;
+
+        // Update structured data with language
+        this.updateMultiLanguageStructuredData(seoData.structuredData, lang);
+      }
+    });
+  }
+
+  // Update hreflang tags for all supported languages
+  updateHreflangTags(currentPath: string, currentLang: string): void {
+    // Remove existing hreflang tags
+    const existingHreflang = document.querySelectorAll('link[rel="alternate"][hreflang]');
+    existingHreflang.forEach(link => link.remove());
+
+    // Add hreflang for each language
+    this.supportedLanguages.forEach(lang => {
+      const link = document.createElement('link');
+      link.rel = 'alternate';
+      link.hreflang = lang;
+      link.href = `${this.baseUrl}${currentPath}?lang=${lang}`;
+      document.head.appendChild(link);
+    });
+
+    // Add x-default hreflang (points to English)
+    const defaultLink = document.createElement('link');
+    defaultLink.rel = 'alternate';
+    defaultLink.hreflang = 'x-default';
+    defaultLink.href = `${this.baseUrl}${currentPath}`;
+    document.head.appendChild(defaultLink);
+
+    // Update canonical to include current language
+    this.updateCanonicalUrl(`${currentPath}${currentPath.includes('?') ? '&' : '?'}lang=${currentLang}`);
+  }
+
+  // Update structured data with multi-language support
+  updateMultiLanguageStructuredData(baseData: any, currentLang: string): void {
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": ["Organization", "LocalBusiness"],
+      "name": baseData.name,
+      "alternateName": baseData.alternateName,
+      "url": `${this.baseUrl}`,
+      "logo": "https://webfirmsolutions.com/favicon.svg",
+      "image": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=1200&q=80",
+      "description": baseData.description,
+      "foundingDate": baseData.foundingDate,
+      "numberOfEmployees": "1-10",
+      "serviceArea": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
+      "areaServed": "Worldwide",
+      "inLanguage": this.supportedLanguages,
+      "availableLanguage": [
+        { "@type": "Language", "name": "English", "alternateName": "en" },
+        { "@type": "Language", "name": "Romanian", "alternateName": "ro" },
+        { "@type": "Language", "name": "French", "alternateName": "fr" },
+        { "@type": "Language", "name": "German", "alternateName": "de" },
+        { "@type": "Language", "name": "Ukrainian", "alternateName": "uk" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Web Development Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Web Design",
+              "description": "Custom responsive web design with modern UI/UX principles"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Frontend Development",
+              "description": "Advanced frontend development with Angular, React, and modern frameworks"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Technical Consulting",
+              "description": "Expert technical consulting and architecture guidance"
+            }
+          }
+        ]
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "contact@webfirmsolutions.com",
+        "contactType": "customer support",
+        "availableLanguage": ["English", "Romanian", "French", "German", "Ukrainian"],
+        "hoursAvailable": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "17:00"
+        }
+      },
+      "sameAs": [
+        "https://webfirmsolutions.com/"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "50"
+      }
+    };
+
+    this.updateStructuredData(structuredData);
   }
 }

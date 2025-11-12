@@ -19,6 +19,15 @@ export class TranslationService {
   private readonly supportedLanguages: Language[] = ['en', 'ro', 'fr', 'de', 'uk'];
   private readonly defaultLanguage: Language = 'en';
   
+  // Country to language mapping
+  private readonly countryToLanguage: Record<string, Language> = {
+    'RO': 'ro', 'MD': 'ro', // Romania, Moldova
+    'FR': 'fr', 'BE': 'fr', 'CH': 'fr', 'CA': 'fr', 'LU': 'fr', // French-speaking countries
+    'DE': 'de', 'AT': 'de', // Germany, Austria
+    'UA': 'uk', // Ukraine
+    'US': 'en', 'GB': 'en', 'AU': 'en', 'NZ': 'en', 'IE': 'en' // English-speaking
+  };
+  
   // Current language state
   private readonly currentLanguageSignal = signal<Language>(this.defaultLanguage);
   private readonly translationsSignal = signal<TranslationData>({});
@@ -333,7 +342,165 @@ export class TranslationService {
    * Get current language code
    */
   getCurrentLanguage(): Language {
-    return this.currentLanguageSignal();
+    // Check localStorage first (user preference takes priority)
+    const savedLang = this.getStoredLanguage();
+    if (savedLang) {
+      return savedLang;
+    }
+    
+    // Check if auto-detection already happened in this session
+    if (typeof window !== 'undefined') {
+      const autoDetected = sessionStorage.getItem('autoDetectedLanguage');
+      if (autoDetected && this.isLanguageSupported(autoDetected)) {
+        return autoDetected as Language;
+      }
+    }
+    
+    // Fallback to browser language
+    const browserLang = this.getBrowserLanguage();
+    if (browserLang) {
+      return browserLang;
+    }
+    
+    return this.defaultLanguage;
+  }
+
+  /**
+   * Check if running in browser
+   */
+  private isBrowser(): boolean {
+    return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
+  }
+
+  /**
+   * Detect user's country and set appropriate language
+   */
+  async detectAndSetLanguageByCountry(): Promise<void> {
+    if (!this.isBrowser()) return;
+    
+    // Don't auto-detect if user already has a saved preference
+    const savedLang = this.getStoredLanguage();
+    if (savedLang) {
+      console.log('User has saved language preference:', savedLang);
+      return;
+    }
+    
+    // Check if already detected in this session
+    const autoDetected = sessionStorage.getItem('autoDetectedLanguage');
+    if (autoDetected) {
+      console.log('Language already auto-detected in this session:', autoDetected);
+      return;
+    }
+
+    try {
+      console.log('Detecting user country for language...');
+      
+      // Try multiple geo-location APIs for reliability
+      const countryCode = await this.detectCountry();
+      
+      if (countryCode) {
+        console.log('Detected country code:', countryCode);
+        
+        const language = this.countryToLanguage[countryCode] || this.defaultLanguage;
+        console.log('Setting language based on country:', language);
+        
+        // Save to sessionStorage (not localStorage, so user can change it)
+        sessionStorage.setItem('autoDetectedLanguage', language);
+        
+        // Set the language
+        this.setLanguage(language).subscribe({
+          next: (success) => {
+            if (success) {
+              console.log('Successfully set language to:', language);
+            }
+          },
+          error: (error) => {
+            console.error('Error setting language:', error);
+          }
+        });
+      }
+    } catch (error) {
+      console.error('Error detecting country:', error);
+      // Fallback to browser language detection
+      const browserLang = this.getBrowserLanguage();
+      if (browserLang) {
+        sessionStorage.setItem('autoDetectedLanguage', browserLang);
+        this.setLanguage(browserLang).subscribe();
+      }
+    }
+  }
+
+  /**
+   * Detect country from IP using multiple APIs
+   */
+  private async detectCountry(): Promise<string | null> {
+    // Try multiple APIs for better reliability
+    const apis = [
+      // API 1: ipapi.co (free, no key needed, 1000 req/day)
+      {
+        url: 'https://ipapi.co/json/',
+        parser: (data: any) => data.country_code
+      },
+      // API 2: ip-api.com (free, no key needed, 45 req/minute)
+      {
+        url: 'http://ip-api.com/json/?fields=countryCode',
+        parser: (data: any) => data.countryCode
+      },
+      // API 3: ipwhois.app (free, no key needed, 10000 req/month)
+      {
+        url: 'https://ipwhois.app/json/',
+        parser: (data: any) => data.country_code
+      }
+    ];
+
+    for (const api of apis) {
+      try {
+        const response = await fetch(api.url, { 
+          method: 'GET',
+          signal: AbortSignal.timeout(3000) // 3 second timeout
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          const countryCode = api.parser(data);
+          
+          if (countryCode) {
+            console.log('Country detected from API:', countryCode);
+            return countryCode;
+          }
+        }
+      } catch (error) {
+        console.warn('Failed to get country from API:', api.url, error);
+        // Continue to next API
+      }
+    }
+
+    // If all APIs fail, try to get from browser timezone as last resort
+    try {
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      console.log('Timezone detected:', timezone);
+      
+      // Simple timezone to country mapping for common cases
+      const timezoneToCountry: Record<string, string> = {
+        'Europe/Bucharest': 'RO',
+        'Europe/Chisinau': 'MD',
+        'Europe/Paris': 'FR',
+        'Europe/Berlin': 'DE',
+        'Europe/Vienna': 'AT',
+        'Europe/Kiev': 'UA',
+        'Europe/Kyiv': 'UA',
+        'America/New_York': 'US',
+        'America/Los_Angeles': 'US',
+        'America/Chicago': 'US',
+        'Europe/London': 'GB'
+      };
+      
+      return timezoneToCountry[timezone] || null;
+    } catch (error) {
+      console.error('Failed to detect from timezone:', error);
+    }
+
+    return null;
   }
 
   /**

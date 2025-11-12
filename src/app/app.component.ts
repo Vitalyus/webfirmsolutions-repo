@@ -38,9 +38,9 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.initializeTranslations();
-      this.initializeSEO();
       this.setupPerformanceMonitoring();
       this.setupAdminPanelShortcut();
+      this.setupLanguageBasedSEO();
     }
     
     // Track route changes
@@ -48,6 +48,10 @@ export class AppComponent implements OnInit, OnDestroy {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         this.isAdminRoute = event.urlAfterRedirects.includes('/admin');
+        
+        // Update SEO on route change
+        const currentLang = this.translationService.getCurrentLanguage();
+        this.seoService.updateSEOForLanguage(currentLang, event.urlAfterRedirects);
       });
       
     // Check initial route
@@ -58,8 +62,11 @@ export class AppComponent implements OnInit, OnDestroy {
     // Cleanup if needed
   }
 
-  private initializeTranslations(): void {
-    // Force load the current language synchronously
+  private async initializeTranslations(): Promise<void> {
+    // First, try to auto-detect language based on user's country
+    await this.translationService.detectAndSetLanguageByCountry();
+    
+    // Then get the current language (either auto-detected or from browser/default)
     const currentLang = this.translationService.getCurrentLanguage();
     console.log('Initializing translation system with language:', currentLang);
     
@@ -71,6 +78,9 @@ export class AppComponent implements OnInit, OnDestroy {
           console.log('Current language:', this.translationService.currentLanguage());
           console.log('Test translation:', this.translationService.translate('contact.title'));
           console.log('Available translations:', this.translationService.translations());
+          
+          // Initialize SEO after translations are loaded
+          this.seoService.updateSEOForLanguage(currentLang, this.router.url);
         } else {
           console.error('Failed to load translations');
         }
@@ -81,21 +91,20 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
 
-  private initializeSEO(): void {
-    this.seoService.updateSEO({
-      title: 'Web Firm Solutions - Premium Web Design & Frontend Development Services',
-      description: 'Professional web design and frontend development services with 20+ years of experience. Specializing in Angular, React, and modern web technologies for exceptional user experiences.',
-      keywords: 'web design, frontend development, UX/UI, SEO, technical consulting, Angular development, React development, responsive design, premium web services',
-      image: 'https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=1200&q=80',
-      url: 'https://webfirmsolutions.com/',
-      type: 'website',
-      author: 'Web Firm Solutions'
+  private setupLanguageBasedSEO(): void {
+    // Subscribe to language changes
+    this.translationService.currentLanguage$.subscribe(lang => {
+      if (lang) {
+        console.log('Language changed to:', lang);
+        // Update SEO when language changes
+        this.seoService.updateSEOForLanguage(lang, this.router.url);
+      }
     });
+  }
 
-    // Add breadcrumb for homepage
-    this.seoService.addBreadcrumbStructuredData([
-      { name: 'Home', url: 'https://webfirmsolutions.com/' }
-    ]);
+  private initializeSEO(): void {
+    // Deprecated: SEO now initialized in setupLanguageBasedSEO
+    // Kept for backward compatibility but does nothing
   }
 
   private setupPerformanceMonitoring(): void {
