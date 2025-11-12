@@ -300,50 +300,54 @@
       .captcha-section {
         margin: 12px 0;
         padding: 12px;
-        background-color: #f8f9fa;
+        background-color: var(--surface-color);
         border-radius: 8px;
-        border: 1px solid #e9ecef;
-        
+        border: 1px solid var(--border-color);
+
         .captcha-challenge {
           display: flex;
           align-items: center;
           gap: 12px;
           margin-bottom: 12px;
           padding: 12px;
-          background-color: white;
+          background-color: var(--background-color);
           border-radius: 6px;
-          box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-          
+          border: 1px solid var(--border-color);
+          box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+
           .captcha-icon {
             color: var(--primary-color);
-            font-size: 20px;
+            font-size: 22px;
           }
-          
+
           .captcha-question {
             font-family: 'Courier New', monospace;
             font-size: 18px;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--text-primary);
             letter-spacing: 2px;
             flex: 1;
           }
-          
+
           .refresh-captcha {
             color: var(--accent-color);
-            
+            border-radius: 50%;
+            transition: all 0.2s;
             &:hover {
-              background-color: rgba(255, 193, 7, 0.1);
+              background-color: var(--surface-hover);
+              transform: rotate(180deg);
             }
           }
         }
-        
+
         .captcha-input {
-          width: 200px;
-          
+          width: 100%;
+
           input {
             text-align: center;
             font-size: 16px;
             font-weight: 600;
+            color: var(--text-primary);
           }
         }
       }
@@ -397,24 +401,68 @@
     background: var(--surface-elevated);
     
     mat-form-field {
-      .mat-mdc-text-field-wrapper { background-color: var(--surface-color); }
-      label { color: var(--text-secondary) !important; }
-      input, textarea { color: var(--text-primary) !important; }
+      .mat-mdc-text-field-wrapper { 
+        background-color: var(--surface-color);
+      }
+      label { 
+        color: var(--text-secondary) !important; 
+      }
+      input, textarea { 
+        color: var(--text-primary) !important;
+        caret-color: var(--primary-color) !important;
+      }
+      .mat-mdc-form-field-focus-overlay {
+        background-color: transparent;
+      }
     }
     
     .captcha-section {
       background-color: var(--surface-color);
       border: 1px solid var(--border-color);
+      
+      .captcha-challenge {
+        background-color: var(--background-color);
+        border: 1px solid var(--border-color);
+        
+        .captcha-icon {
+          color: var(--primary-color);
+        }
+
+        .captcha-question {
+          color: var(--text-primary);
+        }
+
+        .refresh-captcha {
+          color: var(--accent-color);
+          &:hover {
+            background-color: var(--surface-hover);
+          }
+        }
+      }
+
+      .captcha-input {
+        input {
+          color: var(--text-primary) !important;
+          caret-color: var(--primary-color) !important;
+        }
+      }
     }
     
     .cancel-button {
       color: var(--text-secondary);
-      &:hover { background: var(--surface-hover); }
+      border-color: var(--border-color);
+      &:hover { 
+        background: var(--surface-hover);
+        border-color: var(--text-secondary);
+      }
     }
     
     .send-button {
       background-color: var(--primary-color);
-      &:hover { background-color: #93c5fd; }
+      color: white;
+      &:hover { 
+        background-color: #93c5fd;
+      }
     }
   }
   

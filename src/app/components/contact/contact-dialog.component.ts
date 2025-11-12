@@ -103,42 +103,45 @@ import { MatIconModule } from '@angular/material/icon';
   `,
   styles: [`
     .contact-dialog {
-      max-width: 500px;
+      max-width: 550px;
       overflow: hidden;
     }
 
     .dialog-header {
       text-align: center;
-      margin-bottom: 1.5rem;
-      padding: 1rem 1rem 0;
+      margin-bottom: 2rem;
+      padding: 2rem 2rem 0;
 
       .dialog-icon {
-        font-size: 48px;
-        width: 48px;
-        height: 48px;
+        font-size: 56px;
+        width: 56px;
+        height: 56px;
         color: #1976d2;
-        margin-bottom: 1rem;
+        margin: 0 auto 1rem;
+        display: block;
       }
 
       h2 {
-        margin-bottom: 0.5rem;
-        color: rgba(0, 0, 0, 0.87);
-        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+        color: inherit;
+        font-size: 1.75rem;
+        font-weight: 600;
       }
 
       .dialog-subtitle {
-        color: rgba(0, 0, 0, 0.6);
+        color: rgba(128, 128, 128, 0.9);
         margin: 0;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
       }
     }
 
     .contact-form {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.25rem;
       overflow: visible;
-      padding: 0 1rem;
+      padding: 0 2rem;
 
       .full-width {
         width: 100%;
@@ -146,15 +149,16 @@ import { MatIconModule } from '@angular/material/icon';
     }
 
     .dialog-actions {
-      padding: 1.5rem 1rem 1rem 1rem;
+      padding: 1.5rem 2rem;
       gap: 1rem;
       justify-content: flex-end;
-      border-top: 1px solid rgba(0, 0, 0, 0.12);
-      margin-top: 1rem;
+      border-top: 1px solid rgba(128, 128, 128, 0.2);
+      margin-top: 1.5rem;
 
       button {
         min-width: 120px;
         margin: 0 8px;
+        font-weight: 500;
         
         &:first-child {
           margin-left: 0;
@@ -173,19 +177,24 @@ import { MatIconModule } from '@angular/material/icon';
       }
     }
 
-    ::ng-deep {
-      .mat-mdc-dialog-content {
-        overflow: visible !important;
-        max-height: none !important;
+    // Mobile responsive
+    @media (max-width: 600px) {
+      .dialog-header,
+      .contact-form,
+      .dialog-actions {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
       }
-      
-      .mat-mdc-form-field-icon-prefix {
-        margin-right: 12px;
-        color: #1976d2;
-      }
-      
-      .mat-mdc-text-field-wrapper {
-        overflow: visible;
+
+      .dialog-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+
+        button {
+          width: 100%;
+          margin: 0;
+          justify-content: center;
+        }
       }
     }
   `]
