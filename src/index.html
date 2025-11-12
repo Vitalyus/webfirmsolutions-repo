@@ -22,8 +22,10 @@
   <meta name="distribution" content="global">
   <meta name="revisit-after" content="7 days">
   <meta name="language" content="English, Romanian, French, German, Ukrainian">
-  <meta name="geo.region" content="RO">
-  <meta name="geo.placename" content="Bucharest">
+  <meta name="geo.region" content="RO-IS">
+  <meta name="geo.placename" content="Iași, Romania">
+  <meta name="geo.position" content="47.1585;27.6014">
+  <meta name="ICBM" content="47.1585, 27.6014">
   <meta name="coverage" content="Worldwide">
   <meta name="target" content="all">
   <meta name="audience" content="all">
@@ -127,20 +129,55 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": ["Organization", "LocalBusiness"],
+    "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
     "name": "Web Firm Solutions",
     "alternateName": "WebFirmSolutions",
     "url": "https://webfirmsolutions.com/",
     "logo": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=400&q=80",
     "image": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=1200&q=80",
-      "description": "Professional web design and frontend development services with 9 years of international experience. Specializing in Angular, React, and modern web technologies.",
-      "foundingDate": "2016",
+    "description": "Professional web design and frontend development services with 9 years of experience in Romania and Eastern Europe. Specializing in Angular, React, and modern web technologies. Serving clients in Iași, Bucharest, Cluj-Napoca and across Romania.",
+    "foundingDate": "2016",
     "numberOfEmployees": "1-10",
-    "serviceArea": {
-      "@type": "Place",
-      "name": "Worldwide"
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "RO",
+      "addressRegion": "Iași County",
+      "addressLocality": "Iași",
+      "postalCode": "700000",
+      "streetAddress": "Iași, Romania"
     },
-    "areaServed": "Worldwide",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "47.1585",
+      "longitude": "27.6014"
+    },
+    "serviceArea": [
+      {
+        "@type": "City",
+        "name": "Iași",
+        "containedInPlace": { "@type": "Country", "name": "Romania" }
+      },
+      {
+        "@type": "City",
+        "name": "Bucharest",
+        "containedInPlace": { "@type": "Country", "name": "Romania" }
+      },
+      {
+        "@type": "City",
+        "name": "Cluj-Napoca",
+        "containedInPlace": { "@type": "Country", "name": "Romania" }
+      },
+      {
+        "@type": "City",
+        "name": "Timișoara",
+        "containedInPlace": { "@type": "Country", "name": "Romania" }
+      },
+      {
+        "@type": "Country",
+        "name": "Romania"
+      }
+    ],
+    "areaServed": ["Romania", "Eastern Europe", "Worldwide"],
     "inLanguage": ["en", "ro", "fr", "de", "uk"],
     "availableLanguage": [
       { "@type": "Language", "name": "English", "alternateName": "en" },
@@ -207,8 +244,46 @@
         "worstRating": "1"
       },
       "priceRange": "€€€",
-      "knowsAbout": ["Web Development", "Frontend Development", "Angular", "React", "TypeScript", "JavaScript", "UI/UX Design", "SEO Optimization", "Web Performance"],
-      "slogan": "Transform Your Ideas into Ultra Interactive Web Experiences"
+      "knowsAbout": [
+        "Web Development Romania", 
+        "Frontend Development", 
+        "Angular Development", 
+        "React Development", 
+        "TypeScript", 
+        "JavaScript", 
+        "Node.js Backend", 
+        "UI/UX Design", 
+        "Responsive Web Design", 
+        "SEO Optimization", 
+        "Web Performance", 
+        "Progressive Web Apps",
+        "Single Page Applications",
+        "REST API Development",
+        "Web Design Iași",
+        "Web Development Bucharest",
+        "Software Development Romania"
+      ],
+      "slogan": "Transform Your Ideas into Ultra Interactive Web Experiences",
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Creare Site Web România",
+            "description": "Servicii profesionale de creare site-uri web și aplicații pentru afaceri din Iași, București, Cluj-Napoca",
+            "areaServed": "Romania"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Dezvoltare Frontend Angular/React",
+            "description": "Dezvoltare aplicații web moderne cu Angular, React, TypeScript pentru companii din România",
+            "areaServed": "Romania"
+          }
+        }
+      ]
     }
   </script>
   

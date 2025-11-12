@@ -23,7 +23,7 @@
           <div class="project-image">
             <img 
               [src]="project.image" 
-              [alt]="project.title | translate" 
+              [alt]="(project.title | translate) + ' - Web development project showcase by Web Firm Solutions'" 
               crossorigin="anonymous"
               style="width: 100%; height: 100%; object-fit: cover; display: block;">
             <div class="project-overlay">
@@ -41,6 +41,16 @@
           <div class="card-glow"></div>
         </div>
       }
+    </div>
+    
+    <!-- Internal links section -->
+    <div style="margin-top: 48px; text-align: center; padding: 24px; background: var(--card-bg); border-radius: 12px;">
+      <p style="font-size: 1.1rem; margin-bottom: 16px; color: var(--text-primary);">
+        {{ 'portfolio.links.interestedInWorking' | translate }} <a href="#about" style="color: var(--accent-color); text-decoration: none; border-bottom: 1px solid var(--accent-color);">{{ 'portfolio.links.aboutOurProcess' | translate }}</a> {{ 'portfolio.links.orExplore' | translate }} <a href="#services" style="color: var(--accent-color); text-decoration: none; border-bottom: 1px solid var(--accent-color);">{{ 'portfolio.links.fullRangeServices' | translate }}</a>.
+      </p>
+      <p style="font-size: 0.95rem; color: var(--text-secondary);">
+        {{ 'portfolio.links.readyToStart' | translate }} <a href="#contact" style="color: var(--accent-color); text-decoration: none; border-bottom: 1px solid var(--accent-color);">{{ 'portfolio.links.getInTouchToday' | translate }}</a> {{ 'portfolio.links.freeConsultation' | translate }}.
+      </p>
     </div>
   </div>
 </section>

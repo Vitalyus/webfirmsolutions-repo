@@ -7,11 +7,11 @@
     "menu": "Main navigation"
   },
   "hero": {
-    "title": "Build Your Digital Presence with",
-    "titleAccent": "Modern Web Solutions",
-    "titleEnd": "That Convert",
-    "subtitle": "Full-stack developer with 9 years of experience crafting high-performance web applications. Specialized in Angular, React, Node.js, and scalable architectures that drive business results.",
-    "seoContent": "Professional full-stack web development services by experienced developer. Expert in frontend and backend development, responsive design, API integration, and modern web technologies. Delivering custom solutions for startups and established businesses.",
+    "title": "Professional Web Development",
+    "titleAccent": "in Romania",
+    "titleEnd": "Iași • Bucharest • Cluj-Napoca",
+    "subtitle": "Premium web agency with 9 years experience: website development, Angular/React applications, responsive design. Complete services for businesses in Iași, Bucharest, Cluj and across Romania.",
+    "seoContent": "Professional website development and web application services in Romania. Web agency specialized in frontend development (Angular, React, Vue.js), Node.js backend, responsive design, SEO optimization. 9 years experience, 85+ completed projects. Serving clients in Iași, Bucharest, Cluj-Napoca, Timișoara and throughout Romania.",
     "ctaButton": "Start Your Project",
     "secondaryButton": "View Portfolio",
     "ctaAriaLabel": "Contact me to start your web development project",
@@ -36,17 +36,17 @@
     "subtitle": "Comprehensive web development services tailored to your needs",
     "learnMore": "Learn More",
     "learnMoreAbout": "Learn more about",
-    "web-design-ux-ui": {
+    "professional-web-design-agency": {
       "title": "Frontend Development",
-      "description": "Modern, responsive interfaces built with Angular, React, or Vue.js. Clean code, pixel-perfect design, and exceptional user experience."
+      "description": "Modern, responsive interfaces built with Angular, React, or Vue.js. Specializing in component-based architecture, state management (Redux, NgRx), performance optimization, and progressive web apps (PWA). We create pixel-perfect designs that work flawlessly across all devices and browsers, with emphasis on accessibility (WCAG 2.1), semantic HTML, and CSS best practices. Our frontend solutions include lazy loading, code splitting, and optimized bundle sizes for lightning-fast load times."
     },
     "advanced-frontend-development": {
       "title": "Backend Development", 
-      "description": "Robust server-side solutions with Node.js, Express, and RESTful APIs. Database design, authentication, and scalable architecture."
+      "description": "Robust server-side solutions with Node.js, Express, NestJS, and RESTful/GraphQL APIs. Expert in database design (PostgreSQL, MongoDB, MySQL), authentication & authorization (JWT, OAuth2, SSO), caching strategies (Redis), message queues, and microservices architecture. We build scalable backends with proper error handling, logging, monitoring, and comprehensive API documentation. Our solutions include rate limiting, data validation, security best practices (SQL injection prevention, XSS protection), and automated testing with Jest/Mocha."
     },
     "technical-consulting-seo": {
       "title": "Full-Stack Solutions & SEO",
-      "description": "Complete web applications from concept to deployment. Performance optimization, SEO implementation, and technical consulting."
+      "description": "Complete end-to-end web applications from concept to production deployment. Our full-stack expertise covers frontend frameworks, backend APIs, database architecture, cloud deployment (AWS, Azure, Google Cloud), CI/CD pipelines, and DevOps practices. Specialized in technical SEO: structured data (Schema.org), Core Web Vitals optimization, semantic HTML, meta tags management, sitemap generation, robots.txt configuration, hreflang implementation for multi-language sites, and Google Analytics/Search Console integration. We also provide technical consulting on architecture decisions, code reviews, performance auditing with Lighthouse/PageSpeed, security assessments, and technology stack selection tailored to your business needs."
     },
     "features": {
       "responsive": "Responsive Design",
@@ -55,22 +55,44 @@
       "modern": "Modern Stack",
       "support": "Maintenance Support",
       "security": "Secure Code"
+    },
+    "links": {
+      "exploreProjects": "Explore our",
+      "recentFrontendProjects": "recent frontend projects",
+      "learnAbout": "or learn about our",
+      "technologyStack": "technology stack",
+      "seeOur": "See our",
+      "backendSolutions": "backend solutions",
+      "orCheck": "or check",
+      "ourExperience": "our experience",
+      "inScalableArchitectures": "in scalable architectures",
+      "readMore": "Read more",
+      "aboutOurApproach": "about our approach",
+      "or": "or",
+      "getInTouch": "get in touch",
+      "forConsultation": "for a consultation"
     }
   },
   "about": {
     "title": "About Us",
-    "subtitle": "9 Years of Crafting Digital Solutions",
-    "description": "Full-stack development team passionate about creating efficient, scalable web applications. Experienced in both frontend and backend technologies, delivering complete solutions from design to deployment.",
+    "subtitle": "9 Years of Crafting Digital Solutions That Drive Business Growth",
+    "description": "Full-stack development team passionate about creating efficient, scalable web applications that solve real business problems. With extensive experience in both frontend and backend technologies, we deliver complete solutions from initial design and architecture planning through development, testing, and production deployment. Our commitment to code quality, performance, and user experience sets us apart.",
     "teamImage": "Our Team at Work",
     "professionalExcellence": "Professional Development",
     "ourApproach": "Our Approach",
     "startupReady": "Ready to Build",
-    "description1": "With 9 years of professional experience, we specialize in building modern web applications using cutting-edge technologies. From single-page applications to complex backend systems, we deliver quality code that scales.",
-    "description2": "Every project receives careful attention to detail, focusing on clean architecture, performance optimization, and user-centric design that delivers real business value.",
+    "description1": "With 9 years of professional web development experience, we specialize in building modern, production-ready web applications using cutting-edge technologies and industry best practices. From dynamic single-page applications (SPAs) to complex enterprise backend systems, we deliver maintainable, well-tested code that scales with your business. Our expertise spans the entire web development lifecycle: requirements analysis, system architecture design, UI/UX implementation, API development, database optimization, automated testing, CI/CD setup, cloud deployment, and ongoing maintenance. We've successfully delivered 85+ projects across diverse industries including e-commerce, healthcare, fintech, education, and SaaS platforms.",
+    "description2": "Every project receives meticulous attention to detail and a commitment to excellence. We focus on clean, documented code architecture following SOLID principles, comprehensive performance optimization (lazy loading, caching, CDN integration), user-centric design that delivers measurable business value, and technical SEO implementation from day one. Our development process includes code reviews, automated testing (unit, integration, e2e), security audits, accessibility compliance (WCAG 2.1), and performance monitoring. We believe in transparent communication, agile methodologies, and delivering projects on time and within budget. Your success is our success, and we're invested in building long-term partnerships with our clients.",
     "stats": {
       "projects": "Completed Projects",
       "clients": "Satisfied Clients",
       "satisfaction": "Success Rate"
+    },
+    "links": {
+      "checkOut": "Check out our",
+      "fullStackServices": "full-stack development services",
+      "orView": "or view our",
+      "completedProjects": "completed projects"
     },
     "whyChooseUs": {
       "title": "Why Work With Us",
@@ -158,6 +180,15 @@
   "portfolio": {
     "title": "Recent Projects",
     "subtitle": "Real solutions for real businesses",
+    "links": {
+      "interestedInWorking": "Interested in working together? Learn more",
+      "aboutOurProcess": "about our development process",
+      "orExplore": "or explore our",
+      "fullRangeServices": "full range of services",
+      "readyToStart": "Ready to start your project?",
+      "getInTouchToday": "Get in touch with us today",
+      "freeConsultation": "for a free consultation"
+    },
     "categories": {
       "all": "All Projects",
       "web": "Web Apps",
@@ -167,27 +198,27 @@
     "projects": {
       "ecommerce": {
         "title": "E-Commerce Platform",
-        "description": "Full-featured online store with payment gateway integration and admin dashboard"
+        "description": "Full-featured online store with Stripe payment gateway integration, real-time inventory management, admin dashboard with analytics, order tracking, customer accounts, and responsive mobile-first design. Built with React, Node.js, MongoDB, and deployed on AWS with auto-scaling capabilities."
       },
       "corporate": {
         "title": "Corporate Web Application",
-        "description": "Enterprise management system with real-time data visualization"
+        "description": "Enterprise management system with real-time data visualization using D3.js, role-based access control (RBAC), multi-department workflows, document management, employee portal, and comprehensive reporting. Developed with Angular 17, NestJS backend, PostgreSQL database, and integrated with existing enterprise systems via REST APIs."
       },
       "startup": {
         "title": "SaaS Product Landing",
-        "description": "Modern landing page with lead generation and analytics"
+        "description": "Modern, conversion-optimized landing page with lead generation forms, A/B testing capability, Google Analytics 4 integration, email marketing automation (Mailchimp), and mobile-responsive design. Implemented with Next.js for optimal SEO, Tailwind CSS for styling, and deployed on Vercel with 99.9% uptime."
       },
       "restaurant": {
         "title": "Restaurant Management System",
-        "description": "Complete solution with online ordering and reservation system"
+        "description": "Complete solution with online ordering system, table reservation management, real-time order tracking, kitchen display system (KDS), inventory management, customer loyalty program, and payment processing. Built with Vue.js frontend, Express.js backend, Firebase for real-time updates, and integrated with POS systems."
       },
       "saas": {
         "title": "Analytics Dashboard",
-        "description": "Real-time data visualization platform with complex charts"
+        "description": "Real-time data visualization platform with complex interactive charts using Chart.js and D3.js, custom KPI widgets, data export functionality (CSV, PDF), user activity tracking, and white-label capabilities. Developed with React, Redux for state management, WebSocket connections for live data, and MongoDB for time-series data storage."
       },
       "blog": {
         "title": "Content Management Platform",
-        "description": "Custom CMS with SEO optimization and multi-language support"
+        "description": "Custom CMS with advanced SEO optimization features, multi-language support (i18n), WYSIWYG editor, image optimization and CDN integration, scheduled publishing, user roles and permissions, and comprehensive analytics. Built with Angular, Node.js, MongoDB, and includes sitemap generation, meta tag management, and structured data implementation for rich snippets."
       }
     }
   },

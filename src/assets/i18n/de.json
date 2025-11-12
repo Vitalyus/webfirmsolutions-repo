@@ -36,17 +36,17 @@
     "subtitle": "Wir bieten modernste Lösungen, die auf die Bedürfnisse Ihres Unternehmens zugeschnitten sind",
     "learnMore": "Mehr Erfahren",
     "learnMoreAbout": "Mehr erfahren über",
-    "web-design-ux-ui": {
-      "title": "Webdesign & UX/UI",
-      "description": "Intuitive und visuell beeindruckende Designs, die Benutzer begeistern und Conversion-Raten auf allen Geräten erhöhen."
+    "professional-web-design-agency": {
+      "title": "Frontend-Entwicklung",
+      "description": "Moderne und responsive Benutzeroberflächen gebaut mit Angular, React oder Vue.js. Spezialisierung auf komponentenbasierte Architektur, State Management (Redux, NgRx), Performance-Optimierung und Progressive Web Apps (PWA). Wir erstellen pixelgenaue Designs, die auf allen Geräten und Browsern einwandfrei funktionieren, mit Schwerpunkt auf Barrierefreiheit (WCAG 2.1), semantischem HTML und CSS-Best-Practices. Unsere Frontend-Lösungen umfassen Lazy Loading, Code Splitting und optimierte Bundle-Größen für blitzschnelle Ladezeiten."
     },
     "advanced-frontend-development": {
-      "title": "Fortgeschrittene Frontend-Entwicklung",
-      "description": "Hochleistungs-Webanwendungen mit React, Angular, Vue oder JavaScript, vollständig für SEO und Geschwindigkeit optimiert."
+      "title": "Backend-Entwicklung",
+      "description": "Robuste serverseitige Lösungen mit Node.js, Express, NestJS und RESTful/GraphQL-APIs. Experte in Datenbankdesign (PostgreSQL, MongoDB, MySQL), Authentifizierung & Autorisierung (JWT, OAuth2, SSO), Caching-Strategien (Redis), Message Queues und Microservices-Architektur. Wir bauen skalierbare Backends mit ordnungsgemäßer Fehlerbehandlung, Protokollierung, Überwachung und vollständiger API-Dokumentation. Unsere Lösungen umfassen Rate-Limiting, Datenvalidierung, Sicherheits-Best-Practices (SQL-Injection-Prävention, XSS-Schutz) und automatisierte Tests mit Jest/Mocha."
     },
     "technical-consulting-seo": {
-      "title": "Technische Beratung & SEO",
-      "description": "Skalierbare, sichere und leistungsstarke Strategien zur Maximierung der Geschäftswirkung und Suchmaschinen-Sichtbarkeit."
+      "title": "Full-Stack-Lösungen & SEO",
+      "description": "Komplette End-to-End-Webanwendungen vom Konzept bis zur Produktionsbereitstellung. Unsere Full-Stack-Expertise umfasst Frontend-Frameworks, Backend-APIs, Datenbankarchitektur, Cloud-Deployment (AWS, Azure, Google Cloud), CI/CD-Pipelines und DevOps-Praktiken. Spezialisiert auf technisches SEO: strukturierte Daten (Schema.org), Core Web Vitals-Optimierung, semantisches HTML, Meta-Tag-Management, Sitemap-Generierung, robots.txt-Konfiguration, Hreflang-Implementierung für mehrsprachige Websites und Google Analytics/Search Console-Integration. Wir bieten auch technische Beratung zu Architekturentscheidungen, Code-Reviews, Performance-Audits mit Lighthouse/PageSpeed, Sicherheitsbewertungen und Technologie-Stack-Auswahl, die auf Ihre Geschäftsanforderungen zugeschnitten ist."
     },
     "features": {
       "responsive": "Responsives Design",
@@ -55,6 +55,22 @@
       "modern": "Moderne Technologien",
       "support": "Kontinuierliche Unterstützung",
       "security": "Enterprise-Sicherheit"
+    },
+    "links": {
+      "exploreProjects": "Erkunden Sie unsere",
+      "recentFrontendProjects": "neuesten Frontend-Projekte",
+      "learnAbout": "oder erfahren Sie mehr über unseren",
+      "technologyStack": "Technologie-Stack",
+      "seeOur": "Sehen Sie unsere",
+      "backendSolutions": "Backend-Lösungen",
+      "orCheck": "oder prüfen Sie",
+      "ourExperience": "unsere Erfahrung",
+      "inScalableArchitectures": "in skalierbaren Architekturen",
+      "readMore": "Mehr erfahren",
+      "aboutOurApproach": "über unseren Ansatz",
+      "or": "oder",
+      "getInTouch": "kontaktieren Sie uns",
+      "forConsultation": "für eine Beratung"
     }
   },
   "about": {
@@ -71,6 +87,12 @@
       "projects": "Projekte",
       "clients": "Kunden",
       "satisfaction": "Zufriedenheit"
+    },
+    "links": {
+      "checkOut": "Schauen Sie sich unsere",
+      "fullStackServices": "Full-Stack-Entwicklungsdienste",
+      "orView": "an oder sehen Sie unsere",
+      "completedProjects": "abgeschlossenen Projekte"
     },
     "whyChooseUs": {
       "title": "Warum Uns Wählen",
@@ -158,6 +180,15 @@
   "portfolio": {
     "title": "Unsere Arbeiten",
     "subtitle": "Beeindruckende Websites für Startups und Unternehmen",
+    "links": {
+      "interestedInWorking": "Interessiert an einer Zusammenarbeit? Erfahren Sie mehr",
+      "aboutOurProcess": "über unseren Entwicklungsprozess",
+      "orExplore": "oder erkunden Sie unser",
+      "fullRangeServices": "vollständiges Serviceangebot",
+      "readyToStart": "Bereit, Ihr Projekt zu starten?",
+      "getInTouchToday": "Kontaktieren Sie uns noch heute",
+      "freeConsultation": "für eine kostenlose Beratung"
+    },
     "categories": {
       "all": "Alle Projekte",
       "web": "Websites",

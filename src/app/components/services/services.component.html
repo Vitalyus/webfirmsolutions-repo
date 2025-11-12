@@ -21,6 +21,25 @@
         <mat-card-content>
           <h3 class="service-title mat-headline-5">{{ 'services.' + service.id + '.title' | translate }}</h3>
           <p class="service-description mat-body-2">{{ 'services.' + service.id + '.description' | translate }}</p>
+          
+          <!-- Internal contextual links -->
+          <div class="service-links" style="margin-top: 12px; font-size: 0.875rem;">
+            @if (service.id === 'professional-web-design-agency') {
+              <p style="color: var(--text-secondary);">
+                {{ 'services.links.exploreProjects' | translate }} <a href="#portfolio" style="color: var(--accent-color); text-decoration: none; border-bottom: 1px solid var(--accent-color);">{{ 'services.links.recentFrontendProjects' | translate }}</a> {{ 'services.links.learnAbout' | translate }} <a href="#technologies" style="color: var(--accent-color); text-decoration: none; border-bottom: 1px solid var(--accent-color);">{{ 'services.links.technologyStack' | translate }}</a>.
+              </p>
+            }
+            @if (service.id === 'advanced-frontend-development') {
+              <p style="color: var(--text-secondary);">
+                {{ 'services.links.seeOur' | translate }} <a href="#portfolio" style="color: var(--accent-color); text-decoration: none; border-bottom: 1px solid var(--accent-color);">{{ 'services.links.backendSolutions' | translate }}</a> {{ 'services.links.orCheck' | translate }} <a href="#about" style="color: var(--accent-color); text-decoration: none; border-bottom: 1px solid var(--accent-color);">{{ 'services.links.ourExperience' | translate }}</a> {{ 'services.links.inScalableArchitectures' | translate }}.
+              </p>
+            }
+            @if (service.id === 'technical-consulting-seo') {
+              <p style="color: var(--text-secondary);">
+                {{ 'services.links.readMore' | translate }} <a href="#about" style="color: var(--accent-color); text-decoration: none; border-bottom: 1px solid var(--accent-color);">{{ 'services.links.aboutOurApproach' | translate }}</a> {{ 'services.links.or' | translate }} <a href="#contact" style="color: var(--accent-color); text-decoration: none; border-bottom: 1px solid var(--accent-color);">{{ 'services.links.getInTouch' | translate }}</a> {{ 'services.links.forConsultation' | translate }}.
+              </p>
+            }
+          </div>
         </mat-card-content>
         
         <mat-card-actions align="end">

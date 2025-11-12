@@ -123,11 +123,16 @@
             margin-bottom: 1rem;
             font-weight: 600;
             color: rgba(0, 0, 0, 0.87);
+            font-family: 'Inter', 'Roboto', 'Helvetica Neue', sans-serif;
           }
 
           .service-description {
             line-height: 1.6;
             color: rgba(0, 0, 0, 0.6);
+            font-family: 'Inter', 'Roboto', 'Helvetica Neue', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: normal;
           }
         }
         
@@ -136,10 +141,12 @@
           mat-card-content {
             .service-title {
               color: var(--text-primary, #ffffff);
+              font-family: 'Inter', 'Roboto', 'Helvetica Neue', sans-serif;
             }
             
             .service-description {
               color: var(--text-secondary, rgba(255, 255, 255, 0.70));
+              font-family: 'Inter', 'Roboto', 'Helvetica Neue', sans-serif;
             }
           }
         }

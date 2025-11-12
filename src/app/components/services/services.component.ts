@@ -43,23 +43,23 @@ export class ServicesComponent implements OnInit, OnDestroy {
 
   readonly services: ReadonlyArray<Service> = [
     {
-      id: 'web-design-ux-ui',
-      title: 'Web Design & UX/UI',
-      description: 'Intuitive, visually stunning designs that delight users and drive higher conversion rates across devices.',
+      id: 'professional-web-design-agency',
+      title: '', // Will be loaded from translations
+      description: '', // Will be loaded from translations
       icon: 'design_services',
       color: 'primary'
     },
     {
       id: 'advanced-frontend-development',
-      title: 'Advanced Frontend Development',
-      description: 'High-performance web apps with React, Angular, Vue, or Vanilla JS, fully optimized for SEO and speed.',
+      title: '', // Will be loaded from translations
+      description: '', // Will be loaded from translations
       icon: 'code',
       color: 'accent'
     },
     {
       id: 'technical-consulting-seo',
-      title: 'Technical Consulting & SEO',
-      description: 'Scalable, secure, and high-performing strategies to maximize business impact and search engine visibility.',
+      title: '', // Will be loaded from translations
+      description: '', // Will be loaded from translations
       icon: 'analytics',
       color: 'warn'
     }

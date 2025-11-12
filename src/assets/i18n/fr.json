@@ -36,17 +36,17 @@
     "subtitle": "Nous offrons des solutions de pointe adaptées aux besoins de votre entreprise",
     "learnMore": "En Savoir Plus",
     "learnMoreAbout": "En savoir plus sur",
-    "web-design-ux-ui": {
-      "title": "Web Design & UX/UI",
-      "description": "Designs intuitifs et visuellement époustouflants qui ravissent les utilisateurs et augmentent les taux de conversion sur tous les appareils."
+    "professional-web-design-agency": {
+      "title": "Développement Frontend",
+      "description": "Interfaces modernes et responsive construites avec Angular, React ou Vue.js. Spécialisation en architecture basée sur composants, gestion d'état (Redux, NgRx), optimisation des performances et applications web progressives (PWA). Nous créons des designs pixel-perfect qui fonctionnent parfaitement sur tous les appareils et navigateurs, avec un accent sur l'accessibilité (WCAG 2.1), HTML sémantique et meilleures pratiques CSS. Nos solutions frontend incluent le lazy loading, code splitting et tailles de bundle optimisées pour des temps de chargement ultra-rapides."
     },
     "advanced-frontend-development": {
-      "title": "Développement Frontend Avancé",
-      "description": "Applications web haute performance avec React, Angular, Vue ou JavaScript, entièrement optimisées pour le SEO et la vitesse."
+      "title": "Développement Backend",
+      "description": "Solutions côté serveur robustes avec Node.js, Express, NestJS et API RESTful/GraphQL. Expert en conception de bases de données (PostgreSQL, MongoDB, MySQL), authentification et autorisation (JWT, OAuth2, SSO), stratégies de mise en cache (Redis), files d'attente de messages et architecture microservices. Nous construisons des backends évolutifs avec gestion des erreurs appropriée, journalisation, surveillance et documentation API complète. Nos solutions incluent la limitation de débit, la validation des données, les meilleures pratiques de sécurité (prévention injection SQL, protection XSS) et tests automatisés avec Jest/Mocha."
     },
     "technical-consulting-seo": {
-      "title": "Conseil Technique & SEO",
-      "description": "Stratégies évolutives, sécurisées et performantes pour maximiser l'impact commercial et la visibilité dans les moteurs de recherche."
+      "title": "Solutions Full-Stack & SEO",
+      "description": "Applications web complètes de bout en bout, du concept au déploiement en production. Notre expertise full-stack couvre les frameworks frontend, les API backend, l'architecture de base de données, le déploiement cloud (AWS, Azure, Google Cloud), les pipelines CI/CD et les pratiques DevOps. Spécialisés en SEO technique : données structurées (Schema.org), optimisation Core Web Vitals, HTML sémantique, gestion des balises meta, génération de sitemap, configuration robots.txt, implémentation hreflang pour sites multilingues et intégration Google Analytics/Search Console. Nous offrons également des conseils techniques sur les décisions d'architecture, revue de code, audit de performance avec Lighthouse/PageSpeed, évaluations de sécurité et sélection de stack technologique adapté aux besoins métier."
     },
     "features": {
       "responsive": "Design Responsive",
@@ -55,6 +55,22 @@
       "modern": "Technologies Modernes",
       "support": "Support Continu",
       "security": "Sécurité Entreprise"
+    },
+    "links": {
+      "exploreProjects": "Explorez nos",
+      "recentFrontendProjects": "projets frontend récents",
+      "learnAbout": "ou découvrez notre",
+      "technologyStack": "stack technologique",
+      "seeOur": "Voir nos",
+      "backendSolutions": "solutions backend",
+      "orCheck": "ou consultez",
+      "ourExperience": "notre expérience",
+      "inScalableArchitectures": "en architectures évolutives",
+      "readMore": "En savoir plus",
+      "aboutOurApproach": "sur notre approche",
+      "or": "ou",
+      "getInTouch": "contactez-nous",
+      "forConsultation": "pour une consultation"
     }
   },
   "about": {
@@ -71,6 +87,12 @@
       "projects": "Projets",
       "clients": "Clients",
       "satisfaction": "Satisfaction"
+    },
+    "links": {
+      "checkOut": "Découvrez nos",
+      "fullStackServices": "services de développement full-stack",
+      "orView": "ou consultez nos",
+      "completedProjects": "projets réalisés"
     },
     "whyChooseUs": {
       "title": "Pourquoi Nous Choisir",
@@ -158,6 +180,15 @@
   "portfolio": {
     "title": "Nos Réalisations",
     "subtitle": "Sites web époustouflants pour startups et entreprises",
+    "links": {
+      "interestedInWorking": "Intéressé par une collaboration ? En savoir plus",
+      "aboutOurProcess": "sur notre processus de développement",
+      "orExplore": "ou explorez notre",
+      "fullRangeServices": "gamme complète de services",
+      "readyToStart": "Prêt à démarrer votre projet ?",
+      "getInTouchToday": "Contactez-nous aujourd'hui",
+      "freeConsultation": "pour une consultation gratuite"
+    },
     "categories": {
       "all": "Tous les Projets",
       "web": "Sites Web",

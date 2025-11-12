@@ -7,11 +7,11 @@
     "menu": "Navigare principală"
   },
   "hero": {
-    "title": "Construiește-ți Prezența Digitală cu",
-    "titleAccent": "Soluții Web Moderne",
-    "titleEnd": "Care Convertesc",
-    "subtitle": "Dezvoltator full-stack cu 9 ani de experiență în crearea de aplicații web performante. Specializat în Angular, React, Node.js și arhitecturi scalabile care aduc rezultate business.",
-    "seoContent": "Servicii profesionale de dezvoltare web full-stack de la un dezvoltator experimentat. Expert în dezvoltare frontend și backend, design responsiv, integrare API și tehnologii web moderne. Soluții personalizate pentru startup-uri și companii established.",
+    "title": "Creare Site Web Profesional",
+    "titleAccent": "în România",
+    "titleEnd": "Iași • București • Cluj-Napoca",
+    "subtitle": "Agenție web premium cu 9 ani experiență: dezvoltare site-uri web, aplicații Angular/React, design responsive. Servicii complete pentru afaceri din Iași, București, Cluj și toată România.",
+    "seoContent": "Servicii profesionale creare site web și dezvoltare aplicații web în România. Agenție web specializată în frontend development (Angular, React, Vue.js), backend Node.js, design responsive, optimizare SEO. Experiență 9 ani, 85+ proiecte finalizate. Deservim clienți din Iași, București, Cluj-Napoca, Timișoara și toată România.",
     "ctaButton": "Începe Proiectul",
     "secondaryButton": "Vezi Portofoliul",
     "ctaAriaLabel": "Contactează-mă pentru a începe proiectul tău web",
@@ -36,17 +36,17 @@
     "subtitle": "Servicii complete de dezvoltare web adaptate nevoilor tale",
     "learnMore": "Află Mai Mult",
     "learnMoreAbout": "Află mai mult despre",
-    "web-design-ux-ui": {
+    "professional-web-design-agency": {
       "title": "Dezvoltare Frontend",
-      "description": "Interfețe moderne și responsive construite cu Angular, React sau Vue.js. Cod curat, design pixel-perfect și experiență utilizator excepțională."
+      "description": "Interfețe moderne și responsive construite cu Angular, React sau Vue.js. Specializare în arhitectură bazată pe componente, state management (Redux, NgRx), optimizare performanță și aplicații web progressive (PWA). Creăm design-uri pixel-perfect care funcționează impecabil pe toate dispozitivele și browser-ele, cu accent pe accesibilitate (WCAG 2.1), HTML semantic și best practices CSS. Soluțiile noastre frontend includ lazy loading, code splitting și bundle sizes optimizate pentru timpi de încărcare ultra-rapizi."
     },
     "advanced-frontend-development": {
       "title": "Dezvoltare Backend", 
-      "description": "Soluții server-side robuste cu Node.js, Express și API-uri RESTful. Design baze de date, autentificare și arhitectură scalabilă."
+      "description": "Soluții server-side robuste cu Node.js, Express, NestJS și API-uri RESTful/GraphQL. Expert în design baze de date (PostgreSQL, MongoDB, MySQL), autentificare & autorizare (JWT, OAuth2, SSO), strategii caching (Redis), message queues și arhitectură microservices. Construim backend-uri scalabile cu error handling corect, logging, monitoring și documentație completă API. Soluțiile includ rate limiting, validare date, best practices securitate (prevenire SQL injection, protecție XSS) și testare automată cu Jest/Mocha."
     },
     "technical-consulting-seo": {
       "title": "Soluții Full-Stack & SEO",
-      "description": "Aplicații web complete de la concept la deployment. Optimizare performanță, implementare SEO și consultanță tehnică."
+      "description": "Aplicații web complete end-to-end de la concept la deployment în producție. Expertiza noastră full-stack acoperă framework-uri frontend, API-uri backend, arhitectură baze de date, deployment cloud (AWS, Azure, Google Cloud), pipeline-uri CI/CD și practici DevOps. Specializați în SEO tehnic: structured data (Schema.org), optimizare Core Web Vitals, HTML semantic, management meta tags, generare sitemap, configurare robots.txt, implementare hreflang pentru site-uri multi-limbă și integrare Google Analytics/Search Console. Oferim și consultanță tehnică în decizii de arhitectură, code review, audit performanță cu Lighthouse/PageSpeed, evaluări securitate și selecție tech stack adaptat nevoilor business."
     },
     "features": {
       "responsive": "Design Responsiv",
@@ -55,6 +55,22 @@
       "modern": "Stack Modern",
       "support": "Suport Mentenanță",
       "security": "Cod Securizat"
+    },
+    "links": {
+      "exploreProjects": "Explorează",
+      "recentFrontendProjects": "proiectele noastre frontend recente",
+      "learnAbout": "sau află despre",
+      "technologyStack": "tehnologiile noastre",
+      "seeOur": "Vezi",
+      "backendSolutions": "soluțiile noastre backend",
+      "orCheck": "sau verifică",
+      "ourExperience": "experiența noastră",
+      "inScalableArchitectures": "în arhitecturi scalabile",
+      "readMore": "Citește mai mult",
+      "aboutOurApproach": "despre abordarea noastră",
+      "or": "sau",
+      "getInTouch": "contactează-ne",
+      "forConsultation": "pentru o consultație"
     }
   },
   "about": {
@@ -71,6 +87,12 @@
       "projects": "Proiecte Finalizate",
       "clients": "Clienți Mulțumiți",
       "satisfaction": "Rată de Succes"
+    },
+    "links": {
+      "checkOut": "Descoperă",
+      "fullStackServices": "serviciile noastre de dezvoltare full-stack",
+      "orView": "sau vezi",
+      "completedProjects": "proiectele finalizate"
     },
     "whyChooseUs": {
       "title": "De Ce Să Lucrezi Cu Noi",
@@ -158,6 +180,15 @@
   "portfolio": {
     "title": "Proiecte Recente",
     "subtitle": "Soluții reale pentru afaceri reale",
+    "links": {
+      "interestedInWorking": "Interesat să lucrăm împreună? Află mai multe",
+      "aboutOurProcess": "despre procesul nostru de dezvoltare",
+      "orExplore": "sau explorează",
+      "fullRangeServices": "gama completă de servicii",
+      "readyToStart": "Ești gata să începi proiectul?",
+      "getInTouchToday": "Contactează-ne astăzi",
+      "freeConsultation": "pentru o consultație gratuită"
+    },
     "categories": {
       "all": "Toate Proiectele",
       "web": "Aplicații Web",

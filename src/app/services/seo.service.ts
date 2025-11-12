@@ -79,6 +79,9 @@ export class SEOService {
     this.updateOpenGraph(data);
     this.updateTwitterCard(data);
     this.updateCanonicalUrl(data.url);
+    
+    // Add schema for current page
+    this.updatePageSchema(data);
   }
 
   updateTitle(title?: string): void {
@@ -136,7 +139,17 @@ export class SEOService {
 
   updateCanonicalUrl(url?: string): void {
     if (url) {
-      const canonicalUrl = url.startsWith('http') ? url : `https://webfirmsolutions.com${url}`;
+      // Get current language from localStorage or default to 'en'
+      const currentLang = localStorage.getItem('selectedLanguage') || 'en';
+      
+      // Build canonical URL with language parameter if not English
+      let canonicalUrl = url.startsWith('http') ? url : `https://webfirmsolutions.com${url}`;
+      
+      // Add language parameter for non-English languages
+      if (currentLang !== 'en') {
+        const separator = canonicalUrl.includes('?') ? '&' : '?';
+        canonicalUrl = `${canonicalUrl}${separator}lang=${currentLang}`;
+      }
       
       // Remove existing canonical link
       const existingCanonical = document.querySelector('link[rel="canonical"]');
@@ -391,5 +404,49 @@ export class SEOService {
     };
 
     this.updateStructuredData(structuredData);
+  }
+
+  /**
+   * Add page-specific schema for better SEO
+   */
+  private updatePageSchema(data: SEOData): void {
+    const pageSchema = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": data.title || 'Web Firm Solutions',
+      "description": data.description || 'Professional web development services',
+      "url": data.url || 'https://webfirmsolutions.com',
+      "inLanguage": this.supportedLanguages,
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Web Firm Solutions",
+        "url": "https://webfirmsolutions.com"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Web Development Services",
+        "description": "Professional web design and development services"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://webfirmsolutions.com/"
+        }]
+      }
+    };
+
+    const existingSchema = document.querySelector('script[type="application/ld+json"][data-schema="webpage"]');
+    if (existingSchema) {
+      existingSchema.remove();
+    }
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.setAttribute('data-schema', 'webpage');
+    script.text = JSON.stringify(pageSchema);
+    document.head.appendChild(script);
   }
 }
