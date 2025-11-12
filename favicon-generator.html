@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebFirm Favicon Generator</title>
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1976d2;
+            margin-bottom: 20px;
+        }
+        .preview {
+            display: flex;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .preview-item {
+            text-align: center;
+        }
+        canvas {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: block;
+            margin: 10px auto;
+        }
+        button {
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        .instructions {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .success {
+            color: #4caf50;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 WebFirm Favicon Generator</h1>
+        
+        <div class="preview">
+            <div class="preview-item">
+                <canvas id="canvas16" width="16" height="16"></canvas>
+                <small>16x16</small>
+            </div>
+            <div class="preview-item">
+                <canvas id="canvas32" width="32" height="32"></canvas>
+                <small>32x32</small>
+            </div>
+            <div class="preview-item">
+                <canvas id="canvas180" width="180" height="180"></canvas>
+                <small>180x180 (Apple)</small>
+            </div>
+            <div class="preview-item">
+                <canvas id="canvas192" width="192" height="192"></canvas>
+                <small>192x192 (Android)</small>
+            </div>
+            <div class="preview-item">
+                <canvas id="canvas512" width="512" height="512"></canvas>
+                <small>512x512 (Android)</small>
+            </div>
+        </div>
+        
+        <button onclick="downloadAll()">📥 Download All Favicons</button>
+        <button onclick="downloadICO()">📥 Download favicon.ico</button>
+        
+        <div id="success" class="success" style="display:none;">
+            ✓ Favicons downloaded! Move them to the /src/ folder.
+        </div>
+        
+        <div class="instructions">
+            <h3>📋 Instructions:</h3>
+            <ol>
+                <li>Click "Download All Favicons" to generate PNG files</li>
+                <li>Click "Download favicon.ico" to get the ICO file</li>
+                <li>Move all downloaded files to: <code>/src/</code></li>
+                <li>Run <code>npm run build</code> to rebuild the app</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script>
+        function drawFavicon(canvas, size) {
+            const ctx = canvas.getContext('2d');
+            
+            // Create gradient
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#1976d2');
+            gradient.addColorStop(1, '#42a5f5');
+            
+            // Draw circle background
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, size/2, 0, 2 * Math.PI);
+            ctx.fillStyle = gradient;
+            ctx.fill();
+            
+            // Draw WF text with better positioning
+            ctx.fillStyle = 'white';
+            ctx.font = `bold ${Math.floor(size * 0.40)}px "Arial Black", Arial, sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            // Center text precisely
+            const metrics = ctx.measureText('WF');
+            const textHeight = metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent;
+            const yPosition = size/2 + (textHeight * 0.1);
+            
+            ctx.fillText('WF', size/2, yPosition);
+        }
+        
+        // Draw all sizes on page load
+        drawFavicon(document.getElementById('canvas16'), 16);
+        drawFavicon(document.getElementById('canvas32'), 32);
+        drawFavicon(document.getElementById('canvas180'), 180);
+        drawFavicon(document.getElementById('canvas192'), 192);
+        drawFavicon(document.getElementById('canvas512'), 512);
+        
+        function downloadCanvas(canvas, filename) {
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        function downloadAll() {
+            downloadCanvas(document.getElementById('canvas16'), 'favicon-16x16.png');
+            setTimeout(() => downloadCanvas(document.getElementById('canvas32'), 'favicon-32x32.png'), 200);
+            setTimeout(() => downloadCanvas(document.getElementById('canvas180'), 'apple-touch-icon.png'), 400);
+            setTimeout(() => downloadCanvas(document.getElementById('canvas192'), 'android-chrome-192x192.png'), 600);
+            setTimeout(() => downloadCanvas(document.getElementById('canvas512'), 'android-chrome-512x512.png'), 800);
+            
+            setTimeout(() => {
+                document.getElementById('success').style.display = 'block';
+            }, 1000);
+        }
+        
+        function downloadICO() {
+            // For ICO, we'll download the 32x32 version
+            // Users can convert it online if needed
+            const canvas = document.getElementById('canvas32');
+            downloadCanvas(canvas, 'favicon.ico');
+            
+            alert('Note: For best results, convert the 32x32 PNG to ICO format using online tools like:\n- https://convertio.co/png-ico/\n- https://favicon.io/');
+        }
+    </script>
+</body>
+</html>
