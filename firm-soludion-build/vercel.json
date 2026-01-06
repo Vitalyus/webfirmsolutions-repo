@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "web-firm0solution-app",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}

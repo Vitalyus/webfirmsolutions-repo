@@ -1,0 +1,340 @@
+{
+  "navigation": {
+    "home": "Acasă",
+    "services": "Servicii",
+    "about": "Despre Noi",
+    "contact": "Contact",
+    "menu": "Navigare principală"
+  },
+  "hero": {
+    "title": "Creare Site Web Profesional",
+    "titleAccent": "în România",
+    "titleEnd": "Iași • București • Cluj-Napoca",
+    "subtitle": "Agenție web premium cu 9 ani experiență: dezvoltare site-uri web, aplicații Angular/React, design responsive. Servicii complete pentru afaceri din Iași, București, Cluj și toată România.",
+    "seoContent": "Servicii profesionale creare site web și dezvoltare aplicații web în România. Agenție web specializată în frontend development (Angular, React, Vue.js), backend Node.js, design responsive, optimizare SEO. Experiență 9 ani, 85+ proiecte finalizate. Deservim clienți din Iași, București, Cluj-Napoca, Timișoara și toată România.",
+    "ctaButton": "Începe Proiectul",
+    "secondaryButton": "Vezi Portofoliul",
+    "ctaAriaLabel": "Contactează-mă pentru a începe proiectul tău web",
+    "secondaryAriaLabel": "Vezi portofoliul și proiectele finalizate",
+    "features": {
+      "performance": {
+        "title": "Performanță Optimizată",
+        "description": "Cod rapid și eficient"
+      },
+      "mobile": {
+        "title": "Design Responsiv",
+        "description": "Funcționează pe toate dispozitivele"
+      },
+      "seo": {
+        "title": "SEO Ready",
+        "description": "Optimizat pentru motoarele de căutare"
+      }
+    }
+  },
+  "services": {
+    "title": "Ce Oferim",
+    "subtitle": "Servicii complete de dezvoltare web adaptate nevoilor tale",
+    "learnMore": "Află Mai Mult",
+    "learnMoreAbout": "Află mai mult despre",
+    "professional-web-design-agency": {
+      "title": "Dezvoltare Frontend",
+      "description": "Interfețe moderne și responsive construite cu Angular, React sau Vue.js. Specializare în arhitectură bazată pe componente, state management (Redux, NgRx), optimizare performanță și aplicații web progressive (PWA). Creăm design-uri pixel-perfect care funcționează impecabil pe toate dispozitivele și browser-ele, cu accent pe accesibilitate (WCAG 2.1), HTML semantic și best practices CSS. Soluțiile noastre frontend includ lazy loading, code splitting și bundle sizes optimizate pentru timpi de încărcare ultra-rapizi."
+    },
+    "advanced-frontend-development": {
+      "title": "Dezvoltare Backend", 
+      "description": "Soluții server-side robuste cu Node.js, Express, NestJS și API-uri RESTful/GraphQL. Expert în design baze de date (PostgreSQL, MongoDB, MySQL), autentificare & autorizare (JWT, OAuth2, SSO), strategii caching (Redis), message queues și arhitectură microservices. Construim backend-uri scalabile cu error handling corect, logging, monitoring și documentație completă API. Soluțiile includ rate limiting, validare date, best practices securitate (prevenire SQL injection, protecție XSS) și testare automată cu Jest/Mocha."
+    },
+    "technical-consulting-seo": {
+      "title": "Soluții Full-Stack & SEO",
+      "description": "Aplicații web complete end-to-end de la concept la deployment în producție. Expertiza noastră full-stack acoperă framework-uri frontend, API-uri backend, arhitectură baze de date, deployment cloud (AWS, Azure, Google Cloud), pipeline-uri CI/CD și practici DevOps. Specializați în SEO tehnic: structured data (Schema.org), optimizare Core Web Vitals, HTML semantic, management meta tags, generare sitemap, configurare robots.txt, implementare hreflang pentru site-uri multi-limbă și integrare Google Analytics/Search Console. Oferim și consultanță tehnică în decizii de arhitectură, code review, audit performanță cu Lighthouse/PageSpeed, evaluări securitate și selecție tech stack adaptat nevoilor business."
+    },
+    "features": {
+      "responsive": "Design Responsiv",
+      "performance": "Performanță Ridicată",
+      "seo": "Optimizat SEO",
+      "modern": "Stack Modern",
+      "support": "Suport Mentenanță",
+      "security": "Cod Securizat"
+    },
+    "links": {
+      "exploreProjects": "Explorează",
+      "recentFrontendProjects": "proiectele noastre frontend recente",
+      "learnAbout": "sau află despre",
+      "technologyStack": "tehnologiile noastre",
+      "seeOur": "Vezi",
+      "backendSolutions": "soluțiile noastre backend",
+      "orCheck": "sau verifică",
+      "ourExperience": "experiența noastră",
+      "inScalableArchitectures": "în arhitecturi scalabile",
+      "readMore": "Citește mai mult",
+      "aboutOurApproach": "despre abordarea noastră",
+      "or": "sau",
+      "getInTouch": "contactează-ne",
+      "forConsultation": "pentru o consultație"
+    }
+  },
+  "about": {
+    "title": "Despre Noi",
+    "subtitle": "9 Ani de Experiență în Soluții Digitale",
+    "description": "Echipă de dezvoltare full-stack pasionată de crearea de aplicații web eficiente și scalabile. Experimentați în tehnologii frontend și backend, oferind soluții complete de la design la deployment.",
+    "teamImage": "Echipa Noastră La Lucru",
+    "professionalExcellence": "Dezvoltare Profesională",
+    "ourApproach": "Abordarea Noastră",
+    "startupReady": "Gata de Construcție",
+    "description1": "Cu 9 ani de experiență profesională, ne specializăm în construirea de aplicații web moderne folosind tehnologii de ultimă generație. De la aplicații single-page la sisteme backend complexe, livrăm cod de calitate care scalează.",
+    "description2": "Fiecare proiect primește atenție meticuloasă la detalii, focusându-ne pe arhitectură curată, optimizare performanță și design centrat pe utilizator care aduce valoare business reală.",
+    "stats": {
+      "projects": "Proiecte Finalizate",
+      "clients": "Clienți Mulțumiți",
+      "satisfaction": "Rată de Succes"
+    },
+    "links": {
+      "checkOut": "Descoperă",
+      "fullStackServices": "serviciile noastre de dezvoltare full-stack",
+      "orView": "sau vezi",
+      "completedProjects": "proiectele finalizate"
+    },
+    "whyChooseUs": {
+      "title": "De Ce Să Lucrezi Cu Noi",
+      "modernTech": "Tehnologii Recente",
+      "seoOptimized": "Practici SEO",
+      "fastDelivery": "Livrare La Timp",
+      "support247": "Suport Continuu"
+    },
+    "quote": {
+      "text": "Transformând cerințe complexe în soluții elegante și mentenabile",
+      "author": "Echipa WebFirm",
+      "role": "Dezvoltatori Full-Stack"
+    },
+    "experience": {
+      "years": "9",
+      "yearsLabel": "Ani de Experiență",
+      "projects": "85+",
+      "projectsLabel": "Proiecte Livrate",
+      "clients": "45+",
+      "clientsLabel": "Clienți Mulțumiți",
+      "technologies": "25+",
+      "technologiesLabel": "Tehnologii Stăpânite"
+    },
+    "skills": {
+      "frontend": "Dezvoltare Frontend",
+      "backend": "Dezvoltare Backend",
+      "ui": "Implementare UI/UX",
+      "performance": "Optimizare Performanță",
+      "seo": "SEO & Analytics",
+      "consulting": "Consultanță Tehnică"
+    }
+  },
+  "whyChooseUs": {
+    "title": "De Ce Să Lucrezi Cu Noi",
+    "experience": {
+      "label": "Proiecte Livrate"
+    },
+    "projects": {
+      "label": "Clienți Mulțumiți"
+    },
+    "satisfaction": {
+      "label": "Rată de Succes"
+    },
+    "features": {
+      "fast": {
+        "title": "Rapid & Eficient",
+        "description": "Cod optimizat pentru cea mai bună performanță"
+      },
+      "modern": {
+        "title": "Stack Tehnologic Modern",
+        "description": "Framework-uri și unelte recente"
+      },
+      "secure": {
+        "title": "Securizat & Testat",
+        "description": "Respectând cele mai bune practici de securitate"
+      },
+      "responsive": {
+        "title": "Complet Responsiv",
+        "description": "Perfect pe orice dimensiune de ecran"
+      }
+    }
+  },
+  "technologies": {
+    "title": "Stack Tehnologic",
+    "subtitle": "Unelte cu care lucrăm zilnic",
+    "angular": {
+      "description": "Aplicații enterprise cu Angular 17+"
+    },
+    "react": {
+      "description": "UI-uri dinamice cu React & Next.js"
+    },
+    "typescript": {
+      "description": "Dezvoltare type-safe cu TypeScript"
+    },
+    "nodejs": {
+      "description": "API-uri backend cu Node.js & Express"
+    },
+    "wordpress": {
+      "description": "Teme și pluginuri WordPress personalizate"
+    },
+    "mongodb": {
+      "description": "Design baze de date cu MongoDB & PostgreSQL"
+    }
+  },
+  "portfolio": {
+    "title": "Proiecte Recente",
+    "subtitle": "Soluții reale pentru afaceri reale",
+    "links": {
+      "interestedInWorking": "Interesat să lucrăm împreună? Află mai multe",
+      "aboutOurProcess": "despre procesul nostru de dezvoltare",
+      "orExplore": "sau explorează",
+      "fullRangeServices": "gama completă de servicii",
+      "readyToStart": "Ești gata să începi proiectul?",
+      "getInTouchToday": "Contactează-ne astăzi",
+      "freeConsultation": "pentru o consultație gratuită"
+    },
+    "categories": {
+      "all": "Toate Proiectele",
+      "web": "Aplicații Web",
+      "ecommerce": "E-Commerce",
+      "landing": "Landing Pages"
+    },
+    "projects": {
+      "ecommerce": {
+        "title": "Platformă E-Commerce",
+        "description": "Magazin online complet cu integrare payment gateway și dashboard admin"
+      },
+      "corporate": {
+        "title": "Aplicație Web Corporativă",
+        "description": "Sistem de management enterprise cu vizualizare date în timp real"
+      },
+      "startup": {
+        "title": "Landing Produs SaaS",
+        "description": "Landing page modern cu generare lead-uri și analytics"
+      },
+      "restaurant": {
+        "title": "Sistem Management Restaurant",
+        "description": "Soluție completă cu comandă online și sistem rezervări"
+      },
+      "saas": {
+        "title": "Dashboard Analytics",
+        "description": "Platformă vizualizare date în timp real cu grafice complexe"
+      },
+      "blog": {
+        "title": "Platformă Management Conținut",
+        "description": "CMS personalizat cu optimizare SEO și suport multi-limbă"
+      }
+    }
+  },
+  "contact": {
+    "title": "Hai Să Construim Împreună",
+    "subtitle": "Ai un proiect în minte? Hai să discutăm cum te putem ajuta să-ți transformi ideile în realitate cu tehnologii web moderne.",
+    "emailUs": "Trimite Email",
+    "responseTime": "Timp de Răspuns",
+    "within24Hours": "În 24 de ore",
+    "basedIn": "Locație",
+    "availableWorldwide": "Remote Global",
+    "sendMessage": "Trimite Mesaj",
+    "scheduleCall": "Programează Apel",
+    "modal": {
+      "title": "Hai în Contact",
+      "name": "Numele Tău",
+      "namePlaceholder": "Introdu numele complet",
+      "email": "Adresa de Email",
+      "emailPlaceholder": "emailul@tau.com",
+      "message": "Detalii Proiect",
+      "messagePlaceholder": "Spune-mi despre proiectul tău, timeline și cerințe...",
+      "sendMessage": "Trimite Mesaj",
+      "sending": "Se trimite...",
+      "captcha": {
+        "answer": "Răspunsul Tău",
+        "placeholder": "Introdu răspunsul"
+      }
+    },
+    "form": {
+      "name": "Numele Tău",
+      "email": "Adresa de Email",
+      "message": "Detalii Proiect",
+      "captcha": "Verifică că ești om",
+      "submit": "Trimite Mesaj",
+      "sending": "Se trimite...",
+      "success": "Mesaj trimis! Îți vom răspunde în 24 de ore.",
+      "error": "Eroare la trimitere. Te rog încearcă din nou sau trimite email direct.",
+      "required": "Acest câmp este obligatoriu",
+      "emailInvalid": "Te rog introdu o adresă de email validă",
+      "messageShort": "Te rog oferă mai multe detalii (cel puțin 10 caractere)"
+    },
+    "info": {
+      "email": "Email",
+      "response": "Timp de Răspuns",
+      "responseValue": "În 24 de ore",
+      "availability": "Disponibilitate",
+      "availabilityValue": "Luni - Vineri, 9:00 - 18:00 EET"
+    }
+  },
+  "admin": {
+    "title": "Panou Admin - Mesaje Contact",
+    "login": {
+      "title": "Login Admin",
+      "keyLabel": "Cheie Admin",
+      "keyPlaceholder": "Introdu cheia admin",
+      "loginButton": "Autentificare",
+      "error": "Cheie admin invalidă",
+      "success": "Autentificat cu succes!"
+    },
+    "messages": {
+      "refresh": "Reîmprospătează Mesaje",
+      "exportJson": "Export JSON",
+      "exportCsv": "Export CSV",
+      "clearLocal": "Șterge Local",
+      "loading": "Se încarcă mesajele...",
+      "noMessages": "Nu s-au găsit mesaje",
+      "total": "Total Mesaje",
+      "new": "Nou",
+      "read": "Citit",
+      "markAsRead": "Marchează ca citit",
+      "viewMessage": "Vezi mesajul complet",
+      "columns": {
+        "status": "Status",
+        "name": "Nume",
+        "email": "Email",
+        "message": "Mesaj",
+        "timestamp": "Dată",
+        "actions": "Acțiuni"
+      }
+    }
+  },
+  "common": {
+    "loading": "Se încarcă...",
+    "error": "Eroare",
+    "success": "Succes",
+    "cancel": "Anulează",
+    "confirm": "Confirmă",
+    "save": "Salvează",
+    "delete": "Șterge",
+    "edit": "Editează",
+    "view": "Vezi",
+    "close": "Închide",
+    "back": "Înapoi",
+    "next": "Următorul",
+    "previous": "Anterior",
+    "search": "Caută",
+    "filter": "Filtrează",
+    "sort": "Sortează",
+    "actions": "Acțiuni",
+    "status": "Status",
+    "date": "Dată",
+    "name": "Nume",
+    "email": "Email",
+    "message": "Mesaj",
+    "language": "Schimbă Limba",
+    "switchToLight": "Comută la Mod Luminos",
+    "switchToDark": "Comută la Mod Întunecat"
+  },
+  "footer": {
+    "copyright": "© {{year}} WebFirm Solutions - Echipă Dezvoltare Full-Stack. Toate drepturile rezervate.",
+    "builtWith": "Construit cu Angular & Node.js",
+    "websiteAriaLabel": "Vizitează website-ul nostru la webfirmsolutions.com"
+  },
+  "seo": {
+    "title": "WebFirm Solutions - Dezvoltare Web Full-Stack | 9 Ani Experiență | Angular, React, Node.js",
+    "description": "Echipă experimentată de dezvoltare full-stack specializată în aplicații web moderne. 9 ani de expertiză în Angular, React, Node.js și arhitecturi scalabile. Disponibili pentru proiecte și consultanță.",
+    "keywords": "dezvoltator full-stack, dezvoltare web, dezvoltator Angular, dezvoltator React, Node.js, TypeScript, JavaScript, dezvoltare frontend, dezvoltare backend, dezvoltare API, design responsiv, optimizare SEO, dezvoltator freelance, aplicații web"
+  }
+}

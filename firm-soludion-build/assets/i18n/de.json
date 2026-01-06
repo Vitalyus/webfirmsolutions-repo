@@ -1,0 +1,340 @@
+{
+  "navigation": {
+    "home": "Startseite",
+    "services": "Dienstleistungen",
+    "about": "Über Uns",
+    "contact": "Kontakt",
+    "menu": "Hauptmenü"
+  },
+  "hero": {
+    "title": "Bauen Sie Ihre Digitale Präsenz mit",
+    "titleAccent": "Modernen Web-Lösungen",
+    "titleEnd": "Die Konvertieren",
+    "subtitle": "Full-Stack-Entwicklungsteam mit 9 Jahren Erfahrung in der Erstellung leistungsstarker Webanwendungen. Spezialisiert auf Angular, React, Node.js und skalierbare Architekturen, die Geschäftsergebnisse liefern.",
+    "seoContent": "Professionelle Webdesign- und Frontend-Entwicklungsdienstleistungen. Experten für responsives Design, UX-Optimierung und moderne Web-Technologien. Wir betreuen Kunden weltweit mit Premium-Lösungen.",
+    "ctaButton": "Legen Wir Los",
+    "secondaryButton": "Portfolio Ansehen",
+    "ctaAriaLabel": "Kontaktieren Sie uns, um Ihr Projekt zu starten",
+    "secondaryAriaLabel": "Sehen Sie unsere Dienstleistungen und Portfolio",
+    "features": {
+      "performance": {
+        "title": "Schnelle Leistung",
+        "description": "Blitzschnelle Ladezeiten"
+      },
+      "mobile": {
+        "title": "Mobile First",
+        "description": "Responsive auf allen Geräten"
+      },
+      "seo": {
+        "title": "SEO-Optimiert",
+        "description": "Für Suchmaschinen entwickelt"
+      }
+    }
+  },
+  "services": {
+    "title": "Unsere Premium-Dienstleistungen",
+    "subtitle": "Wir bieten modernste Lösungen, die auf die Bedürfnisse Ihres Unternehmens zugeschnitten sind",
+    "learnMore": "Mehr Erfahren",
+    "learnMoreAbout": "Mehr erfahren über",
+    "professional-web-design-agency": {
+      "title": "Frontend-Entwicklung",
+      "description": "Moderne und responsive Benutzeroberflächen gebaut mit Angular, React oder Vue.js. Spezialisierung auf komponentenbasierte Architektur, State Management (Redux, NgRx), Performance-Optimierung und Progressive Web Apps (PWA). Wir erstellen pixelgenaue Designs, die auf allen Geräten und Browsern einwandfrei funktionieren, mit Schwerpunkt auf Barrierefreiheit (WCAG 2.1), semantischem HTML und CSS-Best-Practices. Unsere Frontend-Lösungen umfassen Lazy Loading, Code Splitting und optimierte Bundle-Größen für blitzschnelle Ladezeiten."
+    },
+    "advanced-frontend-development": {
+      "title": "Backend-Entwicklung",
+      "description": "Robuste serverseitige Lösungen mit Node.js, Express, NestJS und RESTful/GraphQL-APIs. Experte in Datenbankdesign (PostgreSQL, MongoDB, MySQL), Authentifizierung & Autorisierung (JWT, OAuth2, SSO), Caching-Strategien (Redis), Message Queues und Microservices-Architektur. Wir bauen skalierbare Backends mit ordnungsgemäßer Fehlerbehandlung, Protokollierung, Überwachung und vollständiger API-Dokumentation. Unsere Lösungen umfassen Rate-Limiting, Datenvalidierung, Sicherheits-Best-Practices (SQL-Injection-Prävention, XSS-Schutz) und automatisierte Tests mit Jest/Mocha."
+    },
+    "technical-consulting-seo": {
+      "title": "Full-Stack-Lösungen & SEO",
+      "description": "Komplette End-to-End-Webanwendungen vom Konzept bis zur Produktionsbereitstellung. Unsere Full-Stack-Expertise umfasst Frontend-Frameworks, Backend-APIs, Datenbankarchitektur, Cloud-Deployment (AWS, Azure, Google Cloud), CI/CD-Pipelines und DevOps-Praktiken. Spezialisiert auf technisches SEO: strukturierte Daten (Schema.org), Core Web Vitals-Optimierung, semantisches HTML, Meta-Tag-Management, Sitemap-Generierung, robots.txt-Konfiguration, Hreflang-Implementierung für mehrsprachige Websites und Google Analytics/Search Console-Integration. Wir bieten auch technische Beratung zu Architekturentscheidungen, Code-Reviews, Performance-Audits mit Lighthouse/PageSpeed, Sicherheitsbewertungen und Technologie-Stack-Auswahl, die auf Ihre Geschäftsanforderungen zugeschnitten ist."
+    },
+    "features": {
+      "responsive": "Responsives Design",
+      "performance": "Hohe Leistung",
+      "seo": "SEO-Optimiert",
+      "modern": "Moderne Technologien",
+      "support": "Kontinuierliche Unterstützung",
+      "security": "Enterprise-Sicherheit"
+    },
+    "links": {
+      "exploreProjects": "Erkunden Sie unsere",
+      "recentFrontendProjects": "neuesten Frontend-Projekte",
+      "learnAbout": "oder erfahren Sie mehr über unseren",
+      "technologyStack": "Technologie-Stack",
+      "seeOur": "Sehen Sie unsere",
+      "backendSolutions": "Backend-Lösungen",
+      "orCheck": "oder prüfen Sie",
+      "ourExperience": "unsere Erfahrung",
+      "inScalableArchitectures": "in skalierbaren Architekturen",
+      "readMore": "Mehr erfahren",
+      "aboutOurApproach": "über unseren Ansatz",
+      "or": "oder",
+      "getInTouch": "kontaktieren Sie uns",
+      "forConsultation": "für eine Beratung"
+    }
+  },
+  "about": {
+    "title": "Über Uns",
+    "subtitle": "9 Jahre Erstellung Digitaler Lösungen",
+    "description": "Full-Stack-Entwicklungsteam mit Leidenschaft für die Erstellung effizienter, skalierbarer Webanwendungen. Erfahren in Frontend- und Backend-Technologien, liefern wir komplette Lösungen vom Design bis zur Bereitstellung.",
+    "teamImage": "Unser Team",
+    "professionalExcellence": "Professionelle Exzellenz",
+    "ourApproach": "Unser Ansatz",
+    "startupReady": "Startup-Bereit",
+    "description1": "Wir sind professionelle Frontend-Entwickler, die sich auf die Erstellung von Präsentationswebsites für Startups und neue Unternehmen spezialisiert haben. Wir verwandeln Ideen in moderne und leistungsstarke Web-Lösungen.",
+    "description2": "Jedes Projekt erhält einen personalisierten Ansatz mit Fokus auf Benutzer und Leistung, der messbare Ergebnisse für unsere Kunden liefert.",
+    "stats": {
+      "projects": "Projekte",
+      "clients": "Kunden",
+      "satisfaction": "Zufriedenheit"
+    },
+    "links": {
+      "checkOut": "Schauen Sie sich unsere",
+      "fullStackServices": "Full-Stack-Entwicklungsdienste",
+      "orView": "an oder sehen Sie unsere",
+      "completedProjects": "abgeschlossenen Projekte"
+    },
+    "whyChooseUs": {
+      "title": "Warum Uns Wählen",
+      "modernTech": "Moderne Technologien",
+      "seoOptimized": "SEO-Optimiert",
+      "fastDelivery": "Schnelle Lieferung",
+      "support247": "24/7-Support"
+    },
+    "quote": {
+      "text": "Startup-Ideen in atemberaubende Web-Erlebnisse verwandeln",
+      "author": "WebFirm Team",
+      "role": "Frontend-Experten"
+    },
+    "experience": {
+      "years": "20+",
+      "yearsLabel": "Jahre Erfahrung",
+      "projects": "500+",
+      "projectsLabel": "Abgeschlossene Projekte",
+      "clients": "200+",
+      "clientsLabel": "Zufriedene Kunden",
+      "technologies": "50+",
+      "technologiesLabel": "Technologien"
+    },
+    "skills": {
+      "frontend": "Frontend-Entwicklung",
+      "backend": "Backend-Integration",
+      "ui": "UI/UX-Design",
+      "performance": "Leistungsoptimierung",
+      "seo": "SEO & Analytics",
+      "consulting": "Technische Beratung"
+    }
+  },
+  "whyChooseUs": {
+    "title": "Warum Uns Wählen",
+    "experience": {
+      "label": "Abgeschlossene Projekte"
+    },
+    "projects": {
+      "label": "Zufriedene Kunden"
+    },
+    "satisfaction": {
+      "label": "Kundenzufriedenheit"
+    },
+    "features": {
+      "fast": {
+        "title": "Blitzschnell",
+        "description": "Für Geschwindigkeit und Leistung optimiert"
+      },
+      "modern": {
+        "title": "Modernes Design",
+        "description": "Schöne und zeitgemäße Oberflächen"
+      },
+      "secure": {
+        "title": "Sicher & Zuverlässig",
+        "description": "Nach bewährten Sicherheitspraktiken entwickelt"
+      },
+      "responsive": {
+        "title": "Vollständig Responsive",
+        "description": "Perfekt auf allen Geräten"
+      }
+    }
+  },
+  "technologies": {
+    "title": "Technologien, die Wir Verwenden",
+    "subtitle": "Moderne Werkzeuge für leistungsstarke Lösungen",
+    "angular": {
+      "description": "Enterprise-Framework für skalierbare Anwendungen"
+    },
+    "react": {
+      "description": "Dynamische und flexible UI-Bibliothek"
+    },
+    "typescript": {
+      "description": "Typsicheres JavaScript für zuverlässigen Code"
+    },
+    "nodejs": {
+      "description": "Serverseitige JavaScript-Laufzeitumgebung"
+    },
+    "wordpress": {
+      "description": "Leistungsstarkes CMS für inhaltsbasierte Websites"
+    },
+    "mongodb": {
+      "description": "Flexible NoSQL-Datenbank"
+    }
+  },
+  "portfolio": {
+    "title": "Unsere Arbeiten",
+    "subtitle": "Beeindruckende Websites für Startups und Unternehmen",
+    "links": {
+      "interestedInWorking": "Interessiert an einer Zusammenarbeit? Erfahren Sie mehr",
+      "aboutOurProcess": "über unseren Entwicklungsprozess",
+      "orExplore": "oder erkunden Sie unser",
+      "fullRangeServices": "vollständiges Serviceangebot",
+      "readyToStart": "Bereit, Ihr Projekt zu starten?",
+      "getInTouchToday": "Kontaktieren Sie uns noch heute",
+      "freeConsultation": "für eine kostenlose Beratung"
+    },
+    "categories": {
+      "all": "Alle Projekte",
+      "web": "Websites",
+      "ecommerce": "E-Commerce",
+      "landing": "Landing Pages"
+    },
+    "projects": {
+      "ecommerce": {
+        "title": "E-Commerce-Plattform",
+        "description": "Vollständiger Online-Shop mit Zahlungsintegration"
+      },
+      "corporate": {
+        "title": "Unternehmenswebsite",
+        "description": "Professionelle Business-Präsentationswebsite"
+      },
+      "startup": {
+        "title": "Startup Landing Page",
+        "description": "Moderne Landing Page für Tech-Startup"
+      },
+      "restaurant": {
+        "title": "Restaurant-Website",
+        "description": "Schöne Website mit Online-Reservierungen"
+      },
+      "saas": {
+        "title": "SaaS-Dashboard",
+        "description": "Fortgeschrittene Webanwendung mit Analytics"
+      },
+      "blog": {
+        "title": "Blog-Plattform",
+        "description": "Content-Management-System mit SEO"
+      }
+    }
+  },
+  "contact": {
+    "title": "Lassen Sie Uns Zusammenarbeiten",
+    "subtitle": "Bereit, Ihre Ideen in die Realität umzusetzen? Senden Sie uns eine Nachricht und erhalten Sie eine maßgeschneiderte Lösung für Ihr Unternehmen.",
+    "emailUs": "E-Mail Senden",
+    "responseTime": "Antwortzeit",
+    "within24Hours": "Innerhalb von 24 Stunden",
+    "basedIn": "Standort",
+    "availableWorldwide": "Weltweit Verfügbar",
+    "sendMessage": "Nachricht Senden",
+    "scheduleCall": "Anruf Vereinbaren",
+    "modal": {
+      "title": "Senden Sie Uns eine Nachricht",
+      "name": "Ihr Name",
+      "namePlaceholder": "Geben Sie Ihren vollständigen Namen ein",
+      "email": "E-Mail-Adresse",
+      "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
+      "message": "Ihre Nachricht",
+      "messagePlaceholder": "Erzählen Sie uns von Ihrem Projekt...",
+      "sendMessage": "Nachricht Senden",
+      "sending": "Wird gesendet...",
+      "captcha": {
+        "answer": "Ihre Antwort",
+        "placeholder": "Geben Sie die Antwort ein"
+      }
+    },
+    "form": {
+      "name": "Ihr Name",
+      "email": "E-Mail-Adresse",
+      "message": "Ihre Nachricht",
+      "captcha": "Lösen Sie zur Verifizierung, dass Sie ein Mensch sind",
+      "submit": "Nachricht Senden",
+      "sending": "Wird gesendet...",
+      "success": "Nachricht erfolgreich gesendet! Wir werden bald antworten.",
+      "error": "Fehler beim Senden. Bitte versuchen Sie es erneut.",
+      "required": "Dieses Feld ist erforderlich",
+      "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+      "messageShort": "Die Nachricht muss mindestens 10 Zeichen enthalten"
+    },
+    "info": {
+      "email": "E-Mail",
+      "response": "Antwortzeit",
+      "responseValue": "Innerhalb von 24 Stunden",
+      "availability": "Verfügbarkeit",
+      "availabilityValue": "Montag - Freitag, 9:00 - 17:00"
+    }
+  },
+  "admin": {
+    "title": "Admin-Panel - Kontaktnachrichten",
+    "login": {
+      "title": "Admin-Anmeldung",
+      "keyLabel": "Admin-Schlüssel",
+      "keyPlaceholder": "Geben Sie den Admin-Schlüssel ein",
+      "loginButton": "Anmelden",
+      "error": "Ungültiger Admin-Schlüssel",
+      "success": "Erfolgreich authentifiziert!"
+    },
+    "messages": {
+      "refresh": "Nachrichten Aktualisieren",
+      "exportJson": "JSON-Export",
+      "exportCsv": "CSV-Export",
+      "clearLocal": "Lokal Löschen",
+      "loading": "Nachrichten werden geladen...",
+      "noMessages": "Keine Nachrichten gefunden",
+      "total": "Nachrichten Gesamt",
+      "new": "Neu",
+      "read": "Gelesen",
+      "markAsRead": "Als gelesen markieren",
+      "viewMessage": "Vollständige Nachricht anzeigen",
+      "columns": {
+        "status": "Status",
+        "name": "Name",
+        "email": "E-Mail",
+        "message": "Nachricht",
+        "timestamp": "Datum",
+        "actions": "Aktionen"
+      }
+    }
+  },
+  "common": {
+    "loading": "Wird geladen...",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "save": "Speichern",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "view": "Ansehen",
+    "close": "Schließen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "sort": "Sortieren",
+    "actions": "Aktionen",
+    "status": "Status",
+    "date": "Datum",
+    "name": "Name",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "language": "Sprache Wechseln",
+    "switchToLight": "Zum Hellen Modus Wechseln",
+    "switchToDark": "Zum Dunklen Modus Wechseln"
+  },
+  "footer": {
+    "copyright": "© {{year}} Web Firm Solutions. Alle Rechte vorbehalten.",
+    "builtWith": "Erstellt mit Angular und Material Design",
+    "websiteAriaLabel": "Besuchen Sie unsere Website unter webfirmsolutions.com"
+  },
+  "seo": {
+    "title": "Web Firm Solutions - Premium-Webdesign & Frontend-Entwicklungsdienstleistungen",
+    "description": "Professionelle Webdesign- und Frontend-Entwicklungsdienstleistungen. Spezialisiert auf Angular, React und moderne Web-Technologien für außergewöhnliche Benutzererlebnisse.",
+    "keywords": "Webdesign, Frontend-Entwicklung, UX/UI, SEO, technische Beratung, interaktives Web, Premium-Webdienste, Angular-Entwicklung, React-Entwicklung, responsives Design"
+  }
+}

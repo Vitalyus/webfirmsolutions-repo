@@ -1,0 +1,32 @@
+{
+  "title": "Web Firm Solutions - Creare Site Web Profesional România | Dezvoltare Web Iași, București, Cluj",
+  "description": "⭐ Agenție web #1 în România: creare site web, dezvoltare aplicații web în Iași, București, Cluj. Frontend Angular/React. 85+ proiecte, 9 ani experiență. Ofertă GRATUITĂ! 🚀",
+  "keywords": "creare site web romania, creare site web iasi, creare site web bucuresti, creare site web cluj, creare site web timisoara, creare site web constanta, creare site web brasov, web design romania, web design iasi, web design bucuresti, web design cluj, dezvoltare web romania, dezvoltare web iasi, dezvoltare web bucuresti, frontend developer romania, frontend developer iasi, angular developer romania, angular developer iasi, react developer romania, react developer bucuresti, programator web romania, programator web iasi, agentie web romania, agentie web iasi, agentie web bucuresti, firma web romania, firma web iasi, creare site, creare site web, creare site de prezentare, creare site internet, creare pagina web, realizare site, realizare site web, design site, design web, web design, design site web, dezvoltare site, dezvoltare web, web development, programare web, constructie site, site web, site internet, website, pagina web, site de prezentare, site firma, site companie, site business, site corporativ, site magazin online, ecommerce, site portofoliu, landing page, aplicatie web, platforma web, portal web, magazin online, shop online, site responsive, site mobil, site profesional, site personalizat, site la comanda, optimizare site, SEO, optimizare SEO, servicii SEO romania, seo iasi, seo bucuresti, marketing digital, promovare online, publicitate online, Google Ads, Facebook Ads, social media, hosting, gazduire web, domeniu, inregistrare domeniu, SSL, certificat SSL, mentenanta site, actualizare site, administrare site, consultanta web, servicii IT, firma web, agentie web, agentie digitala, company web, dezvoltator web, programator web, designer web, frontend, backend, full stack, Angular, React, Vue, TypeScript, JavaScript, HTML, CSS, Node.js, MySQL, MongoDB, API, WordPress, PrestaShop, Magento, WooCommerce, Shopify, Bucuresti, Romania, Cluj, Timisoara, Iasi, Constanta, Brasov, Moldova, Chisinau",
+  "og": {
+    "title": "🏆 Agenție Web #1 România - Creare Site Iași, București, Cluj",
+    "description": "Transformă-ți afacerea cu dezvoltare web profesională în România. ⚡ 85+ proiecte de succes | 45+ clienți fericiți | 9 ani expertiză. Consultație GRATUITĂ!",
+    "image": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=1200&q=80",
+    "imageAlt": "Web Firm Solutions - Servicii Profesionale de Dezvoltare Web"
+  },
+  "twitter": {
+    "title": "Web Firm Solutions - Design Web și Dezvoltare Premium România",
+    "description": "Servicii profesionale de dezvoltare web în Iași, București, Cluj cu 9 ani de experiență. Specializați în Angular, React și tehnologii web moderne.",
+    "imageAlt": "Web Firm Solutions - Servicii Profesionale de Dezvoltare Web"
+  },
+  "structuredData": {
+    "name": "Web Firm Solutions",
+    "alternateName": "WebFirmSolutions",
+    "description": "Servicii profesionale de design web și dezvoltare frontend cu 9 ani de experiență în România. Specializați în Angular, React și tehnologii web moderne. Operăm în Iași, București, Cluj-Napoca, Timișoara și toată România.",
+    "foundingDate": "2016",
+    "areaServed": ["Romania", "Iași", "București", "Cluj-Napoca", "Timișoara", "Constanța", "Brașov", "Moldova"],
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": "47.1585",
+        "longitude": "27.6014"
+      },
+      "geoRadius": "500000"
+    }
+  }
+}

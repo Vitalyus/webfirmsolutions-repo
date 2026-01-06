@@ -1,0 +1,22 @@
+{
+  "title": "Web Firm Solutions - #1 Webagentur | Website Erstellen | Angular & React Experten",
+  "description": "⭐ Professionelle Webdesign & Webentwicklung Services. Website erstellen, Webseite erstellen, Web-App entwickeln. 85+ Projekte. KOSTENLOS Angebot! 🚀",
+  "keywords": "website erstellen, webseite erstellen, homepage erstellen, internetseite erstellen, webseite gestalten, webdesign, web design, website design, webentwicklung, web entwicklung, website entwicklung, webprogrammierung, website programmierung, webseite, homepage, internetseite, website, firmenhomepage, unternehmenswebsite, firmenwebsite, geschäftswebsite, corporate website, online shop, e-commerce, webshop, portfolio website, landing page, webanwendung, web app, web application, single page application, responsive website, mobile website, professionelle website, individuelle website, maßgeschneiderte website, website optimierung, SEO, suchmaschinenoptimierung, SEO optimierung, SEO services, online marketing, digitales marketing, Google Ads, social media marketing, webhosting, domain registrierung, SSL zertifikat, website wartung, website pflege, web beratung, IT beratung, webagentur, digitalagentur, entwicklungsagentur, design agentur, software firma, IT unternehmen, webentwickler, programmierer, web designer, UI designer, UX designer, frontend entwickler, backend entwickler, full stack entwickler, Angular, React, Vue, TypeScript, JavaScript, HTML5, CSS3, Node.js, MySQL, MongoDB, API, WordPress, WooCommerce, Shopify, Deutschland, Berlin, München, Hamburg, Köln, Frankfurt, Stuttgart, Düsseldorf, Österreich, Wien, Schweiz, Zürich",
+  "og": {
+    "title": "Web Firm Solutions - Premium Webdesign & Frontend-Entwicklung",
+    "description": "Transformieren Sie Ihre digitale Präsenz mit unserem professionellen Webentwicklungsteam. 9 Jahre Erfahrung, 85+ erfolgreiche Projekte, 45+ zufriedene Kunden weltweit.",
+    "image": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=1200&q=80",
+    "imageAlt": "Web Firm Solutions - Professionelle Webentwicklungsdienstleistungen"
+  },
+  "twitter": {
+    "title": "Web Firm Solutions - Premium Webdesign & Entwicklung",
+    "description": "Professionelle Webentwicklungsdienstleistungen mit 9 Jahren Erfahrung. Spezialisiert auf Angular, React und moderne Web-Technologien.",
+    "imageAlt": "Web Firm Solutions - Professionelle Webentwicklungsdienstleistungen"
+  },
+  "structuredData": {
+    "name": "Web Firm Solutions",
+    "alternateName": "WebFirmSolutions",
+    "description": "Professionelle Webdesign- und Frontend-Entwicklungsdienstleistungen mit 9 Jahren internationaler Erfahrung. Spezialisiert auf Angular, React und moderne Web-Technologien.",
+    "foundingDate": "2016"
+  }
+}
